@@ -1,16 +1,20 @@
 import style from "./PageFilter.module.scss"
 import {CiStar} from "react-icons/ci";
 import bershkaImg from "./../../assets/images/Bershka.jpg";
+import bershkaLogo from "./../../assets/images/logoBershka.jpg";
+
 
 function PageFilter() {
     return (
         <div className={style.container}>
             <header className={style.blockForHeader}>
                 <img src={bershkaImg} alt="bershkaImg" className={style.imgOfShop}/>
-                <div className={style.circleForLogo}></div>
+                <div className={style.circleForLogo}>
+                    <img src={bershkaLogo} alt="bershkaLogo" className={style.logoOgShopImg}/>
+                </div>
             </header>
             <p className={style.titleOfShop}>Магазин - Бершка</p>
-            <p className={style.question}>Як Вам наш сервіс: вау чи «ну так собі»?" "🤔</p>
+            <p className={style.question}>Як Вам наш сервіс: вау чи «ну так собі»?🤔</p>
             <div className={style.blockForStars}>
                 <CiStar className={style.iconStar}/>
                 <CiStar className={style.iconStar}/>
