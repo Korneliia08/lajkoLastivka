@@ -1,6 +1,7 @@
 import style from "./PageFilter.module.scss"
 import {CiStar} from "react-icons/ci";
 import bershkaImg from "./../../assets/images/Bershka.jpg";
+import StarsRating from "../../components/ui/starsRating/StarsRating.jsx";
 
 function PageFilter() {
     return (
@@ -12,11 +13,7 @@ function PageFilter() {
             <p className={style.titleOfShop}>Магазин - Бершка</p>
             <p className={style.question}>Як Вам наш сервіс: вау чи «ну так собі»?" "🤔</p>
             <div className={style.blockForStars}>
-                <CiStar className={style.iconStar}/>
-                <CiStar className={style.iconStar}/>
-                <CiStar className={style.iconStar}/>
-                <CiStar className={style.iconStar}/>
-                <CiStar className={style.iconStar}/>
+              <StarsRating onChange={($event)=>console.log($event)}/>
             </div>
             <div className={style.blockForBtns}>
                 <button className={style.deleteBtn}>Скасувати</button>

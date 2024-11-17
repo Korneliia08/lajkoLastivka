@@ -4,7 +4,7 @@
   align-items: center;
 
   .blockForHeader {
-    width: 100vw;
+    width: 100%;
 
     .imgOfShop {
       width: 100%;
@@ -35,14 +35,7 @@
     display: flex;
     column-gap: 5px;
 
-    .iconStar {
-      font-size: 40px;
-      color: #d5b300;
 
-      &:hover {
-        scale: 1.2;
-      }
-    }
   }
 
   .blockForBtns {

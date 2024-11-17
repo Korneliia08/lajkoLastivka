@@ -1,0 +1,16 @@
+.starsRatingContainer {
+  padding: 20px 0px;
+  display: flex;
+  column-gap: 5px;
+
+  .iconStar {
+    font-size: 40px;
+
+    transition: transform 200ms, color 200ms;
+    cursor: pointer;
+color:#d5b300;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
