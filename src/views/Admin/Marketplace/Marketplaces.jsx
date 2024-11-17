@@ -2,7 +2,6 @@ import style from "./Marketplaces.module.scss";
 import {useNavigate} from "react-router-dom";
 import MarketplaceBlock from "./components/MarketplaceBlock.jsx";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import api from "../../../providers/interceptors/refreshToken.interceptor.js";
 
 function Marketplaces() {
