@@ -1,0 +1,15 @@
+.styleOfToggle .react-toggle-track {
+  background-color: #c4c4c4;
+}
+
+.styleOfToggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #a1a1a1 !important;
+}
+
+.styleOfToggle.react-toggle--checked:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #8500d3 !important;
+}
+
+.styleOfToggle.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #5c2496 !important;
+}

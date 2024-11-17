@@ -1,0 +1,47 @@
+.container {
+  //background: linear-gradient(90deg, #ddb6fc 0%, #bd9ece 10%, #C09BDB 30%, #A065CC 50%, #8925B8 70%, #6C0070 100%);
+  width: 100wv;
+  background: rgb(98, 11, 122);
+  height: 35px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .blockForLogoAndTitle {
+    display: flex;
+    width: 150px;
+    height: 32px;
+    align-items: center;
+
+    .lastivkaWithHeartLeft {
+      width: 25px;
+    }
+
+    .lastivkaWithHeartRight {
+      width: 25px;
+      transform: scaleX(-1);
+    }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      //color: #11354f;
+      font-family: "Lobster", sans-serif;
+      font-weight: 400;
+      color: white;
+      font-style: normal;
+    }
+  }
+
+  .iconLogOut {
+    color: white;
+    font-size: 22px;
+    transition: 250ms ease;
+
+    &:hover {
+      cursor: pointer;
+      color: #bbbbbb;
+    }
+  }
+}

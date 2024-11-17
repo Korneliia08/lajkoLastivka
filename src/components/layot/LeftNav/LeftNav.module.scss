@@ -1,0 +1,65 @@
+.container {
+  background: rgb(41, 16, 47);
+  background: linear-gradient(0deg, rgb(61, 8, 86) 0%, rgba(92, 0, 115, 1) 53%);
+  width: 250px;
+  border-top: 1px solid rgba(238, 238, 238, 0.1);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px 15px;
+
+  .titleOfNav {
+    color: white;
+    position: relative;
+    opacity: 0.5;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+
+    &:after {
+      display: block;
+      content: "";
+      width: 72%;
+      background-color: rgba(199, 199, 199, 0.36);
+      height: 0.5px;
+      position: absolute;
+      bottom: -2px;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    .blockForA {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+
+      &.disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+
+        a {
+          pointer-events: none;
+        }
+      }
+
+      a {
+        color: white;
+        font-size: 15px;
+        font-family: "Inter", sans-serif;
+        text-decoration: none;
+        transition: 250ms ease;
+
+        &:hover {
+          color: #d0d0d0;
+        }
+      }
+
+      svg {
+        color: white;
+      }
+    }
+  }
+}

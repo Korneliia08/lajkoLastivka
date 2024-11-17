@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  .titleOfSubPageBlock {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .title {
+      font-size: 25px;
+      color: #770098;
+      text-shadow: 0px 1px 1px #c0c0c0;
+      font-family: "Inter", sans-serif;
+    }
+
+    .iconOfShopAndEdit {
+      font-size: 25px;
+      color: #6f0070;
+    }
+  }
+
+
+  .formAddAndEdit {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blockForPages {
+    display: flex;
+    width: 35%;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  .blockForBtn {
+    width: 35%;
+    padding: 10px 0;
+
+    .btnSave {
+      padding: 7px 20px;
+      background-color: #1a7e00;
+      color: #ffffff;
+      border-radius: 5px;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      transition: 250ms ease;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #135d00;
+      }
+    }
+  }
+}
+
+.titleIForm {
+  color: #646464;
+  text-decoration: underline;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 10px 0 5px 0;
+}
+
+.contentInBlock {
+  padding: 5px 8px;
+  color: #470162;
+  background-color: #e1e1e1;
+  border-radius: 5px;
+  border: 1px solid #690191;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  transition: 250ms ease;
+
+  &:hover {
+    cursor: not-allowed;
+    background-color: #690191;
+    color: white;
+  }
+}
+
+.input {
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 5px 8px;
+  color: #470162;
+  font-family: "Inter", sans-serif;
+  background-color: white;
+  border: 1px solid #690191;
+  font-size: 15px;
+}
