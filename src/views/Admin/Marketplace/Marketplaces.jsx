@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import MarketplaceBlock from "./components/MarketplaceBlock.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import api from "../../../providers/interceptors/refreshToken.interceptor.js";
 
 function Marketplaces() {
     const [allMarkets, setAllMarkets] = useState([]);
@@ -13,11 +14,7 @@ function Marketplaces() {
     }
 
     useEffect(() => {
-        axios.get(import.meta.env.VITE_APP_API + "/stores", {
-            headers: {
-                token: localStorage.getItem('token')
-            }
-        }).then(resp => {
+       api.get( "/stores").then(resp => {
             setAllMarkets(resp.data);
         }).catch(err => {
             console.log(err)
