@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .blockForHeader {
+    width: 100vw;
+
+    .imgOfShop {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .circleForLogo {
+
+    }
+  }
+
+  .titleOfShop {
+    color: #770098;
+    text-shadow: 0px 1px 1px #c0c0c0;
+    font-family: "Inter", sans-serif;
+    font-size: 40px;
+  }
+
+  .question {
+    font-size: 28px;
+    font-family: "Inter", sans-serif;
+    color: #965bc5;
+  }
+
+  .blockForStars {
+    padding: 20px 0px;
+    display: flex;
+    column-gap: 5px;
+
+    .iconStar {
+      font-size: 40px;
+      color: #d5b300;
+
+      &:hover {
+        scale: 1.2;
+      }
+    }
+  }
+
+  .blockForBtns {
+    margin: 10px 0;
+    display: flex;
+    column-gap: 10px;
+
+    .deleteBtn, .continueBtn {
+      padding: 5px 25px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      font-family: "Inter", sans-serif;
+      transition: 250ms ease;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .deleteBtn {
+      background-color: #cc1d1d;
+
+      &:hover {
+        background-color: #a11111;
+        cursor: not-allowed;
+      }
+    }
+
+    .continueBtn {
+      background-color: #2caf0a;
+
+      &:hover {
+        background-color: #239306;
+      }
+    }
+  }
+}
