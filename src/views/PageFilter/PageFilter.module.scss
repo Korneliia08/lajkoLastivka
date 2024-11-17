@@ -4,21 +4,20 @@
   align-items: center;
 
   .blockForHeader {
-
     position: relative;
     width: 100%;
 
     .imgOfShop {
       width: 100%;
-      height: 500px;
+      height: 350px;
       object-fit: cover;
     }
 
     .circleForLogo {
-      width: 400px;
-      height: 400px;
-      top: calc(50% - 200px);
-      left: calc(50% - 200px);
+      width: 200px;
+      height: 200px;
+      top: calc(50% - 100px);
+      left: calc(50% - 100px);
       border-radius: 100%;
       background-color: #8313c5;
       position: absolute;
@@ -27,8 +26,8 @@
       align-items: center;
 
       .logoOgShopImg {
-        width: 98.5%;
-        height: 98.5%;
+        width: 98.7%;
+        height: 98.7%;
         border-radius: 100%;
       }
     }
@@ -43,6 +42,7 @@
     padding: 5px 10px;
     text-align: center;
     border-bottom: 2px solid #7116ad;
+    margin-top: 20px;
   }
 
   .question {
