@@ -30,14 +30,17 @@ function LogIn() {
             const response = await axios.post(import.meta.env.VITE_APP_API + "/authorization/login", data);
             setCorrectData(true);
             navigate("admin");
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('refresh_token', response.data.refresh_token);
+
         } catch (error) {
 
             setCorrectData(false);
             setResult("<b  style='color: white'>Дані невірні, ластівка не може злетіти 🤔</b>")
         }
 
-        loginRef.current.value = ''
-        passRef.current.value = ''
+        loginRef.current.value = '';
+        passRef.current.value = '';
     }
 
     return (
