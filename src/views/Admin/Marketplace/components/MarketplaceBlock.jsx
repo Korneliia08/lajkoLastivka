@@ -3,25 +3,42 @@ import Toggle from "react-toggle";
 import {CiHeart} from "react-icons/ci";
 import {MdModeEditOutline} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
+import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
+import {useState} from "react";
 
 function MarketplaceBlock({data}) {
     const navigate = useNavigate();
 
+    const [isEnable,setEnable] = useState( data.isEnabled)
+    const [loading,setLoading] = useState( false)
     function displayEdit() {
         navigate("./" + data.id);
     }
 
+    async function handleToggleStore($event) {
+       try{
+           setLoading(true)
+        const resp = await api.patch(`/stores/state/${data.id}`, {state:$event.target.checked})
+           setEnable(resp.data)
+       } catch (err) {
+           console.log(err);
+       }finally {
+           setLoading(false)
+       }
+    }
     return <div className={style.blockOfShop}>
         <span className={style.titleOfShop}>{data.name}</span>
         <div className={style.blockForOptions}>
             <Toggle
+                disabled={loading}
                 // defaultChecked={this.state.soupIsReady}
                 icons={{
                     checked: <CiHeart className={style.iconHeart}/>,
                     unchecked: null,
                 }}
+                checked={isEnable}
                 className='styleOfToggle'
-                // onChange={this.handleSoupChange}
+                  onChange={handleToggleStore}
             />
             <MdModeEditOutline className={style.iconEdit} onClick={displayEdit}/>
         </div>

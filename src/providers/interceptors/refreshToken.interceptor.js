@@ -14,9 +14,8 @@ apiWithAuth.interceptors.response.use(
 
       try {
         const refreshToken = localStorage.getItem("refresh_token");
-        const response = await axios.post(
-          import.meta.env.VITE_PATH_TO_API + "authorization/refresh",
-          {},
+        const response = await axios.get(
+          import.meta.env.VITE_APP_API + "/authorization/refresh",
           {
             headers: {
               Authorization: `Bearer ${refreshToken}`,

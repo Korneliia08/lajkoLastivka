@@ -1,7 +1,7 @@
 import { useState } from "react";
 import s from "./StarsRating.module.scss";
 import { CiStar } from "react-icons/ci";
-import { PiStarFill } from "react-icons/pi";
+import {PiStarFill, PiStarHalfFill} from "react-icons/pi";
 
 const StarsRating = ({ onChange }) => {
     const [hoveredStar, setHoveredStar] = useState(0);
