@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiWithAuth = axios.create({
-  baseURL: import.meta.env.VITE_PATH_TO_API,
+  baseURL: import.meta.env.VITE_APP_API,
 });
 
 // Add a request interceptor

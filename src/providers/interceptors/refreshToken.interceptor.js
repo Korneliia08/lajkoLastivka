@@ -1,6 +1,6 @@
 // Add a response interceptor
 import axios from "axios";
-import apiWithAuth from "./auth.interceptor.ts";
+import apiWithAuth from "./auth.interceptor.js";
 
 apiWithAuth.interceptors.response.use(
   (response) => response,
