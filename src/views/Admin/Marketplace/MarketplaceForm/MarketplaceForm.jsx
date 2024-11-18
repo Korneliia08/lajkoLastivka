@@ -19,6 +19,8 @@ function MarketplaceForm() {
     const [logoImg, setLogoImg] = useState(undefined)
     const [saving, setSaving] = useState(false)
     useEffect(() => {
+        usernameRef.current.value = ''
+        passwordRef.current.value = ''
         const fetchData = async () => {
             if (id !== "0") {
                 try {
