@@ -55,9 +55,14 @@
       border: none;
       transition: 250ms ease;
 
-      &:hover {
+      &:hover:not(:disabled) {
         cursor: pointer;
         background-color: #135d00;
+      }
+
+      &:disabled {
+        cursor: progress;
+        background-color: #445e3f;
       }
     }
   }

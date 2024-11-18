@@ -5,6 +5,7 @@ import {FaRegEdit} from "react-icons/fa";
 import {useEffect, useRef, useState} from "react";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import InputFile from "../../../../components/ui/InputFile/InputFile.jsx";
+import BannerPreview from "../components/bannerPreview/BannerPreview.jsx";
 
 
 function MarketplaceForm() {
@@ -14,6 +15,9 @@ function MarketplaceForm() {
     const usernameRef = useRef(null)
     const passwordRef = useRef(null)
     const [loginError, setLoginError] = useState(false)
+    const [bannerImg, setBannerImg] = useState(undefined)
+    const [logoImg, setLogoImg] = useState(undefined)
+    const [saving, setSaving] = useState(false)
     useEffect(() => {
         const fetchData = async () => {
             if (id !== "0") {
@@ -21,6 +25,8 @@ function MarketplaceForm() {
                     const res = await api(`stores/${id}`);
                     const store = res.data;
                     nameRef.current.value = store.name;
+                    setBannerImg(store.bannerImg)
+                    setLogoImg(store.logoImg)
                 } catch (err) {
                     console.log(err);
                 }
@@ -44,10 +50,13 @@ function MarketplaceForm() {
     async function submit($event) {
         $event.preventDefault()
         setLoginError(false)
+        setSaving(true)
         const body = {
             name: nameRef.current.value,
             username: usernameRef.current.value,
             password: passwordRef.current.value,
+            bannerImg: bannerImg,
+            logoImg: logoImg
         }
         try {
 
@@ -75,6 +84,7 @@ function MarketplaceForm() {
         } catch (error) {
             console.log(error)
         }
+        setSaving(false)
     }
 
     return (
@@ -102,16 +112,26 @@ function MarketplaceForm() {
                     <input ref={usernameRef} type="text" required={id === '0'} placeholder="Введіть логін" className={style.input}/>
                     <input type={"password"} ref={passwordRef} required={id === '0'} placeholder="Введіть пароль" className={style.input}/>
                     {loginError && "Shop login error"}
+                    <span className={style.titleIForm}>Banner</span>
+                    <InputFile label={"Podaj banner"}
+                               initialImage={bannerImg} onChange={(event => setBannerImg(event.base64))}/>
+                    <br/>
+                    <InputFile label={"Podaj logo"}
+                               initialImage={logoImg} onChange={(event => setLogoImg(event.base64))}/>
+                    <span className={style.titleIForm}>Banner preview</span>
+                    <BannerPreview data={{bannerImg, logoImg}}/>
 
-                    <InputFile label={"Podaj zdjęcie"}/>
                 </div>
+
                 <div className={style.blockForPages}>
                     <span className={style.titleIForm}>Сторінки</span>
                     <span className={style.contentInBlock}>Сторінка фільтрації</span>
                     <span className={style.contentInBlock}>Сторінка зворотнього зв’язку</span>
                 </div>
+
+
                 <div className={style.blockForBtn}>
-                    <button type={"submit"} className={style.btnSave}>Зберегти</button>
+                    <button type={"submit"} disabled={saving} className={style.btnSave}>Зберегти</button>
                     {id !== "0" &&
                         <button type={"button"} onClick={deleteMarketplace} className={style.btnSave}>Delete</button>
                     }

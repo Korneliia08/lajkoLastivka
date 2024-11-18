@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import styles from "./InputFile.module.scss"; // Importujemy plik SCSS
 
 const InputFile = ({label, name, onChange, initialImage}) => {
@@ -7,15 +7,7 @@ const InputFile = ({label, name, onChange, initialImage}) => {
     const [error, setError] = useState("");
     const inputRef = useRef(null);
 
-    // Jeśli istnieje początkowy obraz, ustawiamy go w stanie
-    useEffect(() => {
-        if (initialImage) {
-            setFileName(initialImage.name || "Wybrane zdjęcie");
-            setFile(initialImage);
-        }
-    }, [initialImage]);
 
-    // Funkcja do obsługi zmiany pliku
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         if (selectedFile) {
@@ -52,20 +44,17 @@ const InputFile = ({label, name, onChange, initialImage}) => {
         };
     };
 
+    function deleteImg() {
+        onChange({file: '', base64: ''})
+    }
+
     return (
         <div className={styles.inputFileContainer}>
             <div className={styles.inner}>
 
                 {/* Podgląd obrazu w lewym rogu, jeśli jest dostępny */}
-                {file || initialImage ? (
-                    <div className={styles.inputFilePreviewContainer}>
-                        <img
-                            src={file ? URL.createObjectURL(file) : initialImage}
-                            alt="Podgląd"
-                            className={styles.inputFilePreviewImage}
-                        />
-                    </div>
-                ) : null}
+
+
                 <label className={styles.inputFileLabel}>{label}</label>
 
 
@@ -83,15 +72,23 @@ const InputFile = ({label, name, onChange, initialImage}) => {
                     className={styles.inputFileButton}
                     onClick={() => inputRef.current.click()}
                 >
-                    Wybierz plik
+                    Виберіть файл
                 </button>
+                <div className={styles.inputFilePreviewContainer}>
+                    <img
+                        src={file ? URL.createObjectURL(file) : initialImage ? initialImage : 'https://placehold.co/400'}
+                        alt="Podgląd"
+                        className={styles.inputFilePreviewImage}
+                    />
+                </div>
+                <button onClick={deleteImg} className={styles.deleteImg}>X</button>
             </div>
-            {/* Wyświetlanie podglądu nazwy pliku */}
-            {fileName && !error && (
-                <div className={styles.inputFilePreview}>Wybrany plik: {fileName}</div>
-            )}
+            {/*/!* Wyświetlanie podglądu nazwy pliku *!/*/}
+            {/*{fileName && !error && (*/}
+            {/*    <div className={styles.inputFilePreview}>Wybrany plik: {fileName}</div>*/}
+            {/*)}*/}
 
-            {/* Wyświetlanie błędu, jeśli plik jest za duży */}
+
             {error && <div className={styles.inputFileError}>{error}</div>}
         </div>
     );
