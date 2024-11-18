@@ -36,17 +36,6 @@ function MarketplaceForm() {
         fetchData();
     }, [id]);
 
-    async function deleteMarketplace() {
-        try {
-            await api.delete(`stores/${id}`);
-
-            navigate('/admin/marketplaces')
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-
     async function submit($event) {
         $event.preventDefault()
         setLoginError(false)
@@ -109,16 +98,18 @@ function MarketplaceForm() {
                     <input ref={nameRef} type="text" name="store-name" required placeholder="Введіть назву магазину"
                            className={style.input}/>
                     <span className={style.titleIForm}>Дані в кабінет магазину</span>
-                    <input ref={usernameRef} type="text" required={id === '0'} placeholder="Введіть логін" className={style.input}/>
-                    <input type={"password"} ref={passwordRef} required={id === '0'} placeholder="Введіть пароль" className={style.input}/>
+                    <input ref={usernameRef} type="text" required={id === '0'} placeholder="Введіть логін"
+                           className={style.input}/>
+                    <input type={"password"} ref={passwordRef} required={id === '0'} placeholder="Введіть пароль"
+                           className={style.input}/>
                     {loginError && "Shop login error"}
-                    <span className={style.titleIForm}>Banner</span>
-                    <InputFile label={"Podaj banner"}
+                    <span className={style.titleIForm}>Хедер</span>
+                    <InputFile label={"Оберіть тло для хедера"}
                                initialImage={bannerImg} onChange={(event => setBannerImg(event.base64))}/>
                     <br/>
-                    <InputFile label={"Podaj logo"}
+                    <InputFile label={"Оберіть лого"}
                                initialImage={logoImg} onChange={(event => setLogoImg(event.base64))}/>
-                    <span className={style.titleIForm}>Banner preview</span>
+                    <span className={style.titleIForm}>Перегляд хедера</span>
                     <BannerPreview data={{bannerImg, logoImg}}/>
 
                 </div>
@@ -132,9 +123,6 @@ function MarketplaceForm() {
 
                 <div className={style.blockForBtn}>
                     <button type={"submit"} disabled={saving} className={style.btnSave}>Зберегти</button>
-                    {id !== "0" &&
-                        <button type={"button"} onClick={deleteMarketplace} className={style.btnSave}>Delete</button>
-                    }
                 </div>
             </form>
         </div>

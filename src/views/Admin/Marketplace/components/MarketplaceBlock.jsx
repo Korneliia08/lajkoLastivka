@@ -1,7 +1,7 @@
 import style from "./MarketplaceBlock.module.scss";
 import Toggle from "react-toggle";
 import {CiHeart} from "react-icons/ci";
-import {MdModeEditOutline} from "react-icons/md";
+import {MdDeleteSweep, MdModeEditOutline} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import {useState} from "react";
@@ -9,23 +9,36 @@ import {useState} from "react";
 function MarketplaceBlock({data}) {
     const navigate = useNavigate();
 
-    const [isEnable,setEnable] = useState( data.isEnabled)
-    const [loading,setLoading] = useState( false)
+    const [isEnable, setEnable] = useState(data.isEnabled)
+    const [loading, setLoading] = useState(false)
+
     function displayEdit() {
         navigate("./" + data.id);
     }
 
-    async function handleToggleStore($event) {
-       try{
-           setLoading(true)
-        const resp = await api.patch(`/stores/state/${data.id}`, {state:$event.target.checked})
-           setEnable(resp.data)
-       } catch (err) {
-           console.log(err);
-       }finally {
-           setLoading(false)
-       }
+    async function deleteMarketplace() {
+        try {
+            await api.delete(`stores/${data.id}`);
+
+            navigate('/admin/marketplaces')
+        } catch (err) {
+            console.log(err);
+        }
     }
+
+
+    async function handleToggleStore($event) {
+        try {
+            setLoading(true)
+            const resp = await api.patch(`/stores/state/${data.id}`, {state: $event.target.checked})
+            setEnable(resp.data)
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setLoading(false)
+        }
+    }
+
     return <div className={style.blockOfShop}>
         <span className={style.titleOfShop}>{data.name}</span>
         <div className={style.blockForOptions}>
@@ -38,9 +51,10 @@ function MarketplaceBlock({data}) {
                 }}
                 checked={isEnable}
                 className='styleOfToggle'
-                  onChange={handleToggleStore}
+                onChange={handleToggleStore}
             />
-            <MdModeEditOutline className={style.iconEdit} onClick={displayEdit}/>
+            <MdModeEditOutline className={style.icon} onClick={displayEdit}/>
+            <MdDeleteSweep className={style.icon} onClick={deleteMarketplace}/>
         </div>
     </div>
 
