@@ -6,13 +6,14 @@ import PageFileterOpinionHasAlreadyBeenIssued
     from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
 import PageFilterChooseStars from "./components/pageFilterChooseStars/PageFilterChooseStars.jsx";
 import PageFilterComment from "./components/pageFilterComment/PageFilterComment.jsx";
+import PageFilterLoader from "./components/pageFilterLoader/PageFilterLoader.jsx";
 
 function PageFilter() {
     const {orderId, itemId} = useParams()
     const [stars, setStars] = useState(0)
     const [data, setData] = useState(undefined)
     const [stage, setStage] = useState('comment')
-
+    const [notValidLink, setNotValidLink] = useState(false)
     useEffect(() => {
         (async () => {
             try {
@@ -21,7 +22,8 @@ function PageFilter() {
 
                 setData(res.data)
             } catch (error) {
-
+                setNotValidLink(true)
+                return
             }
         })()
     }, [orderId, itemId]);
@@ -49,7 +51,8 @@ function PageFilter() {
 
     }
 
-    if (!data) return
+    if (notValidLink) return <h1>Недійсне посилання для огляду покупки</h1>
+    if (!data) return <PageFilterLoader/>
     let content = ''
     if (stage === 'stars') {
         content = <PageFilterChooseStars stars={stars} sendStars={sendStars} setStars={setStars}/>

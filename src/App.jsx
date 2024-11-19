@@ -8,8 +8,13 @@ import "react-toggle/style.css"
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import MarketplaceForm from "./views/Admin/Marketplace/MarketplaceForm/MarketplaceForm.jsx";
 import PageFilter from "./views/PageFilter/PageFilter.jsx";
+import {useEffect} from "react";
 
 function App() {
+
+    useEffect(() => {
+        document.querySelector('#root').classList.remove('root')
+    }, []);
     const router = createHashRouter([
         {
             path: "",

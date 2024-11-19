@@ -12,16 +12,17 @@ const PageFilterComment = ({setStage}) => {
         ev.preventDefault()
         try {
             const res = await api.post('/opinions/setOpinion/' + orderId + '/' + itemId, {comment: commentRef.current.value})
-            if (res.data.code == 5) {
-                alert('już ocenione')
-                return
-            }
+            // if (res.data.code == 5) {
+            //     alert('już ocenione')
+            //     return
+            // }
             setStage('done')
 
         } catch (err) {
             console.log(err);
             return
         }
+
 
     }
 
