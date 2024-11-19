@@ -2,7 +2,8 @@ import style from "./PageFilter.module.scss"
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import api from "../../providers/interceptors/refreshToken.interceptor.js";
-import PageFileterOpinionHasAlreadyBeenIssued from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
+import PageFileterOpinionHasAlreadyBeenIssued
+    from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
 import PageFilterChooseStars from "./components/pageFilterChooseStars/PageFilterChooseStars.jsx";
 import PageFilterComment from "./components/pageFilterComment/PageFilterComment.jsx";
 
@@ -10,7 +11,7 @@ function PageFilter() {
     const {orderId, itemId} = useParams()
     const [stars, setStars] = useState(0)
     const [data, setData] = useState(undefined)
-    const [stage, setStage] = useState('stars')
+    const [stage, setStage] = useState('comment')
 
     useEffect(() => {
         (async () => {

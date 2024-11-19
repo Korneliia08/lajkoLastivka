@@ -1,4 +1,4 @@
-import s from "./PageFilterComment.module.scss";
+import style from "./PageFilterComment.module.scss";
 import {useParams} from "react-router-dom";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import {useRef} from "react";
@@ -26,13 +26,12 @@ const PageFilterComment = ({setStage}) => {
     }
 
     return (
-        <div className={s.pageFilterCommentContainer}>
+        <div className={style.pageFilterCommentContainer}>
             <form onSubmit={sendComment}>
-                <h3>Kurcza pała jak to się stało </h3>
-
-                <h4>Opowiadaj co się tobie nie spodobało</h4>
-                <input ref={commentRef} placeholder={'Co się stało ?'}/>
-                <button type={"submit"}>Wyślij</button>
+                <h3 className={style.title}>Допоможіть нам стати кращими!</h3>
+                <h4 className={style.questionContent}>Не зовсім враження на всі 5? Чому? 🤔</h4>
+                <textarea ref={commentRef} placeholder={'Що трапилось?'} className={style.textArea}/>
+                <button type={"submit"} className={style.btnSend}>Надіслати</button>
             </form>
         </div>
     )

@@ -20,18 +20,18 @@ function MarketplaceBlock({data, fetchData}) {
     async function deleteMarketplace() {
         try {
             confirmAlert({
-                title: 'Confirm to submit',
-                message: 'Are you sure to do this.',
+                title: 'Видалення магазину',
+                message: 'Ви напевно хочете видалити магазин: ' + data.name,
                 buttons: [
                     {
-                        label: 'Yes',
+                        label: 'Так',
                         onClick: async () => {
                             await api.delete(`stores/${data.id}`);
                             fetchData()
                         }
                     },
                     {
-                        label: 'No',
+                        label: 'Ні',
                         onClick: () => {
                         }
                     }
