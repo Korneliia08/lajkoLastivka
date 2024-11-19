@@ -5,8 +5,9 @@ import {MdDeleteSweep, MdModeEditOutline} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import {useState} from "react";
+import {confirmAlert} from 'react-confirm-alert';
 
-function MarketplaceBlock({data}) {
+function MarketplaceBlock({data, fetchData}) {
     const navigate = useNavigate();
 
     const [isEnable, setEnable] = useState(data.isEnabled)
@@ -18,9 +19,26 @@ function MarketplaceBlock({data}) {
 
     async function deleteMarketplace() {
         try {
-            await api.delete(`stores/${data.id}`);
+            confirmAlert({
+                title: 'Confirm to submit',
+                message: 'Are you sure to do this.',
+                buttons: [
+                    {
+                        label: 'Yes',
+                        onClick: async () => {
+                            await api.delete(`stores/${data.id}`);
+                            fetchData()
+                        }
+                    },
+                    {
+                        label: 'No',
+                        onClick: () => {
+                        }
+                    }
+                ]
+            });
 
-            navigate('/admin/marketplaces')
+
         } catch (err) {
             console.log(err);
         }
