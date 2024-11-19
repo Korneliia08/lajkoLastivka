@@ -34,8 +34,13 @@ function App() {
             ],
         },
         {
-            path: "/review/:id",
+            path: "review/:orderId/:itemId",
             element: <PageFilter/>
+
+        },
+        {
+            path: "test/:id",
+            element: <h1>test</h1>
 
         }]
     );

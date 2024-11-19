@@ -80,6 +80,10 @@
       font-family: "Inter", sans-serif;
       transition: 250ms ease;
 
+      &:disabled {
+        filter: grayscale(0.5);
+      }
+
       &:hover {
         cursor: pointer;
       }
@@ -88,7 +92,7 @@
     .deleteBtn {
       background-color: #cc1d1d;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: #a11111;
         cursor: not-allowed;
       }
@@ -97,7 +101,7 @@
     .continueBtn {
       background-color: #2caf0a;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: #239306;
       }
     }
