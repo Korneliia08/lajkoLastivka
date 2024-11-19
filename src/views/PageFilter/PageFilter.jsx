@@ -59,7 +59,7 @@ function PageFilter() {
     } else if (stage === 'comment') {
         content = <PageFilterComment setStage={setStage}/>
     } else if (stage === 'done') {
-        content = 'Dziękujemy za opinię '
+        content = (<><br/><span>Дякуємо за відгук! Твоя оцінка допомагає нам ставати кращими для тебе! 🙏</span> </>)
     }
     if (data.opinion != undefined && data.opinion.id != undefined) {
         content = <PageFileterOpinionHasAlreadyBeenIssued/>
