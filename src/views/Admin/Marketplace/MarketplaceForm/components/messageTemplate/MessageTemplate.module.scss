@@ -1,0 +1,28 @@
+.messageTemplateContainer {
+  padding-top: 42px;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    color: #646464;
+    text-decoration: underline;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 10px 0 5px 0;
+  }
+
+  .areaForTemplate {
+    margin: 5px 0;
+    padding: 5px 10px;
+    width: 200px;
+    height: 260px;
+    resize: none;
+    color: #470162;
+    font-family: "Inter", sans-serif;
+    background-color: #f8f8f8;
+    border: 1.6px inset #b200f8;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+}

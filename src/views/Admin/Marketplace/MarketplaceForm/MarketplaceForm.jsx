@@ -6,6 +6,7 @@ import {useEffect, useRef, useState} from "react";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import InputFile from "../../../../components/ui/InputFile/InputFile.jsx";
 import BannerPreview from "../components/bannerPreview/BannerPreview.jsx";
+import MessageTemplate from "./components/messageTemplate/MessageTemplate.jsx";
 
 
 function MarketplaceForm() {
@@ -80,53 +81,57 @@ function MarketplaceForm() {
 
     return (
         <div className={style.container}>
-            <form onSubmit={submit}>
-                <div className={style.titleOfSubPageBlock}>
-                    {id === "0" && <>
-                        <h3 className={style.title}>Додати магазин</h3>
-                        <CiShop className={style.iconOfShopAndEdit}/>
-                    </>
-                    }
-                    {id !== "0" &&
-                        <>
-                            <h3 className={style.title}>Редагувати магазин</h3>
-                            <FaRegEdit className={style.iconOfShopAndEdit}/>
-                        </>}
+            <div className={style.left}>
+                <form onSubmit={submit}>
+                    <div className={style.titleOfSubPageBlock}>
+                        {id === "0" && <>
+                            <h3 className={style.title}>Додати магазин</h3>
+                            <CiShop className={style.iconOfShopAndEdit}/>
+                        </>
+                        }
+                        {id !== "0" &&
+                            <>
+                                <h3 className={style.title}>Редагувати магазин</h3>
+                                <FaRegEdit className={style.iconOfShopAndEdit}/>
+                            </>}
 
-                </div>
+                    </div>
+                    <div className={style.formAddAndEdit}>
+                        <label htmlFor="store-name" className={style.titleIForm}>Назва магазину</label>
+                        <input ref={nameRef} type="text" name="store-name" required placeholder="Введіть назву магазину"
+                               className={style.input}/>
+                        <span className={style.titleIForm}>Дані в кабінет магазину</span>
+                        <input ref={usernameRef} type="text" required={id === '0'} placeholder="Введіть логін"
+                               className={style.input}/>
+                        <input type={"password"} ref={passwordRef} required={id === '0'} placeholder="Введіть пароль"
+                               className={style.input}/>
+                        {loginError && "Shop login error"}
+                        <span className={style.titleIForm}>Хедер</span>
+                        <InputFile label={"Оберіть тло для хедера"}
+                                   initialImage={bannerImg} onChange={(event => setBannerImg(event.base64))}/>
+                        <br/>
+                        <InputFile label={"Оберіть лого"}
+                                   initialImage={logoImg} onChange={(event => setLogoImg(event.base64))}/>
+                        <span className={style.titleIForm}>Перегляд хедера</span>
+                        <BannerPreview data={{bannerImg, logoImg}}/>
 
-                <div className={style.formAddAndEdit}>
-                    <label htmlFor="store-name" className={style.titleIForm}>Назва магазину</label>
-                    <input ref={nameRef} type="text" name="store-name" required placeholder="Введіть назву магазину"
-                           className={style.input}/>
-                    <span className={style.titleIForm}>Дані в кабінет магазину</span>
-                    <input ref={usernameRef} type="text" required={id === '0'} placeholder="Введіть логін"
-                           className={style.input}/>
-                    <input type={"password"} ref={passwordRef} required={id === '0'} placeholder="Введіть пароль"
-                           className={style.input}/>
-                    {loginError && "Shop login error"}
-                    <span className={style.titleIForm}>Хедер</span>
-                    <InputFile label={"Оберіть тло для хедера"}
-                               initialImage={bannerImg} onChange={(event => setBannerImg(event.base64))}/>
-                    <br/>
-                    <InputFile label={"Оберіть лого"}
-                               initialImage={logoImg} onChange={(event => setLogoImg(event.base64))}/>
-                    <span className={style.titleIForm}>Перегляд хедера</span>
-                    <BannerPreview data={{bannerImg, logoImg}}/>
+                    </div>
 
-                </div>
-
-                <div className={style.blockForPages}>
-                    <span className={style.titleIForm}>Сторінки</span>
-                    <span className={style.contentInBlock}>Сторінка фільтрації</span>
-                    <span className={style.contentInBlock}>Сторінка зворотнього зв’язку</span>
-                </div>
+                    <div className={style.blockForPages}>
+                        <span className={style.titleIForm}>Сторінки</span>
+                        <span className={style.contentInBlock}>Сторінка фільтрації</span>
+                        <span className={style.contentInBlock}>Сторінка зворотнього зв’язку</span>
+                    </div>
 
 
-                <div className={style.blockForBtn}>
-                    <button type={"submit"} disabled={saving} className={style.btnSave}>Зберегти</button>
-                </div>
-            </form>
+                    <div className={style.blockForBtn}>
+                        <button type={"submit"} disabled={saving} className={style.btnSave}>Зберегти</button>
+                    </div>
+                </form>
+            </div>
+            <div className={style.right}>
+                <MessageTemplate/>
+            </div>
         </div>
     )
 }
