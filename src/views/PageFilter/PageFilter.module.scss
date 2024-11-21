@@ -36,13 +36,13 @@
   .titleOfShop {
     text-shadow: 0px 1px 1px #c0c0c0;
     font-family: "Inter", sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     color: #000000;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 2px 10px;
     text-align: center;
-    border-bottom: 2px solid #7116ad;
-    margin-top: 20px;
+    border-bottom: 1.5px solid #7116ad;
+    margin-top: 15px;
   }
 
   .question {
@@ -108,10 +108,9 @@
   }
 
   .productTitle {
-    width: calc(100% - 20px);
-    padding-left: 10px;
+    padding: 10px 5px;
     text-align: center;
-    padding-right: 10px;
+    width: 480px;
   }
 
   .thanksText {
@@ -119,6 +118,7 @@
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
-
+    font-size: 18px;
+    color: #0cc00c;
   }
 }
