@@ -106,4 +106,19 @@
       }
     }
   }
+
+  .productTitle {
+    width: calc(100% - 20px);
+    padding-left: 10px;
+    text-align: center;
+    padding-right: 10px;
+  }
+
+  .thanksText {
+    width: calc(100% - 20px);
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+  }
 }

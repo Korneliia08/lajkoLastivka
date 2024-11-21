@@ -2,8 +2,7 @@ import style from "./PageFilter.module.scss"
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import api from "../../providers/interceptors/refreshToken.interceptor.js";
-import PageFileterOpinionHasAlreadyBeenIssued
-    from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
+import PageFileterOpinionHasAlreadyBeenIssued from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
 import PageFilterChooseStars from "./components/pageFilterChooseStars/PageFilterChooseStars.jsx";
 import PageFilterComment from "./components/pageFilterComment/PageFilterComment.jsx";
 import PageFilterLoader from "./components/pageFilterLoader/PageFilterLoader.jsx";
@@ -12,7 +11,7 @@ function PageFilter() {
     const {orderId, itemId} = useParams()
     const [stars, setStars] = useState(0)
     const [data, setData] = useState(undefined)
-    const [stage, setStage] = useState('comment')
+    const [stage, setStage] = useState('stars')
     const [notValidLink, setNotValidLink] = useState(false)
     useEffect(() => {
         (async () => {
@@ -33,7 +32,7 @@ function PageFilter() {
         try {
             const res = await api.post('/opinions/setRatingScore/' + orderId + '/' + itemId, {ratingScore: stars})
             if (res.data.code == 5) {
-                alert('już ocenione')
+                //alert('już ocenione')
                 return
             }
             if (stars >= 4) {
@@ -59,7 +58,7 @@ function PageFilter() {
     } else if (stage === 'comment') {
         content = <PageFilterComment setStage={setStage}/>
     } else if (stage === 'done') {
-        content = (<><br/><span>Дякуємо за відгук! Твоя оцінка допомагає нам ставати кращими для тебе! 🙏</span> </>)
+        content = (<><br/><span className={style.thanksText}>Дякуємо за відгук! Твоя оцінка допомагає нам ставати кращими для тебе! 🙏</span> </>)
     }
     if (data.opinion != undefined && data.opinion.id != undefined) {
         content = <PageFileterOpinionHasAlreadyBeenIssued/>
@@ -75,7 +74,7 @@ function PageFilter() {
                 </div>
             </header>
             <p className={style.titleOfShop}>Магазин - {data.order.store.name}</p>
-            <p>{data.title}</p>
+            <p className={style.productTitle}>{data.title}</p>
             {content}
         </div>
     )

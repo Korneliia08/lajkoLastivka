@@ -15,8 +15,8 @@
   .areaForTemplate {
     margin: 5px 0;
     padding: 5px 10px;
-    width: 200px;
-    height: 260px;
+    width: 330px;
+    height: 380px;
     resize: none;
     color: #470162;
     font-family: "Inter", sans-serif;
@@ -24,5 +24,9 @@
     border: 1.6px inset #b200f8;
     font-size: 14px;
     border-radius: 5px;
+  }
+
+  .description {
+    color: rgba(100, 100, 100, 0.41);
   }
 }

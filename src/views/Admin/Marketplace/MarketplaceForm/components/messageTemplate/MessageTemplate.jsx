@@ -1,15 +1,23 @@
 import s from "./MessageTemplate.module.scss";
-import EmojiPicker from "emoji-picker-react";
+
+import {useState} from "react";
 
 
-const MessageTemplate = (props) => {
+const MessageTemplate = ({textRef}) => {
+
+    const [emojiPanelOpen, setEmojiPanelOpen] = useState(true)
+
+    function handleEmojiSelect(ev) {
+        setEmojiPanelOpen(false)
+        //   textReff.current.value += ev.emoji
+    }
+
     return (
         <div className={s.messageTemplateContainer}>
             <span className={s.title}>Шаблон повідомлення</span>
-            <textarea className={s.areaForTemplate}></textarea>
-            {/*<EmojiPicker open={false}/>*/}
-            <EmojiPicker reactions={['🤣''1f600']} allowExpandReactions={true}/>
 
+            <textarea required={true} ref={textRef} className={s.areaForTemplate}></textarea>
+            <span className={s.description}>[store], [product], [link]</span>
         </div>
 
     )

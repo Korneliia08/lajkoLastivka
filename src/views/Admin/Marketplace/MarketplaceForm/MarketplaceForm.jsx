@@ -19,6 +19,7 @@ function MarketplaceForm() {
     const [bannerImg, setBannerImg] = useState(undefined)
     const [logoImg, setLogoImg] = useState(undefined)
     const [saving, setSaving] = useState(false)
+    const textRef = useRef()
     useEffect(() => {
         usernameRef.current.value = ''
         passwordRef.current.value = ''
@@ -28,11 +29,25 @@ function MarketplaceForm() {
                     const res = await api(`stores/${id}`);
                     const store = res.data;
                     nameRef.current.value = store.name;
+                    textRef.current.value = store.messageTemplateViber
                     setBannerImg(store.bannerImg)
                     setLogoImg(store.logoImg)
                 } catch (err) {
                     console.log(err);
                 }
+            }
+            if (id == 0) {
+                textRef.current.value = 'Привіт! 🙌\n' +
+                    'Твоє замовлення з [store] вже у тебе! Сподіваємось, що [product] став тим самим "вау"-моментом, якого ти чекав! 😍\n' +
+                    '\n' +
+                    '\n' +
+                    'Якщо так, не забудь оцінити нас! Твоя думка для нас важлива, а твоя оцінка — це як додатковий бонус для нас! 🌟\n' +
+                    '\n' +
+                    '\n' +
+                    'Залишити відгук можна тут: [link]\n' +
+                    '\n' +
+                    '\n' +
+                    'Дякуємо, що вибрав нас! Сподіваємось, це не останній раз! 😉'
             }
         };
 
@@ -48,7 +63,8 @@ function MarketplaceForm() {
             username: usernameRef.current.value,
             password: passwordRef.current.value,
             bannerImg: bannerImg,
-            logoImg: logoImg
+            logoImg: logoImg,
+            messageTemplateViber: textRef.current.value
         }
         try {
 
@@ -130,7 +146,7 @@ function MarketplaceForm() {
                 </form>
             </div>
             <div className={style.right}>
-                <MessageTemplate/>
+                <MessageTemplate textRef={textRef}/>
             </div>
         </div>
     )
