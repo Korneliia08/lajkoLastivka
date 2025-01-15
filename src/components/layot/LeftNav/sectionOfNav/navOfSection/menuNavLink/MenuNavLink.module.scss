@@ -1,0 +1,15 @@
+.menuNavLinkContainer {
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+
+  svg {
+    color: yellow;
+  }
+
+  .text {
+    color: #484848;
+    font-size: 22px;
+    text-underline: none;
+  }
+}
