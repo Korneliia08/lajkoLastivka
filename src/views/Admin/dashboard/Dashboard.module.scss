@@ -1,3 +1,40 @@
 .dashboardContainer {
 
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    "topRow topRow topRow topRow"
+  "div3   div3  div3  likeUnlike"
+  "orders orders orders div4";
+  align-items: stretch;
+
+  .topRow {
+    display: flex;
+    gap: 40px;
+    grid-area: topRow;
+  }
+
+  .likeUnlike {
+    grid-area: likeUnlike;
+  }
+
+  .div3 {
+    grid-area: div3;
+  }
+
+  .orders {
+    grid-area: orders;
+
+  }
+
+  .div4 {
+
+    grid-area: div4;
+  }
 }
+
+

@@ -1,0 +1,22 @@
+.panelTitleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e4e4e4;
+  width: 100%;
+  padding-left: 15px;
+
+  .title {
+    font-size: 25px;
+    margin: 0;
+  }
+
+  .subTitle {
+    font-size: 15px;
+    color: #606060;
+    margin: 0;
+
+  }
+}

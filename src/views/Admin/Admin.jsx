@@ -1,15 +1,16 @@
 import style from "./Admin.module.scss";
-import TopBelt from "../../components/layot/TopBelt/TopBelt.jsx";
 import LeftNav from "../../components/layot/LeftNav/LeftNav.jsx";
 import {Outlet} from "react-router-dom";
+import PanelHeadTitle from "../../components/layot/panelHeadTitle/PanelHeadTitle.jsx";
 
 function Admin() {
     return (
         <div className={style.container}>
-            <TopBelt/>
+            {/*<TopBelt/>*/}
             <div className={style.wrapper}>
                 <LeftNav/>
                 <div className={style.containerForOutlet}>
+                    <PanelHeadTitle title={"LastivkaCompany"} text={"Marketplaces"}/>
                     <Outlet/>
                 </div>
             </div>

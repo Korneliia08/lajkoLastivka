@@ -1,0 +1,14 @@
+.marketplacesOrdersCharBlockContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+
+  .text {
+    display: flex;
+    gap: 7px;
+    font-size: 24px;
+    font-weight: bolder;
+  }
+ 
+}

@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import {createHashRouter, Navigate, RouterProvider} from "react-router-dom";
 import LogIn from "./views/LogIn/LogIn.jsx";
 import AdminViewGuard from "./components/guards/AdminView.jsx";
