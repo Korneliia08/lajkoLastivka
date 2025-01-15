@@ -1,35 +1,20 @@
 import style from "./LeftNav.module.scss";
-import {FaChartLine, FaShopify} from "react-icons/fa";
-import {NavLink} from "react-router-dom";
+import SectionOfNav from "./sectionOfNav/SectionOfNav.jsx";
+import {LuUsers} from "react-icons/lu";
+import {FiHome} from "react-icons/fi";
+import {GrPieChart} from "react-icons/gr";
 
 function LeftNav() {
+    const dashboardElObj = [
+        {title: "Dashboard", link: "dashboard", icon: <FiHome/>},
+        {title: "Маркетплейси", link: "marketplaces", icon: <LuUsers/>},
+        {title: "Статистики", link: "", icon: <GrPieChart/>}
+    ];
+    const settingsElObj = [{title: "Регулювання часу", link: ""}];
     return (
         <div className={style.container}>
-            <span className={style.titleOfNav}>Dashboard</span>
-            <nav className={style.nav}>
-
-                <div className={style.blockForA}>
-                    <FaShopify/>
-                    {/*todo tylko chwilowo tak dałem, możesz zmieniać*/}
-                    <NavLink to={"dashboard"}>Dashboard</NavLink>
-                </div>
-                <div className={style.blockForA}>
-                    <FaShopify/>
-                    <NavLink to={"marketplaces"}>Маркетплейси</NavLink>
-                </div>
-                <div className={[style.blockForA, style.disabled].join(" ")}>
-                    <FaChartLine/>
-                    <a href="#">Статистики</a>
-                </div>
-                {/*<div className={[style.blockForA, style.disabled].join(" ")}>*/}
-                {/*    <FaBusinessTime/>*/}
-                {/*    <a href="#">Бізнес</a>*/}
-                {/*</div>*/}
-                {/*<div className={[style.blockForA, style.disabled].join(" ")}>*/}
-                {/*    <FaIdCard/>*/}
-                {/*    <a href="#">Картки</a>*/}
-                {/*</div>*/}
-            </nav>
+            <SectionOfNav title={"Dashboard"} elements={dashboardElObj}/>
+            <SectionOfNav title={"Налаштування"} elements={settingsElObj}/>
         </div>
     )
 }
