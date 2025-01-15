@@ -3,7 +3,7 @@ import s from "./MessageTemplate.module.scss";
 import {useState} from "react";
 
 
-const MessageTemplate = ({textRef}) => {
+const MessageTemplate = ({textRef, disabled}) => {
 
     const [emojiPanelOpen, setEmojiPanelOpen] = useState(true)
 
@@ -16,7 +16,7 @@ const MessageTemplate = ({textRef}) => {
         <div className={s.messageTemplateContainer}>
             <span className={s.title}>Шаблон повідомлення</span>
 
-            <textarea required={true} ref={textRef} className={s.areaForTemplate}></textarea>
+            <textarea required={true} ref={textRef} disabled={disabled} className={s.areaForTemplate}></textarea>
             <span className={s.description}>[store], [product], [link]</span>
         </div>
 

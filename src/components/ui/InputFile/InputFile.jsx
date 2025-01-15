@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import styles from "./InputFile.module.scss"; // Importujemy plik SCSS
 
-const InputFile = ({label, name, onChange, initialImage}) => {
+const InputFile = ({label, name, onChange, initialImage, disabled}) => {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("");
     const [error, setError] = useState("");
@@ -59,21 +59,22 @@ const InputFile = ({label, name, onChange, initialImage}) => {
 
 
                 {/* Ukrywamy input, wywołując go przez przycisk */}
-                <input
-                    ref={inputRef}
-                    type="file"
-                    className={styles.inputFileInput}
-                    name={name}
-                    onChange={handleFileChange}
-                    accept="image/*" // Akceptujemy tylko obrazy
+                <input disabled={disabled}
+                       ref={inputRef}
+                       type="file"
+                       className={styles.inputFileInput}
+                       name={name}
+                       onChange={handleFileChange}
+                       accept="image/*" // Akceptujemy tylko obrazy
                 />
-                <button
-                    type="button"
-                    className={styles.inputFileButton}
-                    onClick={() => inputRef.current.click()}
+                <button disabled={disabled}
+                        type="button"
+                        className={styles.inputFileButton}
+                        onClick={() => inputRef.current.click()}
                 >
                     Виберіть файл
                 </button>
+              
                 <div className={styles.inputFilePreviewContainer}>
                     <img
                         src={file ? URL.createObjectURL(file) : initialImage ? initialImage : 'https://placehold.co/400'}
@@ -81,7 +82,7 @@ const InputFile = ({label, name, onChange, initialImage}) => {
                         className={styles.inputFilePreviewImage}
                     />
                 </div>
-                <button onClick={deleteImg} className={styles.deleteImg}>X</button>
+                <button disabled={disabled} onClick={deleteImg} className={styles.deleteImg}>X</button>
             </div>
             {/*/!* Wyświetlanie podglądu nazwy pliku *!/*/}
             {/*{fileName && !error && (*/}

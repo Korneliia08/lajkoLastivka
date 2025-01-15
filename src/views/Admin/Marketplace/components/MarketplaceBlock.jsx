@@ -6,12 +6,14 @@ import {useNavigate} from "react-router-dom";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import {useState} from "react";
 import {confirmAlert} from 'react-confirm-alert';
+import MarketplaceMiniMessSendChar from "./marketplaceMiniMessSendChar/MarketplaceMiniMessSendChar.jsx";
 
 function MarketplaceBlock({data, fetchData}) {
     const navigate = useNavigate();
 
     const [isEnable, setEnable] = useState(data.isEnabled)
     const [loading, setLoading] = useState(false)
+
 
     function displayEdit() {
         navigate("./" + data.id);
@@ -60,6 +62,7 @@ function MarketplaceBlock({data, fetchData}) {
     return <div className={style.blockOfShop}>
         <span className={style.titleOfShop}>{data.name}</span>
         <div className={style.blockForOptions}>
+            <MarketplaceMiniMessSendChar storeId={data.id}/>
             <Toggle
                 disabled={loading}
                 // defaultChecked={this.state.soupIsReady}

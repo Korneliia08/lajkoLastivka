@@ -127,9 +127,13 @@
           transition: 150ms ease;
           font-family: "Inter", sans-serif;
 
-          &:hover {
+          &:hover:not(:disabled) {
             cursor: pointer;
             background-color: #3d3da9;
+          }
+
+          &:disabled {
+            cursor: wait;
           }
         }
       }
