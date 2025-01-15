@@ -7,6 +7,7 @@ import api from "../../../../providers/interceptors/refreshToken.interceptor.js"
 import InputFile from "../../../../components/ui/InputFile/InputFile.jsx";
 import BannerPreview from "../components/bannerPreview/BannerPreview.jsx";
 import MessageTemplate from "./components/messageTemplate/MessageTemplate.jsx";
+import PageFilterChooseStarsPreview from "./modals/pageFilterChooseStarsPreview/PageFilterChooseStarsPreview.jsx";
 
 
 function MarketplaceForm() {
@@ -20,10 +21,14 @@ function MarketplaceForm() {
     const [logoImg, setLogoImg] = useState(undefined)
     const [saving, setSaving] = useState(false)
     const textRef = useRef()
+    const [loading, setLoading] = useState(false);
+
+
     useEffect(() => {
         usernameRef.current.value = ''
         passwordRef.current.value = ''
         const fetchData = async () => {
+            setLoading(true); // Rozpoczęcie ładowania
             if (id !== "0") {
                 try {
                     const res = await api(`stores/${id}`);
@@ -33,6 +38,7 @@ function MarketplaceForm() {
                     setBannerImg(store.bannerImg)
                     setLogoImg(store.logoImg)
                 } catch (err) {
+                    navigate('/admin/marketplaces')
                     console.log(err);
                 }
             }
@@ -49,6 +55,7 @@ function MarketplaceForm() {
                     '\n' +
                     'Дякуємо, що вибрав нас! Сподіваємось, це не останній раз! 😉'
             }
+            setLoading(false); // Zakończenie ładowani
         };
 
         fetchData();
@@ -114,19 +121,24 @@ function MarketplaceForm() {
                     </div>
                     <div className={style.formAddAndEdit}>
                         <label htmlFor="store-name" className={style.titleIForm}>Назва магазину</label>
-                        <input ref={nameRef} type="text" name="store-name" required placeholder="Введіть назву магазину"
-                               className={style.input}/>
+                        <input
+                            disabled={loading}
+                            ref={nameRef} type="text" name="store-name" required placeholder="Введіть назву магазину"
+                            className={style.input}/>
                         <span className={style.titleIForm}>Дані в кабінет магазину</span>
-                        <input ref={usernameRef} type="text" required={id === '0'} placeholder="Введіть логін"
-                               className={style.input}/>
-                        <input type={"password"} ref={passwordRef} required={id === '0'} placeholder="Введіть пароль"
+                        <input
+                            disabled={loading}
+                            ref={usernameRef} type="text" required={id === '0'} placeholder="Введіть логін"
+                            className={style.input}/>
+                        <input disabled={loading}
+                               type={"password"} ref={passwordRef} required={id === '0'} placeholder="Введіть пароль"
                                className={style.input}/>
                         {loginError && "Shop login error"}
                         <span className={style.titleIForm}>Хедер</span>
-                        <InputFile label={"Оберіть тло для хедера"}
+                        <InputFile disabled={loading} label={"Оберіть тло для хедера"}
                                    initialImage={bannerImg} onChange={(event => setBannerImg(event.base64))}/>
                         <br/>
-                        <InputFile label={"Оберіть лого"}
+                        <InputFile disabled={loading} label={"Оберіть лого"}
                                    initialImage={logoImg} onChange={(event => setLogoImg(event.base64))}/>
                         <span className={style.titleIForm}>Перегляд хедера</span>
                         <BannerPreview data={{bannerImg, logoImg}}/>
@@ -135,18 +147,20 @@ function MarketplaceForm() {
 
                     <div className={style.blockForPages}>
                         <span className={style.titleIForm}>Сторінки</span>
-                        <span className={style.contentInBlock}>Сторінка фільтрації</span>
+                        <PageFilterChooseStarsPreview bannerImg={bannerImg} logoImg={logoImg}/>
+
                         <span className={style.contentInBlock}>Сторінка зворотнього зв’язку</span>
                     </div>
 
 
                     <div className={style.blockForBtn}>
-                        <button type={"submit"} disabled={saving} className={style.btnSave}>Зберегти</button>
+                        <button type={"submit"} disabled={saving || loading} className={style.btnSave}>Зберегти</button>
                     </div>
                 </form>
             </div>
             <div className={style.right}>
-                <MessageTemplate textRef={textRef}/>
+                <MessageTemplate disabled={loading} textRef={textRef}/>
+
             </div>
         </div>
     )

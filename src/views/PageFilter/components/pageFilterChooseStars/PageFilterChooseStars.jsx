@@ -10,8 +10,8 @@ const PageFilterChooseStars = ({setStars, stars, sendStars}) => {
                 <StarsRating onChange={(stars) => setStars(stars)}/>
             </div>
             <div className={style.blockForBtns}>
-                <button className={style.deleteBtn}>Скасувати</button>
-                <button className={style.continueBtn} disabled={stars == 0} onClick={sendStars}>Продовжити</button>
+                <button type={"button"} className={style.deleteBtn}>Скасувати</button>
+                <button type={"button"} className={style.continueBtn} disabled={stars == 0} onClick={sendStars}>Продовжити</button>
             </div>
         </>
     )

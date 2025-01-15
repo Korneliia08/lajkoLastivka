@@ -8,7 +8,7 @@ function LogIn() {
     const navigate = useNavigate();
 
     const [correctData, setCorrectData] = useState(true);
-
+    const [disabled, setDisabled] = useState(false)
     const [login, setLogin] = useState('');
     const loginRef = useRef(null)
     const passRef = useRef(null)
@@ -27,6 +27,7 @@ function LogIn() {
                 email: login,
                 password
             }
+            setDisabled(true)
             const response = await axios.post(import.meta.env.VITE_APP_API + "/authorization/login", data);
             setCorrectData(true);
             navigate("admin");
@@ -38,7 +39,7 @@ function LogIn() {
             setCorrectData(false);
             setResult("<b  style='color: white'>Дані невірні, ластівка не може злетіти 🤔</b>")
         }
-
+        setDisabled(false)
         loginRef.current.value = '';
         passRef.current.value = '';
     }
@@ -71,7 +72,7 @@ function LogIn() {
                                 <input type="checkbox" className={style.inputCheck}/>
                             </div>
                         </div>
-                        <button className={style.btnLogIn} onClick={checkLoginAndPass}>Увійти</button>
+                        <button disabled={disabled} className={style.btnLogIn} onClick={checkLoginAndPass}>Увійти</button>
                         <span dangerouslySetInnerHTML={{__html: result}}></span>
                     </form>
                 </div>

@@ -1,5 +1,5 @@
 import style from "./LeftNav.module.scss";
-import {FaBusinessTime, FaChartLine, FaIdCard, FaShopify} from "react-icons/fa";
+import {FaChartLine, FaShopify} from "react-icons/fa";
 import {NavLink} from "react-router-dom";
 
 function LeftNav() {
@@ -15,14 +15,14 @@ function LeftNav() {
                     <FaShopify/>
                     <NavLink to={"marketplaces"}>Маркетплейси</NavLink>
                 </div>
-                <div className={[style.blockForA, style.disabled].join(" ")}>
-                    <FaBusinessTime/>
-                    <a href="#">Бізнес</a>
-                </div>
-                <div className={[style.blockForA, style.disabled].join(" ")}>
-                    <FaIdCard/>
-                    <a href="#">Картки</a>
-                </div>
+                {/*<div className={[style.blockForA, style.disabled].join(" ")}>*/}
+                {/*    <FaBusinessTime/>*/}
+                {/*    <a href="#">Бізнес</a>*/}
+                {/*</div>*/}
+                {/*<div className={[style.blockForA, style.disabled].join(" ")}>*/}
+                {/*    <FaIdCard/>*/}
+                {/*    <a href="#">Картки</a>*/}
+                {/*</div>*/}
             </nav>
         </div>
     )
