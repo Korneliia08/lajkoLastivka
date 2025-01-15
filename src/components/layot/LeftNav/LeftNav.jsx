@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 function LeftNav() {
     return (
         <div className={style.container}>
-            <span className={style.titleOfNav}>Панель адміністратора</span>
+            <span className={style.titleOfNav}>Dashboard</span>
             <nav className={style.nav}>
                 <div className={[style.blockForA, style.disabled].join(" ")}>
                     <FaChartLine/>
