@@ -9,6 +9,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import MarketplaceForm from "./views/Admin/Marketplace/MarketplaceForm/MarketplaceForm.jsx";
 import PageFilter from "./views/PageFilter/PageFilter.jsx";
 import {useEffect} from "react";
+import Dashboard from "./views/Admin/dashboard/Dashboard.jsx";
 
 function App() {
 
@@ -25,6 +26,10 @@ function App() {
             element: <AdminViewGuard><Admin/></AdminViewGuard>,
             children: [
                 {
+                    path: 'dashboard',
+                    element: <Dashboard/>
+                },
+                {
                     path: "marketplaces",
                     element: <Marketplaces/>
                 },
@@ -33,8 +38,8 @@ function App() {
                     element: <MarketplaceForm/>
                 },
                 {
-                    path: "",
-                    element: <Navigate to={"marketplaces"}/>
+                    path: "dashboard",
+                    element: <Navigate to={"dashboard"}/>
                 }
             ],
         },

@@ -7,13 +7,19 @@ function LeftNav() {
         <div className={style.container}>
             <span className={style.titleOfNav}>Dashboard</span>
             <nav className={style.nav}>
-                <div className={[style.blockForA, style.disabled].join(" ")}>
-                    <FaChartLine/>
-                    <a href="#">Статистики</a>
+
+                <div className={style.blockForA}>
+                    <FaShopify/>
+                    {/*todo tylko chwilowo tak dałem, możesz zmieniać*/}
+                    <NavLink to={"dashboard"}>Dashboard</NavLink>
                 </div>
                 <div className={style.blockForA}>
                     <FaShopify/>
                     <NavLink to={"marketplaces"}>Маркетплейси</NavLink>
+                </div>
+                <div className={[style.blockForA, style.disabled].join(" ")}>
+                    <FaChartLine/>
+                    <a href="#">Статистики</a>
                 </div>
                 {/*<div className={[style.blockForA, style.disabled].join(" ")}>*/}
                 {/*    <FaBusinessTime/>*/}
