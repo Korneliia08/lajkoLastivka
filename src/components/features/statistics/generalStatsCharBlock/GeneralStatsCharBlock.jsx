@@ -2,7 +2,7 @@ import s from "./GeneralStatsCharBlock.module.scss";
 import Block from "../../../ui/block/Block.jsx";
 import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import GeneralStatschar from "./generalStatschar/GeneralStatschar.jsx";
-import Select from "react-select/base";
+import Select from "react-select";
 import TrendIndicator from "../../../ui/trendIndicator/TrendIndicator.jsx";
 
 const options = [

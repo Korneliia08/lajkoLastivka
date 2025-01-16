@@ -3,6 +3,11 @@ import {useNavigate} from "react-router-dom";
 import MarketplaceBlock from "./components/MarketplaceBlock.jsx";
 import {useEffect, useState} from "react";
 import api from "../../../providers/interceptors/refreshToken.interceptor.js";
+import PanelTitle from "../../../components/layot/panelTitle/PanelTitle.jsx";
+import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
+
+import InfoTile from "../../../components/ui/statisitc/infoTile/InfoTile.jsx";
+import ListBlock from "../../../components/ui/listBlock/ListBlock.jsx";
 
 function Marketplaces() {
     const [allMarkets, setAllMarkets] = useState([]);
@@ -25,16 +30,32 @@ function Marketplaces() {
     }
 
     return (
-        <div className={style.container}>
-            <h3 className={style.title}>Маркетплейси:</h3>
-            <div className={style.containerForShops}>
+        <>
+            <PanelTitle title={'Маркетплейси:'} subTitle={'See your marketplaces'}/>
+            <OutletPanelScroll>
 
-                {allMarkets.map((market) => <MarketplaceBlock fetchData={fetchData} data={market} index={market.id} key={market.id}/>)}
-            </div>
-            <div className={style.blockForBtn}>
-                <button className={style.btnConnectShop} onClick={displayAddShop}>Підключити магазин</button>
-            </div>
-        </div>
+                <div className={style.topRow}>
+
+                    <InfoTile/>
+                    <InfoTile/>
+                    <InfoTile/>
+                    <InfoTile/>
+                </div>
+                <ListBlock title={'Marketplaces list'}>
+
+                    <div className={style.container}>
+                        <h3 className={style.title}></h3>
+                        <div className={style.containerForShops}>
+
+                            {allMarkets.map((market) => <MarketplaceBlock fetchData={fetchData} data={market} index={market.id} key={market.id}/>)}
+                        </div>
+                        <div className={style.blockForBtn}>
+                            <button className={style.btnConnectShop} onClick={displayAddShop}>Підключити магазин</button>
+                        </div>
+                    </div>
+                </ListBlock>
+            </OutletPanelScroll>
+        </>
     )
 }
 

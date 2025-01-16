@@ -7,13 +7,22 @@ const InfoTile = ({
                       icon = <TfiFaceSad/>,
                       title = 'Clicks',
                       value = '₴324K',
-                      secondValue = '+87.5%',
-                      secondValueColor = 'green',
+                      secondValue = ' 87.5',
                       description = 'last month'
                   }) => {
     function getColor() {
-        return secondValueColor === 'green' ? s.green : s.red;
+        return secondValue > 0 ? s.green : s.red;
 
+    }
+
+    function secondValueConv() {
+        if (secondValue > 0) {
+
+            return "+" + secondValue + '%';
+        } else {
+            return "-" + secondValue + '%';
+
+        }
     }
 
     return (
@@ -28,7 +37,7 @@ const InfoTile = ({
                 <div className={s.content}>
                     <div className={s.left}><span className={s.primaryValue}>{value}</span></div>
                     <div className={s.right}>
-                        <span className={cn(s.secondaryValue, getColor())}>{secondValue}</span>
+                        <span className={cn(s.secondaryValue, getColor())}>{secondValueConv()}</span>
                         <span className={s.description}>{description}</span>
                     </div>
 

@@ -10,6 +10,7 @@ import MarketplaceForm from "./views/Admin/Marketplace/MarketplaceForm/Marketpla
 import PageFilter from "./views/PageFilter/PageFilter.jsx";
 import {useEffect} from "react";
 import Dashboard from "./views/Admin/dashboard/Dashboard.jsx";
+import Statistics from "./views/Admin/statistics/Statistics.jsx";
 
 function App() {
 
@@ -32,6 +33,10 @@ function App() {
                 {
                     path: "marketplaces",
                     element: <Marketplaces/>
+                },
+                {
+                    path: "statistics",
+                    element: <Statistics/>
                 },
                 {
                     path: "marketplaces/:id",

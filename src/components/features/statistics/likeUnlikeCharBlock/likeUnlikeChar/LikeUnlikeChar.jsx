@@ -1,11 +1,5 @@
 import {Cell, Pie, PieChart, ResponsiveContainer, Sector} from "recharts";
-
-const data = [
-    {name: 'Likes', value: 432},
-    {name: 'UnLikes', value: 300},
-
-];
-const COLORS = ['#0088FE', '#FF8042'];
+import {useState} from "react";
 
 
 const renderActiveShape = (props) => {
@@ -54,15 +48,16 @@ const renderActiveShape = (props) => {
     );
 };
 
-const LikeUnlikeChar = (props) => {
+const LikeUnlikeChar = ({data, colors}) => {
 
+    const [selected, setSelected] = useState(0);
     return (
 
         <ResponsiveContainer minWidth={350} maxHeight={250}>
             <PieChart>
 
                 <Pie
-                    activeIndex={0}
+                    activeIndex={selected}
                     activeShape={renderActiveShape}
                     data={data}
                     cx="50%"
@@ -76,7 +71,9 @@ const LikeUnlikeChar = (props) => {
                     dataKey="value"
                 >
                     {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
+                        <Cell key={`cell-${index}`} onMouseEnter={() => {
+                            setSelected(index)
+                        }} fill={colors[index % colors.length]}/>
                     ))}
                 </Pie>
             </PieChart>

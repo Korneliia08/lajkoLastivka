@@ -2,10 +2,35 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-
+  position: relative;
   background: radial-gradient(ellipse at 0% 0%, rgba(109, 181, 253, 0.54) 0%, 35.42%, rgb(255 255 255 / 0) 100%) no-repeat no-repeat, /* New Background (copy) */
   linear-gradient(0deg, rgb(255 255 255 / 0) 85.42%, rgba(0,101,201,0.11) 98.61%) -100% 0% / 100% 100.5% no-repeat no-repeat, /* New Background (copy) */
   radial-gradient(ellipse at 0% 0%, rgba(159, 206, 255, 0) 0%, 37.5%, rgb(255 255 255 / 0) 100%) no-repeat no-repeat; /* New Background */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/images/grid.png");
+    background-size: cover;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/images/dots.png");
+    background-size: contain;
+    opacity: 1;
+    pointer-events: none;
+  }
 
   .wrapper {
     display: flex;
@@ -13,18 +38,6 @@
     height: 100%;
     position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("../../assets/images/grid.png");
-      background-size: cover;
-      opacity: 0.05;
-      pointer-events: none;
-    }
 
     .containerForOutlet {
       width: 100%;

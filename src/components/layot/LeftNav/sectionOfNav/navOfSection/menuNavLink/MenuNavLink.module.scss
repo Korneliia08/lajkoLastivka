@@ -2,14 +2,31 @@
   display: flex;
   column-gap: 12px;
   align-items: center;
+  padding: 9px 7px 9px 10px;
+  border-radius: 10px;
+
 
   svg {
-    color: yellow;
+    color: #484848;
   }
 
   .text {
     color: #484848;
-    font-size: 22px;
+    font-size: 14px;
     text-underline: none;
   }
+
+  &.isActive {
+    background: rgba(189, 189, 189, 0.16);
+
+    svg {
+      color: black;
+
+    }
+
+    .text {
+      color: black;
+    }
+  }
+
 }

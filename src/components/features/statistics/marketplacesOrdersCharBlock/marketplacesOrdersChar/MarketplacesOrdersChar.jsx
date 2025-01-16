@@ -2,33 +2,6 @@ import {Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis} from "recharts";
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
-const data = [
-    {
-        name: 'Marketplace 1',
-        uv: 4000,
-        pv: 2400,
-        amt: 2400,
-    },
-    {
-        name: 'Super store',
-        uv: 3000,
-        pv: 1398,
-        amt: 2210,
-    },
-    {
-        name: 'Ukraine store',
-        uv: 2000,
-        pv: 9800,
-        amt: 2290,
-    },
-    {
-        name: 'Best store',
-        uv: 2780,
-        pv: 3908,
-        amt: 2000,
-    },
-   
-];
 
 const getPath = (x, y, width, height) => {
     return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
@@ -42,7 +15,7 @@ const TriangleBar = (props) => {
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill}/>;
 };
 
-const MarketplacesOrdersChar = ({...props}) => {
+const MarketplacesOrdersChar = ({data, ...props}) => {
     return (
         <BarChart
             width={500}
@@ -58,7 +31,7 @@ const MarketplacesOrdersChar = ({...props}) => {
             <CartesianGrid strokeDasharray="3 3"/>
             <XAxis dataKey="name"/>
             <YAxis/>
-            <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar/>} label={{position: 'top'}}>
+            <Bar dataKey="count" fill="#8884d8" shape={<TriangleBar/>} label={{position: 'top'}}>
                 {data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={colors[index % 20]}/>
                 ))}
