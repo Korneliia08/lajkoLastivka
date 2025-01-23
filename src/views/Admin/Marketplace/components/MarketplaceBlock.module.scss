@@ -1,9 +1,11 @@
 .blockOfShop {
-  background-color: #dedede;
+  background-color: #ffffff;
   padding: 10px 15px;
   display: flex;
-  border-radius: 8px;
+  width: 100%;
+ 
   justify-content: space-between;
+  border-bottom: 1px solid black;
 
   .titleOfShop {
     font-size: 16px;

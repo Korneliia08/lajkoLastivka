@@ -4,6 +4,7 @@ import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import GeneralStatschar from "./generalStatschar/GeneralStatschar.jsx";
 import Select from "react-select";
 import TrendIndicator from "../../../ui/trendIndicator/TrendIndicator.jsx";
+import useFetch from "../../../../functions/useFetch.js";
 
 const options = [
     {value: 'chocolate', label: '30 days'},
@@ -12,6 +13,11 @@ const options = [
 ]
 
 const GeneralStatsCharBlock = (props) => {
+    const {data: data} = useFetch('dashboardPage/dahsboardLineChartSummary', {
+        default: undefined
+    });
+    console.log(data);
+
     return (
         <Block className={s.generalStatsCharBlockContainer} rightPart={<Select options={options}/>}>
             <BlockTitle>Line unlike</BlockTitle>
@@ -19,7 +25,7 @@ const GeneralStatsCharBlock = (props) => {
             <div className={s.text}>
                 Lorem impsum 5054, 1231 <TrendIndicator/>
             </div>
-            <GeneralStatschar/>
+            {data && <GeneralStatschar data={data}/>}
         </Block>
     )
 }

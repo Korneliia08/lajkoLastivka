@@ -49,7 +49,7 @@ const renderActiveShape = (props) => {
 };
 
 const LikeUnlikeChar = ({data, colors}) => {
-
+ 
     const [selected, setSelected] = useState(0);
     return (
 

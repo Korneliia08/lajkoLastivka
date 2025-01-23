@@ -16,6 +16,7 @@ const InfoTile = ({
     }
 
     function secondValueConv() {
+        if (!secondValue) return '-'
         if (secondValue > 0) {
 
             return "+" + secondValue + '%';

@@ -5,8 +5,6 @@ import {useEffect, useState} from "react";
 import api from "../../../providers/interceptors/refreshToken.interceptor.js";
 import PanelTitle from "../../../components/layot/panelTitle/PanelTitle.jsx";
 import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
-
-import InfoTile from "../../../components/ui/statisitc/infoTile/InfoTile.jsx";
 import ListBlock from "../../../components/ui/listBlock/ListBlock.jsx";
 
 function Marketplaces() {
@@ -33,16 +31,14 @@ function Marketplaces() {
         <>
             <PanelTitle title={'Маркетплейси:'} subTitle={'See your marketplaces'}/>
             <OutletPanelScroll>
+                {/*<div className={style.topRow}>*/}
 
-                <div className={style.topRow}>
-
-                    <InfoTile/>
-                    <InfoTile/>
-                    <InfoTile/>
-                    <InfoTile/>
-                </div>
+                {/*    <InfoTile/>*/}
+                {/*    <InfoTile/>*/}
+                {/*    <InfoTile/>*/}
+                {/*    <InfoTile/>*/}
+                {/*</div>*/}
                 <ListBlock title={'Marketplaces list'}>
-
                     <div className={style.container}>
                         <h3 className={style.title}></h3>
                         <div className={style.containerForShops}>
