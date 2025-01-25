@@ -4,12 +4,14 @@ import {LuUsers} from "react-icons/lu";
 import {FiHome} from "react-icons/fi";
 import {GrPieChart} from "react-icons/gr";
 import LeftNavTopPanel from "./leftNavTopPanel/LeftNavTopPanel.jsx";
+import {FaListUl} from "react-icons/fa";
 
 function LeftNav() {
     const dashboardElObj = [
         {title: "Dashboard", link: "dashboard", icon: <FiHome/>},
         {title: "Маркетплейси", link: "marketplaces", icon: <LuUsers/>},
-        {title: "Статистики", link: "statistics", icon: <GrPieChart/>}
+        {title: "Статистики", link: "statistics", icon: <GrPieChart/>},
+        {title: "Orders", link: "orders", icon: <FaListUl/>}
     ];
     const settingsElObj = [{title: "Регулювання часу", link: ""}];
     return (

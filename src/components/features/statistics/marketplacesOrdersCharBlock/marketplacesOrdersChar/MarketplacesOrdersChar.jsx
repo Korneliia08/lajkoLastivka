@@ -16,6 +16,7 @@ const TriangleBar = (props) => {
 };
 
 const MarketplacesOrdersChar = ({data, ...props}) => {
+    if (!data) return
     return (
         <BarChart
             width={500}

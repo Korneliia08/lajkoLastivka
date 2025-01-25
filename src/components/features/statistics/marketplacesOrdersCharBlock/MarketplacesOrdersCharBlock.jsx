@@ -8,13 +8,14 @@ import useFetch from "../../../../functions/useFetch.js";
 
 const MarketplacesOrdersCharBlock = ({...props}) => {
     const {data} = useFetch('stores/allSaleChar', {
-        default: [],
+        default: undefined,
     });
+    if (!data) return
     return (
         <Block className={s.marketplacesOrdersCharBlockContainer}>
             <BlockTitle>Total orders</BlockTitle>
-            <p className={s.text}>453 orders <TrendIndicator/></p>
-            <MarketplacesOrdersChar data={data}/>
+            <p className={s.text}>453 orders <TrendIndicator value={data.global.trend}/></p>
+            <MarketplacesOrdersChar data={data.stores}/>
 
         </Block>
     )

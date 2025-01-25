@@ -11,6 +11,9 @@ import PageFilter from "./views/PageFilter/PageFilter.jsx";
 import {useEffect} from "react";
 import Dashboard from "./views/Admin/dashboard/Dashboard.jsx";
 import Statistics from "./views/Admin/statistics/Statistics.jsx";
+import Orders from "./views/Admin/orders/Orders.jsx";
+import {LocalizationProvider} from "@mui/x-date-pickers";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 
 function App() {
 
@@ -39,6 +42,12 @@ function App() {
                     element: <Statistics/>
                 },
                 {
+                    path: "orders",
+                    element: <Orders/>
+                },
+
+
+                {
                     path: "marketplaces/:id",
                     element: <MarketplaceForm/>
                 },
@@ -62,7 +71,9 @@ function App() {
 
     return (
         <>
-            <RouterProvider router={router}></RouterProvider>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <RouterProvider router={router}></RouterProvider>
+            </LocalizationProvider>
         </>
     )
 }

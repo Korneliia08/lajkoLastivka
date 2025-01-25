@@ -14,7 +14,12 @@ function MarketplaceForm() {
     const {id} = useParams();
     const navigate = useNavigate()
     const nameRef = useRef(null)
+    const sendStartRef = useRef(null)
+    const sendEndRef = useRef(null)
+    const sendingDelayRef = useRef(null)
     const usernameRef = useRef(null)
+
+
     const passwordRef = useRef(null)
     const [loginError, setLoginError] = useState(false)
     const [bannerImg, setBannerImg] = useState(undefined)
@@ -35,6 +40,9 @@ function MarketplaceForm() {
                     const store = res.data;
                     nameRef.current.value = store.name;
                     textRef.current.value = store.messageTemplateViber
+                    sendStartRef.current.value = store.sendingStartTime;
+                    sendEndRef.current.value = store.sendingEndTime;
+                    sendingDelayRef.current.value = store.sendingDelay;
                     setBannerImg(store.bannerImg)
                     setLogoImg(store.logoImg)
                 } catch (err) {
@@ -69,6 +77,8 @@ function MarketplaceForm() {
             name: nameRef.current.value,
             username: usernameRef.current.value,
             password: passwordRef.current.value,
+            sendStart: sendStartRef.current.value,
+            sendEnd: sendEndRef.current.value,
             bannerImg: bannerImg,
             logoImg: logoImg,
             messageTemplateViber: textRef.current.value
@@ -142,12 +152,32 @@ function MarketplaceForm() {
                                    initialImage={logoImg} onChange={(event => setLogoImg(event.base64))}/>
                         <span className={style.titleIForm}>Перегляд хедера</span>
                         <BannerPreview data={{bannerImg, logoImg}}/>
-
+                        <br/>
+                        <span className={style.titleIForm}>Czas wysyłki</span>
+                        <input
+                            disabled={loading}
+                            ref={sendStartRef} type="text" required={true} placeholder="Od"
+                            className={style.input}/>
+                        <input
+                            disabled={loading}
+                            ref={sendEndRef} type="text" required={true} placeholder="Do"
+                            className={style.input}/>
+                        <input
+                            disabled={loading}
+                            ref={sendingDelayRef} type="text" required={true} placeholder="Opóźnienie"
+                            className={style.input}/>
                     </div>
 
                     <div className={style.blockForPages}>
                         <span className={style.titleIForm}>Сторінки</span>
                         <PageFilterChooseStarsPreview bannerImg={bannerImg} logoImg={logoImg}/>
+
+                        <span className={style.contentInBlock}>Сторінка зворотнього зв’язку</span>
+                    </div>
+
+
+                    <div className={style.blockForPages}>
+                        <span className={style.titleIForm}>Czas wysyłki</span>
 
                         <span className={style.contentInBlock}>Сторінка зворотнього зв’язку</span>
                     </div>

@@ -1,0 +1,42 @@
+import {createSlice} from '@reduxjs/toolkit'
+
+const ordersSlice = createSlice({
+    name: 'orders',
+    initialState: {
+        selectedOrders: [],
+        searchInput: '',
+        startTime: null,
+        endTime: null,
+    },
+
+
+    reducers: {
+
+
+        setStartTime: (state, action) => {
+            state.startTime = action.payload;
+        },
+        setEndTime: (state, action) => {
+            state.endTime = action.payload;
+        },
+        setSearchInput(state, action) {
+            state.searchInput = action.payload
+        },
+        addOrderToSelected(state, action) {
+            const find = state.selectedOrders.find((order) => order.id === action.payload);
+
+            if (!find) {
+                state.selectedOrders.push(action.payload)
+            }
+        },
+        removeSelectedOrder(state, action) {
+            state.selectedOrders = state.selectedOrders.filter((order) => order.id !== action.payload);
+        },
+        removeAllSelectedOrder(state) {
+            state.selectedOrders = []
+        }
+    },
+})
+
+export const {setStartTime, setEndTime, setSearchInput, addOrderToSelected, removeSelectedOrder, removeAllSelectedOrder} = ordersSlice.actions
+export default ordersSlice.reducer

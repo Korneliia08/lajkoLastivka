@@ -3,10 +3,10 @@ import api from "../providers/interceptors/refreshToken.interceptor.js";
 
 const useFetch = (
     url,
-    options = {withPagination: false, limit: 999, page: 1, default: []},
+    options = {withPagination: false, limit: 999, page: 1, default: [], params: ''},
 ) => {
     options = {
-        ...{withPagination: false, limit: 999, page: 1, default: []},
+        ...{withPagination: false, limit: 999, page: 1, default: [], params: ''},
         ...options,
     };
     const [data, setData] = useState(options.default);
@@ -16,8 +16,10 @@ const useFetch = (
     const [page, setPage] = useState(options.page);
     useEffect(() => {
         setLoading(true);
+
+
         api
-            .get(url + `?limit=${options.limit}&page=${page}`)
+            .get(url + `?limit=${options.limit}&page=${page}${options.params}`)
             .then((res) => {
                 if (options.withPagination) {
                     setData(res.data.data);
@@ -32,7 +34,7 @@ const useFetch = (
             .finally(() => {
                 setLoading(false);
             });
-    }, [url, page, options.limit, options.withPagination]);
+    }, [url, page, options.limit, options.withPagination, options.params]);
     if (options.withPagination) {
         return {
             data: data,
