@@ -1,23 +1,30 @@
 .panelTitleContainer {
   display: flex;
-  flex-direction: column;
-  gap: 0px;
+  justify-content: space-between;
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid #e4e4e4;
   width: 100%;
   padding-left: 15px;
 
-  .title {
-    font-size: 25px;
-    margin: 0;
-  }
+  .blockForTitle {
+    display: flex;
+    flex-direction: column;
 
-  .subTitle {
-    font-size: 15px;
-    color: #606060;
-    margin: 0;
-    font-weight: normal;
+    .title {
+      font-size: 25px;
+      margin: 0;
+    }
 
+    .subTitle {
+      font-size: 15px;
+      color: #606060;
+      margin: 0;
+      font-weight: normal;
+    }
   }
+}
+
+.btnStyle {
+  background-color: #5c0073;
 }

@@ -4,28 +4,28 @@
 
 
 .styleOfToggle .react-toggle-track {
-  background-color: #707070 !important;
+  background-color: #c4c4c4 !important;
 }
 
 .styleOfToggle:hover .react-toggle-track, .styleOfToggle.react-toggle-track {
-  background-color: #707070 !important;
+  background-color: #b7b7b7 !important;
 }
 
 .styleOfToggle.react-toggle--checked:hover .react-toggle-track, .styleOfToggle.react-toggle-track {
-  background-color: #707070 !important;
+  background-color: #c0c0c0 !important;
 }
 
 
 .styleOfToggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #a1a1a1 !important;
+  background-color: #c9c9c9 !important;
 }
 
 .styleOfToggle.react-toggle--checked:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #8500d3 !important;
+  background-color: #83a8e7 !important;
 }
 
 .styleOfToggle.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #5c2496 !important;
+  background-color: #7194d0 !important;
 }
 
 a {

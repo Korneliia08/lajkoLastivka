@@ -1,11 +1,10 @@
-import style from "./Marketplaces.module.scss";
 import {useNavigate} from "react-router-dom";
-import MarketplaceBlock from "./components/MarketplaceBlock.jsx";
 import {useEffect, useState} from "react";
 import api from "../../../providers/interceptors/refreshToken.interceptor.js";
 import PanelTitle from "../../../components/layot/panelTitle/PanelTitle.jsx";
 import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
-import ListBlock from "../../../components/ui/listBlock/ListBlock.jsx";
+import MarketplaceBlock from "./components/MarketplaceBlock.jsx";
+import s from "./Marketplaces.module.scss";
 
 function Marketplaces() {
     const [allMarkets, setAllMarkets] = useState([]);
@@ -29,27 +28,13 @@ function Marketplaces() {
 
     return (
         <>
-            <PanelTitle title={'Маркетплейси:'} subTitle={'See your marketplaces'}/>
+            <PanelTitle title={'Маркетплейси:'} subTitle={'See your marketplaces'} buttonText={"Додати магазин"}
+                        onClick={displayAddShop}/>
             <OutletPanelScroll>
-                {/*<div className={style.topRow}>*/}
-
-                {/*    <InfoTile/>*/}
-                {/*    <InfoTile/>*/}
-                {/*    <InfoTile/>*/}
-                {/*    <InfoTile/>*/}
-                {/*</div>*/}
-                <ListBlock title={'Marketplaces list'}>
-                    <div className={style.container}>
-                        <h3 className={style.title}></h3>
-                        <div className={style.containerForShops}>
-
-                            {allMarkets.map((market) => <MarketplaceBlock fetchData={fetchData} data={market} index={market.id} key={market.id}/>)}
-                        </div>
-                        <div className={style.blockForBtn}>
-                            <button className={style.btnConnectShop} onClick={displayAddShop}>Підключити магазин</button>
-                        </div>
-                    </div>
-                </ListBlock>
+                <div className={s.container}>
+                    {allMarkets.map((market) => <MarketplaceBlock fetchData={fetchData} data={market}
+                                                                  index={market.id} key={market.id}/>)}
+                </div>
             </OutletPanelScroll>
         </>
     )

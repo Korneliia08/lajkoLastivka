@@ -1,11 +1,12 @@
 import style from "./MarketplaceBlock.module.scss";
-import Toggle from "react-toggle";
-import {CiHeart} from "react-icons/ci";
-import {MdDeleteSweep, MdModeEditOutline} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
-import {useState} from "react";
+import React, {useState} from "react";
 import {confirmAlert} from 'react-confirm-alert';
+import {CiHeart} from "react-icons/ci";
+import Toggle from "react-toggle";
+import {FaArrowRightLong} from "react-icons/fa6";
+import {MdDeleteOutline} from "react-icons/md";
 import MarketplaceMiniMessSendChar from "./marketplaceMiniMessSendChar/MarketplaceMiniMessSendChar.jsx";
 
 function MarketplaceBlock({data, fetchData}) {
@@ -60,25 +61,44 @@ function MarketplaceBlock({data, fetchData}) {
     }
 
     return <div className={style.blockOfShop}>
-        <span className={style.titleOfShop}>{data.name}</span>
-        <div className={style.blockForOptions}>
-            <MarketplaceMiniMessSendChar storeId={data.id}/>
-            <Toggle
-                disabled={loading}
-                // defaultChecked={this.state.soupIsReady}
-                icons={{
-                    checked: <CiHeart className={style.iconHeart}/>,
-                    unchecked: null,
-                }}
-                checked={isEnable}
-                className='styleOfToggle'
-                onChange={handleToggleStore}
-            />
-            <MdModeEditOutline className={style.icon} onClick={displayEdit}/>
-            <MdDeleteSweep className={style.icon} onClick={deleteMarketplace}/>
+        <div className={style.top}>
+            <div className={style.container}>
+                <img src="" alt="" className={style.imageStyle}/>
+                <div className={style.blockForTitle}>
+                    <h4 className={style.mainTitle}>{data.name}</h4>
+                    <h5 className={style.titleStore}>Rozetka store</h5>
+                </div>
+                <div className={style.blockForDeleteAndToggle}>
+                    <Toggle
+                        disabled={loading}
+                        // defaultChecked={this.state.soupIsReady}
+                        icons={{
+                            checked: <CiHeart className={style.iconHeart}/>,
+                            unchecked: null,
+                        }}
+                        checked={isEnable}
+                        className='styleOfToggle'
+                        onChange={handleToggleStore}
+                    />
+                    <MdDeleteOutline className={style.deleteIc} onClick={deleteMarketplace}/>
+                </div>
+            </div>
+        </div>
+        <div className={style.blockForContantAndStatistic}>
+            <p className={style.describe}>lorem lore lorem rgisjer hrt ugtrgih gr8 ywghrwb rg8th t89g irbir uhebgjer or
+                ebg
+                ergghre gwhusg regb</p>
+            <div className={style.blockForStatistic}>
+                <span>К-сть надісланих прохань про відгук</span>
+                <MarketplaceMiniMessSendChar storeId={data.id}/>
+            </div>
+        </div>
+        <div className={style.blockForBtn}>
+            <button className={style.btnSettings} onClick={displayEdit}>Налаштування
+                <FaArrowRightLong className={style.arrowIc}/>
+            </button>
         </div>
     </div>
-
 }
 
 export default MarketplaceBlock
