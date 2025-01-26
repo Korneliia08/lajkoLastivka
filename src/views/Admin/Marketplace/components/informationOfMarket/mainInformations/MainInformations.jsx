@@ -13,11 +13,11 @@ const MainInformations = ({...props}) => {
                 <Statistics/>
             </div>
             <aside>
-                <div className={s.block}>
+                <div className={[s.block, s.blockForAfter].join("")}>
                     <FaChartPie className={s.icStyle}/>
                     <span>Статистики</span>
                 </div>
-                <div className={s.block}>
+                <div className={[s.block, s.blockForAfter].join("")}>
                     <FaLink className={s.icStyle}/>
                     <span className={s.link}>https://rozetka.com.ua</span>
                 </div>

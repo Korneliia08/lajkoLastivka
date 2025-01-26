@@ -1,0 +1,17 @@
+.blockOfStatistic {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: flex-start;
+
+  .title {
+    font-size: 14px;
+    color: #9a9a9a;
+    text-shadow: 0px 1px 1px 1px #f6f6f6;
+  }
+
+  .content {
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
