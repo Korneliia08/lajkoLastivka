@@ -15,7 +15,7 @@ import Orders from "./views/Admin/orders/Orders.jsx";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {Toaster} from "react-hot-toast";
-import InformationOfMarket from "./views/Admin/Marketplace/components/informationOfMarket/InformationOfMarket.jsx";
+import InformationOfMarket from "./views/Admin/informationOfMarket/InformationOfMarket.jsx";
 
 function App() {
 

@@ -5,28 +5,31 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  align-items: stretch;
 
   .leftBlock {
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    padding: 5px;
   }
 
   aside {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: stretch;
+    align-content: stretch;
     row-gap: 15px;
     border: 1px solid #d0d0d0;
-    padding: 25px 15px;
-    height: 100%;
+    padding: 0 20px;
+
     border-radius: 10px;
 
     .block {
       display: flex;
       column-gap: 10px;
-      align-items: flex-start;
+      align-items: center;
       justify-content: flex-start;
+      height: 33.333%;
 
       .icStyle {
         font-size: 17px;
@@ -63,18 +66,20 @@
         text-decoration: underline;
       }
 
-      .blockForAfter {
+      &.blockForAfter {
         position: relative;
+        width: 100%;
+        display: flex;
 
         &:after {
           content: "";
           display: flex;
-          width: 250px;
-          height: 50px;
-          background-color: #1a7e00;
+          width: 90%;
+          height: 1px;
+          border-bottom: 1px solid rgba(124, 124, 124, 0.4);
           position: absolute;
-          bottom: 0;
-          left: 0;
+          bottom: -8px;
+          left: 5%;
         }
       }
     }

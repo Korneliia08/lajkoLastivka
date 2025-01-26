@@ -45,7 +45,7 @@ const OrdersTableTopPanelDatesRange = ({...props}) => {
                 format="YYYY-MM-DD HH:mm"
                 renderInput={(params) => <TextField
                     {...params}
-                    sx={{paddingTop: 0, paddingBottom: 0}}
+                    style={{paddingTop: 0, paddingBottom: 0}}
                 />}
                 className={s.ordersTableTopPanelDatesRangeContainer}
             />
@@ -58,7 +58,7 @@ const OrdersTableTopPanelDatesRange = ({...props}) => {
                 onChange={handleEndTimeChange}
                 renderInput={(params) => <TextField
                     {...params}
-                    sx={{paddingTop: 0, paddingBottom: 0}}
+                    style={{paddingTop: 0, paddingBottom: 0}}
                 />}
                 className={s.ordersTableTopPanelDatesRangeContainer}
             />
