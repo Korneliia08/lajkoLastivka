@@ -14,6 +14,7 @@ import Statistics from "./views/Admin/statistics/Statistics.jsx";
 import Orders from "./views/Admin/orders/Orders.jsx";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
+import {Toaster} from "react-hot-toast";
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
     return (
         <>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <div><Toaster position="top-right"/></div>
                 <RouterProvider router={router}></RouterProvider>
             </LocalizationProvider>
         </>

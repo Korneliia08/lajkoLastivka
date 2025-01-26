@@ -2,7 +2,6 @@ import s from "./GeneralStatsCharBlock.module.scss";
 import Block from "../../../ui/block/Block.jsx";
 import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import GeneralStatschar from "./generalStatschar/GeneralStatschar.jsx";
-import Select from "react-select";
 import TrendIndicator from "../../../ui/trendIndicator/TrendIndicator.jsx";
 import useFetch from "../../../../functions/useFetch.js";
 
@@ -17,9 +16,9 @@ const GeneralStatsCharBlock = (props) => {
         default: undefined
     });
     console.log(data);
-
+//rightPart={<Select options={options}/>}
     return (
-        <Block className={s.generalStatsCharBlockContainer} rightPart={<Select options={options}/>}>
+        <Block className={s.generalStatsCharBlockContainer}>
             <BlockTitle>Line unlike</BlockTitle>
             <div className={s.smallText}>Total earn</div>
             <div className={s.text}>

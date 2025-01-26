@@ -16,6 +16,7 @@ const OrdersTable = ({...props}) => {
     const findText = useSelector(state => state.orders.searchInput);
     const startDate = useSelector((state) => state.orders.startTime);
     const endDate = useSelector((state) => state.orders.endTime);
+    const ref = useSelector((state) => state.orders.refresh);
     const startDateUtc = startDate ? dayjs(startDate).toISOString() : null;
     const endDateUtc = endDate ? dayjs(endDate).toISOString() : null;
     const {data, pagination, loading} = useFetch('orders/table?test=123', {
@@ -23,7 +24,7 @@ const OrdersTable = ({...props}) => {
         withPagination: true,
         limit: limit,
         page: 1,
-        params: `&sortDirection=${sortDirection}&sortColumn=${sortColumn}&find=${findText}&startTime=${startDateUtc}&endTime=${endDateUtc}`
+        params: `&sortDirection=${sortDirection}&ref=${ref}&sortColumn=${sortColumn}&find=${findText}&startTime=${startDateUtc}&endTime=${endDateUtc}`
     });
     const selectedOrders = useSelector(state => state.orders.selectedOrders);
     const dispatch = useDispatch();
@@ -88,7 +89,7 @@ const OrdersTable = ({...props}) => {
                 <OrdersTableElement
                     order={order}
                     index={index + ((pagination.page - 1) * limit) + 1}
-                    key={order.id}
+                    key={order.id + '_' + index}
                 />
             ))}
             </tbody>

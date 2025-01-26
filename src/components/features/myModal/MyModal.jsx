@@ -9,7 +9,7 @@ const MyModal = ({
     }
                  }) => {
     const [isAnimating, setIsAnimating] = useState(false); // Śledzenie, czy modal animuje
-
+    
     useEffect(() => {
         if (controller.currentModal === name) {
             setIsAnimating(true); // Rozpocznij animację pojawiania
