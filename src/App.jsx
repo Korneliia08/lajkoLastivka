@@ -15,6 +15,7 @@ import Orders from "./views/Admin/orders/Orders.jsx";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {Toaster} from "react-hot-toast";
+import InformationOfMarket from "./views/Admin/Marketplace/components/informationOfMarket/InformationOfMarket.jsx";
 
 function App() {
 
@@ -33,10 +34,16 @@ function App() {
                 {
                     path: 'dashboard',
                     element: <Dashboard/>
+
                 },
                 {
                     path: "marketplaces",
                     element: <Marketplaces/>
+                },
+
+                {
+                    path: "marketplaces/:id",
+                    element: <InformationOfMarket/>
                 },
                 {
                     path: "statistics",

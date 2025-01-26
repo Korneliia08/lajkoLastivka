@@ -16,7 +16,7 @@ function MarketplaceBlock({data, fetchData}) {
     const [loading, setLoading] = useState(false)
 
 
-    function displayEdit() {
+    function displayInformation() {
         navigate("./" + data.id);
     }
 
@@ -94,7 +94,7 @@ function MarketplaceBlock({data, fetchData}) {
             </div>
         </div>
         <div className={style.blockForBtn}>
-            <button className={style.btnSettings} onClick={displayEdit}>Налаштування
+            <button className={style.btnSettings} onClick={displayInformation}>Переглянути магазин
                 <FaArrowRightLong className={style.arrowIc}/>
             </button>
         </div>
