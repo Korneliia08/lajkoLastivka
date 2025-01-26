@@ -3,10 +3,11 @@ import PanelTitle from "../../../components/layot/panelTitle/PanelTitle.jsx";
 import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 import OrdersTable from "./ordersTable/OrdersTable.jsx";
 import OrdersTableTopPanel from "./ordersTable/ordersTableTopPanel/OrdersTableTopPanel.jsx";
+import {useParams} from "react-router-dom";
 
 
 const Orders = ({...props}) => {
-
+    const [id] = useParams()
     return (
 
         <>
@@ -15,7 +16,7 @@ const Orders = ({...props}) => {
                 <div className={s.ordersContainer}>
                     <OrdersTableTopPanel/>
                     <div className={s.ordersList}>
-                        <OrdersTable/>
+                        <OrdersTable store={id}/>
 
                     </div>
                 </div>

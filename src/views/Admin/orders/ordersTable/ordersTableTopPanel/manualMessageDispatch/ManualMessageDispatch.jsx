@@ -5,6 +5,7 @@ import api from "../../../../../../providers/interceptors/refreshToken.intercept
 import {useState} from "react";
 import {refreshOrdersList, removeAllSelectedOrder} from "../../../ordersSlice.js";
 import toast from "react-hot-toast";
+import {confirmAlert} from "react-confirm-alert";
 
 
 const ManualMessageDispatch = ({controller, ...props}) => {
@@ -52,8 +53,25 @@ const ManualMessageDispatch = ({controller, ...props}) => {
 
 
     async function dispatchMessage() {
+        //todo tu tłumacznie
+        confirmAlert({
+            title: 'Czy na pewno chcesz wysłać wiadomości?',
+            message: 'Suma wiadomości do wysłania: ' + selectedOrders.length,
+            buttons: [
+                {
+                    label: 'Так',
+                    onClick: async () => {
+                        await sendData()
+                    }
+                },
+                {
+                    label: 'Ні',
+                    onClick: () => {
+                    }
+                }
+            ]
+        });
 
-        await sendData()
 
     }
 

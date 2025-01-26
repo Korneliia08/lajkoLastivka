@@ -9,7 +9,7 @@ import {addOrderToSelected, removeSelectedOrder} from "../ordersSlice.js";
 import TableTh from "../../../../components/table/tableTh/TableTh.jsx";
 import dayjs from "dayjs";
 
-const OrdersTable = ({...props}) => {
+const OrdersTable = ({store, ...props}) => {
     const [limit, setLimit] = useState(14);
     const [sortDirection, setSortDirection] = useState('')
     const [sortColumn, setSortColumn] = useState('')
@@ -17,14 +17,14 @@ const OrdersTable = ({...props}) => {
     const startDate = useSelector((state) => state.orders.startTime);
     const endDate = useSelector((state) => state.orders.endTime);
     const ref = useSelector((state) => state.orders.refresh);
-    const startDateUtc = startDate ? dayjs(startDate).toISOString() : null;
-    const endDateUtc = endDate ? dayjs(endDate).toISOString() : null;
+    const startDateUtc = dayjs(new Date(startDate)).toISOString();
+    const endDateUtc = dayjs(new Date(endDate)).toISOString();
     const {data, pagination, loading} = useFetch('orders/table?test=123', {
         default: [],
         withPagination: true,
         limit: limit,
         page: 1,
-        params: `&sortDirection=${sortDirection}&ref=${ref}&sortColumn=${sortColumn}&find=${findText}&startTime=${startDateUtc}&endTime=${endDateUtc}`
+        params: `&store=${store}&sortDirection=${sortDirection}&ref=${ref}&sortColumn=${sortColumn}&find=${findText}&startTime=${startDateUtc}&endTime=${endDateUtc}`
     });
     const selectedOrders = useSelector(state => state.orders.selectedOrders);
     const dispatch = useDispatch();

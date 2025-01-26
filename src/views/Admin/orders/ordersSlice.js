@@ -1,12 +1,13 @@
 import {createSlice} from '@reduxjs/toolkit'
+import ms from "ms";
 
 const ordersSlice = createSlice({
     name: 'orders',
     initialState: {
         selectedOrders: [],
         searchInput: '',
-        startTime: null,
-        endTime: null,
+        startTime: new Date().getTime() - ms('7d'),
+        endTime: new Date().getTime(),
         refresh: 1
     },
 

@@ -18,12 +18,14 @@ function MarketplaceForm() {
     const sendEndRef = useRef(null)
     const sendingDelayRef = useRef(null)
     const usernameRef = useRef(null)
+    const marketplaceLinkRef = useRef(null)
 
 
     const passwordRef = useRef(null)
     const [loginError, setLoginError] = useState(false)
     const [bannerImg, setBannerImg] = useState(undefined)
     const [logoImg, setLogoImg] = useState(undefined)
+    const [marketPlaceLogo, setMarketPlaceLogo] = useState(undefined)
     const [saving, setSaving] = useState(false)
     const textRef = useRef()
     const [loading, setLoading] = useState(false);
@@ -42,7 +44,9 @@ function MarketplaceForm() {
                     textRef.current.value = store.messageTemplateViber
                     sendStartRef.current.value = store.sendingStartTime;
                     sendEndRef.current.value = store.sendingEndTime;
-                    sendingDelayRef.current.value = store.sendingDelay;
+                    sendingDelayRef.current.value = store.sendingEndTime;
+                    marketplaceLinkRef.current.value = store.link;
+                    setMarketPlaceLogo(store.logo)
                     setBannerImg(store.bannerImg)
                     setLogoImg(store.logoImg)
                 } catch (err) {
@@ -77,8 +81,10 @@ function MarketplaceForm() {
             name: nameRef.current.value,
             username: usernameRef.current.value,
             password: passwordRef.current.value,
-            sendStart: sendStartRef.current.value,
-            sendEnd: sendEndRef.current.value,
+            link: marketplaceLinkRef.current.value,
+            logo: marketPlaceLogo,
+            sendingEndTime: sendEndRef.current.value,
+            sendingStartTime: sendStartRef.current.value,
             bannerImg: bannerImg,
             logoImg: logoImg,
             messageTemplateViber: textRef.current.value
@@ -175,6 +181,17 @@ function MarketplaceForm() {
                         <span className={style.contentInBlock}>Сторінка зворотнього зв’язку</span>
                     </div>
 
+                    <div className={style.blockForPages}>
+                        <span className={style.titleIForm}>Marketplace</span>
+                        <InputFile disabled={loading} label={"MarketPlace logo"}
+                                   initialImage={marketPlaceLogo} onChange={(event => setMarketPlaceLogo(event.base64))}/>
+                        <input
+                            disabled={loading}
+                            ref={marketplaceLinkRef} type="text" required={true} placeholder="Link"
+                            className={style.input}/>
+
+                        marketplaceLink
+                    </div>
 
                     <div className={style.blockForPages}>
                         <span className={style.titleIForm}>Czas wysyłki</span>

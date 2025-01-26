@@ -56,7 +56,7 @@ function App() {
 
 
                 {
-                    path: "marketplaces/:id",
+                    path: "marketplaces/edit/:id",
                     element: <MarketplaceForm/>
                 },
                 {

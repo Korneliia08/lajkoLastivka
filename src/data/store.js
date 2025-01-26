@@ -5,5 +5,7 @@ export const store = configureStore({
     reducer: {
         orders: OrdersSlice,
 
+    }, devTools: {
+        serializableCheck: false,
     },
 })

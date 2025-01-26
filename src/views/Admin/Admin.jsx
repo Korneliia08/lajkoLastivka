@@ -6,12 +6,15 @@ import PanelHeadTitle from "../../components/layot/panelHeadTitle/PanelHeadTitle
 function Admin() {
     return (
         <div className={style.container}>
-            {/*<TopBelt/>*/}
-            <div className={style.wrapper}>
-                <LeftNav/>
-                <div className={style.containerForOutlet}>
-                    <PanelHeadTitle title={"LastivkaCompany"} text={"Marketplaces"}/>
-                    <Outlet/>
+            <div className={style.innerContainer}>
+
+                {/*<TopBelt/>*/}
+                <div className={style.wrapper}>
+                    <LeftNav/>
+                    <div className={style.containerForOutlet}>
+                        <PanelHeadTitle title={"LastivkaCompany"} text={"Marketplaces"}/>
+                        <Outlet/>
+                    </div>
                 </div>
             </div>
         </div>

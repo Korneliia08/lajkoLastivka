@@ -12,10 +12,9 @@ const OrdersTableTopPanelDatesRange = ({...props}) => {
     const endTime = useSelector((state) => state.orders.endTime);
 
     // Używamy Date(), ponieważ DateTimePicker wymaga wartości typu Date
-    const init = new Date();
-    init.setDate(init.getDate() - 7)
-    const [localStartTime, setLocalStartTime] = useState(startTime || dayjs(init));
-    const [localEndTime, setLocalEndTime] = useState(endTime || dayjs(new Date()));
+
+    const [localStartTime, setLocalStartTime] = useState(dayjs(startTime));
+    const [localEndTime, setLocalEndTime] = useState(dayjs(endTime));
 
     const handleStartTimeChange = (value) => {
         // Sprawdzamy, czy wartość jest prawidłowa przed aktualizacją stanu

@@ -34,7 +34,7 @@ const MarketplaceMiniMessSendChar = ({storeId}) => {
     return (
         <div className={s.marketplaceMiniMessSendCharContainer}>
             {/*<ResponsiveContainer width="100%" height="100%">*/}
-            <LineChart width={170} height={40} data={data}>
+            <LineChart className={s.char} width={200} height={40} data={data}>
                 <CartesianGrid strokeDasharray="9 9" stroke={'#00000009'}/>
                 <YAxis domain={[0, max]} stroke={'#00000099'}/>
                 <Line type="monotone" dataKey="messageCount" r={0} stroke="#8500d391" strokeWidth={2}/>
