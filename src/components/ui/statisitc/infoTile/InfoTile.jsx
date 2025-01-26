@@ -8,7 +8,7 @@ const InfoTile = ({
                       title = 'Clicks',
                       value = '₴324K',
                       secondValue = ' 87.5',
-                      description = 'last month'
+                      description = 'останній місяць'
                   }) => {
     function getColor() {
         return secondValue > 0 ? s.green : s.red;
