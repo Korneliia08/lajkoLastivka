@@ -43,7 +43,10 @@ const OrdersTableTopPanelDatesRange = ({...props}) => {
                 value={localStartTime}
                 onChange={handleStartTimeChange}
                 format="YYYY-MM-DD HH:mm"
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => <TextField
+                    {...params}
+                    sx={{paddingTop: 0, paddingBottom: 0}}
+                />}
                 className={s.ordersTableTopPanelDatesRangeContainer}
             />
             <DateTimePicker
@@ -53,7 +56,10 @@ const OrdersTableTopPanelDatesRange = ({...props}) => {
                 minDateTime={localStartTime}
                 value={localEndTime} format="YYYY-MM-DD HH:mm"
                 onChange={handleEndTimeChange}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => <TextField
+                    {...params}
+                    sx={{paddingTop: 0, paddingBottom: 0}}
+                />}
                 className={s.ordersTableTopPanelDatesRangeContainer}
             />
 
