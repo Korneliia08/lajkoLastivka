@@ -1,9 +1,9 @@
 import s from "./StatisticInformations.module.scss";
-import InfoTile from "../../../../../../components/ui/statisitc/infoTile/InfoTile.jsx";
+import InfoTile from "../../../../components/ui/statisitc/infoTile/InfoTile.jsx";
 import {CgMail, CgRead} from "react-icons/cg";
 import {GiClick} from "react-icons/gi";
-import useFetch from "../../../../../../functions/useFetch.js";
-import {blockStatsInitialData} from "../../../../dashboard/blockStatsInitialData.js";
+import useFetch from "../../../../functions/useFetch.js";
+import {blockStatsInitialData} from "../../dashboard/blockStatsInitialData.js";
 
 
 const StatisticInformations = ({...props}) => {

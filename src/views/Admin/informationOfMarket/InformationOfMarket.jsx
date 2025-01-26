@@ -3,7 +3,7 @@ import MainInformations from "./mainInformations/MainInformations.jsx";
 import StatisticInformations from "./statisticInformations/StatisticInformations.jsx";
 import OrderInformations from "./orderInformations/OrderInformations.jsx";
 import {NavLink, useParams} from "react-router-dom";
-import OutletPanelScroll from "../../../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
+import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 
 
 const InformationOfMarket = ({...props}) => {

@@ -1,5 +1,5 @@
 import s from "./TitleOfShop.module.scss";
-import logo from "./../../../../../../../assets/informationOfMarketPlace/rozetkaLogo.png";
+import logo from "../../../../../assets/informationOfMarketPlace/rozetkaLogo.png";
 
 
 const TitleOfShop = ({...props}) => {

@@ -1,6 +1,6 @@
 import s from "./OrderInformations.module.scss";
-import OrdersTableTopPanel from "../../../../orders/ordersTable/ordersTableTopPanel/OrdersTableTopPanel.jsx";
-import OrdersTable from "../../../../orders/ordersTable/OrdersTable.jsx";
+import OrdersTableTopPanel from "../../orders/ordersTable/ordersTableTopPanel/OrdersTableTopPanel.jsx";
+import OrdersTable from "../../orders/ordersTable/OrdersTable.jsx";
 import {useParams} from "react-router-dom";
 
 
