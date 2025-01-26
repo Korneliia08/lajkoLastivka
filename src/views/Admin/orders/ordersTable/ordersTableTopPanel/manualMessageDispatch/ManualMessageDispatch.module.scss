@@ -1,0 +1,33 @@
+.manualMessageDispatchContainer {
+  width: 500px;
+  height: auto;
+  min-height: 400px;
+  padding: 0 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+
+  .information {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+
+    .label {
+      width: 200px;
+    }
+
+    .value {
+
+    }
+  }
+
+  .content {
+
+    flex-grow: 100;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}

@@ -15,8 +15,12 @@ export const useModalManager = () => {
     };
 
     const handleClickOutside = (event) => {
+
         if (modalRef.current && !modalRef.current.contains(event.target)) {
-            closeModal();
+            if (event.target.className.indexOf('swal2') === -1) {
+
+                closeModal();
+            }
         }
     };
 

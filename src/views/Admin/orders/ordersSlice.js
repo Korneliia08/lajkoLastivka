@@ -7,11 +7,14 @@ const ordersSlice = createSlice({
         searchInput: '',
         startTime: null,
         endTime: null,
+        refresh: 1
     },
 
 
     reducers: {
-
+        refreshOrdersList: (state, action) => {
+            state.refresh = new Date().getTime()
+        },
 
         setStartTime: (state, action) => {
             state.startTime = action.payload;
@@ -38,5 +41,13 @@ const ordersSlice = createSlice({
     },
 })
 
-export const {setStartTime, setEndTime, setSearchInput, addOrderToSelected, removeSelectedOrder, removeAllSelectedOrder} = ordersSlice.actions
+export const {
+    refreshOrdersList,
+    setStartTime,
+    setEndTime,
+    setSearchInput,
+    addOrderToSelected,
+    removeSelectedOrder,
+    removeAllSelectedOrder
+} = ordersSlice.actions
 export default ordersSlice.reducer
