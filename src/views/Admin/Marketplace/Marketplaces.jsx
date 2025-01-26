@@ -11,7 +11,7 @@ function Marketplaces() {
     const navigate = useNavigate();
 
     function displayAddShop() {
-        navigate("./0");
+        navigate("/admin/marketplaces/edit/0");
     }
 
     useEffect(() => {

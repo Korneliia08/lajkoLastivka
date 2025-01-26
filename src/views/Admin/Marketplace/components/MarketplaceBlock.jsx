@@ -63,7 +63,7 @@ function MarketplaceBlock({data, fetchData}) {
     return <div className={style.blockOfShop}>
         <div className={style.top}>
             <div className={style.container}>
-                <img src="" alt="" className={style.imageStyle}/>
+                {data.logo && <img src={data.logo} alt="" className={style.imageStyle}/>}
                 <div className={style.blockForTitle}>
                     <h4 className={style.mainTitle}>{data.name}</h4>
                     <h5 className={style.titleStore}>Rozetka store</h5>

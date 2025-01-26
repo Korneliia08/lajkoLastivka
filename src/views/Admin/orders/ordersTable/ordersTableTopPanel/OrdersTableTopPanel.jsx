@@ -14,9 +14,16 @@ const OrdersTableTopPanel = ({...props}) => {
     return (
         <>
             <div className={s.ordersTableTopPanelContainer}>
-                <OrdersTableTopPanelSearchInput/>
-                <OrdersTableTopPanelDatesRange/>
-                <button disabled={selectedOrders.length === 0} onClick={() => toggleModal('ManualMessageDispatch')}>Send fast message</button>
+                <div className={s.title}>
+                    <h3>Orders:</h3>
+                    <p>All orders in marketplace</p>
+                </div>
+                <div className={s.controls}>
+
+                    <OrdersTableTopPanelSearchInput/>
+                    <OrdersTableTopPanelDatesRange/>
+                    <button disabled={selectedOrders.length === 0} onClick={() => toggleModal('ManualMessageDispatch')}>Send fast message</button>
+                </div>
             </div>
             <MyModal options={{defaultClose: true, headerTitle: 'Message dispatch',}} name={'ManualMessageDispatch'}
                      controller={controller}>

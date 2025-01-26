@@ -1,4 +1,16 @@
 .ordersTableTopPanelContainer {
   display: flex;
-  gap: 10px
+  gap: 10px;
+  align-content: flex-end;
+
+  .title {
+    flex-grow: 10;
+  }
+
+  .controls {
+    height: 30px;
+    display: flex;
+  }
+
+  padding-bottom: 10px;
 }
