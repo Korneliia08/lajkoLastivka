@@ -40,8 +40,6 @@ function MarketplaceBlock({data, fetchData}) {
                     }
                 ]
             });
-
-
         } catch (err) {
             console.log(err);
         }
