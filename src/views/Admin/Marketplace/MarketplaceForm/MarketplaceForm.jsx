@@ -44,7 +44,7 @@ function MarketplaceForm() {
                     textRef.current.value = store.messageTemplateViber
                     sendStartRef.current.value = store.sendingStartTime;
                     sendEndRef.current.value = store.sendingEndTime;
-                    sendingDelayRef.current.value = store.sendingEndTime;
+                    sendingDelayRef.current.value = store.sendingDelay;
                     marketplaceLinkRef.current.value = store.link;
                     setMarketPlaceLogo(store.logo)
                     setBannerImg(store.bannerImg)
@@ -85,7 +85,7 @@ function MarketplaceForm() {
             logo: marketPlaceLogo,
             sendingEndTime: sendEndRef.current.value,
             sendingStartTime: sendStartRef.current.value,
-            bannerImg: bannerImg,
+            sendingDelay: sendStartRef.current.value, bannerImg: bannerImg,
             logoImg: logoImg,
             messageTemplateViber: textRef.current.value
         }
