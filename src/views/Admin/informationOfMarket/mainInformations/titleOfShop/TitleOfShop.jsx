@@ -1,13 +1,12 @@
 import s from "./TitleOfShop.module.scss";
-import logo from "../../../../../assets/informationOfMarketPlace/rozetkaLogo.png";
 
 
-const TitleOfShop = ({...props}) => {
+const TitleOfShop = ({store, ...props}) => {
     return (
         <div className={s.titleOfShopContainer}>
-            <img src={logo} alt="image of store" className={s.logoImg}/>
+            <img src={store.logo} alt="image of store" className={s.logoImg}/>
             <div className={s.rightBlock}>
-                <h4 className={s.mainTitle}>Rozetka</h4>
+                <h4 className={s.mainTitle}>{store.name}</h4>
                 <h3 className={s.title}>rozetka store</h3>
             </div>
         </div>

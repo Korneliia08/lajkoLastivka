@@ -4,12 +4,14 @@ import {CgMail, CgRead} from "react-icons/cg";
 import {GiClick} from "react-icons/gi";
 import useFetch from "../../../../functions/useFetch.js";
 import {blockStatsInitialData} from "../../dashboard/blockStatsInitialData.js";
+import {useParams} from "react-router-dom";
 
 
 const StatisticInformations = ({...props}) => {
-
-    const {data, loading} = useFetch('dashboardPage/BlockData', {
-        default: blockStatsInitialData
+    const {id} = useParams()
+    const {data, loading} = useFetch('informationOfMarketplacePage/BlockData/' + id, {
+        default: blockStatsInitialData,
+        autoRefresh: 20000
     });
     return (
         <div className={s.statisticInformationsContainer}>
@@ -18,7 +20,7 @@ const StatisticInformations = ({...props}) => {
                       secondValueColor={'red'}/>
             <InfoTile icon={<GiClick/>} value={data.clickInMonth.current} secondValue={data.clickInMonth.change} title={'Click messages'}
                       secondValueColor={'red'}/>
-            <InfoTile title={'Write comment'}/>
+            <InfoTile value={data.writeComment.current} secondValue={data.writeComment.change} title={'Write comment'}/>
         </div>
     )
 }

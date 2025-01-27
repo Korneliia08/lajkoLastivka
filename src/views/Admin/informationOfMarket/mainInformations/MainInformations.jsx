@@ -9,7 +9,7 @@ import api from "../../../../providers/interceptors/refreshToken.interceptor.js"
 import {NavLink, useNavigate, useParams} from "react-router-dom";
 
 
-const MainInformations = ({...props}) => {
+const MainInformations = ({store, ...props}) => {
     const {id} = useParams()
     const navigate = useNavigate()
 
@@ -43,17 +43,17 @@ const MainInformations = ({...props}) => {
     return (
         <div className={s.mainInformationsContainer}>
             <div className={s.leftBlock}>
-                <TitleOfShop/>
-                <Statistics/>
+                <TitleOfShop store={store}/>
+                <Statistics store={store}/>
             </div>
             <aside>
-                <NavLink to={'./admin/statistic/' + id} className={cn(s.block, s.blockForAfter)}>
+                <NavLink to={'/admin/statistic/' + id} className={cn(s.block, s.blockForAfter)}>
                     <FaChartPie className={s.icStyle}/>
                     <span>Статистики</span>
                 </NavLink>
                 <a className={cn(s.block, s.blockForAfter)}>
                     <FaLink className={s.icStyle}/>
-                    <span className={s.link}>https://rozetka.com.ua</span>
+                    <span className={s.link}>{store.link}</span>
                 </a>
                 <button onClick={deleteMarketplace} className={s.block}>
                     <MdDeleteOutline className={s.icDelete}/>

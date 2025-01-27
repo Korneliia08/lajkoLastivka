@@ -50,6 +50,10 @@ function App() {
                     element: <Statistics/>
                 },
                 {
+                    path: "statistics/:id",
+                    element: <Statistics/>
+                },
+                {
                     path: "orders",
                     element: <Orders/>
                 },

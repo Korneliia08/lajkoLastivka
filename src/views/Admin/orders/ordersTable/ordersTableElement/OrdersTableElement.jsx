@@ -75,7 +75,9 @@ const OrdersTableElement = ({order, index, ...props}) => {
         }
 
         if (order.hasReview) {
-            icons.push(<MdRateReview key="K14" color={"green"}/>);
+            let title = new Date(order.hasReview.opinionCreateAt).toLocaleString() + ":  " + (order.hasReview.text ? order.hasReview.text : "---")
+            icons.push(<MdRateReview title={title} key="K14"
+                                     color={"green"}/>);
         } else {
             icons.push(<MdRateReview key="K15" color={silverColor}/>);
         }

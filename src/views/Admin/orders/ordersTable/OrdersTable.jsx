@@ -19,11 +19,12 @@ const OrdersTable = ({store, ...props}) => {
     const ref = useSelector((state) => state.orders.refresh);
     const startDateUtc = dayjs(new Date(startDate)).toISOString();
     const endDateUtc = dayjs(new Date(endDate)).toISOString();
-    const {data, pagination, loading} = useFetch('orders/table?test=123', {
+    const {data, pagination, loading} = useFetch('orders/table', {
         default: [],
         withPagination: true,
         limit: limit,
         page: 1,
+
         params: `&store=${store}&sortDirection=${sortDirection}&ref=${ref}&sortColumn=${sortColumn}&find=${findText}&startTime=${startDateUtc}&endTime=${endDateUtc}`
     });
     const selectedOrders = useSelector(state => state.orders.selectedOrders);

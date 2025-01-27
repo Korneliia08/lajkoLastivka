@@ -17,11 +17,11 @@ const InfoTile = ({
 
     function secondValueConv() {
         if (!secondValue) return '-'
+        const val = Math.round(secondValue * 100) / 100
         if (secondValue > 0) {
-
-            return "+" + secondValue + '%';
+            return "+" + val + '%';
         } else {
-            return "-" + secondValue + '%';
+            return "-" + val + '%';
 
         }
     }
