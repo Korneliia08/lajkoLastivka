@@ -9,7 +9,8 @@ const SecondPart = ({...props}) => {
             <div className={s.left}>
                 <div className={s.blockForTitle}>
                     <h5 className={s.title}>Шаблон повідомлення</h5>
-                    <h6 className={s.describe}>sssssssssssssss</h6>
+                    <h6 className={s.describe}>Напишіть шаблон повідомлення для автоматичного надсилання прохань до
+                        клієнтів</h6>
                 </div>
                 <textarea className={s.textAreaField}></textarea>
             </div>
