@@ -13,8 +13,30 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+
+    .inputFile {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      z-index: 10;
+      cursor: pointer;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+
+    .inputFilePreviewImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .icStyle {
+      position: relative;
+      z-index: 9;
+      pointer-events: none;
       font-size: 24px;
       color: #3f3f3f;
     }
