@@ -1,11 +1,9 @@
 .dashboardContainer {
-
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 25px;
+  grid-row-gap: 20px;
   grid-template-areas:
     "topRow topRow topRow topRow"
   "div3   div3  div3  likeUnlike"

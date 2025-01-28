@@ -14,7 +14,7 @@ const MarketplacesOrdersCharBlock = ({...props}) => {
     return (
         <Block className={s.marketplacesOrdersCharBlockContainer}>
             <BlockTitle>Сума замовлень</BlockTitle>
-            <p className={s.text}>{data.stores.reduce((acc, obj) => acc + obj.count, 0)} orders <TrendIndicator
+            <p className={s.text}>{data.stores.reduce((acc, obj) => acc + obj.count, 0)} замовлень <TrendIndicator
                 value={data.global.trend}/></p>
             <MarketplacesOrdersChar data={data.stores}/>
 

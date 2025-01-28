@@ -19,31 +19,28 @@ const LikeUnlikeCharBlock = (props) => {
         {name: '5', value: +ratingData[0].rating5},
 
     ];
-    const color = ['#130000', '#420000', '#0d4a00', '#007731', '#00bc00',];
+    const color = ['#F2D1D1', '#A2DFF7', '#60DDBF', '#51B2F6', '#9170FF',];
     const sum = data.reduce((acc, k) => acc + (+k.value), 0)
     return (
         <Block className={s.likeUnlikeCharBlockContainer}>
-            {/*//TODO tłumaczenie*/}
-            <BlockTitle>Suma ocen w systemie Rozetka</BlockTitle>
-            {/*//TODO tłumaczenie*/}
-            <p className={s.text}>{sum} Ocen </p>
+            <BlockTitle>Сума відгуків у системі Розетки</BlockTitle>
+            <p className={s.text}>{sum} зірочок </p>
             <LikeUnlikeChar data={data} colors={color}/>
             <div className={s.legend}>
-                {/*//todo tłumaczenie*/}
                 <span>
-                <FaSquare color={color[4]}/>5 punktów
+                <FaSquare color={color[4]}/>5 зірочок
                 </span>
                 <span>
-                <FaSquare color={color[3]}/>4 punkty
+                <FaSquare color={color[3]}/>4 зірочок
                 </span>
                 <span>
-                <FaSquare color={color[2]}/>3 punkty
+                <FaSquare color={color[2]}/>3 зірочок
                 </span>
                 <span>
-                <FaSquare color={color[1]}/>2 punkty
+                <FaSquare color={color[1]}/>2 зірочок
                 </span>
                 <span>
-                <FaSquare color={color[0]}/>1 punkt
+                <FaSquare color={color[0]}/>1 зірочка
                 </span>
 
             </div>
