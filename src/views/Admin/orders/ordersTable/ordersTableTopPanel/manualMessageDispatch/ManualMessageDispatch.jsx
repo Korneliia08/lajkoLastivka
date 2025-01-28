@@ -28,7 +28,7 @@ const ManualMessageDispatch = ({controller, ...props}) => {
             await toast.promise(
                 api.post('/messages/sendManual', obj),
                 {
-                    loading: 'Saving...',
+                    loading: 'Підготовка повідомлень до надсилання',
                     success: <b>Settings saved!</b>,
                     error: <b>Could not save.</b>,
                 }
@@ -53,10 +53,9 @@ const ManualMessageDispatch = ({controller, ...props}) => {
 
 
     async function dispatchMessage() {
-        //todo tu tłumacznie
         confirmAlert({
-            title: 'Czy na pewno chcesz wysłać wiadomości?',
-            message: 'Suma wiadomości do wysłania: ' + selectedOrders.length,
+            title: 'Ви впевнені, що хочете надіслати повідомлення?',
+            message: 'Сума повідомлень для надсилання:' + selectedOrders.length,
             buttons: [
                 {
                     label: 'Так',
@@ -79,7 +78,7 @@ const ManualMessageDispatch = ({controller, ...props}) => {
         <div className={s.manualMessageDispatchContainer}>
             <div className={s.information}>
                 <span className={s.label}>
-Selected orders:
+Вибрані замовлення:
                 </span>
                 <span className={s.value}>
 {selectedOrders.length}
@@ -90,8 +89,10 @@ Selected orders:
                 <ManualDispatchContent setData={setData} data={data}/>
             </div>
             <div className={s.controls}>
-                <button disabled={isBlocked} className={'btn blue'} onClick={() => controller.closeModal()}>Anuluj</button>
-                <button disabled={isBlocked} className={'btn green'} onClick={() => dispatchMessage()}>Wyślij</button>
+                <button disabled={isBlocked} className={'btn blue'} onClick={() => controller.closeModal()}>Скасувати
+                </button>
+                <button disabled={isBlocked} className={'btn green'} onClick={() => dispatchMessage()}>Надіслати
+                </button>
             </div>
 
         </div>

@@ -13,11 +13,9 @@ const MarketplacesOrdersCharBlock = ({...props}) => {
     console.log(data);
     return (
         <Block className={s.marketplacesOrdersCharBlockContainer}>
-            {/*//TODO tłumaczenie*/}
-            <BlockTitle>Total orders</BlockTitle>
-
-            {/*//TODO tłumaczenie*/}
-            <p className={s.text}>{data.stores.reduce((acc, obj) => acc + obj.count, 0)} orders <TrendIndicator value={data.global.trend}/></p>
+            <BlockTitle>Сума замовлень</BlockTitle>
+            <p className={s.text}>{data.stores.reduce((acc, obj) => acc + obj.count, 0)} orders <TrendIndicator
+                value={data.global.trend}/></p>
             <MarketplacesOrdersChar data={data.stores}/>
 
         </Block>
