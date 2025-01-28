@@ -20,7 +20,7 @@ function LeftNav() {
 
                 <div className={style.padding}>
                     <SectionOfNav title={"Dashboard"} elements={dashboardElObj}/>
-                    <SectionOfNav title={"Налаштування"} elements={settingsElObj}/>
+                    {/*<SectionOfNav title={"Налаштування"} elements={settingsElObj}/>*/}
                 </div>
             </div>
         </>

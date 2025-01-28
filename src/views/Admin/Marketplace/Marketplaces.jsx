@@ -28,7 +28,9 @@ function Marketplaces() {
 
     return (
         <>
-            <PanelTitle title={'Маркетплейси:'} subTitle={'See your marketplaces'} buttonText={"Додати магазин"}
+            <PanelTitle title={'Маркетплейси:'}
+                        subTitle={'Усі доступні маркетплейси, які можна переглядати, редагувати та додавати нові у цьому розділі.'}
+                        buttonText={"Додати магазин"}
                         onClick={displayAddShop}/>
             <OutletPanelScroll>
                 <div className={s.container}>
