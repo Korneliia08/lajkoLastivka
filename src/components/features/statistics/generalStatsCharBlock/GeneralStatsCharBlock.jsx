@@ -3,7 +3,7 @@ import Block from "../../../ui/block/Block.jsx";
 import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import GeneralStatschar from "./generalStatschar/GeneralStatschar.jsx";
 import TrendIndicator from "../../../ui/trendIndicator/TrendIndicator.jsx";
-import useFetch from "../../../../functions/useFetch.js";
+import useFetch from "@hooks/useFetch.js";
 
 const options = [
     {value: 'chocolate', label: '30 days'},

@@ -2,12 +2,10 @@ import s from "./Dashboard.module.scss";
 import InfoTile from "../../../components/ui/statisitc/infoTile/InfoTile.jsx";
 import PanelTitle from "../../../components/layot/panelTitle/PanelTitle.jsx";
 import LikeUnlikeCharBlock from "../../../components/features/statistics/likeUnlikeCharBlock/LikeUnlikeCharBlock.jsx";
-import GeneralStatsCharBlock
-    from "../../../components/features/statistics/generalStatsCharBlock/GeneralStatsCharBlock.jsx";
+import GeneralStatsCharBlock from "../../../components/features/statistics/generalStatsCharBlock/GeneralStatsCharBlock.jsx";
 import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
-import MarketplacesOrdersCharBlock
-    from "../../../components/features/statistics/marketplacesOrdersCharBlock/MarketplacesOrdersCharBlock.jsx";
-import useFetch from "../../../functions/useFetch.js";
+import MarketplacesOrdersCharBlock from "../../../components/features/statistics/marketplacesOrdersCharBlock/MarketplacesOrdersCharBlock.jsx";
+import useFetch from "@hooks/useFetch.js";
 import {blockStatsInitialData} from "./blockStatsInitialData.js";
 import {CgMail, CgRead} from "react-icons/cg";
 import {GiClick} from "react-icons/gi";

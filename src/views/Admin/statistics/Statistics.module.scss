@@ -1,15 +1,14 @@
 .statisticsContainer {
   width: 100%;
-  display: flex;
+
   flex-direction: column;
 
   display: grid;
   grid-template-areas:
     "header header header header header"
-    "stats1 stats1 stats2 stats2 stats2"
-    "content content content footer footer";
+    "stats1 stats1 stats1 stats2 stats3";
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto;
   gap: 10px;
 
   .selectMarketplace {
@@ -19,9 +18,16 @@
 
   .stats1 {
     grid-area: stats1;
+    height: 300px;
   }
 
   .stats2 {
     grid-area: stats2;
+    height: 300px;
+  }
+
+  .stats3 {
+    grid-area: stats3;
+    height: 300px;
   }
 }

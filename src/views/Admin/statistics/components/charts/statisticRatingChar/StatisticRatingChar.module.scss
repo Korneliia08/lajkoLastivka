@@ -1,0 +1,27 @@
+.statisticRatingCharContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+
+  .text {
+    display: flex;
+    gap: 7px;
+    font-size: 24px;
+    font-weight: bolder;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+
+    span {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+  }
+}

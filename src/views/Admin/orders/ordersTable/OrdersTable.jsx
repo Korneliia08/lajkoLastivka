@@ -1,5 +1,5 @@
 import s from "./OrdersTable.module.scss";
-import useFetch from "../../../../functions/useFetch.js";
+import useFetch from "@hooks/useFetch.js";
 import OrdersTableElement from "./ordersTableElement/OrdersTableElement.jsx";
 import {useEffect, useRef, useState} from "react";
 
@@ -11,8 +11,8 @@ import dayjs from "dayjs";
 
 const OrdersTable = ({store, ...props}) => {
     const [limit, setLimit] = useState(14);
-    const [sortDirection, setSortDirection] = useState('')
-    const [sortColumn, setSortColumn] = useState('')
+    const [sortDirection, setSortDirection] = useState('desc')
+    const [sortColumn, setSortColumn] = useState('updateTime')
     const findText = useSelector(state => state.orders.searchInput);
     const startDate = useSelector((state) => state.orders.startTime);
     const endDate = useSelector((state) => state.orders.endTime);

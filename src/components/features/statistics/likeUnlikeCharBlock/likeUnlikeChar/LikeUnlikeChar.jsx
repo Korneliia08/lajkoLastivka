@@ -7,17 +7,22 @@ const renderActiveShape = (props) => {
     const {cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value} = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
+
+    // Współrzędne dla krótszej linii i skierowanej ku środkowi
     const sx = cx + (outerRadius + 10) * cos;
     const sy = cy + (outerRadius + 10) * sin;
-    const mx = cx + (outerRadius + 30) * cos;
-    const my = cy + (outerRadius + 30) * sin;
-    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-    const ey = my;
+    const mx = cx + (outerRadius + 20) * cos; // Skrócone, żeby linia była krótsza
+    const my = cy + (outerRadius + 20) * sin; // Skrócone, żeby linia była krótsza
+
+    // Współrzędne końca strzałki, zbliżającej się ku środkowi wykresu
+    const ex = cx + (outerRadius + 20) * cos; // Końcówka strzałki jest bliżej środka
+    const ey = cy + (outerRadius + 30) * sin - 20;
+
     const textAnchor = cos >= 0 ? 'start' : 'end';
 
     return (
         <g>
-            <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+            <text x={cx} y={cy} dy={8} fontWeight="bold" textAnchor="middle" fill={fill}>
                 {payload.name}
             </text>
             <Sector
@@ -40,8 +45,8 @@ const renderActiveShape = (props) => {
             />
             <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
             <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`Likes ${value}`}</text>
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
+            <text x={ex + (cos >= 0 ? 0.8 : -0.8) * 15} y={ey} textAnchor={textAnchor} fill="#333">{`Likes ${value}`}</text>
+            <text x={ex + (cos >= 0 ? 0.8 : -0.8) * 15} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
                 {`(${(percent * 100).toFixed(2)}%)`}
             </text>
         </g>
@@ -49,7 +54,7 @@ const renderActiveShape = (props) => {
 };
 
 const LikeUnlikeChar = ({data, colors}) => {
- 
+
     const [selected, setSelected] = useState(0);
     return (
 

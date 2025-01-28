@@ -1,6 +1,6 @@
 import s from "./Statistics.module.scss";
 import InformationBlock from "./informationBlock/InformationBlock.jsx";
-import useFetch from "../../../../../functions/useFetch.js";
+import useFetch from "@hooks/useFetch.js";
 
 
 const Statistics = ({store, ...props}) => {
@@ -11,7 +11,7 @@ const Statistics = ({store, ...props}) => {
             <InformationBlock value={data.totalEarn + '₴'} title={'earn money'}/>
             <InformationBlock value={data.totalOrders} title={'total orders'}/>
             <InformationBlock value={data.totalOpinions} title={'total opinions'}/>
-            <InformationBlock value={data.averageRating} title={'avg rating'}/>
+            <InformationBlock value={Math.round(data.averageRating * 100) / 100} title={'avg rating'}/>
         </div>
     )
 }

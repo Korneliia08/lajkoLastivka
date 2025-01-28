@@ -1,19 +1,39 @@
 import s from "./StatisticSelectMarketplace.module.scss";
 import Select from "react-select";
-import useFetch from "../../../../../functions/useFetch.js";
+import useFetch from "@hooks/useFetch.js";
 
+import {useNavigate} from 'react-router-dom';
+import {useEffect} from "react"; // Importujemy useParams i useHistory
 
-const StatisticSelectMarketplace = ({...props}) => {
+const StatisticSelectMarketplace = ({storeId, ...props}) => {
     const {data, loading} = useFetch('stores', {
         default: [],
-
     });
+
+    useEffect(() => {
+
+        try {
+
+            if (!storeId) {
+
+                navigate(`/admin/statistics/${data[0].id}`);
+            }
+        } catch (err) {
+
+        }
+    }, [data]);
     const dataToSelect = data.map(obj => {
         return {value: obj.id, label: obj.name}
     })
+    const navigate = useNavigate();
+
+    function change(event) {
+        navigate(`/admin/statistics/${event.value}`);
+    }
+
     return (
         <div className={s.statisticSelectMarketplaceContainer}>
-            <span>Select marketplace:</span><Select options={dataToSelect}/>
+            <span>Select marketplace:</span><Select value={dataToSelect.filter(el => el.value == storeId)} onChange={change} options={dataToSelect}/>
         </div>
     )
 }

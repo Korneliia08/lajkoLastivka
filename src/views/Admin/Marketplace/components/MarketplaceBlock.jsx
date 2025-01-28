@@ -83,9 +83,7 @@ function MarketplaceBlock({data, fetchData}) {
             </div>
         </div>
         <div className={style.blockForContantAndStatistic}>
-            <p className={style.describe}>lorem lore lorem rgisjer hrt ugtrgih gr8 ywghrwb rg8th t89g irbir uhebgjer or
-                ebg
-                ergghre gwhusg regb</p>
+            <p className={style.describe}>{data.description}</p>
             <div className={style.blockForStatistic}>
                 <span>К-сть надісланих прохань про відгук</span>
                 <MarketplaceMiniMessSendChar storeId={data.id}/>

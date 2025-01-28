@@ -3,18 +3,21 @@ import Block from "../../../ui/block/Block.jsx";
 import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import TrendIndicator from "../../../ui/trendIndicator/TrendIndicator.jsx";
 import MarketplacesOrdersChar from "./marketplacesOrdersChar/MarketplacesOrdersChar.jsx";
-import useFetch from "../../../../functions/useFetch.js";
-
+import useFetch from "@hooks/useFetch.js";
 
 const MarketplacesOrdersCharBlock = ({...props}) => {
     const {data} = useFetch('stores/allSaleChar', {
         default: undefined,
     });
     if (!data) return
+    console.log(data);
     return (
         <Block className={s.marketplacesOrdersCharBlockContainer}>
+            {/*//TODO tłumaczenie*/}
             <BlockTitle>Total orders</BlockTitle>
-            <p className={s.text}>453 orders <TrendIndicator value={data.global.trend}/></p>
+
+            {/*//TODO tłumaczenie*/}
+            <p className={s.text}>{data.stores.reduce((acc, obj) => acc + obj.count, 0)} orders <TrendIndicator value={data.global.trend}/></p>
             <MarketplacesOrdersChar data={data.stores}/>
 
         </Block>

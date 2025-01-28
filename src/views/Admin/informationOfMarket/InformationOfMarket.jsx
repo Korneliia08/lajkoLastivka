@@ -4,7 +4,7 @@ import StatisticInformations from "./statisticInformations/StatisticInformations
 import OrderInformations from "./orderInformations/OrderInformations.jsx";
 import {NavLink, useParams} from "react-router-dom";
 import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
-import useFetch from "../../../functions/useFetch.js";
+import useFetch from "@hooks/useFetch.js";
 
 
 const InformationOfMarket = ({...props}) => {

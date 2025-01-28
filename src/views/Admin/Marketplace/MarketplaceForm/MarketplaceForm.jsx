@@ -19,6 +19,7 @@ function MarketplaceForm() {
     const sendingDelayRef = useRef(null)
     const usernameRef = useRef(null)
     const marketplaceLinkRef = useRef(null)
+    const descriptionRef = useRef(null)
 
 
     const passwordRef = useRef(null)
@@ -46,6 +47,7 @@ function MarketplaceForm() {
                     sendEndRef.current.value = store.sendingEndTime;
                     sendingDelayRef.current.value = store.sendingDelay;
                     marketplaceLinkRef.current.value = store.link;
+                    descriptionRef.current.value = store.description
                     setMarketPlaceLogo(store.logo)
                     setBannerImg(store.bannerImg)
                     setLogoImg(store.logoImg)
@@ -84,6 +86,7 @@ function MarketplaceForm() {
             link: marketplaceLinkRef.current.value,
             logo: marketPlaceLogo,
             sendingEndTime: sendEndRef.current.value,
+            description: descriptionRef.current.value,
             sendingStartTime: sendStartRef.current.value,
             sendingDelay: sendStartRef.current.value, bannerImg: bannerImg,
             logoImg: logoImg,
@@ -141,6 +144,12 @@ function MarketplaceForm() {
                             disabled={loading}
                             ref={nameRef} type="text" name="store-name" required placeholder="Введіть назву магазину"
                             className={style.input}/>
+                        <input
+                            disabled={loading}
+                            ref={descriptionRef} type="text" name="store-description" required placeholder="marketplace description"
+                            className={style.input}/>
+
+
                         <span className={style.titleIForm}>Дані в кабінет магазину</span>
                         <input
                             disabled={loading}

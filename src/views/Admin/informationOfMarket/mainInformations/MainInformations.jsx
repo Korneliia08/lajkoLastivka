@@ -47,7 +47,7 @@ const MainInformations = ({store, ...props}) => {
                 <Statistics store={store}/>
             </div>
             <aside>
-                <NavLink to={'/admin/statistic/' + id} className={cn(s.block, s.blockForAfter)}>
+                <NavLink to={'/admin/statistics/' + id} className={cn(s.block, s.blockForAfter)}>
                     <FaChartPie className={s.icStyle}/>
                     <span>Статистики</span>
                 </NavLink>
