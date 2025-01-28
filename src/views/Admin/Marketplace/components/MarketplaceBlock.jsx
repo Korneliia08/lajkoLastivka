@@ -8,6 +8,7 @@ import Toggle from "react-toggle";
 import {FaArrowRightLong} from "react-icons/fa6";
 import {MdDeleteOutline} from "react-icons/md";
 import MarketplaceMiniMessSendChar from "./marketplaceMiniMessSendChar/MarketplaceMiniMessSendChar.jsx";
+import rozetkaIc from "./../../../../assets/informationOfMarketPlace/rozetkaLogo.png";
 
 function MarketplaceBlock({data, fetchData}) {
     const navigate = useNavigate();
@@ -61,7 +62,9 @@ function MarketplaceBlock({data, fetchData}) {
     return <div className={style.blockOfShop}>
         <div className={style.top}>
             <div className={style.container}>
-                {data.logo && <img src={data.logo} alt="" className={style.imageStyle}/>}
+                <div className={style.blockForImg}>
+                    {data.logo && <img src={rozetkaIc} alt="" className={style.imageStyle}/>}
+                </div>
                 <div className={style.blockForTitle}>
                     <h4 className={style.mainTitle}>{data.name}</h4>
                     <h5 className={style.titleStore}>Rozetka store</h5>
