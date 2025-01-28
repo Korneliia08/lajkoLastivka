@@ -3,7 +3,7 @@ import Block from "../../../ui/block/Block.jsx";
 import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import TrendIndicator from "../../../ui/trendIndicator/TrendIndicator.jsx";
 import MarketplacesOrdersChar from "./marketplacesOrdersChar/MarketplacesOrdersChar.jsx";
-import useFetch from "@hooks/useFetch.js";
+import useFetch from "./../../../../hooks/useFetch.js";
 
 const MarketplacesOrdersCharBlock = ({...props}) => {
     const {data} = useFetch('stores/allSaleChar', {
