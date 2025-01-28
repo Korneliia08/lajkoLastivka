@@ -24,12 +24,13 @@
         background-color: white;
         padding: 5px;
         display: flex;
-        box-shadow: 0px 0px 1px 1px black;
+        box-shadow: 0px 0px 1px 1px rgba(201, 201, 201, 0.66);
         justify-content: center;
         align-content: center;
-        width: 37px;
-        height: 37px;
+        width: 45px;
+        height: 45px;
         border-radius: 4px;
+        flex-shrink: 0;
 
         .imageStyle {
           width: 28px;
