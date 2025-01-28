@@ -5,6 +5,7 @@ import PanelTitle from "../../../components/layot/panelTitle/PanelTitle.jsx";
 import OutletPanelScroll from "../../../components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 import MarketplaceBlock from "./components/MarketplaceBlock.jsx";
 import s from "./Marketplaces.module.scss";
+import {FaPlus} from "react-icons/fa";
 
 function Marketplaces() {
     const [allMarkets, setAllMarkets] = useState([]);
@@ -31,6 +32,7 @@ function Marketplaces() {
             <PanelTitle title={'Маркетплейси:'}
                         subTitle={'Усі доступні маркетплейси, які можна переглядати, редагувати та додавати нові у цьому розділі.'}
                         buttonText={"Додати магазин"}
+                        buttonIcon={<FaPlus/>}
                         onClick={displayAddShop}/>
             <OutletPanelScroll>
                 <div className={s.container}>
