@@ -1,0 +1,23 @@
+.dataAccountToShopsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #cbcbcb;
+  padding: 10px 5px;
+  border-radius: 10px;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    h5 {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}

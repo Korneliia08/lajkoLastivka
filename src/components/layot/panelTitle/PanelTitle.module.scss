@@ -23,25 +23,4 @@
   }
 }
 
-.btnStyle {
-  border: none;
-  border-radius: 10px;
-  background-color: #2A6CFD;
-  color: white;
-  padding: 2px 20px;
-  height: 40px;
-  font-size: 11px;
-  text-shadow: 0px 0px 1px #e5e5e5;
-  display: flex;
-  justify-content: center;
-  column-gap: 5px;
-  align-items: center;
-  transition: 150ms ease;
-  font-weight: bold;
-  box-shadow: 0px 0px 4px 1px rgba(211, 211, 211, 0.66), 0px 0px 5px 2px inset #3e78fa;
 
-  &:hover {
-    cursor: pointer;
-    background-color: #1b60f8;
-  }
-}
