@@ -2,7 +2,6 @@ import s from "./GeneralStatsCharBlock.module.scss";
 import Block from "../../../ui/block/Block.jsx";
 import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import GeneralStatschar from "./generalStatschar/GeneralStatschar.jsx";
-import TrendIndicator from "../../../ui/trendIndicator/TrendIndicator.jsx";
 import useFetch from "@hooks/useFetch.js";
 
 const options = [
@@ -19,11 +18,12 @@ const GeneralStatsCharBlock = (props) => {
 //rightPart={<Select options={options}/>}
     return (
         <Block className={s.generalStatsCharBlockContainer}>
-            <BlockTitle>Line unlike</BlockTitle>
-            <div className={s.smallText}>Total earn</div>
-            <div className={s.text}>
-                Lorem impsum 5054, 1231 <TrendIndicator/>
-            </div>
+            <BlockTitle>Statystyka marketplaeców</BlockTitle>
+            <br/>
+            {/*<div className={s.smallText}>Total earn</div>*/}
+            {/*<div className={s.text}>*/}
+            {/*    Lorem impsum 5054, 1231 <TrendIndicator/>*/}
+            {/*</div>*/}
             {data && <GeneralStatschar data={data}/>}
         </Block>
     )
