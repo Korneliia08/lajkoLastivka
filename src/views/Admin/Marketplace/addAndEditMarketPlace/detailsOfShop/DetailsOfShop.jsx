@@ -12,8 +12,7 @@ const DetailsOfShop = ({...props}) => {
                 <RowOfFormAddAndEditShop title={"Назва"} describe={""} placeholder={"Введіть назву магазину"}
                                          type={"text"}/>
                 <RowOfFormAddAndEditShop title={"Опис"} describe={""}/>
-                <RowOfFormAddAndEditShop title={"Логін"} describe={"Введіть логін до кабінету магазину"}/>
-                <RowOfFormAddAndEditShop title={"Пароль"} describe={"Введіть пароль до кабінету магазину"}/>
+                <RowOfFormAddAndEditShop title={"Посилання"} describe={"Введіть посилання до магазину"}/>
                 <LoadImageFromComputer title={"Лого"} describe={"Лого використовуватиметься у цій адмінці"}/>
             </form>
         </div>

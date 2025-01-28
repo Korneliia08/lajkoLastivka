@@ -1,0 +1,21 @@
+.setDispatchTimeContainer {
+  width: 100%;
+
+  .blockForTitle {
+    .title {
+
+    }
+
+    .describe {
+
+    }
+  }
+
+  .container {
+    display: flex;
+    row-gap: 5px;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+  }
+}
