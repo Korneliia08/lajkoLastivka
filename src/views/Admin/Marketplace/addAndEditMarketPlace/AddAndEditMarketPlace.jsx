@@ -4,6 +4,8 @@ import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScro
 import DetailsOfShop from "@/views/Admin/Marketplace/addAndEditMarketPlace/detailsOfShop/DetailsOfShop.jsx";
 import DataAccountToShops
     from "@/views/Admin/Marketplace/addAndEditMarketPlace/dataAccountToShops/DataAccountToShops.jsx";
+import TemplateOfMessages
+    from "@/views/Admin/Marketplace/addAndEditMarketPlace/templateOfMessages/TemplateOfMessages.jsx";
 
 
 const AddAndEditMarketPlace = ({...props}) => {
@@ -16,6 +18,7 @@ const AddAndEditMarketPlace = ({...props}) => {
                 <div className={s.addAndEditMarketPlaceContainer}>
                     <DataAccountToShops/>
                     <DetailsOfShop/>
+                    <TemplateOfMessages/>
                 </div>
             </OutletPanelScroll>
         </>
