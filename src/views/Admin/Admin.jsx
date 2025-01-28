@@ -12,7 +12,8 @@ function Admin() {
                 <div className={style.wrapper}>
                     <LeftNav/>
                     <div className={style.containerForOutlet}>
-                        <PanelHeadTitle title={"LastivkaCompany"} text={"Marketplaces"}/>
+                        <PanelHeadTitle title={"ЛайкоЛастівка"}
+                                        text={"Адмінка для управління запитами на оцінки замовлень і аналізу відгуків"}/>
                         <Outlet/>
                     </div>
                 </div>

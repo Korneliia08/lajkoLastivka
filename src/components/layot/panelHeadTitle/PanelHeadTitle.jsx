@@ -1,15 +1,16 @@
 import s from "./PanelHeadTitle.module.scss";
-import {MdDashboard} from "react-icons/md";
 import PanelHeaderControls from "./panelHeaderControls/PanelHeaderControls.jsx";
+import {PiBird} from "react-icons/pi";
+import {GiCrownedHeart} from "react-icons/gi";
 
 
 const PanelHeadTitle = ({title, text, ...props}) => {
     return (
         <div className={s.panelHeadTitleContainer}>
             <div className={s.leftPart}>
-
                 <div className={s.icon}>
-                    <MdDashboard/>
+                    <PiBird className={s.iconBird}/>
+                    <GiCrownedHeart className={s.iconHeart}/>
                 </div>
                 <div className={s.titles}>
                     <h4 className={s.title}>{title} </h4>
