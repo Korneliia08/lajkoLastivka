@@ -8,7 +8,7 @@ const PanelTitle = ({title, subTitle, buttonText, onClick, ...props}) => {
                 <h3 className={s.title}>{title}</h3>
                 <h4 className={s.subTitle}>{subTitle}</h4>
             </div>
-            <button className={s.btnStyle} onClick={onClick}>{buttonText}</button>
+            {buttonText && <button className={s.btnStyle} onClick={onClick}>{buttonText}</button>}
         </div>
     )
 }
