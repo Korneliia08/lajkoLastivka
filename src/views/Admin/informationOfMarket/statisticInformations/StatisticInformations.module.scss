@@ -1,4 +1,8 @@
 .statisticInformationsContainer {
   display: flex;
   gap: 20px;
+
+  .topPanel {
+    background-color: red;
+  }
 }

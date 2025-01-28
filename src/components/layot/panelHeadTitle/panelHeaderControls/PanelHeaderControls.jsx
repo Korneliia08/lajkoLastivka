@@ -1,5 +1,5 @@
 import s from "./PanelHeaderControls.module.scss";
-import { BiBell } from "react-icons/bi";
+import { BiBell, BiLogOut } from "react-icons/bi";
 import cn from "@/functions/cn.js";
 import { useState } from "react";
 import { ClickAwayListener } from "@mui/material";
@@ -28,7 +28,9 @@ const PanelHeaderControls = (props) => {
           />
           {isOpenDropPanel && (
             <div className={s.dropPanel}>
-              <button onClick={logOut}>LogOut</button>
+              <button onClick={logOut}>
+                <BiLogOut /> LogOut
+              </button>
             </div>
           )}
         </div>

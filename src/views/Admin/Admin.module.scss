@@ -3,9 +3,9 @@
   flex-direction: column;
   height: 100vh;
   position: relative;
-  background: radial-gradient(ellipse at 0% 0%, rgba(58, 156, 251, 0.54) 0%, 15.42%, rgb(255 255 255 / 0) 50%, rgb(255 255 255 / 0) 100%) no-repeat no-repeat, /* New Background (copy) */
-  linear-gradient(0deg, rgb(255,255,255) 85.42%, rgba(0,62,255,0.16) 98.61%) -100% 0% / 100% 100.5% no-repeat no-repeat, /* New Background (copy) */
-  radial-gradient(ellipse at 0% 0%, rgb(255, 255, 255) 0%, 37.5%, rgb(255 255 255 / 0) 100%) no-repeat no-repeat; /* New Background */
+  background: radial-gradient(ellipse at 100% 0%, rgba(58, 156, 251, 0.54) 1.42%, rgba(58, 156, 251, 0.54) 4.42%, rgba(58, 156, 251, 0.24) 8.42%, rgb(58, 156, 251, 0.04) 15%, rgb(255 255 255 / 0) 100%),
+  linear-gradient(rgba(58, 156, 251, 0.24) 1.42%, rgba(58, 156, 251, 0.24) 3.42%, rgb(58, 156, 251, 0.04) 12%, rgb(255 255 255 / 0) 100%);
+
   .innerContainer {
     display: flex;
     flex-direction: column;
