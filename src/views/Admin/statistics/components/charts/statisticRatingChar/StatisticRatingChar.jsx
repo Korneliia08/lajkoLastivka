@@ -22,10 +22,12 @@ const StatisticRatingChar = ({mode, storeId, ...props}) => {
     let color, title;
     if (mode === 'local') {
         color = ['#000d32', '#001f6b', '#0034a3', '#004de6', '#0066ff'];
+        //todo translate
         title = "In lajkolastivka system"
 
     } else {
         color = ['#130000', '#3e0b00', '#5c2f00', '#458400', '#00bc00'];
+        //todo translate
         title = "Rozetka marketplace"
 
     }
@@ -33,11 +35,13 @@ const StatisticRatingChar = ({mode, storeId, ...props}) => {
     return (
         <Block className={s.statisticRatingCharContainer}>
             <BlockTitle>{title}</BlockTitle>
+            {/*//todo translate*/}
             <p className={s.text}>{sum} ratings </p>
             <LikeUnlikeChar data={data} colors={color}/>
             <div className={s.legend}>
                 <span>
-                <FaSquare color={color[4]}/> 5 Likes
+        {/*//todo translate*/}
+                    <FaSquare color={color[4]}/> 5 Likes
                 </span>
                 <span>
                 <FaSquare color={color[3]}/>4 Likes
