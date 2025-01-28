@@ -7,6 +7,15 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.breadcrumbsLink {
+  color: black;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
 .btn {
   border-radius: 3px;
   padding: 4px 15px;
