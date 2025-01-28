@@ -3,7 +3,7 @@ import Block from "../../../ui/block/Block.jsx";
 import LikeUnlikeChar from "./likeUnlikeChar/LikeUnlikeChar.jsx";
 import BlockTitle from "../../../ui/block/blockTitle/BlockTitle.jsx";
 import {FaSquare} from "react-icons/fa";
-import useFetch from "@hooks/useFetch.js";
+import useFetch from "./../../../../hooks/useFetch.js";
 
 
 const LikeUnlikeCharBlock = (props) => {

@@ -2,6 +2,8 @@ import BlockTitle from "@/components/ui/block/blockTitle/BlockTitle.jsx";
 import Block from "@/components/ui/block/Block.jsx";
 import LikeUnlikeChar from "@/components/features/statistics/likeUnlikeCharBlock/likeUnlikeChar/LikeUnlikeChar.jsx";
 import {FaSquare} from "react-icons/fa";
+import useFetch from "@hooks/useFetch.js";
+import s from './StatisticRatingChar.module.scss'
 
 const StatisticRatingChar = ({mode, storeId, ...props}) => {
     const url = mode === 'local' ? `localOpinions/ratingScoreChar/${storeId}` : `opinions/ratingScoreChar/${storeId}`;
