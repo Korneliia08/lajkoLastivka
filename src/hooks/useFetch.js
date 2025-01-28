@@ -40,65 +40,77 @@ import api from "../providers/interceptors/refreshToken.interceptor.js";
  * // Zmiana strony
  * pagination.setPage(2);
  */
-const useFetch = (
-    url,
-    options = {},
-) => {
-    options = {
-        ...{withPagination: false, limit: 999, page: 1, default: [], params: '', autoRefresh: -1},
-        ...options,
-    };
-    const [data, setData] = useState(options.default);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [pagination, setPagination] = useState({});
-    const [page, setPage] = useState(options.page);
-    const [autoRefresh, setAutoRefresh] = useState(0)
-    useEffect(() => {
-        if (options.autoRefresh > 80) {
-            const intervalId = setInterval(() => {
-                setAutoRefresh(prev => {
-                    console.log('refresh', prev + 1); // Logujemy bieżący stan
-                    return prev + 1;
-                });
-            }, options.autoRefresh);
+const useFetch = (url, options = {}) => {
+  options = {
+    ...{
+      withPagination: false,
+      limit: 999,
+      page: 1,
+      default: [],
+      params: "",
+      autoRefresh: -1,
+    },
+    ...options,
+  };
+  const [data, setData] = useState(options.default);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [pagination, setPagination] = useState({});
+  const [page, setPage] = useState(options.page);
+  const [autoRefresh, setAutoRefresh] = useState(0);
+  useEffect(() => {
+    if (options.autoRefresh > 80) {
+      const intervalId = setInterval(() => {
+        setAutoRefresh((prev) => {
+          return prev + 1;
+        });
+      }, options.autoRefresh);
 
-            return () => {
-                clearInterval(intervalId); // Usuwamy interwał po zakończeniu
-            };
-        }
-    }, [options.autoRefresh]);
-
-    useEffect(() => {
-        setLoading(true);
-
-
-        api
-            .get(url + `?autoRefresh=${autoRefresh}&limit=${options.limit}&page=${page}${options.params}`)
-            .then((res) => {
-                if (options.withPagination) {
-                    setData(res.data.data);
-                    setPagination(res.data.pagination);
-                } else {
-                    setData(res.data);
-                }
-            })
-            .catch((error) => {
-                setError(true);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, [url, page, options.limit, options.withPagination, options.params, autoRefresh]);
-    if (options.withPagination) {
-        return {
-            data: data,
-            loading,
-            error,
-            pagination: {...pagination, page, setPage},
-        };
-    } else {
-        return {data: data, loading, error};
+      return () => {
+        clearInterval(intervalId); // Usuwamy interwał po zakończeniu
+      };
     }
+  }, [options.autoRefresh]);
+
+  useEffect(() => {
+    setLoading(true);
+
+    api
+      .get(
+        url +
+          `?autoRefresh=${autoRefresh}&limit=${options.limit}&page=${page}${options.params}`,
+      )
+      .then((res) => {
+        if (options.withPagination) {
+          setData(res.data.data);
+          setPagination(res.data.pagination);
+        } else {
+          setData(res.data);
+        }
+      })
+      .catch((error) => {
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [
+    url,
+    page,
+    options.limit,
+    options.withPagination,
+    options.params,
+    autoRefresh,
+  ]);
+  if (options.withPagination) {
+    return {
+      data: data,
+      loading,
+      error,
+      pagination: { ...pagination, page, setPage },
+    };
+  } else {
+    return { data: data, loading, error };
+  }
 };
 export default useFetch;

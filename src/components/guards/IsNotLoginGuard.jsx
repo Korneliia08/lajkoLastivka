@@ -6,7 +6,6 @@ function IsNotLoginGuard(props) {
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     const storedRefreshToken = localStorage.getItem("refresh_token");
-    console.log(storedToken, storedRefreshToken);
     if (storedToken !== null || storedRefreshToken !== null) {
       navigate("./admin");
     }

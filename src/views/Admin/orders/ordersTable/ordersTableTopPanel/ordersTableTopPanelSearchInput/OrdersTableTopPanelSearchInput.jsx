@@ -14,6 +14,7 @@ const OrdersTableTopPanelSearchInput = ({ ...props }) => {
   const handleSearchInputChange = (event) => {
     const value = event.target.value;
     // Natychmiast aktualizuj lokalny stan
+    dispatch(setSearchInput(value));
     setInputValue(value);
 
     if (timeoutRef.current) {
@@ -21,9 +22,7 @@ const OrdersTableTopPanelSearchInput = ({ ...props }) => {
     }
 
     // Ustaw debouncing do zapisu do stanu Redux
-    timeoutRef.current = setTimeout(() => {
-      dispatch(setSearchInput(value));
-    }, 500);
+    timeoutRef.current = setTimeout(() => {}, 500);
   };
 
   return (
