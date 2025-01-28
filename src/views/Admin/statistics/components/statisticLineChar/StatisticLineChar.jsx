@@ -32,10 +32,16 @@ const options = [
     label: "Write reviews",
     variableLabel: "average_rating",
   },
+
+  {
+    value: "lajkolastivka rating",
+    label: "lajkolastivka rating",
+    variableLabel: "totalLocalOpinions",
+  },
   {
     value: "AVG lajkolastivka rating",
     label: "AVG lajkolastivka rating",
-    variableLabel: "total_orders",
+    variableLabel: "averageLocalRating",
   },
   {
     value: "AVG rozetka rating",
@@ -78,6 +84,7 @@ const StatisticLineChar = ({ ...props }) => {
       <Select
         defaultValue={[options[0], options[1]]}
         isMulti
+        menuPlacement={"top"}
         options={options}
         onChange={(k) => setSelectedOptions(k)}
         closeMenuOnSelect={false}
