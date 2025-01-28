@@ -10,7 +10,7 @@ const PanelHeaderControls = (props) => {
   const navigate = useNavigate();
 
   function logOut() {
-    navigate("./");
+    navigate("/");
     localStorage.removeItem("token");
     localStorage.removeItem("refresh_token");
   }
