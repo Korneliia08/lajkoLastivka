@@ -29,13 +29,15 @@
   background-color: #2A6CFD;
   color: white;
   padding: 5px 25px;
+  font-size: 13px;
+  text-shadow: 0px 0px 1px #e5e5e5;
   display: flex;
   justify-content: center;
   column-gap: 8px;
   align-items: center;
   transition: 150ms ease;
   font-weight: bold;
-  box-shadow: 0px 0px 2px 1px rgba(166, 166, 166, 0.66);
+  box-shadow: 0px 0px 4px 1px rgba(211, 211, 211, 0.66), 0px 0px 5px 2px inset #3e78fa;
 
   &:hover {
     cursor: pointer;
