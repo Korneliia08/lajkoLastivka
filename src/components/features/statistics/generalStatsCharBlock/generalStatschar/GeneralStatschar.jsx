@@ -32,7 +32,13 @@ const GeneralStatschar = ({ data }) => {
     setH(+max);
   }, [data]);
   console.log(data, h);
-
+  data.forEach((obj) => {
+    //todo translate
+    obj["Total orders"] = obj["total_orders"];
+    obj["Read messages"] = obj["total_read_messages"];
+    obj["Write reviews"] = obj["total_opinions"];
+    obj["Average rating"] = obj["average_rating"];
+  });
   return (
     <div style={{ width: "100%", height: 250 }}>
       <ResponsiveContainer>
@@ -47,28 +53,28 @@ const GeneralStatschar = ({ data }) => {
             strokeWidth={3}
             type="monotone"
             dot={false}
-            dataKey="total_orders"
+            dataKey="Total orders"
             stroke="#8884d8"
           />
           <Line
             strokeWidth={3}
             type="monotone"
             dot={false}
-            dataKey="total_read_messages"
+            dataKey="Read messages"
             stroke="#82ca9d"
           />
           <Line
             strokeWidth={3}
             type="monotone"
             dot={false}
-            dataKey="total_opinions"
+            dataKey="Write reviews"
             stroke="#883a81"
           />
           <Line
             strokeWidth={3}
             type="monotone"
             dot={false}
-            dataKey="average_rating"
+            dataKey="Average rating"
             stroke="#318881"
           />
         </LineChart>
