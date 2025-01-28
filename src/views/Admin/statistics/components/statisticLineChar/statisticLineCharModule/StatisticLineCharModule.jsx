@@ -58,7 +58,9 @@ const StatisticLineCharModule = ({ data, selectedOption }) => {
   }
 
   return (
-    <div style={{ width: "100%", height: 250 }}>
+    <div
+      style={{ width: "calc(100% + 40px)", height: 250, marginLeft: "-40px" }}
+    >
       <ResponsiveContainer>
         <LineChart data={dataLocal}>
           <CartesianGrid strokeDasharray="3 3" />
