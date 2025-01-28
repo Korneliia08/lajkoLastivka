@@ -1,5 +1,5 @@
-export function maxLenght(content, maxSize) {
-  const dots = "....";
+export function maxLenght(content, maxSize, symbols = "....") {
+  const dots = symbols;
   if (!content) {
     return "";
   }

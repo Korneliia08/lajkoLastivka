@@ -70,7 +70,7 @@ function App() {
           element: <MarketplaceForm />,
         },
         {
-          path: "dashboard",
+          path: "",
           element: <Navigate to={"dashboard"} />,
         },
       ],
