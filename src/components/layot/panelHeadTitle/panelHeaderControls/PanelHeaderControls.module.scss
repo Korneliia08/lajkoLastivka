@@ -2,6 +2,7 @@
   display: flex;
   gap: 10px;
 
+
   .circle {
     background: white;
     width: 37px;
@@ -11,10 +12,29 @@
     justify-content: center;
     align-items: center;
     border: 1px solid #ffffff;
-    overflow: hidden;
+
+
+    cursor: pointer;
+    position: relative;
+
+    .dropPanel {
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      background: white;
+      border-radius: 4px;
+      padding: 10px;
+    }
+
+    &.disable {
+      cursor: not-allowed !important;
+
+    }
+
 
     svg {
       color: #575757;
+      border-radius: 100%;
     }
 
     img {
