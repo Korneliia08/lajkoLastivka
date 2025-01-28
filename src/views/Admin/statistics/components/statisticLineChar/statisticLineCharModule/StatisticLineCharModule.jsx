@@ -22,6 +22,7 @@ const StatisticLineCharModule = ({ data, selectedOption }) => {
         if (item.hasOwnProperty(key.variableLabel)) {
           filteredItem[key.value] = item[key.variableLabel];
         }
+        filteredItem["day"] = item["day"];
       });
       return filteredItem;
     });
@@ -42,16 +43,17 @@ const StatisticLineCharModule = ({ data, selectedOption }) => {
   const lines = [];
   if (dataLocal.length > 0) {
     Object.keys(dataLocal[0]).forEach((key, index) => {
-      lines.push(
-        <Line
-          key={key}
-          strokeWidth={3}
-          type="monotone"
-          dot={false}
-          dataKey={key}
-          stroke={colors[index % colors.length]}
-        />,
-      );
+      if (key !== "day")
+        lines.push(
+          <Line
+            key={key}
+            strokeWidth={3}
+            type="monotone"
+            dot={false}
+            dataKey={key}
+            stroke={colors[index % colors.length]}
+          />,
+        );
     });
   }
 
