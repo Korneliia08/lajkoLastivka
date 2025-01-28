@@ -11,7 +11,6 @@ function AdminViewGuard(props) {
   function checkToken() {
     const storedToken = localStorage.getItem("token");
     const storedRefreshToken = localStorage.getItem("refresh_token");
-    console.log(storedToken, storedRefreshToken);
     if (storedToken == undefined || storedRefreshToken == undefined) {
       exit();
     }
