@@ -1,11 +1,12 @@
 .blockOfShop {
-  background: linear-gradient(to bottom, #E0E8F0 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, rgba(120, 200, 209, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%);
   width: calc(33.3333% - 20px);
   padding: 20px 25px;
   border-radius: 10px;
   row-gap: 10px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 0px 4px 2px rgba(196, 196, 196, 0.36);
 
   .top {
     width: 100%;
@@ -96,7 +97,7 @@
     align-items: center;
 
     .btnSettings {
-      background-color: white;
+      background: linear-gradient(to bottom, #ffffff, #f8f9fa);
       width: 80%;
       padding: 8px 8px;
       border: none;
@@ -107,11 +108,11 @@
       color: #484848;
       font-size: 14px;
       border-radius: 8px;
-      box-shadow: 1px 1px 4px 1px rgba(201, 201, 201, 0.72);
+      box-shadow: 1px 1px 2px 1px rgba(112, 112, 112, 0.25);
 
       &:hover {
         cursor: pointer;
-        background-color: #ececec;
+        background: linear-gradient(to bottom, #ffffff, rgba(197, 197, 197, 0.23));
       }
 
       .arrowIc {
