@@ -11,6 +11,7 @@ const InfoTile = ({
                       description = 'останній місяць'
                   }) => {
     function getColor() {
+        if (+secondValue === 0) return s.nothing;
         return secondValue > 0 ? s.green : s.red;
 
     }

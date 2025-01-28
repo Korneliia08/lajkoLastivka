@@ -15,12 +15,16 @@ const StatisticInformations = ({...props}) => {
     });
     return (
         <div className={s.statisticInformationsContainer}>
-            <InfoTile icon={<CgMail/>} value={data.sendInMonth.current} secondValue={data.sendInMonth.change} title={'Send messages'}/>
-            <InfoTile icon={<CgRead/>} value={data.readInMonth.current} secondValue={data.readInMonth.change} title={'Read messages'}
+            <InfoTile icon={<CgMail/>} value={data.sendInMonth.current} secondValue={data.sendInMonth.change}
+                      title={'Надіслані повідомлення'}/>
+            <InfoTile icon={<CgRead/>} value={data.readInMonth.current} secondValue={data.readInMonth.change}
+                      title={'Прочитані повідомлення'}
                       secondValueColor={'red'}/>
-            <InfoTile icon={<GiClick/>} value={data.clickInMonth.current} secondValue={data.clickInMonth.change} title={'Click messages'}
+            <InfoTile icon={<GiClick/>} value={data.clickInMonth.current} secondValue={data.clickInMonth.change}
+                      title={'Посилання відвідано'}
                       secondValueColor={'red'}/>
-            <InfoTile value={data.writeComment.current} secondValue={data.writeComment.change} title={'Write comment'}/>
+            <InfoTile value={data.writeComment.current} secondValue={data.writeComment.change}
+                      title={'Написано відгуків'}/>
         </div>
     )
 }
