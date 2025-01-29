@@ -30,19 +30,34 @@
         text-align: center;
         color: white;
         font-size: 32px;
+        margin-bottom: 15px;
       }
 
       p {
         text-align: center;
         font-size: 16px;
         color: white;
+        position: relative;
+        text-shadow: 0px 1px 1px #bdbdbd;
+
+        &:after {
+          content: "";
+          display: flex;
+          width: 400px;
+          height: 70px;
+          background-color: rgba(255, 255, 255, 0.38);
+          filter: blur(50px);
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
     }
   }
 
   .right {
     width: 50%;
-    background-color: white;
+    background: linear-gradient(135deg, #ffffff, #f2f9ff);
     padding: 25px 50px;
     display: flex;
     justify-content: center;
