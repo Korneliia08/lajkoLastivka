@@ -46,7 +46,8 @@ body {
   }
 
   .react-confirm-alert-overlay {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 40000;
   }
 
   .react-confirm-alert-body {
