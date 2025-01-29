@@ -1,3 +1,55 @@
 .dataAccountToShopsModalContainer {
+  padding: 20px 50px;
+  position: relative;
+  border-radius: 10px;
 
+  .title {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #3b3b3b;
+  }
+
+  .containerForRows {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .blockForBtns {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    column-gap: 25px;
+
+    button {
+      background: #4646f1;
+      font-weight: bolder;
+      padding: 7px 30px;
+      transition: 250ms ease;
+      color: white;
+      border-radius: 10px;
+      border: none;
+
+      &:hover {
+        background: #3a3ad9;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+  transition: 180ms ease;
+  color: #717375;
+
+  &:hover {
+    scale: 0.9;
+    cursor: pointer;
+  }
 }
