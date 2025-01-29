@@ -86,12 +86,8 @@ function MarketplaceBlock({data, fetchData}) {
                             />
                         ) : (
                             <MdOutlineWifiOff color={"rgba(0,25,138,0.71)"}
-
-                                              javascript
-                                              Kopiuj
-                                              Edytuj
                                               title={"Немає зв’язку з магазином. Підключіть його, щоб автоматизувати надсилання повідомлень"}
-                                              size={20}/>
+                                              size={20} className={style.wifiIc}/>
                         )}
                         <MdDeleteOutline
                             className={style.deleteIc}

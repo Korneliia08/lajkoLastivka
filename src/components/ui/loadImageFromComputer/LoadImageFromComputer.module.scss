@@ -33,19 +33,8 @@
       object-fit: cover;
     }
 
-    .deleteButton {
-      position: absolute;
-      top: 0;
-      background: transparent;
-      border: none;
-      right: 0;
-      z-index: 100;
-      cursor: pointer;
-    }
 
     .icStyle {
-      position: relative;
-      z-index: 9;
       pointer-events: none;
       font-size: 24px;
       color: #3f3f3f;
@@ -56,9 +45,28 @@
     display: flex;
     flex-direction: column;
 
-    .title {
-      font-weight: bold;
-      font-size: 14px;
+    .blockForTitleAndDelete {
+      display: flex;
+      column-gap: 4px;
+      align-items: center;
+
+      .title {
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .deleteButton {
+        background: transparent;
+        border: none;
+        transition: 150ms ease;
+        font-size: 14px;
+        color: #939393;
+
+        &:hover {
+          cursor: pointer;
+          color: #4f4f4f;
+        }
+      }
     }
 
     .describe {
