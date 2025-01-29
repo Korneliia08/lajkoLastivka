@@ -17,6 +17,7 @@ const AddAndEditMarketPlace = ({ ...props }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [isLoading, setLoading] = useState(false);
   const [store, setStore] = useState(null);
   useEffect(() => {
     dispatch(marketplaceResetForm());
@@ -113,11 +114,15 @@ const AddAndEditMarketPlace = ({ ...props }) => {
       logoImg: state.viberLogoImg,
       messageTemplateViber: state.messageTemplateViber,
     };
+    setLoading(true);
     if (id == 0) {
       const res = await api.post("/stores", body);
+      navigate("/admin/marketplaces");
     } else {
       const res = await api.patch(`/stores/${id}`, body);
+      navigate(`/admin/marketplaces/${id}`);
     }
+    setLoading(false);
   }
 
   if (id === 0 && !store) return "";
@@ -138,7 +143,10 @@ const AddAndEditMarketPlace = ({ ...props }) => {
             <TemplateOfMessages />
           </div>
         </div>
-        <button onClick={saveData}>Save or Add</button>
+        {/*//todo translate*/}
+        <button onClick={saveData} disabled={isLoading}>
+          {id == 0 ? "DOdawanie" : "modyfikacja"}
+        </button>
       </OutletPanelScroll>
     </>
   );
