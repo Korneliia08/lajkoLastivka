@@ -1,10 +1,14 @@
 .containerForTemplateOfMessage {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
   max-width: 700px;
   row-gap: 15px;
-  column-gap: 15px;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  
+  .blockForLoad {
+    width: 100%;
+    display: flex;
+    column-gap: 15px;
+    justify-content: space-between;
+  }
 }

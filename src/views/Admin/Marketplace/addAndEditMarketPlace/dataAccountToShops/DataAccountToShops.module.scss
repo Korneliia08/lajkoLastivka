@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border: 1px solid #cbcbcb;
-  padding: 10px 5px;
+  border: 1px solid rgba(220, 220, 220, 0.54);
+  padding: 20px 15px;
   border-radius: 10px;
 
   .left {
@@ -11,13 +11,37 @@
     flex-direction: column;
     row-gap: 8px;
 
-    h5 {
-      font-size: 15px;
-      font-weight: bold;
-    }
-
     p {
       font-size: 14px;
     }
   }
 }
+
+.block {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+
+  .titleNoActive {
+    font-size: 16px;
+    font-weight: bold;
+    color: #b42a00;
+  }
+
+  .iconRed {
+    color: #b42a00;
+  }
+
+  .titleActive {
+    font-size: 16px;
+    font-weight: bold;
+    color: #106000;
+  }
+
+  .iconGreen {
+    font-size: 20px;
+    color: #00a900;
+  }
+
+}
+

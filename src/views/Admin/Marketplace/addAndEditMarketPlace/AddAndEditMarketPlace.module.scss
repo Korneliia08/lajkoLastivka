@@ -2,3 +2,13 @@
   display: flex;
   flex-direction: column;
 }
+
+.containerForForm {
+  margin-top: 10px;
+  border: 1px solid rgba(220, 220, 220, 0.54);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  padding: 0px 15px;
+}

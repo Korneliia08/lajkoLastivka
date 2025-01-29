@@ -71,6 +71,7 @@ const MainInformations = ({store, ...props}) => {
                     <span className={s.deleteSpan}>Видалити магазин</span>
                 </button>
             </aside>
+            <span className={s.infoBlock}>Дані, зібрані з моменту підключення магазину до адміністративної панелі</span>
         </div>
     );
 };
