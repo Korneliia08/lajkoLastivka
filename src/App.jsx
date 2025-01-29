@@ -81,7 +81,7 @@ function App() {
       ],
     },
     {
-      path: "review/:orderId/:itemId",
+      path: "review/:secretId",
       element: <PageFilter />,
     },
     {

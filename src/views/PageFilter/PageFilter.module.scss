@@ -110,7 +110,8 @@
   .productTitle {
     padding: 10px 5px;
     text-align: center;
-    width: 480px;
+    max-width: 480px;
+    width: 100%;
   }
 
   .thanksText {
