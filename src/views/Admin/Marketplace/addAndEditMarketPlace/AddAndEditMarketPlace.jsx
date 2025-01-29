@@ -15,6 +15,7 @@ import {
   marketplaceSetField,
 } from "@/views/Admin/Marketplace/addAndEditMarketPlace/marketplaceFormSlice.js";
 import MainBtn from "@/components/ui/mainBtn/MainBtn.jsx";
+import { toast } from "react-hot-toast";
 
 const AddAndEditMarketPlace = ({...props}) => {
     const {id} = useParams();
@@ -101,32 +102,38 @@ const AddAndEditMarketPlace = ({...props}) => {
     }, [id]);
     const state = useSelector((state) => state.marketplaceForm);
 
-    async function saveData() {
-        const body = {
-            name: state.name,
-            username: state.login,
-            password: state.password,
-            isConnect: state.isConnect,
-            link: state.link,
-            logo: state.logo,
-            sendingEndTime: state.sendingEndTime,
-            description: state.description,
-            sendingStartTime: state.sendingStartTime,
-            sendingDelay: state.sendingDelay,
-            bannerImg: state.viberBannerImg,
-            logoImg: state.viberLogoImg,
-            messageTemplateViber: state.messageTemplateViber,
-        };
-        setLoading(true);
-        if (id == 0) {
-            const res = await api.post("/stores", body);
-            navigate("/admin/marketplaces");
-        } else {
-            const res = await api.patch(`/stores/${id}`, body);
-            navigate(`/admin/marketplaces/${id}`);
-        }
-        setLoading(false);
-    }
+  async function saveData() {
+    const body = {
+      name: state.name,
+      username: state.login,
+      password: state.password,
+      isConnect: state.isConnect,
+      link: state.link,
+      logo: state.logo,
+      sendingEndTime: state.sendingEndTime,
+      description: state.description,
+      sendingStartTime: state.sendingStartTime,
+      sendingDelay: state.sendingDelay,
+      bannerImg: state.viberBannerImg,
+      logoImg: state.viberLogoImg,
+      messageTemplateViber: state.messageTemplateViber,
+    };
+    setLoading(true);
+    try {
+      if (id == 0) {
+        const res = await api.post("/stores", body);
+
+        toast.success("Ваш магазин збережено!");
+        navigate("/admin/marketplaces");
+      } else {
+        const res = await api.patch(`/stores/${id}`, body);
+
+          toast.success("Зміни збережено!");
+        navigate(`/admin/marketplaces/${id}`);
+      }
+    } catch (err) {}
+    setLoading(false);
+  }
 
     if (id === 0 && !store) return "";
     return (
