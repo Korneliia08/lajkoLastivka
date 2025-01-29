@@ -4,7 +4,7 @@ import MyModal from "@/components/features/myModal/MyModal.jsx";
 import { useModalManager } from "@hooks/modalManager.js";
 import DataAccountToShopsModal from "@/views/Admin/Marketplace/addAndEditMarketPlace/dataAccountToShops/dataAccountToShopsModal/DataAccountToShopsModal.jsx";
 
-const DataAccountToShops = ({ ...props }) => {
+const DataAccountToShops = ({ store, ...props }) => {
   const { controller, openModal } = useModalManager();
   return (
     <>
@@ -17,10 +17,15 @@ const DataAccountToShops = ({ ...props }) => {
             панелі.
           </p>
         </div>
-        <MainBtn
-          onClick={() => openModal("setAccessToStore")}
-          buttonText={"Підключити"}
-        />
+        {!store.isConnect ? (
+          <MainBtn
+            onClick={() => openModal("setAccessToStore")}
+            buttonText={"Підключити"}
+          />
+        ) : (
+          //todo tu że jest już podłączone
+          <b style={{ color: "green" }}>jest już podłączone</b>
+        )}
       </div>
       <MyModal options={{}} name={"setAccessToStore"} controller={controller}>
         <DataAccountToShopsModal controller={controller} />

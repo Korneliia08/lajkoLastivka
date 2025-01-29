@@ -6,7 +6,7 @@ import { confirmAlert } from "react-confirm-alert";
 import { CiHeart } from "react-icons/ci";
 import Toggle from "react-toggle";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { MdDeleteOutline } from "react-icons/md";
+import { MdDeleteOutline, MdOutlineWifiOff } from "react-icons/md";
 import MarketplaceMiniMessSendChar from "./marketplaceMiniMessSendChar/MarketplaceMiniMessSendChar.jsx";
 
 function MarketplaceBlock({ data, fetchData }) {
@@ -71,17 +71,21 @@ function MarketplaceBlock({ data, fetchData }) {
             <h5 className={style.titleStore}>Rozetka store</h5>
           </div>
           <div className={style.blockForDeleteAndToggle}>
-            <Toggle
-              disabled={loading}
-              // defaultChecked={this.state.soupIsReady}
-              icons={{
-                checked: <CiHeart className={style.iconHeart} />,
-                unchecked: null,
-              }}
-              checked={isEnable}
-              className="styleOfToggle"
-              onChange={handleToggleStore}
-            />
+            {data.isConnect ? (
+              <Toggle
+                disabled={loading}
+                // defaultChecked={this.state.soupIsReady}
+                icons={{
+                  checked: <CiHeart className={style.iconHeart} />,
+                  unchecked: null,
+                }}
+                checked={isEnable}
+                className="styleOfToggle"
+                onChange={handleToggleStore}
+              />
+            ) : (
+              <MdOutlineWifiOff color={"rgba(0,25,138,0.71)"} size={20} />
+            )}
             <MdDeleteOutline
               className={style.deleteIc}
               onClick={deleteMarketplace}

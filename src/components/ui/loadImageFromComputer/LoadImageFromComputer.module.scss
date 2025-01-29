@@ -33,6 +33,16 @@
       object-fit: cover;
     }
 
+    .deleteButton {
+      position: absolute;
+      top: 0;
+      background: transparent;
+      border: none;
+      right: 0;
+      z-index: 100;
+      cursor: pointer;
+    }
+
     .icStyle {
       position: relative;
       z-index: 9;
