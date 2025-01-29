@@ -53,14 +53,21 @@ body {
     h1 {
       font-size: 22px;
       padding-bottom: 10px;
+      color: #5d5f67;
     }
   }
 
   .react-confirm-alert-button-group {
     button {
-      background: #2727ff;
+      background: #4646f1;
       font-weight: bolder;
       padding: 7px 30px;
+      transition: 250ms ease;
+
+      &:hover {
+        cursor: pointer;
+        background: #3a3ad9;
+      }
     }
   }
 }
