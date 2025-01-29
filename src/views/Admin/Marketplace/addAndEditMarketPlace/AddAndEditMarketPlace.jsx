@@ -12,6 +12,7 @@ import {
   marketplaceResetForm,
   marketplaceSetField,
 } from "@/views/Admin/Marketplace/addAndEditMarketPlace/marketplaceFormSlice.js";
+import { toast } from "react-hot-toast";
 
 const AddAndEditMarketPlace = ({ ...props }) => {
   const { id } = useParams();
@@ -115,13 +116,21 @@ const AddAndEditMarketPlace = ({ ...props }) => {
       messageTemplateViber: state.messageTemplateViber,
     };
     setLoading(true);
-    if (id == 0) {
-      const res = await api.post("/stores", body);
-      navigate("/admin/marketplaces");
-    } else {
-      const res = await api.patch(`/stores/${id}`, body);
-      navigate(`/admin/marketplaces/${id}`);
-    }
+    try {
+      if (id == 0) {
+        const res = await api.post("/stores", body);
+
+        //toto tu komunikato że się zapisało
+        toast.success("Брак доступу!");
+        navigate("/admin/marketplaces");
+      } else {
+        const res = await api.patch(`/stores/${id}`, body);
+
+        //todo tu komunikato że się zaktualizowło
+        toast.success("Брак доступу!");
+        navigate(`/admin/marketplaces/${id}`);
+      }
+    } catch (err) {}
     setLoading(false);
   }
 
