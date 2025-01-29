@@ -1,11 +1,12 @@
 import s from "./StatisticInformations.module.scss";
 import InfoTile from "../../../../components/ui/statisitc/infoTile/InfoTile.jsx";
-import {CgMail, CgRead} from "react-icons/cg";
-import {GiClick} from "react-icons/gi";
+import { CgMail, CgRead } from "react-icons/cg";
+import { GiClick } from "react-icons/gi";
 import useFetch from "@hooks/useFetch.js";
-import {blockStatsInitialData} from "../../dashboard/blockStatsInitialData.js";
-import {useParams} from "react-router-dom";
+import { blockStatsInitialData } from "../../dashboard/blockStatsInitialData.js";
+import { useParams } from "react-router-dom";
 import Block from "@/components/ui/block/Block.jsx";
+import { MdOutlineRateReview } from "react-icons/md";
 
 const StatisticInformations = ({...props}) => {
     const {id} = useParams();
@@ -44,9 +45,10 @@ const StatisticInformations = ({...props}) => {
                     secondValueColor={"red"}
                 />
                 <InfoTile
+                    icon={<MdOutlineRateReview />}
                     value={data.writeComment.current}
                     secondValue={data.writeComment.change}
-                    title={"Написані відгуки"}
+                    title={"Написано відгуків"}
                 />
             </div>
         </Block>

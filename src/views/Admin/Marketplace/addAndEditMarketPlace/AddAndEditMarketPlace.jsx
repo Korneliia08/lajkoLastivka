@@ -120,7 +120,7 @@ const AddAndEditMarketPlace = ({ ...props }) => {
     }
   }
 
-  if (!store) return "";
+  if (id != 0 && !store) return "";
   return (
     <>
       <PanelTitle
