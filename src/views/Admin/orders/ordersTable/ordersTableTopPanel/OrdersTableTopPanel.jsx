@@ -25,12 +25,12 @@ const OrdersTableTopPanel = ({...props}) => {
                         disabled={selectedOrders.length === 0}
                         onClick={() => toggleModal("ManualMessageDispatch")}
                     >
-                        Send fast message
+                        Надіслати зараз
                     </button>
                 </div>
             </div>
             <MyModal
-                options={{defaultClose: true, headerTitle: "Message dispatch"}}
+                options={{}}
                 name={"ManualMessageDispatch"}
                 controller={controller}
             >

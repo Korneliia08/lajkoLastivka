@@ -1,3 +1,61 @@
 .manualDispatchContentContainer {
+  padding: 1px 0px;
+  position: relative;
+  border-radius: 10px;
 
+  .blockForTitle {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    width: 100%;
+    margin-bottom: 8px;
+    background-color: rgba(238, 238, 238, 0.4);
+    padding: 8px 15px;
+
+    .title {
+      font-size: 22px;
+    }
+
+    .information {
+      display: flex;
+
+      .titleOfItem {
+        font-size: 16px;
+      }
+
+      .value {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .containerForLoad {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 5px 15px;
+  }
+
+  .containerForTextarea {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    padding: 5px 15px;
+    row-gap: 8px;
+
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .textareaStyle {
+      resize: none;
+      height: 200px;
+      border-radius: 10px;
+      padding: 5px 15px;
+      border: 1px solid gainsboro;
+      font-size: 15px;
+    }
+  }
 }

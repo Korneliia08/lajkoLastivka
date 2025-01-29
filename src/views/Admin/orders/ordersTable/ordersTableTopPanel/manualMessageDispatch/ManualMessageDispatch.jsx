@@ -76,15 +76,6 @@ const ManualMessageDispatch = ({controller, ...props}) => {
 
     return (
         <div className={s.manualMessageDispatchContainer}>
-            <div className={s.information}>
-                <span className={s.label}>
-Вибрані замовлення:
-                </span>
-                <span className={s.value}>
-{selectedOrders.length}
-                </span>
-            </div>
-
             <div className={s.content}>
                 <ManualDispatchContent setData={setData} data={data}/>
             </div>
@@ -94,7 +85,6 @@ const ManualMessageDispatch = ({controller, ...props}) => {
                 <button disabled={isBlocked} className={'btn green'} onClick={() => dispatchMessage()}>Надіслати
                 </button>
             </div>
-
         </div>
     )
 }
