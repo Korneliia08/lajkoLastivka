@@ -2,6 +2,7 @@ import style from "./LogIn.module.scss";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../assets/back.png";
+import axios from "axios";
 
 function LogIn() {
   const navigate = useNavigate();
