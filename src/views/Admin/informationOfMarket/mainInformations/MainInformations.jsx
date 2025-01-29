@@ -18,8 +18,7 @@ const MainInformations = ({store, ...props}) => {
         try {
             confirmAlert({
                 title: "Видалення магазину",
-                //todo tu dorobić nazwę
-                // message: 'Ви напевно хочете видалити магазин: ' + data.name,
+                message: 'Ви напевно хочете видалити магазин? ',
 
                 buttons: [
                     {
