@@ -2,6 +2,7 @@ import style from "./LogIn.module.scss";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import back from "../../assets/logoBackground.svg";
 
 function LogIn() {
   const navigate = useNavigate();
@@ -18,9 +19,7 @@ function LogIn() {
     setResult("");
 
     if (login.length <= 0 || password.length <= 0) {
-      setResult(
-        "<b style='color: white'>Логін і пароль — ключі до всього. Де вони? 🤔</b>",
-      );
+      setResult("<b  >Логін і пароль — ключі до всього. Де вони? 🤔</b>");
       return;
     }
 
@@ -40,9 +39,7 @@ function LogIn() {
       localStorage.setItem("refresh_token", response.data.refresh_token);
     } catch (error) {
       setCorrectData(false);
-      setResult(
-        "<b  style='color: white'>Дані невірні, ластівка не може злетіти 🤔</b>",
-      );
+      setResult("<b   >Дані невірні, ластівка не може злетіти 🤔</b>");
     }
     setDisabled(false);
     loginRef.current.value = "";
@@ -51,7 +48,9 @@ function LogIn() {
 
   return (
     <div className={style.container}>
-      <div className={style.left}></div>
+      <div className={style.left}>
+        <img src={back} />
+      </div>
       <div className={style.right}>
         <h5 className={style.title}>Вхід до адміністративної панелі</h5>
         <p className={style.description}>
@@ -84,7 +83,10 @@ function LogIn() {
           >
             Увійти
           </button>
-          <span dangerouslySetInnerHTML={{ __html: result }}></span>
+          <span
+            className={style.err}
+            dangerouslySetInnerHTML={{ __html: result }}
+          ></span>
         </form>
       </div>
     </div>
