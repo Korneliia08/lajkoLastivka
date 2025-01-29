@@ -13,6 +13,7 @@ function PageFilter() {
   const [data, setData] = useState(undefined);
   const [stage, setStage] = useState("stars");
   const [notValidLink, setNotValidLink] = useState(false);
+  const [opinionExist, setOpinionExist] = useState(false);
   useEffect(() => {
     (async () => {
       try {
@@ -28,7 +29,7 @@ function PageFilter() {
 
   async function sendStars() {
     try {
-      const res = await api.post("/messages/setRatingScore/" + secretId, {
+      const res = await api.post("/localOpinions/setRatingScore/" + secretId, {
         ratingScore: stars,
       });
       if (res.data.code == 5) {
@@ -71,10 +72,10 @@ function PageFilter() {
       </>
     );
   }
-  if (data.opinion != undefined && data.opinion.id != undefined) {
+
+  if (!data.order.localOpinion) {
     content = <PageFileterOpinionHasAlreadyBeenIssued />;
   }
-
   return (
     <div className={style.container}>
       <header className={style.blockForHeader}>
