@@ -4,9 +4,12 @@ import RowOfFormAddAndEditShop from "@/components/ui/rowOfFormAddAndEditShop/Row
 import { useDispatch, useSelector } from "react-redux";
 import { marketplaceSetField } from "@/views/Admin/Marketplace/addAndEditMarketPlace/marketplaceFormSlice.js";
 import api from "@/providers/interceptors/refreshToken.interceptor.js";
+import { toast } from "react-hot-toast";
+import { useState } from "react";
 
 const DataAccountToShopsModal = ({ controller, ...props }) => {
   const dispatch = useDispatch();
+  const [isLoading, setLoading] = useState(false);
   const {
     rozetkaLogin,
     rozetkaPassword,
@@ -18,32 +21,31 @@ const DataAccountToShopsModal = ({ controller, ...props }) => {
   };
 
   async function tryConnect() {
-    try {
-      const response = await api.post("/stores/checkConnection", {
-        login: rozetkaLogin,
-        password: btoa(unescape(encodeURIComponent(rozetkaPassword))),
-      });
-      console.log(response.data);
-      if (response.data) {
-        return true;
-      } else {
-        console.error("Login failed _ 1");
-        return false;
-      }
-    } catch (error) {
-      return false;
-    }
+    return api.post("/stores/checkConnection", {
+      login: rozetkaLogin,
+      password: btoa(unescape(encodeURIComponent(rozetkaPassword))),
+    });
   }
 
   async function connect() {
-    const isConnect = await tryConnect();
+    setLoading(true);
 
+    const isConnect = await toast.promise(tryConnect(), {
+      //todo translate
+      loading: "Trwa próba połączenia z sklepem",
+      success: <b>Połączenie z sklepem udane</b>,
+      error: <b>Błąd podłączenia do sklepu.</b>,
+    });
+    setLoading(false);
     dispatch(
       marketplaceSetField({
         field: "isConnect",
         value: isConnect,
       }),
     );
+    if (isConnect) {
+      controller.closeModal();
+    }
   }
 
   // controller.closeModal();

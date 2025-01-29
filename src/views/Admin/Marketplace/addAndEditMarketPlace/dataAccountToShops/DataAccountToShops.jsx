@@ -5,14 +5,19 @@ import {useModalManager} from "@hooks/modalManager.js";
 import DataAccountToShopsModal
     from "@/views/Admin/Marketplace/addAndEditMarketPlace/dataAccountToShops/dataAccountToShopsModal/DataAccountToShopsModal.jsx";
 import {RiRadioButtonLine} from "react-icons/ri";
+import { useSelector } from "react-redux";
 
 const DataAccountToShops = ({store, ...props}) => {
     const {controller, openModal} = useModalManager();
+    const { isConnect: isConnect } = useSelector(
+        (state) => state.marketplaceForm,
+    );
+
     return (
         <>
             <div className={s.dataAccountToShopsContainer}>
                 <div className={s.left}>
-                    {!store.isConnect ? (
+                    {!isConnect ? (
                         <div className={s.block}>
                             <h5 className={s.titleNoActive}>З’єднання з маркетплейсом неактивне</h5>
                             <RiRadioButtonLine className={s.iconRed}/>
@@ -23,7 +28,7 @@ const DataAccountToShops = ({store, ...props}) => {
                             <RiRadioButtonLine className={s.iconGreen}/>
                         </div>
                     )}
-                    {!store.isConnect ? (
+                    {!isConnect ? (
                         <p>
                             Ваш маркетплейс не підключено. Будь ласка, підключіть його, щоб мати можливість повноцінно
                             використовувати всі функції адміністративної панелі.
@@ -36,7 +41,7 @@ const DataAccountToShops = ({store, ...props}) => {
                         </p>
                     )}
                 </div>
-                {!store.isConnect ? (
+                {!isConnect ? (
                     <MainBtn
                         onClick={() => openModal("setAccessToStore")}
                         buttonText={"Підключити"}

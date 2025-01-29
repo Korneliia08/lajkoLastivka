@@ -2,14 +2,12 @@ import s from "./AddAndEditMarketPlace.module.scss";
 import PanelTitle from "@/components/layot/panelTitle/PanelTitle.jsx";
 import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 import DetailsOfShop from "@/views/Admin/Marketplace/addAndEditMarketPlace/detailsOfShop/DetailsOfShop.jsx";
-import DataAccountToShops
-  from "@/views/Admin/Marketplace/addAndEditMarketPlace/dataAccountToShops/DataAccountToShops.jsx";
-import TemplateOfMessages
-  from "@/views/Admin/Marketplace/addAndEditMarketPlace/templateOfMessages/TemplateOfMessages.jsx";
-import {useNavigate, useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import DataAccountToShops from "@/views/Admin/Marketplace/addAndEditMarketPlace/dataAccountToShops/DataAccountToShops.jsx";
+import TemplateOfMessages from "@/views/Admin/Marketplace/addAndEditMarketPlace/templateOfMessages/TemplateOfMessages.jsx";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import api from "@/providers/interceptors/refreshToken.interceptor.js";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   marketplaceResetForm,
   marketplaceSetField,
@@ -95,54 +93,54 @@ const AddAndEditMarketPlace = ({ ...props }) => {
       //    setLoading(false); // Zakończenie ładowani
     };
 
-        fetchData();
-    }, [id]);
-    const state = useSelector((state) => state.marketplaceForm);
+    fetchData();
+  }, [id]);
+  const state = useSelector((state) => state.marketplaceForm);
 
-    async function saveData() {
-        const body = {
-            name: state.name,
-            username: state.login,
-            password: state.password,
-            isConnect: state.isConnect,
-            link: state.link,
-            logo: state.logo,
-            sendingEndTime: state.sendingEndTime,
-            description: state.description,
-            sendingStartTime: state.sendingStartTime,
-            sendingDelay: state.sendingDelay,
-            bannerImg: state.viberBannerImg,
-            logoImg: state.viberLogoImg,
-            messageTemplateViber: state.messageTemplateViber,
-        };
-        if (id == 0) {
-            const res = await api.post("/stores", body);
-        } else {
-            const res = await api.patch(`/stores/${id}`, body);
-        }
+  async function saveData() {
+    const body = {
+      name: state.name,
+      username: state.login,
+      password: state.password,
+      isConnect: state.isConnect,
+      link: state.link,
+      logo: state.logo,
+      sendingEndTime: state.sendingEndTime,
+      description: state.description,
+      sendingStartTime: state.sendingStartTime,
+      sendingDelay: state.sendingDelay,
+      bannerImg: state.viberBannerImg,
+      logoImg: state.viberLogoImg,
+      messageTemplateViber: state.messageTemplateViber,
+    };
+    if (id == 0) {
+      const res = await api.post("/stores", body);
+    } else {
+      const res = await api.patch(`/stores/${id}`, body);
     }
+  }
 
-    if (!store) return "";
-    return (
-        <>
-            <PanelTitle
-                title={"Підключення магазину:"}
-                subTitle={
-                    "Підключіть свій магазин, щоб автоматично надсилати клієнтам запити на оцінку замовлення та аналізувати результати."
-                }
-                isBtn={false}
-            />
-            <OutletPanelScroll>
-                <div className={s.addAndEditMarketPlaceContainer}>
-                    <DataAccountToShops store={store}/>
-                    <div className={s.containerForForm}>
-                        <DetailsOfShop/>
-                        <TemplateOfMessages/>
-                    </div>
-                </div>
-                <button onClick={saveData}>Save or Add</button>
-            </OutletPanelScroll>
-        </>
-    );
+  if (id === 0 && !store) return "";
+  return (
+    <>
+      <PanelTitle
+        title={"Підключення магазину:"}
+        subTitle={
+          "Підключіть свій магазин, щоб автоматично надсилати клієнтам запити на оцінку замовлення та аналізувати результати."
+        }
+        isBtn={false}
+      />
+      <OutletPanelScroll>
+        <div className={s.addAndEditMarketPlaceContainer}>
+          <DataAccountToShops store={store} />
+          <div className={s.containerForForm}>
+            <DetailsOfShop />
+            <TemplateOfMessages />
+          </div>
+        </div>
+        <button onClick={saveData}>Save or Add</button>
+      </OutletPanelScroll>
+    </>
+  );
 };
 export default AddAndEditMarketPlace;
