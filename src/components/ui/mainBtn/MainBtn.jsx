@@ -1,9 +1,9 @@
 import s from "./MainBtn.module.scss";
 
 
-const MainBtn = ({buttonText, buttonIcon, onClick, ...props}) => {
+const MainBtn = ({buttonText, buttonIcon, onClick, widthBtn, ...props}) => {
     return (
-        <button className={s.btnStyle} onClick={onClick}>{buttonIcon}{buttonText}</button>
+        <button style={{width: widthBtn}} className={s.btnStyle} onClick={onClick}>{buttonIcon}{buttonText}</button>
     )
 }
 export default MainBtn;

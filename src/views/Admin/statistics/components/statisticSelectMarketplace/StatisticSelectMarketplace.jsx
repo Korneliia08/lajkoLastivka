@@ -33,7 +33,8 @@ const StatisticSelectMarketplace = ({storeId, ...props}) => {
 
     return (
         <div className={s.statisticSelectMarketplaceContainer}>
-            <span>Select marketplace:</span><Select value={dataToSelect.filter(el => el.value == storeId)} onChange={change} options={dataToSelect}/>
+            <span>Оберіть маркетплейс:</span><Select value={dataToSelect.filter(el => el.value == storeId)}
+                                                     onChange={change} options={dataToSelect}/>
         </div>
     )
 }
