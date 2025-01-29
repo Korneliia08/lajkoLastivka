@@ -117,8 +117,10 @@ const AddAndEditMarketPlace = ({ ...props }) => {
     setLoading(true);
     if (id == 0) {
       const res = await api.post("/stores", body);
+      navigate("/admin/marketplaces");
     } else {
       const res = await api.patch(`/stores/${id}`, body);
+      navigate(`/admin/marketplaces/${id}`);
     }
     setLoading(false);
   }
@@ -142,7 +144,7 @@ const AddAndEditMarketPlace = ({ ...props }) => {
           </div>
         </div>
         {/*//todo translate*/}
-        <button onClick={saveData}>
+        <button onClick={saveData} disabled={isLoading}>
           {id == 0 ? "DOdawanie" : "modyfikacja"}
         </button>
       </OutletPanelScroll>
