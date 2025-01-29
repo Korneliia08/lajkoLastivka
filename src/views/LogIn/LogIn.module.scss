@@ -48,6 +48,21 @@
         border-left: 4px solid #0b8fea;
         border-radius: 0px 2px 2px 0px;
       }
+
+      button {
+        background-color: #0b8fea;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 15px;
+        font-weight: bold;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #0679c9;
+        }
+      }
     }
   }
 }
