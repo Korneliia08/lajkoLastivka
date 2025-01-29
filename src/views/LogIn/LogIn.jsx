@@ -59,8 +59,7 @@ function LogIn() {
                     повідомлень та здійснювати аналіз отриманих відгуків, що допомагає ефективно керувати процесами на
                     вашому сайті.</p>
                 <form className={style.formLogIn}
-                  onClick={(event) =>
-               event.preventDefault()/>
+                  onClick={(event) => event.preventDefault()}/>
                     <input
                         ref={loginRef}
                         type="text"

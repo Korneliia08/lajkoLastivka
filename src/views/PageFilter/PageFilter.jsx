@@ -73,7 +73,7 @@ function PageFilter() {
     );
   }
 
-  if (!data.order.localOpinion) {
+  if (data.order.localOpinion != null) {
     content = <PageFileterOpinionHasAlreadyBeenIssued />;
   }
   return (

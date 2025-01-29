@@ -10,7 +10,7 @@ const PageFilterComment = ({ setStage }) => {
   async function sendComment(ev) {
     ev.preventDefault();
     try {
-      const res = await api.post("/opinions/setOpinion/" + secretId, {
+      const res = await api.post("/localOpinions/setOpinion/" + secretId, {
         comment: commentRef.current.value,
       });
       // if (res.data.code == 5) {
