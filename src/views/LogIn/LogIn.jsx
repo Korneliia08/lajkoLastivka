@@ -58,7 +58,9 @@ function LogIn() {
                 <p className={style.description}>Адміністративна панель надає можливість зручно налаштовувати розсилку
                     повідомлень та здійснювати аналіз отриманих відгуків, що допомагає ефективно керувати процесами на
                     вашому сайті.</p>
-                <form>
+                <form className={style.formLogIn}
+                  onClick={(event) =>
+               event.preventDefault()/>
                     <input
                         ref={loginRef}
                         type="text"
@@ -73,37 +75,16 @@ function LogIn() {
                         placeholder="Пароль"
                         onChange={(ev) => setPass(ev.target.value)}
                     />
+                    <button
+                        disabled={disabled}
+                        className={style.btnLogIn}
+                        onClick={checkLoginAndPass}
+                    >
+                        Увійти
+                    </button>
+                    <span dangerouslySetInnerHTML={{__html: result}}></span>
                 </form>
             </div>
-            {/*<form*/}
-            {/*    className={style.formLogIn}*/}
-            {/*    onClick={(event) => {*/}
-            {/*        event.preventDefault();*/}
-            {/*    }}*/}
-            {/*>*/}
-            {/*    <input*/}
-            {/*        ref={loginRef}*/}
-            {/*        type="text"*/}
-            {/*        className={style.inputLogIn}*/}
-            {/*        placeholder="Логін"*/}
-            {/*        onChange={(ev) => setLogin(ev.target.value)}*/}
-            {/*    />*/}
-            {/*    <input*/}
-            {/*        ref={passRef}*/}
-            {/*        type="password"*/}
-            {/*        className={style.inputLogIn}*/}
-            {/*        placeholder="Пароль"*/}
-            {/*        onChange={(ev) => setPass(ev.target.value)}*/}
-            {/*    />*/}
-            {/*    <button*/}
-            {/*        disabled={disabled}*/}
-            {/*        className={style.btnLogIn}*/}
-            {/*        onClick={checkLoginAndPass}*/}
-            {/*    >*/}
-            {/*        Увійти*/}
-            {/*    </button>*/}
-            {/*    <span dangerouslySetInnerHTML={{__html: result}}></span>*/}
-            {/*</form>*/}
         </div>
     );
 }
