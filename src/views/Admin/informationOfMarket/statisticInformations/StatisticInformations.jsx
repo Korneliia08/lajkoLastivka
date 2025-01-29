@@ -40,13 +40,13 @@ const StatisticInformations = ({...props}) => {
                     icon={<GiClick/>}
                     value={data.clickInMonth.current}
                     secondValue={data.clickInMonth.change}
-                    title={"Посилання відвідано"}
+                    title={"Відвідані посилання"}
                     secondValueColor={"red"}
                 />
                 <InfoTile
                     value={data.writeComment.current}
                     secondValue={data.writeComment.change}
-                    title={"Написано відгуків"}
+                    title={"Написані відгуки"}
                 />
             </div>
         </Block>

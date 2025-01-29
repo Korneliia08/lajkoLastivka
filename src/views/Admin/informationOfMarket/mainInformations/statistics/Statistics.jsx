@@ -14,7 +14,10 @@ const Statistics = ({store, ...props}) => {
             <InformationBlock value={data.totalEarn + '₴'} title={'прибуток'}/>
             <InformationBlock value={data.totalOrders} title={'усього замовлень'}/>
             <InformationBlock value={data.totalOpinions} title={'усього відгуків'}/>
-            <InformationBlock value={Math.round(data.averageRating * 100) / 100} title={'avg rating'}/>
+            <InformationBlock value={Math.round(data.averageRating * 100) / 100}
+                              title={"середня оцінка у системі Розетки"}/>
+            <InformationBlock value={Math.round(data.averageRating * 100) / 100}
+                              title={"середня оцінка у системі ЛайкоЛастівки"}/>
         </div>
     )
 }
