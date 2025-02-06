@@ -39,7 +39,7 @@ const OrdersTableTopPanelDatesRange = ({...props}) => {
             <DateTimePicker
                 ampm={false}
                 maxDateTime={localEndTime}
-                label="Start Time"
+                label="Початок"
                 value={localStartTime}
                 onChange={handleStartTimeChange}
                 format="YYYY-MM-DD HH:mm"
@@ -51,7 +51,7 @@ const OrdersTableTopPanelDatesRange = ({...props}) => {
             />
             <DateTimePicker
                 ampm={false}
-                label="End Time"
+                label="Кінець"
                 maxDateTime={dayjs(new Date())}
                 minDateTime={localStartTime}
                 value={localEndTime} format="YYYY-MM-DD HH:mm"

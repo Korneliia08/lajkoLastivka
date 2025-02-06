@@ -7,7 +7,7 @@ const MessageSendStatus = ({colorNotExist, order, ...props}) => {
     if (mess) {
         switch (mess.status) {
             case "pending":
-                return <FaClock color={"#bc4e00"} key="K3"/>;
+                return <FaClock color={"#bc4e00"} key="K3" title={"Відправка очікується"}/>;
 
             case "sent":
                 return <BiSend color={"green"} key="K5" title={mess.sentAt}/>;
