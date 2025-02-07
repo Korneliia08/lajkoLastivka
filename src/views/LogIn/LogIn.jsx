@@ -39,7 +39,7 @@ function LogIn() {
             localStorage.setItem("refresh_token", response.data.refresh_token);
         } catch (error) {
             setCorrectData(false);
-            setResult("<b   >Дані невірні, ластівка не може злетіти</b>");
+            setResult("<b   >Дані невірні, спробуйте знову</b>");
         }
         setDisabled(false);
         loginRef.current.value = "";
