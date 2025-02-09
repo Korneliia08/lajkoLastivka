@@ -14,7 +14,13 @@
     .textAreaField {
       margin-top: 12px;
       resize: none;
-      height: 150px;
+      height: 200px;
+      border-radius: 10px;
+      border: 1px inset rgba(224, 224, 224, 0.63);
+      padding: 5px 10px;
+      box-shadow: 0px 0px 20px 2px inset rgba(145, 151, 255, 0.09);
+      color: #000057;
+      letter-spacing: 1px;
     }
   }
 
@@ -40,8 +46,8 @@
   }
 
   .describe {
-    color: #777777;
-    font-size: 13px;
-    font-weight: lighter;
+    color: #969696;
+    font-size: 12px;
+    font-weight: bold;
   }
 }
