@@ -10,15 +10,20 @@
 
 
     .icon {
-      padding: 8px;
+      // padding: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: white;
+      //  background-color: white;
       border-radius: 4px;
-      width: 35px;
+      width: 65px;
       height: 35px;
       position: relative;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+      }
 
       .iconHeart {
         position: absolute;

@@ -26,9 +26,11 @@ function PageFilter() {
       }
     })();
   }, [secretId]);
+  const [isLoadingStars, setLoadingStars] = useState(false);
 
   async function sendStars() {
     try {
+      setLoadingStars(true);
       const res = await api.post("/localOpinions/setRatingScore/" + secretId, {
         ratingScore: stars,
       });
@@ -46,6 +48,7 @@ function PageFilter() {
       console.log(err);
       return;
     }
+    setLoadingStars(false);
   }
 
   if (notValidLink) return <h1>Недійсне посилання для огляду покупки</h1>;
@@ -55,6 +58,7 @@ function PageFilter() {
     content = (
       <PageFilterChooseStars
         stars={stars}
+        isLoadingStars={isLoadingStars}
         sendStars={sendStars}
         setStars={setStars}
       />
@@ -73,7 +77,7 @@ function PageFilter() {
     );
   }
 
-  if (data.order.localOpinion != null) {
+  if (data.localOpinion != null) {
     content = <PageFileterOpinionHasAlreadyBeenIssued />;
   }
   return (
@@ -81,13 +85,13 @@ function PageFilter() {
       <header className={style.blockForHeader}>
         <img
           src={data.order.store.bannerImg}
-          alt="bershkaImg"
+          alt="bannerImg"
           className={style.imgOfShop}
         />
         <div className={style.circleForLogo}>
           <img
             src={data.order.store.logoImg}
-            alt="bershkaLogo"
+            alt="logoImg"
             className={style.logoOgShopImg}
           />
         </div>

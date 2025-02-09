@@ -56,7 +56,10 @@ const Dashboard = (props) => {
             <GeneralStatsCharBlock />
           </div>
           <div className={s.likeUnlike}>
-            <LikeUnlikeCharBlock />
+            <LikeUnlikeCharBlock type={"rozetka"} />
+          </div>
+          <div className={s.likeUnlikeLocal}>
+            <LikeUnlikeCharBlock type={"local"} />
           </div>
           <div className={s.orders}>
             <MarketplacesOrdersCharBlock />

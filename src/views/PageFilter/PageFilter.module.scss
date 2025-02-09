@@ -60,6 +60,9 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
   }
 
   .blockForStars {
@@ -88,13 +91,17 @@
         filter: grayscale(0.5);
       }
 
-      &:hover {
+      &:hover:not(&:disabled) {
         cursor: pointer;
       }
     }
 
     .deleteBtn {
       background-color: #cc1d1d;
+
+      &:disabled {
+        filter: grayscale(0.5);
+      }
 
       &:hover:not(:disabled) {
         background-color: #a11111;
@@ -104,6 +111,11 @@
 
     .continueBtn {
       background-color: #2caf0a;
+
+      &:disabled {
+        cursor: wait;
+        filter: grayscale(0.5);
+      }
 
       &:hover:not(:disabled) {
         background-color: #239306;

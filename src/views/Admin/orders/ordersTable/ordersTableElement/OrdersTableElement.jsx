@@ -43,6 +43,12 @@ const OrdersTableElement = ({ order, index, ...props }) => {
             )
           : ""}
       </td>
+      <td className={s.smallText}>
+        {order.items.map((item) => (
+          <span>{item.title},</span>
+        ))}
+      </td>
+
       <td className={s.icons}>
         <span>
           <OrdersTableElementStatus order={order} />

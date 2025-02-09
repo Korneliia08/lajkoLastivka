@@ -23,7 +23,7 @@ const DataAccountToShopsModal = ({ controller, ...props }) => {
   async function tryConnect() {
     return api.post("/stores/checkConnection", {
       login: rozetkaLogin,
-      password: btoa(unescape(encodeURIComponent(rozetkaPassword))),
+      password: rozetkaPassword,
     });
   }
 

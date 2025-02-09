@@ -69,7 +69,7 @@ const renderActiveShape = (props) => {
       {/*<circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />*/}
       {/*<text x={ex + (cos >= 0 ? 0.8 : -0.8) * 15} y={ey} textAnchor={textAnchor} fill="#333">{`Likes ${value}`}</text>*/}
       {/*<text x={ex + (cos >= 0 ? 0.8 : -0.8) * 15} y={ey} dy={18} textAnchor={textAnchor} fill="#999">*/}
-      <text x={0} y={20} fill="#333">{`Зірочок ${value}`}</text>
+      <text x={0} y={20} fill="#333">{`${value} оцінок`}</text>
       <text x={0} y={20} dy={18} fill="#999">
         {`(${(percent * 100).toFixed(2)}%)`}
       </text>
@@ -78,6 +78,7 @@ const renderActiveShape = (props) => {
 };
 
 const LikeUnlikeChar = ({ data, maxWidth = 350, maxHeight = 250, colors }) => {
+  console.log(data);
   const [selected, setSelected] = useState(0);
   return (
     <ResponsiveContainer

@@ -7,7 +7,7 @@ const LeftNavTopPanel = ({ ...props }) => {
   const navigate = useNavigate();
   return (
     <div className={s.leftNavTopPanelContainer}>
-      <h1>ЛайкоЛастівка</h1>
+      <h1>FeedMP</h1>
       <button className={s.icon} onClick={() => navigate(-1)}>
         <RiArrowGoBackFill />
       </button>

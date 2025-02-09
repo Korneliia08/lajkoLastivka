@@ -1,6 +1,7 @@
 .ordersTableContainer {
   width: 100%;
   border-collapse: collapse;
+  font-size: 13px;
 
   tfoot {
     tr td div {
@@ -18,6 +19,9 @@
       th {
         text-align: left;
         border-bottom: 1px solid black;
+        font-size: 12px;
+        word-break: keep-all;
+        white-space: nowrap;
 
         &:first-of-type {
           padding-right: 0;

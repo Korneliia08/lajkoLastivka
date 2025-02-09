@@ -24,11 +24,11 @@ const StatisticRatingChar = ({ mode, storeId, ...props }) => {
   let color, title;
   if (mode === "local") {
     color = ["#E0BBF3", "#C1A3FF", "#A3D8F4", "#8EC5FC", "#F48FB1"];
-    title = "Сума відгуків у системі ЛайкоЛастівка";
+    title = "Сума оцінок у системі FeedMP";
   } else {
     color = ["#F3E0E0", "#B3E7F9", "#70E2C8", "#62C1F8", "#A384FF"];
 
-    title = "Сума відгуків у системі Розетки";
+    title = "Сума оцінок у системі Розетки";
   }
   const sum = data.reduce((acc, k) => acc + +k.value, 0);
   return (
@@ -37,7 +37,7 @@ const StatisticRatingChar = ({ mode, storeId, ...props }) => {
       {/*//todo translate*/}
       <div className={s.container}>
         <div className={s.left}>
-          <p className={s.text}>{sum} зірочок </p>
+          <p className={s.text}>Усього {sum} оцінок.</p>
 
           <LikeUnlikeChar
             maxHeight={160}

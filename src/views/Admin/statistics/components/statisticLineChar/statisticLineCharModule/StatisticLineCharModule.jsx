@@ -9,14 +9,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { colors } from "@/data/colors.js";
 
 const StatisticLineCharModule = ({ data, selectedOption }) => {
   const [dataLocal, setDataLocal] = useState([]);
   const [h, setH] = useState(15);
 
   useEffect(() => {
-    const filteredData = data.map((item) => {
+    const filteredData = data.map((item, index) => {
       let filteredItem = {};
       selectedOption.forEach((key) => {
         if (item.hasOwnProperty(key.variableLabel)) {
@@ -39,11 +38,14 @@ const StatisticLineCharModule = ({ data, selectedOption }) => {
     setDataLocal(filteredData);
     setH(max);
   }, [data, selectedOption]);
-
+  console.log(selectedOption);
   const lines = [];
   if (dataLocal.length > 0) {
     Object.keys(dataLocal[0]).forEach((key, index) => {
-      if (key !== "day")
+      if (key !== "day") {
+        const find = selectedOption.find((k) => k.value == key);
+        const color = find ? find.color : "blue";
+
         lines.push(
           <Line
             key={key}
@@ -51,9 +53,10 @@ const StatisticLineCharModule = ({ data, selectedOption }) => {
             type="monotone"
             dot={false}
             dataKey={key}
-            stroke={colors[index % colors.length]}
+            stroke={color}
           />,
         );
+      }
     });
   }
 

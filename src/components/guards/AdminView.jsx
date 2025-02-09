@@ -20,7 +20,8 @@ function AdminViewGuard(props) {
   useEffect(() => {
     const intervalId = setInterval(() => {
       checkToken();
-    }, 5000);
+      //todo to na mniej jak się zabezpieczy lepiej
+    }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);

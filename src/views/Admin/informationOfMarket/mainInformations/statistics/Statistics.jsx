@@ -13,7 +13,10 @@ const Statistics = ({ store, ...props }) => {
   if (!data) return "";
   return (
     <div className={s.statisticsContainer}>
-      <InformationBlock value={data.totalEarn + "₴"} title={"прибуток"} />
+      <InformationBlock
+        value={Math.round(data.totalEarn) + "₴"}
+        title={"прибуток"}
+      />
       <InformationBlock value={data.totalOrders} title={"усього замовлень"} />
       <InformationBlock value={data.totalOpinions} title={"усього відгуків"} />
       <InformationBlock

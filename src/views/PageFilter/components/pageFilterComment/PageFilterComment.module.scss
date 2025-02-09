@@ -51,7 +51,12 @@
       transition: 250ms ease;
       border: 1.5px solid #565656;
 
-      &:hover {
+      &:disabled {
+        filter: grayscale(0.5);
+        cursor: wait;
+      }
+
+      &:hover:not(&:disabled) {
         cursor: pointer;
         background-color: #460057;
       }
