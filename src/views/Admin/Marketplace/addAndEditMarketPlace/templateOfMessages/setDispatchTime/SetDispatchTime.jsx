@@ -7,13 +7,13 @@ const SetDispatchTime = ({ ...props }) => {
   const dispatch = useDispatch();
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     dispatch(marketplaceSetField({ field: name, value }));
   };
 
-  const { sendingDelay, sendingStartTime, sendingEndTime } = useSelector(
-    (state) => state.marketplaceForm,
-  );
-
+  const { sendingDelay, isAutoSendEnable, sendingStartTime, sendingEndTime } =
+    useSelector((state) => state.marketplaceForm);
+  console.log(isAutoSendEnable);
   return (
     <div className={s.setDispatchTimeContainer}>
       <div className={s.blockForTitle}>
@@ -23,6 +23,14 @@ const SetDispatchTime = ({ ...props }) => {
         </h6>
       </div>
       <div className={s.container}>
+        <RowOfFormAddAndEditShop
+          name={"isAutoSendEnable"}
+          value={isAutoSendEnable}
+          onChange={handleChange}
+          type={"toggle"}
+          title={"Automatyczna rozsyłka"}
+          describe={"Automatyczne wysyłanie widadomości"}
+        />
         <RowOfFormAddAndEditShop
           name={"sendingStartTime"}
           value={sendingStartTime}

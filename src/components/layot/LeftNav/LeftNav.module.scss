@@ -9,6 +9,7 @@
   row-gap: 10px;
   border: 1px solid #d3d3d3;
   margin: 5px;
+  position: relative;
   border-radius: 10px;
   background: radial-gradient(ellipse at left top,
           rgba(58, 156, 251, 0.64) 0%,
@@ -16,6 +17,16 @@
           rgba(58, 156, 251, 0.14) 30%,
           rgba(58, 156, 251, 0.04) 50%,
           rgba(255, 255, 255, 0) 100%);
+
+  .version {
+    position: absolute;
+    left: 4px;
+    bottom: 2px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+  }
 
   .padding {
     padding: 10px 15px;

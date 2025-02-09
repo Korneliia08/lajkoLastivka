@@ -10,6 +10,7 @@ const initialState = {
   sendingStartTime: "",
   sendingEndTime: "",
   sendingDelay: "",
+  isAutoSendEnable: true,
   messageTemplateViber: "",
   viberBannerImg: "",
   viberLogoImg: "",

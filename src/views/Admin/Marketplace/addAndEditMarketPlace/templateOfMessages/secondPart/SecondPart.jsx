@@ -31,6 +31,7 @@ const SecondPart = ({ ...props }) => {
           className={s.textAreaField}
         ></textarea>
       </div>
+
       <div className={s.right}>
         <SetDispatchTime />
       </div>

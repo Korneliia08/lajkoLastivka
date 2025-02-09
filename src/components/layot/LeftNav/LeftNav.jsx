@@ -4,6 +4,7 @@ import { LuUsers } from "react-icons/lu";
 import { FiHome } from "react-icons/fi";
 import { GrPieChart } from "react-icons/gr";
 import LeftNavTopPanel from "./leftNavTopPanel/LeftNavTopPanel.jsx";
+import { version } from "@/version.js";
 
 function LeftNav() {
   const dashboardElObj = [
@@ -22,6 +23,7 @@ function LeftNav() {
           <SectionOfNav title={"Головна"} elements={dashboardElObj} />
           {/*<SectionOfNav title={"Налаштування"} elements={settingsElObj}/>*/}
         </div>
+        <span className={style.version}>v{version}</span>
       </div>
     </>
   );
