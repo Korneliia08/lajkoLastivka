@@ -13,19 +13,48 @@
     background-color: rgba(238, 238, 238, 0.4);
     padding: 8px 15px;
 
+
     .title {
-      font-size: 22px;
+      font-size: 17px;
+
+      .titleOfItem {
+        font-size: 11px;
+      }
+
+      .value {
+        font-size: 11px;
+      }
     }
 
     .information {
       display: flex;
+      justify-content: space-between;
 
-      .titleOfItem {
-        font-size: 16px;
+      .describe {
+        font-size: 12px;
+        display: flex;
+        width: 65%;
+        text-align: justify;
       }
 
-      .value {
-        font-size: 16px;
+      .btnKeep {
+        background: rgba(255, 255, 255, 0.17);
+        font-weight: bolder;
+        padding: 4px 8px;
+        transition: 250ms ease;
+        color: #00348f;
+        text-shadow: 0px 0px 1px rgba(210, 210, 210, 0.64);
+        box-shadow: 0px 0px 2px 1px rgba(98, 99, 171, 0.29);
+        border-radius: 10px;
+        border: 2px inset #1e4494;
+        font-size: 9px;
+        width: 140px;
+        height: 40px;
+
+        &:hover {
+          cursor: pointer;
+          font-size: 9.4px;
+        }
       }
     }
   }
@@ -55,25 +84,13 @@
       border-radius: 10px;
       padding: 5px 15px;
       border: 1px solid gainsboro;
-      font-size: 15px;
+      font-size: 14px;
     }
   }
 }
 
-.btnKeep {
-  margin-left: 10px;
-  background: #4646f1;
-  font-weight: bolder;
-  padding: 4px 20px;
-  transition: 250ms ease;
-  color: white;
-  border-radius: 10px;
-  border: none;
+
+.memorySpan {
   font-size: 12px;
-
-  &:hover {
-    background: #3a3ad9;
-    cursor: pointer;
-  }
-
+  margin: 8px 5px;
 }
