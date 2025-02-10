@@ -10,12 +10,17 @@ const ManualDispatchContent = ({ data, setData, loadDefault, ...props }) => {
   useEffect(() => {
     // Sprawdzanie czy dane są zapisane w localStorage
     const savedMessage = localStorage.getItem("message");
-    const logoImg = localStorage.getItem("logoImg");
-    const bannerImg = localStorage.getItem("bannerImg");
+    const imageData = localStorage.getItem("bannerImg");
+    const imageLogoData = localStorage.getItem("logoImg");
     const savedKeepInMemory = JSON.parse(localStorage.getItem("keepInMemory"));
 
-    if (savedMessage && logoImg && bannerImg) {
-      setData({ ...data, message: savedMessage, logoImg, bannerImg });
+    if (savedMessage && imageData && imageLogoData) {
+      setData({
+        ...data,
+        message: savedMessage,
+        imageLogoData: imageLogoData,
+        imageData: imageData,
+      });
     }
 
     if (savedKeepInMemory) {
@@ -27,9 +32,10 @@ const ManualDispatchContent = ({ data, setData, loadDefault, ...props }) => {
     if (keepInMemory) {
       // Zapisz dane do localStorage
       localStorage.setItem("message", data.message);
-      localStorage.setItem("logoImg", data.logoImg);
-      localStorage.setItem("bannerImg", data.bannerImg);
+      localStorage.setItem("logoImg", data.imageLogoData);
+      localStorage.setItem("bannerImg", data.imageData);
       localStorage.setItem("keepInMemory", JSON.stringify(keepInMemory));
+      console.log(keepInMemory);
     } else {
       // Jeśli checkbox nie jest zaznaczony, usuwamy dane
       localStorage.removeItem("message");
@@ -37,7 +43,7 @@ const ManualDispatchContent = ({ data, setData, loadDefault, ...props }) => {
       localStorage.removeItem("bannerImg");
       localStorage.removeItem("keepInMemory");
     }
-  }, [keepInMemory, data.message, data.bannerImg, data.logoImg]);
+  }, [keepInMemory, data.message, data.imageData, data.imageLogoData]);
 
   const handleCheckboxChange = () => {
     setKeepInMemory(!keepInMemory);
@@ -55,15 +61,15 @@ const ManualDispatchContent = ({ data, setData, loadDefault, ...props }) => {
 
       <div className={s.containerForLoad}>
         <LoadImageFromComputer
-          onChange={(event) => setData({ ...data, imageData: event })}
+          onChange={(event) => setData({ ...data, imageLogoData: event })}
           title={"Лого"}
-          value={data.logoImg}
+          value={data.imageLogoData}
           describe={"Лого буде відображено на хедері"}
         />
         <LoadImageFromComputer
-          onChange={(event) => setData({ ...data, imageLogoData: event })}
+          onChange={(event) => setData({ ...data, imageData: event })}
           title={"Тло для хедера"}
-          value={data.bannerImg}
+          value={data.imageData}
           describe={"Тло використовуватиметься у хедері"}
         />
       </div>
@@ -84,8 +90,11 @@ const ManualDispatchContent = ({ data, setData, loadDefault, ...props }) => {
             checked={keepInMemory}
             onChange={handleCheckboxChange}
           />
-          <button onClick={loadDefault}>Load default</button>
+          <button className={s.btnKeep} onClick={loadDefault}>
+            Load default
+          </button>
         </span>
+        <br />
       </div>
     </div>
   );

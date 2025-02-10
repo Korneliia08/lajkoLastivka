@@ -27,7 +27,7 @@ const PanelHeaderControls = (props) => {
           {isOpenDropPanel && (
             <div className={s.dropPanel}>
               <button onClick={logOut}>
-                <BiLogOut /> LogOut
+                <BiLogOut /> Вийти
               </button>
             </div>
           )}

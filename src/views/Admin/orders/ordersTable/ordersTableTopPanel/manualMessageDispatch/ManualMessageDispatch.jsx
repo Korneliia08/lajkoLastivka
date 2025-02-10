@@ -22,15 +22,18 @@ const ManualMessageDispatch = ({ storeData, controller, ...props }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     setBlocked(false);
-    loadDefault();
+    const savedKeepInMemory = JSON.parse(localStorage.getItem("keepInMemory"));
+    if (savedKeepInMemory) {
+      loadDefault();
+    }
   }, [storeData]);
 
   function loadDefault() {
     if (storeData) {
       setData({
         message: storeData.messageTemplateViber,
-        bannerImg: storeData.bannerImg,
-        logoImg: storeData.logoImg,
+        imageData: storeData.bannerImg,
+        imageLogoData: storeData.logoImg,
       });
     }
   }

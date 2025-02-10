@@ -65,6 +65,12 @@ const options = [
     variableLabel: "total_orders",
     color: colors[9 % colors.length],
   },
+  {
+    value: "total_send_messages",
+    label: "Відправлені запити",
+    variableLabel: "total_send_messages",
+    color: colors[10 % colors.length],
+  },
 ];
 const StatisticLineChar = ({ ...props }) => {
   const { id } = useParams();

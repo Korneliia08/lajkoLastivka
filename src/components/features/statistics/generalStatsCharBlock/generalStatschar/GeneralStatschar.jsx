@@ -40,7 +40,7 @@ const GeneralStatschar = ({ data }) => {
   data.forEach((obj) => {
     obj["Сума замовлень"] = obj["total_orders"];
     obj["Прочитані повідомлення"] = obj["total_read_messages"];
-    obj["Написані повідомлення"] = obj["total_opinions"];
+    obj["Написані відгуки"] = obj["total_opinions"];
     obj["Середня оцінка на розетці"] = obj["average_rating"];
     obj["Сума оцінок (1-3 зірочок)"] = obj["totalLowLocalRating"];
     obj["Сума оцінок (4-5 зірочок)"] = obj["totalHighLocalRating"];
@@ -73,7 +73,7 @@ const GeneralStatschar = ({ data }) => {
             strokeWidth={3}
             type="monotone"
             dot={false}
-            dataKey="Написані повідомлення"
+            dataKey="Написані відгуки"
             stroke="#883a81"
           />
           <Line

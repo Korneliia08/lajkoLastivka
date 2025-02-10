@@ -28,6 +28,10 @@ function PageFilter() {
   }, [secretId]);
   const [isLoadingStars, setLoadingStars] = useState(false);
 
+  function isInWebView() {
+    return /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+  }
+
   async function sendStars() {
     try {
       setLoadingStars(true);
@@ -41,6 +45,11 @@ function PageFilter() {
       if (stars >= 4) {
         window.location.href = res.data.link + "/comments";
         console.log(res);
+        if (isInWebView()) {
+          setTimeout(() => {
+            location.reload(); // Odświeżenie strony
+          }, 1000); // Opóźnienie, aby poczekać na zakończenie przekierowania
+        }
       } else {
         setStage("comment");
       }
