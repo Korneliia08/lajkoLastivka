@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ordersTableReset } from "@/views/Admin/orders/ordersSlice.js";
 
-const OrderInformations = ({ ...props }) => {
+const OrderInformations = ({ store, ...props }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -14,7 +14,7 @@ const OrderInformations = ({ ...props }) => {
   }, [id]);
   return (
     <div className={s.orderInformationsContainer}>
-      <OrdersTableTopPanel />
+      <OrdersTableTopPanel storeData={store} />
       <div className={s.ordersList}>
         <OrdersTable store={id} />
       </div>

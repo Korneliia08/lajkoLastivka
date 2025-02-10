@@ -10,26 +10,40 @@ import {
 import toast from "react-hot-toast";
 import { confirmAlert } from "react-confirm-alert";
 
-const ManualMessageDispatch = ({ controller, ...props }) => {
-  const [data, setData] = useState({ message: "", bannerImg: "", logoImg: "" });
+const ManualMessageDispatch = ({ storeData, controller, ...props }) => {
+  const [data, setData] = useState({
+    message: "",
+    bannerImg: "",
+    logoImg: "",
+  });
   const [isBlocked, setBlocked] = useState(false);
 
   const selectedOrders = useSelector((state) => state.orders.selectedOrders);
   const dispatch = useDispatch();
   useEffect(() => {
     setBlocked(false);
-  }, []);
+    loadDefault();
+  }, [storeData]);
+
+  function loadDefault() {
+    if (storeData) {
+      setData({
+        message: storeData.messageTemplateViber,
+        bannerImg: storeData.bannerImg,
+        logoImg: storeData.logoImg,
+      });
+    }
+  }
 
   async function sendData() {
     try {
       const obj = {
         ordersId: selectedOrders.map((order) => order.id),
         message: data.message,
-        imageData: data.imageData,
-        imageLogoData: data.imageLogoData,
+        imageData: data.bannerImg,
+        imageLogoData: data.logoImg,
       };
       setBlocked(true);
-      console.log(1);
       try {
         await toast.promise(api.post("/messages/sendManual", obj), {
           loading: "Підготовка повідомлень до надсилання",
@@ -80,7 +94,11 @@ const ManualMessageDispatch = ({ controller, ...props }) => {
   return (
     <div className={s.manualMessageDispatchContainer}>
       <div className={s.content}>
-        <ManualDispatchContent setData={setData} data={data} />
+        <ManualDispatchContent
+          setData={setData}
+          data={data}
+          loadDefault={loadDefault}
+        />
       </div>
       <div className={s.controls}>
         <button

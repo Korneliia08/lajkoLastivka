@@ -1,5 +1,8 @@
 import s from "./RowOfFormAddAndEditShop.module.scss";
 import Toggle from "react-toggle";
+import { CiHeart } from "react-icons/ci";
+import style from "@/views/Admin/Marketplace/components/MarketplaceBlock.module.scss";
+import React from "react";
 
 const RowOfFormAddAndEditShop = ({
   loading,
@@ -29,6 +32,11 @@ const RowOfFormAddAndEditShop = ({
                 },
               })
             }
+            className="styleOfToggle"
+            icons={{
+              checked: <CiHeart className={style.iconHeart} />,
+              unchecked: null,
+            }}
             name:name
             checked={value}
             disabled={loading}

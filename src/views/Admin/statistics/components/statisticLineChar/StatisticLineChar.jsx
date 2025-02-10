@@ -7,14 +7,8 @@ import Select from "react-select";
 import { useState } from "react";
 import StatisticLineCharModule from "@/views/Admin/statistics/components/statisticLineChar/statisticLineCharModule/StatisticLineCharModule.jsx";
 import { colors } from "@/data/colors.js";
+import { useSelector } from "react-redux";
 
-const daysOptions = [
-  { value: "7", label: "7 днів" },
-  { value: "30", label: "30 днів" },
-  { value: "90", label: "90 днів" },
-  { value: "180", label: "180 днів" },
-  { value: "360", label: "360 днів" },
-];
 const options = [
   {
     value: "Нові замовленні",
@@ -78,9 +72,12 @@ const StatisticLineChar = ({ ...props }) => {
     options[0],
     options[1],
   ]);
+
+  const startTime = useSelector((state) => state.statistics.startTime);
+  const endTime = useSelector((state) => state.statistics.endTime);
   const [days, setDays] = useState(30);
   const { data: data } = useFetch(
-    `statisticPage/lineChartSummary/${id}/${days}`,
+    `statisticPage/lineChartSummary/${id}/?startTime=${startTime}&endTime=${endTime}&k=1`,
     {
       default: undefined,
     },
@@ -89,11 +86,6 @@ const StatisticLineChar = ({ ...props }) => {
   //rightPart={<Select options={options}/>}
   return (
     <Block className={s.statisticLineCharContainer}>
-      <Select
-        defaultValue={[daysOptions[1]]}
-        options={daysOptions}
-        onChange={(k) => setDays(k.value)}
-      />
       <br />
       <BlockTitle>Лінійні діаграми</BlockTitle>
       <br />

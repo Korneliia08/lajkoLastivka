@@ -54,6 +54,12 @@ const AddAndEditMarketPlace = ({ ...props }) => {
           );
           dispatch(
             marketplaceSetField({
+              field: "isAutoSendEnable",
+              value: store.isAutoSendEnable,
+            }),
+          );
+          dispatch(
+            marketplaceSetField({
               field: "sendingEndTime",
               value: store.sendingEndTime,
             }),

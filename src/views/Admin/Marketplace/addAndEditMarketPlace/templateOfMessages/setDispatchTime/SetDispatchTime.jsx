@@ -28,8 +28,8 @@ const SetDispatchTime = ({ ...props }) => {
           value={isAutoSendEnable}
           onChange={handleChange}
           type={"toggle"}
-          title={"Automatyczna rozsyłka"}
-          describe={"Automatyczne wysyłanie widadomości"}
+          title={"Автоматична розсилка"}
+          describe={"Увімкніть або вимкніть автоматичне надсилання"}
         />
         <RowOfFormAddAndEditShop
           name={"sendingStartTime"}
