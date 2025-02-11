@@ -6,10 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { marketplaceSetField } from "@/views/Admin/Marketplace/addAndEditMarketPlace/marketplaceFormSlice.js";
 import ViberMessagePreview from "@/components/features/viberMessagePreview/ViberMessagePreview.jsx";
 import WebsiteCustomerPreview from "@/components/features/websiteCustomerPreview/WebsiteCustomerPreview.jsx";
+import { useParams } from "react-router-dom";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { useState } from "react";
 
 const TemplateOfMessages = ({ ...props }) => {
   const dispatch = useDispatch();
-
+  const { id } = useParams();
+  const [preview, setPreview] = useState("viber");
   const { viberLogoImg, viberBannerImg } = useSelector(
     (state) => state.marketplaceForm,
   );
@@ -52,8 +56,31 @@ const TemplateOfMessages = ({ ...props }) => {
             <SecondPart />
           </div>
           <div className={s.ViberMessagePreview}>
-            <ViberMessagePreview text={state.messageTemplateViber} />
-            <WebsiteCustomerPreview />
+            <ToggleButtonGroup
+              value={preview}
+              exclusive
+              color="primary"
+              onChange={(event, value) => {
+                if (value.length) {
+                  setPreview(value);
+                }
+              }}
+              aria-label="text alignment"
+            >
+              <ToggleButton value="viber" aria-label="left aligned">
+                Viber
+              </ToggleButton>
+              <ToggleButton value="website" aria-label="centered">
+                Сторінка фільтра
+              </ToggleButton>
+            </ToggleButtonGroup>
+
+            <div className={s.preview}>
+              {preview === "viber" && (
+                <ViberMessagePreview text={state.messageTemplateViber} />
+              )}
+              {preview === "website" && <WebsiteCustomerPreview storeId={id} />}
+            </div>
           </div>
         </div>
       </div>

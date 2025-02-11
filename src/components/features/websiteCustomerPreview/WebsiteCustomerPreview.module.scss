@@ -3,8 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 270px;
-  height: min-content;
+  width: 260px;
+  height: 536px;
+
+  overflow: hidden;
+  border-bottom-right-radius: 38px;
 
   .phone {
     width: 100%;
@@ -15,6 +18,7 @@
     position: absolute;
     z-index: 100;
     width: 100%;
+    pointer-events: none;
   }
 
   .content {
@@ -22,12 +26,30 @@
     left: 0px;
     top: 0px;
     z-index: 80;
-
+    padding-top: 37px;
     display: flex;
     width: 100%;
-    overflow-y: auto;
-    height: 100%;
+    padding-left: 5px;
     border-radius: 13.9%;
-    background: green;
+    flex-direction: column;
+
+    iframe {
+
+      border: none;
+      width: 464px;
+      height: 3000px;
+      transform: scale(0.534);
+      pointer-events: painted;
+      transform-origin: top left;
+    }
+  }
+
+  .container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(205, 235, 255, 0.15), rgba(250, 255, 255, 0.3));
+    width: 100%;
   }
 }

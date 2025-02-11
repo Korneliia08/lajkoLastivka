@@ -3,13 +3,20 @@ import { useParams } from "react-router-dom";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import { useRef, useState } from "react";
 
-const PageFilterComment = ({ setStage }) => {
+const PageFilterComment = ({ isPrev, setStage }) => {
   const { secretId } = useParams();
   const commentRef = useRef(null);
   const [isLoading, setLoading] = useState(false);
 
   async function sendComment(ev) {
     ev.preventDefault();
+    if (isPrev()) {
+      setStage("done");
+      setTimeout(() => {
+        setStage("stars");
+      }, 5000);
+      return;
+    }
     setLoading(true);
     try {
       const res = await api.post("/localOpinions/setOpinion/" + secretId, {
