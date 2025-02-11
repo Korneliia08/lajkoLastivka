@@ -1,10 +1,11 @@
 {
   "name": "lajkolastivka",
   "private": true,
-  "version": "0.0.7",
+  "version": "0.0.9",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "postbuild": "git add . && git commit -m \"Auto commit version $(node -p 'require(\\\"./package.json\\\").version')\" && git push",
     "build": "node bumpVersion.cjs && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

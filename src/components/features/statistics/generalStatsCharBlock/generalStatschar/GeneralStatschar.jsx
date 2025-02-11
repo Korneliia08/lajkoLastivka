@@ -44,6 +44,7 @@ const GeneralStatschar = ({ data }) => {
     obj["Середня оцінка на розетці"] = obj["average_rating"];
     obj["Сума оцінок (1-3 зірочок)"] = obj["totalLowLocalRating"];
     obj["Сума оцінок (4-5 зірочок)"] = obj["totalHighLocalRating"];
+    obj["Відправлені запити"] = obj["total_send_messages"];
   });
   return (
     <div style={{ width: "100%", height: 250 }}>
@@ -96,6 +97,13 @@ const GeneralStatschar = ({ data }) => {
             dot={false}
             dataKey="Сума оцінок (4-5 зірочок)"
             stroke="#558861"
+          />
+          <Line
+            strokeWidth={3}
+            type="monotone"
+            dot={false}
+            dataKey="Відправлені запити"
+            stroke="#ff7777"
           />
         </LineChart>
       </ResponsiveContainer>

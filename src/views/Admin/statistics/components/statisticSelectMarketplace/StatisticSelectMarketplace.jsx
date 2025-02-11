@@ -20,7 +20,7 @@ const StatisticSelectMarketplace = ({ storeId, ...props }) => {
   let dataToSelect = data.map((obj) => {
     return { value: obj.id, label: obj.name };
   });
-  dataToSelect = [{ value: "all", label: "Усі магазини" }, ...dataToSelect];
+  dataToSelect = [{ value: "0", label: "Усі магазини" }, ...dataToSelect];
   const navigate = useNavigate();
 
   function change(event) {

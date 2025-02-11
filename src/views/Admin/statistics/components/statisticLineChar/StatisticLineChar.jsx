@@ -66,7 +66,7 @@ const options = [
     color: colors[9 % colors.length],
   },
   {
-    value: "total_send_messages",
+    value: "Відправлені запити",
     label: "Відправлені запити",
     variableLabel: "total_send_messages",
     color: colors[10 % colors.length],
