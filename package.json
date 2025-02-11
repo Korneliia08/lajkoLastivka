@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "postbuild": "git add . && git commit -m \"Auto commit version $(node -p 'require(\\\"./package.json\\\").version')\" && git push",
+    "postbuild": "node commitVersion.cjs",
     "build": "node bumpVersion.cjs && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
