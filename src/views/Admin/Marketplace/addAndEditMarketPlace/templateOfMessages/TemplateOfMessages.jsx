@@ -4,6 +4,7 @@ import LoadImageFromComputer from "@/components/ui/loadImageFromComputer/LoadIma
 import SecondPart from "@/views/Admin/Marketplace/addAndEditMarketPlace/templateOfMessages/secondPart/SecondPart.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { marketplaceSetField } from "@/views/Admin/Marketplace/addAndEditMarketPlace/marketplaceFormSlice.js";
+import ViberMessagePreview from "@/components/features/viberMessagePreview/ViberMessagePreview.jsx";
 
 const TemplateOfMessages = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const TemplateOfMessages = ({ ...props }) => {
   const { viberLogoImg, viberBannerImg } = useSelector(
     (state) => state.marketplaceForm,
   );
-
+  const state = useSelector((state) => state.marketplaceForm);
   return (
     <div className={s.templateOfMessagesContainer}>
       <SubtitleInForm
@@ -45,7 +46,14 @@ const TemplateOfMessages = ({ ...props }) => {
             describe={"Тло використовуватиметься у хедері"}
           />
         </div>
-        <SecondPart />
+        <div className={s.horizontalContainer}>
+          <div>
+            <SecondPart />
+          </div>
+          <div className={s.ViberMessagePreview}>
+            <ViberMessagePreview text={state.messageTemplateViber} />
+          </div>
+        </div>
       </div>
     </div>
   );

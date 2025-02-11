@@ -1,0 +1,67 @@
+.viberMessagePreviewContainer {
+  position: relative;
+
+  .phone {
+    width: 300px;
+  }
+
+  .message {
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    padding: 10px;
+    display: flex;
+    width: 86.1%;
+    overflow-y: auto;
+    height: 73%;
+
+    .circleImage {
+      width: 30px;
+      height: min-content;
+      margin-right: 5px;
+    }
+
+    .textBlock {
+      background-color: #efefef;
+      width: 92%;
+      min-width: 30px;
+      height: min-content;
+      min-height: 100px;
+      border-radius: 0 10px 10px 10px;
+      position: relative;
+      padding: 5px 5px 20px 5px;
+      font-size: 11px;
+
+      .time {
+        position: absolute;
+        bottom: 3px;
+        right: 8px;
+        color: #575757;
+        font-size: 11px;
+      }
+    }
+
+    .productImage {
+      width: 100%;
+      height: auto;
+    }
+
+    .buttonContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+
+      .actionBtn {
+        width: 70%;
+        background: blue;
+        color: white;
+        border: none;
+        padding: 5px;
+        font-size: 13px;
+        font-weight: bolder;
+        border-radius: 10px;
+      }
+    }
+  }
+}

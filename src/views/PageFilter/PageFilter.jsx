@@ -89,17 +89,34 @@ function PageFilter() {
   if (data.localOpinion != null) {
     content = <PageFileterOpinionHasAlreadyBeenIssued />;
   }
+  const imagesManual = { logo: undefined, banner: undefined };
+  try {
+    imagesManual.logo = data.order.messages[0].logoImage;
+    imagesManual.banner = data.order.messages[0].image;
+  } catch (error) {}
   return (
     <div className={style.container}>
       <header className={style.blockForHeader}>
         <img
-          src={data.order.store.bannerImg}
+          src={
+            imagesManual.logo
+              ? import.meta.env.VITE_APP_API +
+                "/messages/imageFromFile/" +
+                btoa(imagesManual.logo)
+              : data.order.store.bannerImg
+          }
           alt="bannerImg"
           className={style.imgOfShop}
         />
         <div className={style.circleForLogo}>
           <img
-            src={data.order.store.logoImg}
+            src={
+              imagesManual.banner
+                ? import.meta.env.VITE_APP_API +
+                  "/messages/imageFromFile/" +
+                  btoa(imagesManual.banner)
+                : data.order.store.logoImg
+            }
             alt="logoImg"
             className={style.logoOgShopImg}
           />

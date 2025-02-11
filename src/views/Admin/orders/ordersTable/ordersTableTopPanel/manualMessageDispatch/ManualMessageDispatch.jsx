@@ -13,8 +13,8 @@ import { confirmAlert } from "react-confirm-alert";
 const ManualMessageDispatch = ({ storeData, controller, ...props }) => {
   const [data, setData] = useState({
     message: "",
-    bannerImg: "",
-    logoImg: "",
+    imageData: "",
+    imageLogoData: "",
   });
   const [isBlocked, setBlocked] = useState(false);
 
@@ -32,8 +32,8 @@ const ManualMessageDispatch = ({ storeData, controller, ...props }) => {
     if (storeData) {
       setData({
         message: storeData.messageTemplateViber,
-        imageData: storeData.bannerImg,
-        imageLogoData: storeData.logoImg,
+        imageData: storeData.imageData,
+        imageLogoData: storeData.imageLogoData,
       });
     }
   }
@@ -43,8 +43,8 @@ const ManualMessageDispatch = ({ storeData, controller, ...props }) => {
       const obj = {
         ordersId: selectedOrders.map((order) => order.id),
         message: data.message,
-        imageData: data.bannerImg,
-        imageLogoData: data.logoImg,
+        imageData: data.imageData,
+        imageLogoData: data.imageLogoData,
       };
       setBlocked(true);
       try {
