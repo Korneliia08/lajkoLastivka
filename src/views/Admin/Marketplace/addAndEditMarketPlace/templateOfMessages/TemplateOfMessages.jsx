@@ -5,6 +5,7 @@ import SecondPart from "@/views/Admin/Marketplace/addAndEditMarketPlace/template
 import { useDispatch, useSelector } from "react-redux";
 import { marketplaceSetField } from "@/views/Admin/Marketplace/addAndEditMarketPlace/marketplaceFormSlice.js";
 import ViberMessagePreview from "@/components/features/viberMessagePreview/ViberMessagePreview.jsx";
+import WebsiteCustomerPreview from "@/components/features/websiteCustomerPreview/WebsiteCustomerPreview.jsx";
 
 const TemplateOfMessages = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const TemplateOfMessages = ({ ...props }) => {
           </div>
           <div className={s.ViberMessagePreview}>
             <ViberMessagePreview text={state.messageTemplateViber} />
+            <WebsiteCustomerPreview />
           </div>
         </div>
       </div>

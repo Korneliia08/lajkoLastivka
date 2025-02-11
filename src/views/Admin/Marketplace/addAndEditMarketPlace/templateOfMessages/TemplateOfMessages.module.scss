@@ -18,6 +18,8 @@
   gap: 50px;
 
   .ViberMessagePreview {
+    display: flex;
     padding-top: 50px;
+    height: min-content;
   }
 }
