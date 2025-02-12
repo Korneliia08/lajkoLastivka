@@ -100,25 +100,25 @@ function PageFilter() {
     setLoadingStars(false);
   }
 
-  if (notValidLink) return <h1>Недійсне посилання для огляду покупки</h1>;
-  if (!data) return <PageFilterLoader />;
-  let content = "";
-  if (stage === "stars") {
-    content = (
-      <PageFilterChooseStars
-        stars={stars}
-        isLoadingStars={isLoadingStars}
-        sendStars={sendStars}
-        setStars={setStars}
-      />
-    );
-  } else if (stage === "comment") {
-    content = <PageFilterComment isPrev={isPrev} setStage={setStage} />;
-  } else if (stage === "done") {
-    content = (
-      <>
-        <br />
-        <span className={style.thanksText}>
+    if (notValidLink) return <h1 className={style.noLink}>Недійсне посилання для огляду покупки</h1>;
+    if (!data) return <PageFilterLoader/>;
+    let content = "";
+    if (stage === "stars") {
+        content = (
+            <PageFilterChooseStars
+                stars={stars}
+                isLoadingStars={isLoadingStars}
+                sendStars={sendStars}
+                setStars={setStars}
+            />
+        );
+    } else if (stage === "comment") {
+        content = <PageFilterComment isPrev={isPrev} setStage={setStage}/>;
+    } else if (stage === "done") {
+        content = (
+            <>
+                <br/>
+                <span className={style.thanksText}>
           Дякуємо за відгук! Ваша оцінка допомагає нам ставати кращими для тебе!
           🙏
         </span>{" "}
@@ -138,12 +138,10 @@ function PageFilter() {
   return (
     <div className={style.container}>
       <PageFilterBanner data={data} imagesManual={imagesManual} />
-      {stage === "stars" && (
         <p className={style.titleOfShop}>
-          <span className={style.shop}>Магазин - </span> {data.order.store.name}
+            {data.order.store.name}
         </p>
-      )}
-      <p className={style.productTitle}>{data.title}</p>
+      {/*<p className={style.productTitle}>{data.title}</p>*/}
       {content}
       <div className={style.animation}>
         {showHappyAnimation && <Lottie animationData={success} loop={false} />}
