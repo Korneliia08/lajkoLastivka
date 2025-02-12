@@ -1,7 +1,7 @@
 import s from "./ViberMessagePreview.module.scss";
 import phone from "../../../assets/images/phone.png";
 import profil from "../../../../public/logo.png";
-import product from "../../../assets/images/logoHome.jpg";
+import product from "../../../assets/images/freeProduct.jpg";
 
 const ViberMessagePreview = ({ text = "", ...props }) => {
   const getCurrentTime = () => {
