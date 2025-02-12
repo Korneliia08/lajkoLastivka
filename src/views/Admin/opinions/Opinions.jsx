@@ -3,6 +3,7 @@ import s from "@/views/Admin/opinions/Opinions.module.scss";
 import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 import CardOfUser from "@/views/Admin/opinions/cardOfUser/CardOfUser.jsx";
 import useFetch from "@hooks/useFetch.js";
+import OpinionsSelectMarketplace from "@/views/Admin/opinions/components/opinionsSelectMarketplace/OpinionsSelectMarketplace.jsx";
 
 const Opinions = ({ ...props }) => {
   const { data } = useFetch("/opinions-page");
@@ -16,6 +17,7 @@ const Opinions = ({ ...props }) => {
             "Перегляд користувачів, які залишили відгук, та відображення їхніх відгуків у нашій внутрішній системі та на розетці."
           }
         />
+        <OpinionsSelectMarketplace />
         <div className={s.opinionsContainer}>
           {data.map((obj) => {
             return <CardOfUser data={obj} />;
