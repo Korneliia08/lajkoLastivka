@@ -24,6 +24,16 @@
       top:3px;
     }
     &.r1{
+     margin-top: 5px;
+      scale: 0.90;
+      transform: scaleX(-1);
+    }
+    &.r3{
+      margin-top: 3px;
+      scale: 0.92;
+    }
+    &.r4,&.r5{
+      margin-top: -2px;
       transform: scaleX(-1);
     }
   }
