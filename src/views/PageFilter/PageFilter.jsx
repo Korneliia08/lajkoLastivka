@@ -152,7 +152,7 @@ function PageFilter() {
             key={data.time}
             className={style.animation}
             animationData={data.value}
-            loop={false}
+            loop={true}
           />
         ))}
       </div>
