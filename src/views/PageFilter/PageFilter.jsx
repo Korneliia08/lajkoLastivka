@@ -155,7 +155,6 @@ function PageFilter() {
             loop={false}
           />
         ))}
-        {confettiArray.length}-
       </div>
     </div>
   );
