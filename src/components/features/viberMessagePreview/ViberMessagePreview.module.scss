@@ -17,6 +17,7 @@
     overflow-y: auto;
     scrollbar-width: none;
     height: 76%;
+    padding-top: 14px;
 
     &::-webkit-scrollbar {
       display: none; /* Chrome, Safari */
@@ -63,6 +64,7 @@
       display: flex;
       justify-content: center;
       padding-top: 5px;
+      padding-bottom: 5px;
 
       .actionBtn {
         width: 80%;
