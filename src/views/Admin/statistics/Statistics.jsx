@@ -23,11 +23,12 @@ const Statistics = ({ ...props }) => {
   }
   return (
     <>
-      <PanelTitle
-        title={"Статистики:"}
-        subTitle={"Перегляд статистик вибраного магазину"}
-      />
       <OutletPanelScroll>
+        <PanelTitle
+          inner={true}
+          title={"Статистики:"}
+          subTitle={"Перегляд статистик вибраного магазину"}
+        />
         <div className={s.statisticsContainer}>
           <div className={s.selectMarketplace}>
             <StatisticSelectMarketplace

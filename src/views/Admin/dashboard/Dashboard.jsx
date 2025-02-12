@@ -18,11 +18,12 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <PanelTitle
-        title={"Аналітика - цього місяця"}
-        subTitle={"Актуальні дані з усіх Ваших маркетплейсів"}
-      />
       <OutletPanelScroll>
+        <PanelTitle
+          inner={true}
+          title={"Аналітика - цього місяця"}
+          subTitle={"Актуальні дані з усіх Ваших маркетплейсів"}
+        />
         <div className={s.dashboardContainer}>
           <div className={s.topRow}>
             <InfoTile
