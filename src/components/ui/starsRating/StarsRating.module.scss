@@ -1,16 +1,65 @@
 .starsRatingContainer {
-  padding: 20px 0px;
+  margin-top: 40px;
+  padding:8px 15px;
   display: flex;
-  column-gap: 5px;
+  column-gap:  30px;
+ border:2px solid rgba(115, 115, 115, 0.11);
+  border-radius: 45px;
+ position: relative;
 
+  &:after{
+    right: 0;
+    top:0;
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 100%;
+    background: rgba(186, 186, 186, 0.07);  border-radius: 45px;
+  }
+  &.back_1:after{
+    width: 92%;
+  }
+  &.back_2:after{
+    width: 73%;
+  }
+  &.back_3:after{
+    width: 53%;
+  }
+  &.back_4:after{
+    width: 33%;
+  }
+  &.back_5:after{
+    width: 0%;
+  }
+  .active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:after{
+      z-index: 99;
+      position: absolute;
+      content: "";
+      height: 150%;
+      aspect-ratio: 1/1;
+
+      border-radius: 100%;
+      background: white;
+      box-shadow: 0 0 2px 2px rgb(223, 223, 223);
+    }
+  }
   .iconStar {
+    position: relative;
     font-size: 40px;
-
+z-index: 100;
     transition: transform 200ms, color 200ms;
     cursor: pointer;
-color:#d5b300;
+      color: #f3cf2e;
     &:hover {
       transform: scale(1.2);
+    }
+    &.dark{
+      color: rgba(188, 188, 188, 0.6) !important;
     }
   }
 }

@@ -5,31 +5,33 @@ import api from "../../providers/interceptors/refreshToken.interceptor.js";
 import PageFileterOpinionHasAlreadyBeenIssued from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
 import PageFilterChooseStars from "./components/pageFilterChooseStars/PageFilterChooseStars.jsx";
 import PageFilterComment from "./components/pageFilterComment/PageFilterComment.jsx";
-import PageFilterLoader from "./components/pageFilterLoader/PageFilterLoader.jsx";
-import PageFilterBanner from "@/views/PageFilter/views/pageFilterBanner/PageFilterBanner.jsx";
 
-import Lottie from "lottie-react";
 import success from "../../assets/animations/happy1.json";
+import Lottie from "lottie-react";
+import PageFilterLoader from "@/views/PageFilter/components/pageFilterLoader/PageFilterLoader.jsx";
+import PageFilterBanner from "@/views/PageFilter/views/pageFilterBanner/PageFilterBanner.jsx";
 
 function PageFilter() {
   const { secretId } = useParams();
-  const [stars, setStars] = useState(0);
+  const [stars, setStars] = useState(1);
   const [data, setData] = useState(undefined);
   const [stage, setStage] = useState("stars");
   const [notValidLink, setNotValidLink] = useState(false);
-  const [showHappyAnimation, setHappyShowAnimation] = useState(false);
+  const [confettiArray, setConfettiArray] = useState([]);
 
-  const [opinionExist, setOpinionExist] = useState(false);
   const isPrev = () => {
     return secretId.includes("prevTest");
   };
 
   useEffect(() => {
-    if (stars >= 4) {
-      setHappyShowAnimation(true);
-    } else {
-      setHappyShowAnimation(false);
-    }
+    setConfettiArray((prev) => {
+      let arr = [];
+      if (stars >= 4) {
+        arr = [...prev, { value: success, time: new Date().getTime() }];
+      }
+      if (arr.length > 7) return arr.slice(2);
+      return arr.length >= 2 ? arr.slice(1) : arr;
+    });
   }, [stars]);
 
   useEffect(() => {
@@ -100,25 +102,28 @@ function PageFilter() {
     setLoadingStars(false);
   }
 
-    if (notValidLink) return <h1 className={style.noLink}>Недійсне посилання для огляду покупки</h1>;
-    if (!data) return <PageFilterLoader/>;
-    let content = "";
-    if (stage === "stars") {
-        content = (
-            <PageFilterChooseStars
-                stars={stars}
-                isLoadingStars={isLoadingStars}
-                sendStars={sendStars}
-                setStars={setStars}
-            />
-        );
-    } else if (stage === "comment") {
-        content = <PageFilterComment isPrev={isPrev} setStage={setStage}/>;
-    } else if (stage === "done") {
-        content = (
-            <>
-                <br/>
-                <span className={style.thanksText}>
+  if (notValidLink)
+    return (
+      <h1 className={style.noLink}>Недійсне посилання для огляду покупки</h1>
+    );
+  if (!data) return <PageFilterLoader />;
+  let content = "";
+  if (stage === "stars") {
+    content = (
+      <PageFilterChooseStars
+        stars={stars}
+        isLoadingStars={isLoadingStars}
+        sendStars={sendStars}
+        setStars={setStars}
+      />
+    );
+  } else if (stage === "comment") {
+    content = <PageFilterComment isPrev={isPrev} setStage={setStage} />;
+  } else if (stage === "done") {
+    content = (
+      <>
+        <br />
+        <span className={style.thanksText}>
           Дякуємо за відгук! Ваша оцінка допомагає нам ставати кращими для тебе!
           🙏
         </span>{" "}
@@ -138,13 +143,19 @@ function PageFilter() {
   return (
     <div className={style.container}>
       <PageFilterBanner data={data} imagesManual={imagesManual} />
-        <p className={style.titleOfShop}>
-            {data.order.store.name}
-        </p>
+      <p className={style.titleOfShop}>{data.order.store.name}</p>
       {/*<p className={style.productTitle}>{data.title}</p>*/}
       {content}
       <div className={style.animation}>
-        {showHappyAnimation && <Lottie animationData={success} loop={false} />}
+        {confettiArray.map((data, index) => (
+          <Lottie
+            key={data.time}
+            className={style.animation}
+            animationData={data.value}
+            loop={false}
+          />
+        ))}
+        {confettiArray.length}-
       </div>
     </div>
   );
