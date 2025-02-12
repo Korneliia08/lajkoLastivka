@@ -127,7 +127,7 @@ function PageFilter() {
         <div className={style.container}>
             <PageFilterBanner data={data} imagesManual={imagesManual}/>
             {stage === 'stars' && <p className={style.titleOfShop}>
-                <span className={style.shop}>Магазин - </span> {data.order.store.name}
+                Магазин - {data.order.store.name}
             </p>}
             <p className={style.productTitle}>{data.title}</p>
             {content}
