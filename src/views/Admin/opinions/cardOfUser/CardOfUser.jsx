@@ -13,7 +13,7 @@ const CardOfUser = ({ data, ...props }) => {
     <div className={cn(s.container, isOpenBottomCard && s.openBottom)}>
       <div className={s.cardOfUserContainer}>
         <NumberOfOrderAndEtaps data={data} />
-        <DataOfUser />
+        <DataOfUser data={data} />
         <BlockOfIcons
           data={data}
           setOpenBottomCard={setOpenBottomCard}
