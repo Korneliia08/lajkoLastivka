@@ -1,20 +1,27 @@
 .dataOfUserContainer {
   display: flex;
   justify-content: space-between;
+  column-gap: 8px;
 
   .user {
-
+    max-width: 220px;
+    width: 100%;
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
   }
 
   .numberOfPhone {
     display: flex;
+    align-items: center;
+    column-gap: 2px;
 
     .phoneIcon {
-
+      font-size: 16px;
     }
 
     .number {
-
+      font-size: 12px;
+      font-family: Montserrat, sans-serif;
     }
   }
 }

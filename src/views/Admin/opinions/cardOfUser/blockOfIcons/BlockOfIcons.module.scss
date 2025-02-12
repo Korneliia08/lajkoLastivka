@@ -2,6 +2,7 @@
   display: flex;
   column-gap: 15px;
   align-items: center;
+  position: relative;
 
   .iconStyle {
     font-size: 20px;
@@ -33,6 +34,18 @@
       &.r5 {
         color: #42d311;
       }
+    }
+  }
+
+  .arrowBottom {
+    position: absolute;
+    font-size: 18px;
+    right: 0;
+    transition: 125ms ease;
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.1;
     }
   }
 }

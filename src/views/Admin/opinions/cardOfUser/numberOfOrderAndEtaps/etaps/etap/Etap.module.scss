@@ -1,9 +1,23 @@
 .etapContainer {
   background-color: #3273cb;
-  padding: 8px;
+  padding: 6px;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 5px 0px #a6a6a6;
+  position: relative;
+  z-index: 500;
+
+  &:not(:last-of-type):after {
+    content: "";
+    display: flex;
+    position: absolute;
+    background-color: #3273cb;
+    height: 5px;
+    width: 12px;
+    bottom: 10px;
+    right: -8px;
+    z-index: 250;
+  }
 }

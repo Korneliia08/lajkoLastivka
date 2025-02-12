@@ -8,11 +8,11 @@ import {IoIosStarOutline} from "react-icons/io";
 const Etaps = ({...props}) => {
     return (
         <div className={s.etapsContainer}>
-            <Etap icon={<IoSendOutline style={{color: "white"}}/>}/>
-            <Etap icon={<TbMessage2Check style={{color: "white"}}/>}/>
-            <Etap icon={<TbHandClick style={{color: "white"}}/>}/>
-            <Etap icon={<IoIosStarOutline style={{color: "white"}}/>}/>
-            <Etap icon={<TbShoppingBagHeart style={{color: "white"}}/>}/>
+            <Etap icon={<IoSendOutline size={14} style={{color: "white"}}/>}/>
+            <Etap icon={<TbMessage2Check size={14} style={{color: "white"}}/>}/>
+            <Etap icon={<TbHandClick size={14} style={{color: "white"}}/>}/>
+            <Etap icon={<IoIosStarOutline size={14} style={{color: "white"}}/>}/>
+            <Etap icon={<TbShoppingBagHeart size={14} style={{color: "white"}}/>}/>
         </div>
     )
 }
