@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap:20px;
 
   .blockForIconAndNumber {
     display: flex;
     align-items: center;
-    column-gap: 4px;
+    column-gap:  4px;
 
     .iconStyle {
       font-size: 22px;
