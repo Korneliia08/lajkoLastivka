@@ -56,9 +56,6 @@ const PageFilterChooseStars = ({
                 <StarsRating value={stars} onChange={(stars) => setStars(stars)}/>
             </div>
             <div className={style.blockForBtns}>
-                <button type={"button"} className={style.deleteBtn}>
-                    Скасувати
-                </button>
                 <div className={localS.buttonAnimation}>
                     {/*{stars < 4 && (*/}
                     {/*  <Lottie className={localS.animation} animationData={sad} />*/}
