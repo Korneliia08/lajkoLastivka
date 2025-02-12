@@ -1,7 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
-
+  position: relative;
+  &.openBottom{
+    .cardOfUserContainer {
+      border-radius: 15px 15px 0 0;
+    }
+  }
   .cardOfUserContainer {
     max-width: 380px;
     width: 100%;
