@@ -2,6 +2,9 @@ import style from "../../PageFilter.module.scss";
 import StarsRating from "../../../../components/ui/starsRating/StarsRating.jsx";
 import delivery from "../../../../assets/filterPage/delivery.png";
 import cn from "@/functions/cn.js";
+import Lottie from "lottie-react";
+import sad from "../../../../assets/animations/sad1.json";
+import localS from "./PageFilterChooseStars.module.scss";
 
 const PageFilterChooseStars = ({
   isLoadingStars,
@@ -26,14 +29,20 @@ const PageFilterChooseStars = ({
         <button type={"button"} className={style.deleteBtn}>
           Скасувати
         </button>
-        <button
-          type={"button"}
-          className={style.continueBtn}
-          disabled={stars == 0 || isLoadingStars}
-          onClick={sendStars}
-        >
-          Продовжити
-        </button>
+
+        <div className={localS.buttonAnimation}>
+          {stars < 4 && (
+            <Lottie className={localS.animation} animationData={sad} />
+          )}
+          <button
+            type={"button"}
+            className={style.continueBtn}
+            disabled={stars == 0 || isLoadingStars}
+            onClick={sendStars}
+          >
+            Продовжити
+          </button>
+        </div>
       </div>
     </>
   );
