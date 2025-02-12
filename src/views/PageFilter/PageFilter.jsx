@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import api from "../../providers/interceptors/refreshToken.interceptor.js";
 import PageFileterOpinionHasAlreadyBeenIssued
-  from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
+    from "./components/pageFileterOpinionHasAlreadyBeenIssued/PageFileterOpinionHasAlreadyBeenIssued.jsx";
 import PageFilterChooseStars from "./components/pageFilterChooseStars/PageFilterChooseStars.jsx";
 import PageFilterComment from "./components/pageFilterComment/PageFilterComment.jsx";
 import PageFilterLoader from "./components/pageFilterLoader/PageFilterLoader.jsx";
@@ -107,7 +107,7 @@ function PageFilter() {
             <>
                 <br/>
                 <span className={style.thanksText}>
-          Дякуємо за відгук! Твоя оцінка допомагає нам ставати кращими для тебе!
+          Дякуємо за відгук! Ваша оцінка допомагає нам ставати кращими для тебе!
           🙏
         </span>{" "}
             </>
