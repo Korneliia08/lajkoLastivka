@@ -146,23 +146,25 @@ const AddAndEditMarketPlace = ({ ...props }) => {
   if (id === 0 && !store) return "";
   return (
     <>
-      {id == 0 && (
-        <PanelTitle
-          title={"Підключення магазину:"}
-          subTitle={
-            "Підключіть свій магазин, щоб автоматично надсилати клієнтам запити на оцінку замовлення та аналізувати результати."
-          }
-        />
-      )}
-      {id != 0 && (
-        <PanelTitle
-          title={"Редагування магазину:"}
-          subTitle={
-            "Внесіть зміни до налаштувань Вашого магазину,якщо потрібно"
-          }
-        />
-      )}
       <OutletPanelScroll>
+        {id == 0 && (
+          <PanelTitle
+            inner={true}
+            title={"Підключення магазину:"}
+            subTitle={
+              "Підключіть свій магазин, щоб автоматично надсилати клієнтам запити на оцінку замовлення та аналізувати результати."
+            }
+          />
+        )}
+        {id != 0 && (
+          <PanelTitle
+            inner={true}
+            title={"Редагування магазину:"}
+            subTitle={
+              "Внесіть зміни до налаштувань Вашого магазину,якщо потрібно"
+            }
+          />
+        )}
         <div className={s.addAndEditMarketPlaceContainer}>
           <DataAccountToShops store={store} />
           <div className={s.containerForForm}>

@@ -5,6 +5,12 @@
   border-bottom: 1px solid #e4e4e4;
   width: 100%;
 
+  &.inner {
+    padding-left: 0;
+
+    margin-bottom: 10px;
+  }
+
   .blockForTitle {
     display: flex;
     flex-direction: column;
