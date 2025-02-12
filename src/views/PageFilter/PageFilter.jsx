@@ -88,7 +88,7 @@ function PageFilter() {
         setLoadingStars(false);
     }
 
-    if (notValidLink) return <h1>Недійсне посилання для огляду покупки</h1>;
+    if (notValidLink) return <h1 className={style.noLink}>Недійсне посилання для огляду покупки</h1>;
     if (!data) return <PageFilterLoader/>;
     let content = "";
     if (stage === "stars") {
@@ -126,10 +126,10 @@ function PageFilter() {
     return (
         <div className={style.container}>
             <PageFilterBanner data={data} imagesManual={imagesManual}/>
-            {stage === 'stars' && <p className={style.titleOfShop}>
-                Магазин - {data.order.store.name}
-            </p>}
-            <p className={style.productTitle}>{data.title}</p>
+            <p className={style.titleOfShop}>
+                {data.order.store.name}
+            </p>
+            {/*<p className={style.productTitle}>{data.title}</p>*/}
             {content}
         </div>
     );

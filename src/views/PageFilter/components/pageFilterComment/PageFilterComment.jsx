@@ -38,16 +38,22 @@ const PageFilterComment = ({isPrev, setStage}) => {
         <div className={style.pageFilterCommentContainer}>
             <form onSubmit={sendComment}>
                 <h4 className={style.questionContent}>
-                    Ваш досвід важливий для нас! Що покращити?
+                    Як нам стати кращими?
                 </h4>
-                <textarea
-                    ref={commentRef}
-                    placeholder={"Що трапилось?"}
-                    className={style.textArea}
-                />
-                <button disabled={isLoading} type={"submit"} className={style.btnSend}>
-                    Надіслати
-                </button>
+
+                <div className={style.blockForTextArea}>
+                    <h5 className={style.title}>Що можна покращити?</h5>
+                    <p className={style.content}>Розкажіть кількома реченнями, що нам варто змінити!</p>
+                    <textarea
+                        ref={commentRef}
+                        className={style.textArea}
+                    />
+                </div>
+                <div className={style.blockForBtn}>
+                    <button disabled={isLoading} type={"submit"} className={style.btnSend}>
+                        Надіслати
+                    </button>
+                </div>
             </form>
         </div>
     );
