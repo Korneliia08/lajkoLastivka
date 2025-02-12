@@ -15,6 +15,7 @@ const CardOfUser = ({ data, ...props }) => {
         <NumberOfOrderAndEtaps data={data} />
         <DataOfUser />
         <BlockOfIcons
+          data={data}
           setOpenBottomCard={setOpenBottomCard}
           isOpenBottomCard={isOpenBottomCard}
         />
