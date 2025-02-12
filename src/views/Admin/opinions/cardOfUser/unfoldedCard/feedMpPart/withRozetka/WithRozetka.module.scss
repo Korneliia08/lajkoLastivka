@@ -1,0 +1,36 @@
+.withRozetkaContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  .blockFeedMP, .blockRozetka {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 11px;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .comment {
+      font-size: 14px;
+      font-family: Montserrat, sans-serif;
+
+      .quotesLeft, .quotesRight {
+        font-size: 7px;
+        position: relative;
+        color: #00406b;
+      }
+
+      .quotesLeft {
+        left: -2px;
+        bottom: -2px;
+      }
+
+      .quotesRight {
+        right: -4px;
+        top: -5px;
+      }
+    }
+  }
+}
