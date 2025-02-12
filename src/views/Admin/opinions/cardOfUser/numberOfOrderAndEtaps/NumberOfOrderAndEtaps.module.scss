@@ -1,0 +1,22 @@
+.numberOfOrderAndEtapsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .blockForIconAndNumber {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+
+    .iconStyle {
+      font-size: 22px;
+    }
+
+    .numberOfOrder {
+      font-family: Montserrat, sans-serif;
+      font-weight: bold;
+      font-size: 12px;
+      text-decoration: underline;
+    }
+  }
+}

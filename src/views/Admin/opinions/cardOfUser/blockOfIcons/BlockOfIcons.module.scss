@@ -1,0 +1,36 @@
+.blockOfIconsContainer {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+
+  .iconStyle {
+    font-size: 20px;
+  }
+
+  .blockForReviews {
+    display: flex;
+    column-gap: 4px;
+
+    .review {
+      &.r1 {
+        color: #50d74b;
+      }
+
+      &.r2 {
+        color: #50d74b;
+      }
+
+      &.r3 {
+        color: #50d74b;
+      }
+
+      &.r4 {
+        color: #50d74b;
+      }
+
+      &.r5 {
+        color: #50d74b;
+      }
+    }
+  }
+}

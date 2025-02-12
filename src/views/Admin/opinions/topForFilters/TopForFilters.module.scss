@@ -1,0 +1,21 @@
+.topForFiltersContainer {
+  background-color: #e8e8e8;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+
+  .blockForContent {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+    .titleUsers {
+
+    }
+
+    .contentUsers {
+
+    }
+  }
+}
