@@ -1,6 +1,6 @@
 .etapContainer {
   background-color: #3273cb;
-  //background-color: #adadad;
+  //
   padding: 6px;
   border-radius: 100%;
   display: flex;
@@ -9,7 +9,9 @@
   box-shadow: 0px 0px 5px 0px #a6a6a6;
   position: relative;
   z-index: 500;
-
+&.disable{
+  background-color: #adadad;
+}
   &:not(:last-of-type):after {
     content: "";
     display: flex;

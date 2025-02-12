@@ -12,4 +12,34 @@
   position: absolute;
   top: 100%;
   z-index: 1300;
+
 }
+.title {
+  font-size: 11px;
+  font-family: Montserrat, sans-serif;
+}
+.comment {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+
+  .quotesLeft, .quotesRight {
+    font-size: 7px;
+    position: relative;
+    color: #00406b;
+  }
+
+  .quotesLeft {
+    left: -2px;
+    bottom: -2px;
+  }
+
+  .quotesRight {
+    right: -4px;
+    top: -5px;
+  }
+}
+.block {
+  display: flex;
+  flex-direction: column;
+}
+

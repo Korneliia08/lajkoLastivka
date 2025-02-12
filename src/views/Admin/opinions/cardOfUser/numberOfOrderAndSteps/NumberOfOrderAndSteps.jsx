@@ -1,8 +1,8 @@
-import s from "./NumberOfOrderAndEtaps.module.scss";
+import s from "./NumberOfOrderAndSteps.module.scss";
 import { CiShoppingBasket } from "react-icons/ci";
-import Etaps from "@/views/Admin/opinions/cardOfUser/numberOfOrderAndEtaps/etaps/Etaps.jsx";
+import Steps from "@/views/Admin/opinions/cardOfUser/numberOfOrderAndSteps/Steps/Steps.jsx";
 
-const NumberOfOrderAndEtaps = ({ data, ...props }) => {
+const NumberOfOrderAndSteps = ({ data, ...props }) => {
   let numberOfOrder = data.order.orderId;
   return (
     <div className={s.numberOfOrderAndEtapsContainer}>
@@ -10,8 +10,8 @@ const NumberOfOrderAndEtaps = ({ data, ...props }) => {
         <CiShoppingBasket className={s.iconStyle} />
         <span className={s.numberOfOrder}>{numberOfOrder}</span>
       </div>
-      <Etaps />
+      <Steps data={data} />
     </div>
   );
 };
-export default NumberOfOrderAndEtaps;
+export default NumberOfOrderAndSteps;
