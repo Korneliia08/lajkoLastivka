@@ -6,39 +6,21 @@ import PageFileterOpinionHasAlreadyBeenIssued from "./components/pageFileterOpin
 import PageFilterChooseStars from "./components/pageFilterChooseStars/PageFilterChooseStars.jsx";
 import PageFilterComment from "./components/pageFilterComment/PageFilterComment.jsx";
 
-import success from "../../assets/animations/happy1.json";
-import Lottie from "lottie-react";
 import PageFilterLoader from "@/views/PageFilter/components/pageFilterLoader/PageFilterLoader.jsx";
 import PageFilterBanner from "@/views/PageFilter/views/pageFilterBanner/PageFilterBanner.jsx";
 import PageFilterCongratulations from "@/views/PageFilter/views/pageFilterCongratulations/PageFilterCongratulations.jsx";
+import PageFilterDone from "@/views/PageFilter/views/pageFilterDone/PageFilterDone.jsx";
 
 function PageFilter() {
   const { secretId } = useParams();
   const [stars, setStars] = useState(5);
-  const [isInitial, setInitial] = useState(true);
   const [data, setData] = useState(undefined);
   const [stage, setStage] = useState("stars");
   const [notValidLink, setNotValidLink] = useState(false);
-  const [confettiArray, setConfettiArray] = useState([]);
   const [goToUrl, setGoToUrl] = useState(null);
   const isPrev = () => {
     return secretId.includes("prevTest");
   };
-
-  useEffect(() => {
-    if (isInitial) {
-      setInitial(false);
-      return;
-    }
-    setConfettiArray((prev) => {
-      let arr = [];
-      if (stars >= 4) {
-        arr = [...prev, { value: success, time: new Date().getTime() }];
-      }
-      if (arr.length > 7) return arr.slice(2);
-      return arr.length >= 2 ? arr.slice(1) : arr;
-    });
-  }, [stars]);
 
   useEffect(() => {
     if (isPrev()) {
@@ -47,7 +29,6 @@ function PageFilter() {
         const res = await api.get(
           "stores/simpleStoreInformation/" + secretId.split("prevTest_")[1],
         );
-        res;
         setData({
           order: {
             store: res.data,
@@ -57,11 +38,9 @@ function PageFilter() {
       })();
       return;
     }
-
     (async () => {
       try {
         const res = await api.get(`orders/opinionItem/${secretId}`);
-
         setData(res.data);
       } catch (error) {
         setNotValidLink(true);
@@ -70,10 +49,6 @@ function PageFilter() {
     })();
   }, [secretId]);
   const [isLoadingStars, setLoadingStars] = useState(false);
-
-  function isInWebView() {
-    return /android|iphone|ipad|ipod/i.test(navigator.userAgent);
-  }
 
   async function sendStars() {
     if (isPrev()) {
@@ -94,13 +69,6 @@ function PageFilter() {
       if (stars >= 4) {
         setGoToUrl(res.data.link + "/comments");
         setStage("congratulations");
-        //window.location.href = res.data.link + "/comments";
-        //  console.log(res);
-        //   if (isInWebView()) {
-        //     setTimeout(() => {
-        //       location.reload(); // Odświeżenie strony
-        //     }, 1000); // Opóźnienie, aby poczekać na zakończenie przekierowania
-        //  }
       } else {
         setStage("comment");
       }
@@ -129,17 +97,9 @@ function PageFilter() {
   } else if (stage === "comment") {
     content = <PageFilterComment isPrev={isPrev} setStage={setStage} />;
   } else if (stage === "congratulations") {
-    content = <PageFilterCongratulations goToLink={goToUrl} />;
+    content = <PageFilterCongratulations isPrev={isPrev} goToLink={goToUrl} />;
   } else if (stage === "done") {
-    content = (
-      <>
-        <br />
-        <span className={style.thanksText}>
-          Дякуємо за відгук! Ваша оцінка допомагає нам ставати кращими для тебе!
-          🙏
-        </span>{" "}
-      </>
-    );
+    content = <PageFilterDone />;
   }
 
   if (data.localOpinion != null) {
@@ -160,16 +120,6 @@ function PageFilter() {
         )}
         {/*<p className={style.productTitle}>{data.title}</p>*/}
         {content}
-        <div className={style.animation}>
-          {confettiArray.map((data, index) => (
-            <Lottie
-              key={data.time}
-              className={style.animation}
-              animationData={data.value}
-              loop={false}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
