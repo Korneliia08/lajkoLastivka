@@ -10,20 +10,26 @@ import success from "../../assets/animations/happy1.json";
 import Lottie from "lottie-react";
 import PageFilterLoader from "@/views/PageFilter/components/pageFilterLoader/PageFilterLoader.jsx";
 import PageFilterBanner from "@/views/PageFilter/views/pageFilterBanner/PageFilterBanner.jsx";
+import PageFilterCongratulations from "@/views/PageFilter/views/pageFilterCongratulations/PageFilterCongratulations.jsx";
 
 function PageFilter() {
   const { secretId } = useParams();
-  const [stars, setStars] = useState(1);
+  const [stars, setStars] = useState(5);
+  const [isInitial, setInitial] = useState(true);
   const [data, setData] = useState(undefined);
   const [stage, setStage] = useState("stars");
   const [notValidLink, setNotValidLink] = useState(false);
   const [confettiArray, setConfettiArray] = useState([]);
-
+  const [goToUrl, setGoToUrl] = useState(null);
   const isPrev = () => {
     return secretId.includes("prevTest");
   };
 
   useEffect(() => {
+    if (isInitial) {
+      setInitial(false);
+      return;
+    }
     setConfettiArray((prev) => {
       let arr = [];
       if (stars >= 4) {
@@ -73,6 +79,7 @@ function PageFilter() {
     if (isPrev()) {
       setLoadingStars(false);
       if (stars < 4) setStage("comment");
+      if (stars >= 4) setStage("congratulations");
       return;
     }
     try {
@@ -85,13 +92,15 @@ function PageFilter() {
         return;
       }
       if (stars >= 4) {
-        window.location.href = res.data.link + "/comments";
-        console.log(res);
-        if (isInWebView()) {
-          setTimeout(() => {
-            location.reload(); // Odświeżenie strony
-          }, 1000); // Opóźnienie, aby poczekać na zakończenie przekierowania
-        }
+        setGoToUrl(res.data.link + "/comments");
+        setStage("congratulations");
+        //window.location.href = res.data.link + "/comments";
+        //  console.log(res);
+        //   if (isInWebView()) {
+        //     setTimeout(() => {
+        //       location.reload(); // Odświeżenie strony
+        //     }, 1000); // Opóźnienie, aby poczekać na zakończenie przekierowania
+        //  }
       } else {
         setStage("comment");
       }
@@ -119,6 +128,8 @@ function PageFilter() {
     );
   } else if (stage === "comment") {
     content = <PageFilterComment isPrev={isPrev} setStage={setStage} />;
+  } else if (stage === "congratulations") {
+    content = <PageFilterCongratulations goToLink={goToUrl} />;
   } else if (stage === "done") {
     content = (
       <>
@@ -142,19 +153,23 @@ function PageFilter() {
 
   return (
     <div className={style.container}>
-      <PageFilterBanner data={data} imagesManual={imagesManual} />
-      <p className={style.titleOfShop}>{data.order.store.name}</p>
-      {/*<p className={style.productTitle}>{data.title}</p>*/}
-      {content}
-      <div className={style.animation}>
-        {confettiArray.map((data, index) => (
-          <Lottie
-            key={data.time}
-            className={style.animation}
-            animationData={data.value}
-            loop={false}
-          />
-        ))}
+      <div className={style.maxWidth}>
+        <PageFilterBanner data={data} imagesManual={imagesManual} />
+        {stage != "congratulations" && (
+          <p className={style.titleOfShop}>{data.order.store.name}</p>
+        )}
+        {/*<p className={style.productTitle}>{data.title}</p>*/}
+        {content}
+        <div className={style.animation}>
+          {confettiArray.map((data, index) => (
+            <Lottie
+              key={data.time}
+              className={style.animation}
+              animationData={data.value}
+              loop={false}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
