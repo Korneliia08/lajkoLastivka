@@ -62,13 +62,6 @@ const Steps = ({data, ...props}) => {
                     />
                 }
             />
-
-            {/*tu nie poswiecamy kolko*/}
-            {/*    4-5 - opinia nie napisana Відгук не залишено*/}
-            {/*1-3 - ( gdy opinia na feedmp nie napisana,i na rozetce tez nie) - opinia nie napisana - Відгук не залишено*/}
-
-            {/*tu poswiecamy ze aktywne kolko jednak*/}
-            {/*1-3 - (gdy opinia na feedmp nie napisana,ale na rozetce ta) - opinia napisana,ale na Rozetce Відгук залишено,але на розетці */}
         </div>
     );
 };
