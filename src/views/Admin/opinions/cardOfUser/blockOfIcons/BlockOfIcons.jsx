@@ -1,8 +1,8 @@
 import s from "./BlockOfIcons.module.scss";
 import { PiStarFill } from "react-icons/pi";
-import { TbMessageCancel } from "react-icons/tb";
 import { IoIosArrowDown } from "react-icons/io";
 import cn from "@/functions/cn.js";
+import { TbMessage2Heart } from "react-icons/tb";
 
 const BlockOfIcons = ({
   data,
@@ -10,19 +10,29 @@ const BlockOfIcons = ({
   isOpenBottomCard,
   ...props
 }) => {
-  let localOpinion = undefined;
-  try {
-    localOpinion = data.order.items[0].localOpinion;
-  } catch (err) {}
+  const opinion = data.order.items[0].opinion;
+
+  let localOpinion = data.order.items[0].localOpinion;
+
+  const stars = localOpinion.ratingScore;
+  const isGreen =
+    (localOpinion &&
+      localOpinion.opinion &&
+      localOpinion.opinion.length !== 0) ||
+    opinion;
   return (
     <div className={s.blockOfIconsContainer}>
       {/*<TbMessage2Question title={"Відгук на feedMP не залишено"}/>/> 1-3 review gdy negatywnej opinii nie napisano*/}
       {/*<TbMessage2Exclamation title={"Залишено відгук на feedMP"}/> 1-3 review gdy negatywna opinia napisana*/}
-      {/*<TbMessage2Heart title={"Залишено відгук на розетці"}/> 1-5 reviw gdy pozytywna oponia na rozetce napisana*/}
-      <TbMessageCancel
-        className={s.iconStyle}
-        title={"Відгук на розетці не залишено"}
+      <TbMessage2Heart
+        color={isGreen ? "green" : "red"}
+        title={"Залишено відгук на розетці"}
       />
+      {/*1-5 reviw gdy pozytywna oponia na rozetce napisana*/}
+      {/*<TbMessageCancel*/}
+      {/*  className={s.iconStyle}*/}
+      {/*  title={"Відгук на розетці не залишено"}*/}
+      {/*/>*/}
       {localOpinion && (
         <div className={s.blockForReviews}>
           {Array.from(Array(localOpinion.ratingScore).keys()).map((key) => {

@@ -11,7 +11,6 @@ const Steps = ({ data, ...props }) => {
   const localOpinion = data.order.items[0].localOpinion;
   const stars = localOpinion.ratingScore;
   const opinion = data.order.items[0].opinion;
-  console.log(opinion);
 
   return (
     <div className={s.etapsContainer}>
@@ -73,7 +72,17 @@ const Steps = ({ data, ...props }) => {
             //     style={{color: "#011c5d"}}
             //     title={"Відгук написано"}
             // />
-            <img src={circleLogo} />
+            <img
+              src={circleLogo}
+              title={
+                !localOpinion.opinion ||
+                (localOpinion &&
+                  localOpinion.opinion &&
+                  localOpinion.opinion.length == 0)
+                  ? "Не залишено відгук на feedMP"
+                  : "Залишено відгук на feedMP"
+              }
+            />
           }
         />
       )}
@@ -86,7 +95,14 @@ const Steps = ({ data, ...props }) => {
           //     style={{color: "#011c5d"}}
           //     title={"Відгук написано"}
           // />
-          <img src={rozetkaLogo} />
+          <img
+            src={rozetkaLogo}
+            title={
+              !opinion
+                ? "Не залишено відгук на розетці"
+                : "Залишено відгук на розетці"
+            }
+          />
         }
       />
 

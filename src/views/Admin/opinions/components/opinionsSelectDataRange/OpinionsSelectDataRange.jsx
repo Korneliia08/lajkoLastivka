@@ -1,34 +1,24 @@
-import s from "./OpinionsSelectDataRange.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import dayjs from "dayjs";
-import { setEndTime, setStartTime } from "@/views/Admin/orders/ordersSlice.js";
 import { DateTimePicker } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
+import s from "./OpinionsSelectDataRange.module.scss";
+import dayjs from "dayjs";
 
-const OpinionsSelectDataRange = ({ ...props }) => {
-  const dispatch = useDispatch();
-  const startTime = useSelector((state) => state.orders.startTime);
-  const endTime = useSelector((state) => state.orders.endTime);
-
-  // Używamy Date(), ponieważ DateTimePicker wymaga wartości typu Date
-
-  const [localStartTime, setLocalStartTime] = useState(dayjs(startTime));
-  const [localEndTime, setLocalEndTime] = useState(dayjs(endTime));
-
+const OpinionsSelectDataRange = ({
+  setEndTime,
+  endTime,
+  startTime,
+  setStartTime,
+  ...props
+}) => {
   const handleStartTimeChange = (value) => {
-    // Sprawdzamy, czy wartość jest prawidłowa przed aktualizacją stanu
     if (value) {
-      setLocalStartTime(value);
-      dispatch(setStartTime(new Date(value).getTime()));
+      setStartTime(value);
     }
   };
 
   const handleEndTimeChange = (value) => {
-    console.log(value);
     if (value) {
-      setLocalEndTime(value);
-      dispatch(setEndTime(new Date(value).getTime()));
+      setEndTime(value);
     }
   };
 
@@ -36,9 +26,9 @@ const OpinionsSelectDataRange = ({ ...props }) => {
     <>
       <DateTimePicker
         ampm={false}
-        maxDateTime={localEndTime}
+        maxDateTime={dayjs(endTime)}
         label="Початок"
-        value={localStartTime}
+        value={dayjs(startTime)}
         onChange={handleStartTimeChange}
         format="YYYY-MM-DD HH:mm"
         renderInput={(params) => (
@@ -50,8 +40,8 @@ const OpinionsSelectDataRange = ({ ...props }) => {
         ampm={false}
         label="Кінець"
         maxDateTime={dayjs(new Date())}
-        minDateTime={localStartTime}
-        value={localEndTime}
+        minDateTime={dayjs(startTime)}
+        value={dayjs(endTime)}
         format="YYYY-MM-DD HH:mm"
         onChange={handleEndTimeChange}
         renderInput={(params) => (
