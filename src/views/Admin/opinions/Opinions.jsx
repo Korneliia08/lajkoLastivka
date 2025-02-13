@@ -6,6 +6,7 @@ import useFetch from "@hooks/useFetch.js";
 import OpinionsSelectMarketplace from "@/views/Admin/opinions/components/opinionsSelectMarketplace/OpinionsSelectMarketplace.jsx";
 import { useState } from "react";
 import { Pagination } from "@mui/material";
+import OpinionsSelectDataRange from "@/views/Admin/opinions/components/opinionsSelectDataRange/OpinionsSelectDataRange.jsx";
 
 const Opinions = ({ ...props }) => {
   const { data } = useFetch("/opinions-page");
@@ -20,7 +21,9 @@ const Opinions = ({ ...props }) => {
             "Перегляд користувачів, які залишили відгук, та відображення їхніх відгуків у нашій внутрішній системі та на розетці."
           }
         />
-        <OpinionsSelectMarketplace />
+        <div>
+          <OpinionsSelectDataRange /> <OpinionsSelectMarketplace />
+        </div>
         <div className={s.opinionsContainer}>
           {data.map((obj) => {
             return (
