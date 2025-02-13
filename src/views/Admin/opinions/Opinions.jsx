@@ -56,7 +56,7 @@ const Opinions = ({ ...props }) => {
               );
             })}
         </div>
-        <div>
+        <div className={s.paggination}>
           {raw && (
             <Pagination
               onChange={(event, page) => pagination.setPage(page)}

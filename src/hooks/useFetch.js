@@ -81,7 +81,7 @@ const useFetch = (url, options = {}) => {
           `?autoRefresh=${autoRefresh}&limit=${options.limit}&page=${page}${options.params}`,
       )
       .then((res) => {
-        //   setRaw(res.data);
+        setRaw(res.data);
         if (options.withPagination) {
           setData(res.data.data);
           setPagination(res.data.pagination);

@@ -1,6 +1,15 @@
 import axios from "axios";
 import apiWithAuth from "./auth.interceptor.js";
 
+function cleanUrl(url) {
+  const [baseUrl, params] = url.split("?");
+  if (!params) return url; // Jeśli nie ma parametrów, zwróć oryginalny URL
+
+  // Zamieniamy wszystkie '?' w parametrach na '&', ale pierwsze pozostawiamy jako '?'
+  const cleanedParams = params.replace(/\?/g, "&");
+  return `${baseUrl}?${cleanedParams}`;
+}
+
 // Funkcja do dodania parametru `random` do adresu URL
 const addRandomParamToUrl = (url) => {
   const randomValue = `random=${new Date().getTime()}`;
@@ -41,9 +50,6 @@ apiWithAuth.interceptors.response.use(
         // Dodanie nowego tokenu do oryginalnego żądania
         originalRequest.headers.Authorization = `Bearer ${token}`;
 
-        // Dodanie parametru `random` do URL przed ponownym wysłaniem
-        originalRequest.url = addRandomParamToUrl(originalRequest.url);
-
         return axios(originalRequest);
       } catch (error) {
         console.log("refresh not authorizet");
@@ -58,10 +64,8 @@ apiWithAuth.interceptors.response.use(
   },
 );
 
-// Dodanie interceptorów do żądań
 apiWithAuth.interceptors.request.use((config) => {
-  // Dodanie parametru `random` do każdego żądania
-  config.url = addRandomParamToUrl(config.url);
+  config.url = cleanUrl(addRandomParamToUrl(config.url));
   return config;
 });
 
