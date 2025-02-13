@@ -16,8 +16,20 @@
     box-shadow: 0px 0px 2px 0px #818181;
     z-index: 500;
     position: relative;
-  }
 
+    img{
+      width: 26px;
+      height: 26px;
+    }
+  }
+  &.image .etapContainer{
+    padding: 0 !important;
+  }
+  &.disabled.image{
+img{
+  filter: grayscale(1);
+}
+  }
   .afterDiv {
     position: absolute;
     background-color: rgba(187, 187, 187, 0.69);
