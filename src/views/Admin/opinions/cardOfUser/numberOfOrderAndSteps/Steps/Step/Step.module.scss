@@ -1,6 +1,9 @@
 .mainContainer {
   position: relative;
 
+  &.disabled .etapContainer{
+    background: linear-gradient(to right, rgb(255, 251, 0), #075eff);
+  }
 
   .etapContainer {
     background: linear-gradient(to right, #eeeeee, #d6d6d6);
