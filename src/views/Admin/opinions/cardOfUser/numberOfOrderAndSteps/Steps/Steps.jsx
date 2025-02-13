@@ -1,12 +1,13 @@
 import s from "./Steps.module.scss";
 
-import { IoSendOutline, IoStar } from "react-icons/io5";
+import { IoSendOutline } from "react-icons/io5";
 import {
   TbHandClick,
   TbMessage2Check,
   TbShoppingBagHeart,
 } from "react-icons/tb";
 import Step from "@/views/Admin/opinions/cardOfUser/numberOfOrderAndSteps/Steps/Step/Step.jsx";
+import { MdOutlineStarBorder } from "react-icons/md";
 
 const Steps = ({ data, ...props }) => {
   const localOpinion = data.order.items[0].localOpinion;
@@ -20,7 +21,7 @@ const Steps = ({ data, ...props }) => {
         icon={
           <IoSendOutline
             size={14}
-            style={{ color: "white" }}
+            style={{ color: "black" }}
             title={"Повідомлення надіслано"}
           />
         }
@@ -29,7 +30,7 @@ const Steps = ({ data, ...props }) => {
         icon={
           <TbMessage2Check
             size={14}
-            style={{ color: "white" }}
+            style={{ color: "black" }}
             title={"Повідомлення прочитано"}
           />
         }
@@ -38,14 +39,14 @@ const Steps = ({ data, ...props }) => {
         icon={
           <TbHandClick
             size={14}
-            style={{ color: "white" }}
+            style={{ color: "black" }}
             title={"Посилання відвідано"}
           />
         }
       />
       <Step
         icon={
-          <IoStar
+          <MdOutlineStarBorder
             size={14}
             style={{
               color: localOpinion.ratingScore <= 3 ? "#f77" : "#49ff54",
@@ -60,7 +61,7 @@ const Steps = ({ data, ...props }) => {
         icon={
           <TbShoppingBagHeart
             size={14}
-            style={{ color: "white" }}
+            style={{ color: "black" }}
             title={"Відгук написано"}
           />
         }

@@ -1,9 +1,11 @@
 import s from "./Step.module.scss";
-import cn from "@/functions/cn.js";
 
 const Step = ({ disable, icon, ...props }) => {
   return (
-    <div className={cn(s.etapContainer, disable && s.disable)}>{icon}</div>
+    <div className={s.mainContainer}>
+      <div className={s.etapContainer}>{icon}</div>
+      <div className={s.afterDiv}></div>
+    </div>
   );
 };
 export default Step;
