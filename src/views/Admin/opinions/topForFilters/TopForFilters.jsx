@@ -14,6 +14,8 @@ const TopForFilters = ({
       <div className={s.blockForContent}>
         <h5 className={s.titleUsers}>Користувачі</h5>
         <p className={s.contentUsers}>Усі користувачі,які оцінили замовлення</p>
+      </div>
+      <div className={s.filters}>
         <OpinionsSelectDataRange
           startTime={startTime}
           endTime={endTime}

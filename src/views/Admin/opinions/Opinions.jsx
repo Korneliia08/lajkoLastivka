@@ -4,22 +4,28 @@ import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScro
 import CardOfUser from "@/views/Admin/opinions/cardOfUser/CardOfUser.jsx";
 import useFetch from "@hooks/useFetch.js";
 import { useState } from "react";
-import { Pagination } from "@mui/material";
-import TopForFilters from "@/views/Admin/opinions/topForFilters/TopForFilters.jsx";
 import ms from "ms";
 import { useParams } from "react-router-dom";
+import { Pagination } from "@mui/material";
+import TopForFilters from "@/views/Admin/opinions/topForFilters/TopForFilters.jsx";
 import dayjs from "dayjs";
 
 const Opinions = ({ ...props }) => {
   const [startTime, setStartTime] = useState(
     dayjs(new Date().getTime() - ms("7d")),
   );
+  const [page, setPage] = useState(1);
   const [endTime, setEndTime] = useState(dayjs(new Date().getTime()));
   const { id } = useParams();
-  const { data } = useFetch(
+  const { data, pagination, raw } = useFetch(
     `/opinions-page?startTime=${startTime.unix()}&endTime=${endTime.unix()}&storeId=${id}`,
+    {
+      withPagination: true,
+    },
   );
+
   const [isOpenBottomCard, setOpenBottomCard] = useState(-1);
+
   return (
     <>
       <OutletPanelScroll>
@@ -39,23 +45,25 @@ const Opinions = ({ ...props }) => {
         />
 
         <div className={s.opinionsContainer}>
-          {data.map((obj) => {
-            return (
-              <CardOfUser
-                setOpenBottomCard={setOpenBottomCard}
-                isOpenBottomCard={isOpenBottomCard}
-                data={obj}
-              />
-            );
-          })}
+          {data &&
+            data.map((obj) => {
+              return (
+                <CardOfUser
+                  setOpenBottomCard={setOpenBottomCard}
+                  isOpenBottomCard={isOpenBottomCard}
+                  data={obj}
+                />
+              );
+            })}
         </div>
         <div>
-          {" "}
-          <Pagination
-            // onChange={(event, page) => pagination.setPage(page)}
-            count={10}
-            shape="rounded"
-          />
+          {raw && (
+            <Pagination
+              onChange={(event, page) => pagination.setPage(page)}
+              count={Math.ceil(raw.total / raw.take)}
+              shape="rounded"
+            />
+          )}
         </div>
       </OutletPanelScroll>
     </>

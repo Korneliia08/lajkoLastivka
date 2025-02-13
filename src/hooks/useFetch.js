@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import api from "../providers/interceptors/refreshToken.interceptor.js";
 
 /**
@@ -55,6 +55,7 @@ const useFetch = (url, options = {}) => {
   const [data, setData] = useState(options.default);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [raw, setRaw] = useState();
   const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(options.page);
   const [autoRefresh, setAutoRefresh] = useState(0);
@@ -65,7 +66,6 @@ const useFetch = (url, options = {}) => {
           return prev + 1;
         });
       }, options.autoRefresh);
-
       return () => {
         clearInterval(intervalId); // Usuwamy interwał po zakończeniu
       };
@@ -81,6 +81,7 @@ const useFetch = (url, options = {}) => {
           `?autoRefresh=${autoRefresh}&limit=${options.limit}&page=${page}${options.params}`,
       )
       .then((res) => {
+        //   setRaw(res.data);
         if (options.withPagination) {
           setData(res.data.data);
           setPagination(res.data.pagination);
@@ -108,9 +109,10 @@ const useFetch = (url, options = {}) => {
       loading,
       error,
       pagination: { ...pagination, page, setPage },
+      raw,
     };
   } else {
-    return { data: data, loading, error };
+    return { data: data, loading, error, raw };
   }
 };
 export default useFetch;
