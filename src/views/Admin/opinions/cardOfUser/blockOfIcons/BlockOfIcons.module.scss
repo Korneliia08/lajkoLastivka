@@ -39,8 +39,10 @@
     position: absolute;
     font-size: 18px;
     right: 0;
-    transition: 125ms ease;
-
+    transition: scale 125ms ease ,transform 300ms ease-in-out;
+&.rotate{
+  transform: rotate(-180deg);
+}
     &:hover {
       cursor: pointer;
       scale: 1.1;

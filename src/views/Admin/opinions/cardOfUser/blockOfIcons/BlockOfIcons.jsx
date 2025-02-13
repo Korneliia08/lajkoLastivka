@@ -36,8 +36,14 @@ const BlockOfIcons = ({
         </div>
       )}
       <IoIosArrowDown
-        className={s.arrowBottom}
-        onClick={() => setOpenBottomCard(!isOpenBottomCard)}
+        className={cn(s.arrowBottom, data.id === isOpenBottomCard && s.rotate)}
+        onClick={() => {
+          if (data.id === isOpenBottomCard) {
+            setOpenBottomCard(-2);
+            return;
+          }
+          setOpenBottomCard(data.id);
+        }}
       />
     </div>
   );
