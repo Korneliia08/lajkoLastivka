@@ -28,7 +28,7 @@ const OpinionsSelectDataRange = ({ ...props }) => {
     console.log(value);
     if (value) {
       setLocalEndTime(value);
-      dispatch(setEndTime(new Date(value).getTime())); // Aktualizacja endTime w Redux
+      dispatch(setEndTime(new Date(value).getTime()));
     }
   };
 
