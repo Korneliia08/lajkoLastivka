@@ -1,18 +1,19 @@
 import s from "./Etaps.module.scss";
 import Etap from "@/views/Admin/opinions/cardOfUser/numberOfOrderAndEtaps/etaps/etap/Etap.jsx";
-import {IoSendOutline, IoStar} from "react-icons/io5";
+import {IoSendOutline} from "react-icons/io5";
 import {TbHandClick, TbMessage2Check, TbShoppingBagHeart} from "react-icons/tb";
+import {MdOutlineStarBorder} from "react-icons/md";
 
 
 const Etaps = ({...props}) => {
     return (
         <div className={s.etapsContainer}>
-            <Etap icon={<IoSendOutline size={14} style={{color: "white"}} title={"Повідомлення надіслано"}/>}/>
-            <Etap icon={<TbMessage2Check size={14} style={{color: "white"}} title={"Повідомлення прочитано"}/>}/>
-            <Etap icon={<TbHandClick size={14} style={{color: "white"}} title={"Посилання відвідано"}/>}/>
-            <Etap icon={<IoStar size={14} style={{color: "#f77"}} title={"Замовлення оцінено"}/>}/>
+            <Etap icon={<IoSendOutline size={14} style={{color: "black"}} title={"Повідомлення надіслано"}/>}/>
+            <Etap icon={<TbMessage2Check size={14} style={{color: "black"}} title={"Повідомлення прочитано"}/>}/>
+            <Etap icon={<TbHandClick size={14} style={{color: "black"}} title={"Посилання відвідано"}/>}/>
+            <Etap icon={<MdOutlineStarBorder size={14} style={{color: "red"}} title={"Замовлення оцінено"}/>}/>
             {/*#49ff54 - jesli 4-5 reviews*/}
-            <Etap icon={<TbShoppingBagHeart size={14} style={{color: "white"}} title={"Відгук написано"}/>}/>
+            <Etap icon={<TbShoppingBagHeart size={14} style={{color: "black"}} title={"Відгук написано"}/>}/>
 
             {/*tu nie poswiecamy kolko*/}
             {/*    4-5 - opinia nie napisana Відгук не залишено*/}
