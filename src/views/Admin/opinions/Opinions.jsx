@@ -4,9 +4,12 @@ import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScro
 import CardOfUser from "@/views/Admin/opinions/cardOfUser/CardOfUser.jsx";
 import useFetch from "@hooks/useFetch.js";
 import OpinionsSelectMarketplace from "@/views/Admin/opinions/components/opinionsSelectMarketplace/OpinionsSelectMarketplace.jsx";
+import { useState } from "react";
+import { Pagination } from "@mui/material";
 
 const Opinions = ({ ...props }) => {
   const { data } = useFetch("/opinions-page");
+  const [isOpenBottomCard, setOpenBottomCard] = useState(-1);
   return (
     <>
       <OutletPanelScroll>
@@ -20,8 +23,22 @@ const Opinions = ({ ...props }) => {
         <OpinionsSelectMarketplace />
         <div className={s.opinionsContainer}>
           {data.map((obj) => {
-            return <CardOfUser data={obj} />;
+            return (
+              <CardOfUser
+                setOpenBottomCard={setOpenBottomCard}
+                isOpenBottomCard={isOpenBottomCard}
+                data={obj}
+              />
+            );
           })}
+        </div>
+        <div>
+          {" "}
+          <Pagination
+            // onChange={(event, page) => pagination.setPage(page)}
+            count={10}
+            shape="rounded"
+          />
         </div>
       </OutletPanelScroll>
     </>
