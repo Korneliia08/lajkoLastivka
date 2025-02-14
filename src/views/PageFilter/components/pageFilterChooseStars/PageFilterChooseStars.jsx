@@ -18,7 +18,7 @@ const PageFilterChooseStars = ({
 }) => {
   return (
     <>
-      <p className={style.content}>Як Вам наш товар?</p>
+      <p className={style.content}>Наскільки Ви задоволені покупкою?</p>
       <div className={localS.reactionDiv}>
         {stars === 5 && (
           <Lottie
