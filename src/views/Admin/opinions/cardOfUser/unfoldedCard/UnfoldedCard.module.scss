@@ -7,14 +7,19 @@
   row-gap: 10px;
   background-color: #f1f1f1;
   border-radius: 0px 0px 15px 15px;
-  box-shadow: 0px 0px 5px 0px rgba(96, 96, 96, 0.26);
+  box-shadow: 0px 3px 5px 0px rgba(96, 96, 96, 0.26);
   position: absolute;
-  top: 100%;
+  top: calc(100% - 2px);
   z-index: 1300;
 
     height: 0;
     overflow: hidden;
     transition: height .1s ease-in-out;
+  .container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
 &>div{
   padding: 10px 20px;
 }

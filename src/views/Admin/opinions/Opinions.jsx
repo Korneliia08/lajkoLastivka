@@ -3,14 +3,29 @@ import s from "@/views/Admin/opinions/Opinions.module.scss";
 import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 import CardOfUser from "@/views/Admin/opinions/cardOfUser/CardOfUser.jsx";
 import useFetch from "@hooks/useFetch.js";
-import OpinionsSelectMarketplace from "@/views/Admin/opinions/components/opinionsSelectMarketplace/OpinionsSelectMarketplace.jsx";
 import { useState } from "react";
+import ms from "ms";
+import { useParams } from "react-router-dom";
 import { Pagination } from "@mui/material";
-import OpinionsSelectDataRange from "@/views/Admin/opinions/components/opinionsSelectDataRange/OpinionsSelectDataRange.jsx";
+import TopForFilters from "@/views/Admin/opinions/topForFilters/TopForFilters.jsx";
+import dayjs from "dayjs";
 
 const Opinions = ({ ...props }) => {
-  const { data } = useFetch("/opinions-page");
+  const [startTime, setStartTime] = useState(
+    dayjs(new Date().getTime() - ms("7d")),
+  );
+  const [page, setPage] = useState(1);
+  const [endTime, setEndTime] = useState(dayjs(new Date().getTime()));
+  const { id } = useParams();
+  const { data, pagination, raw } = useFetch(
+    `/opinions-page?startTime=${startTime.unix()}&endTime=${endTime.unix()}&storeId=${id}`,
+    {
+      withPagination: true,
+    },
+  );
+
   const [isOpenBottomCard, setOpenBottomCard] = useState(-1);
+
   return (
     <>
       <OutletPanelScroll>
@@ -21,27 +36,34 @@ const Opinions = ({ ...props }) => {
             "Перегляд користувачів, які залишили відгук, та відображення їхніх відгуків у нашій внутрішній системі та на розетці."
           }
         />
-        <div>
-          <OpinionsSelectDataRange /> <OpinionsSelectMarketplace />
-        </div>
+
+        <TopForFilters
+          startTime={startTime}
+          endTime={endTime}
+          setStartTime={setStartTime}
+          setEndTime={setEndTime}
+        />
+
         <div className={s.opinionsContainer}>
-          {data.map((obj) => {
-            return (
-              <CardOfUser
-                setOpenBottomCard={setOpenBottomCard}
-                isOpenBottomCard={isOpenBottomCard}
-                data={obj}
-              />
-            );
-          })}
+          {data &&
+            data.map((obj) => {
+              return (
+                <CardOfUser
+                  setOpenBottomCard={setOpenBottomCard}
+                  isOpenBottomCard={isOpenBottomCard}
+                  data={obj}
+                />
+              );
+            })}
         </div>
-        <div>
-          {" "}
-          <Pagination
-            // onChange={(event, page) => pagination.setPage(page)}
-            count={10}
-            shape="rounded"
-          />
+        <div className={s.paggination}>
+          {raw && (
+            <Pagination
+              onChange={(event, page) => pagination.setPage(page)}
+              count={Math.ceil(raw.total / raw.take)}
+              shape="rounded"
+            />
+          )}
         </div>
       </OutletPanelScroll>
     </>

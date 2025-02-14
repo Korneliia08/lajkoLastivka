@@ -53,7 +53,7 @@ const StatisticsSelectDate = ({ ...props }) => {
   };
 
   return (
-    <>
+    <div className={s.container}>
       <DateTimePicker
         ampm={false}
         maxDateTime={localEndTime}
@@ -84,7 +84,7 @@ const StatisticsSelectDate = ({ ...props }) => {
         options={daysOptions}
         onChange={handleDaysChange}
       />
-    </>
+    </div>
   );
 };
 

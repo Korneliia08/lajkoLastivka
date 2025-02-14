@@ -23,7 +23,7 @@ const UnfoldedCard = ({ data, isOpen }) => {
 
   return (
     <div className={s.unfoldedCardContainer} style={{ height: `${height}px` }}>
-      <div ref={contentRef}>
+      <div className={s.container} ref={contentRef}>
         {!feedMpComment && rozetkaComment && stars <= 3 && (
           <div className={s.block}>
             <h4 className={s.title}>FeedMp</h4>
