@@ -26,7 +26,7 @@ const BlockOfIcons = ({
       {/*<TbMessage2Exclamation title={"Залишено відгук на feedMP"}/> 1-3 review gdy negatywna opinia napisana*/}
       <TbMessage2Heart
         color={isGreen ? "green" : "red"}
-        title={"Залишено відгук на розетці"}
+        title={isGreen ? "Залишено відгук" : "Відгук не залишено"}
       />
       {/*1-5 reviw gdy pozytywna oponia na rozetce napisana*/}
       {/*<TbMessageCancel*/}
