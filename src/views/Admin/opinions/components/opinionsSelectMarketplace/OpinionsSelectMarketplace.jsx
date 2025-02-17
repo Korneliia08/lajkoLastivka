@@ -29,7 +29,6 @@ const OpinionsSelectMarketplace = ({ ...props }) => {
 
   return (
     <div className={s.opinionsSelectMarketplaceContainer}>
-      <span>Оберіть маркетплейс:</span>
       <Select
         value={dataToSelect.filter((el) => el.value == id)}
         onChange={change}
