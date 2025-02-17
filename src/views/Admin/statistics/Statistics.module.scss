@@ -15,9 +15,10 @@
     grid-area: header;
     text-align: left;
     display: flex;
-    justify-content: normal;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
+    width: 100%;
 
   }
 

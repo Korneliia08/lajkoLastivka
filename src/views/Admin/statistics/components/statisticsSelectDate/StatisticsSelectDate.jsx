@@ -80,6 +80,7 @@ const StatisticsSelectDate = ({ ...props }) => {
         className={s.ordersTableTopPanelDatesRangeContainer}
       />
       <Select
+        className={s.select}
         defaultValue={daysOptions[1]}
         options={daysOptions}
         onChange={handleDaysChange}
