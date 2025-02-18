@@ -1,12 +1,12 @@
 .mainContainer {
   position: relative;
 
-  &.disabled .etapContainer{
+  &.disabled .etapContainer {
     background: linear-gradient(to right, rgb(255, 251, 0), #075eff);
   }
 
   .etapContainer {
-    background: linear-gradient(to right, #eeeeee, #d6d6d6);
+    background: linear-gradient(135deg, #b8e89c, #94db4d, #7fc874);
     //background-color: #adadad;
     padding: 6px;
     border-radius: 100%;
@@ -17,19 +17,22 @@
     z-index: 500;
     position: relative;
 
-    img{
+    img {
       width: 26px;
       height: 26px;
     }
   }
-  &.image .etapContainer{
+
+  &.image .etapContainer {
     padding: 0 !important;
   }
-  &.disabled.image{
-img{
-  filter: grayscale(1);
-}
+
+  &.disabled.image {
+    img {
+      filter: grayscale(1);
+    }
   }
+
   .afterDiv {
     position: absolute;
     background-color: rgba(187, 187, 187, 0.69);
