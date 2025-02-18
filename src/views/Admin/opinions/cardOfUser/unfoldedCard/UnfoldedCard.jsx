@@ -15,8 +15,10 @@ const UnfoldedCard = ({ data, isOpen }) => {
     }
   }, [isOpen]);
 
-  const localOpinion = data.order.items[0].localOpinion;
-  const stars = localOpinion.ratingScore;
+  const localOpinion = data.order.items[0].localOpinion
+    ? data.order.items[0].localOpinion
+    : undefined;
+  const stars = localOpinion ? localOpinion.ratingScore : undefined;
   const opinion = data.order.items[0].opinion;
   const feedMpComment = localOpinion;
   const rozetkaComment = opinion ? opinion : undefined;

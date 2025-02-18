@@ -8,8 +8,12 @@ import circleLogo from "../../../../../../assets/circleLogo.png";
 import { AiTwotoneStar } from "react-icons/ai";
 
 const Steps = ({ data, ...props }) => {
-  const localOpinion = data.order.items[0].localOpinion;
-  const stars = localOpinion.ratingScore;
+  let localOpinion = undefined;
+  let stars = undefined;
+  try {
+    localOpinion = data.order.items[0].localOpinion;
+    stars = localOpinion.ratingScore;
+  } catch (err) {}
   const opinion = data.order.items[0].opinion;
 
   return (
@@ -41,26 +45,27 @@ const Steps = ({ data, ...props }) => {
           />
         }
       />
-
-      <Step
-        icon={
-          <AiTwotoneStar
-            size={14}
-            style={{
-              color:
-                localOpinion.ratingScore <= 3
-                  ? "rgb(255, 0, 0)"
-                  : "rgb(21, 128, 77)",
-            }}
-            title={"Замовлення оцінено"}
-          />
-        }
-      />
+      {localOpinion && (
+        <Step
+          icon={
+            <AiTwotoneStar
+              size={14}
+              style={{
+                color:
+                  localOpinion.ratingScore <= 3
+                    ? "rgb(255, 0, 0)"
+                    : "rgb(21, 128, 77)",
+              }}
+              title={"Замовлення оцінено"}
+            />
+          }
+        />
+      )}
 
       {stars <= 3 && (
         <Step
           disable={
-            !localOpinion.opinion ||
+            (!localOpinion && !localOpinion.opinion) ||
             (localOpinion &&
               localOpinion.opinion &&
               localOpinion.opinion.length == 0)

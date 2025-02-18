@@ -12,9 +12,13 @@ const BlockOfIcons = ({
 }) => {
   const opinion = data.order.items[0].opinion;
 
-  let localOpinion = data.order.items[0].localOpinion;
+  let localOpinion = undefined;
+  let stars = undefined;
+  try {
+    localOpinion = data.order.items[0].localOpinion;
+    stars = localOpinion.ratingScore;
+  } catch (err) {}
 
-  const stars = localOpinion.ratingScore;
   const isGreen =
     (localOpinion &&
       localOpinion.opinion &&
