@@ -5,6 +5,7 @@ import { TbHandClick, TbMessage2Check } from "react-icons/tb";
 import Step from "@/views/Admin/opinions/cardOfUser/numberOfOrderAndSteps/Steps/Step/Step.jsx";
 import { MdOutlineStarBorder } from "react-icons/md";
 import rozetkaLogo from "../../../../../../assets/images/rozetkaLogo.png";
+import circleLogo from "../../../../../../assets/circleLogo.png";
 
 const Steps = ({ data, ...props }) => {
   let localOpinion = undefined;
