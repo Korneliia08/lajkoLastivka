@@ -1,10 +1,10 @@
 import s from "./Steps.module.scss";
 
-import {IoSendOutline} from "react-icons/io5";
-import {TbHandClick, TbMessage2Check,} from "react-icons/tb";
+import { IoSendOutline } from "react-icons/io5";
+import { TbHandClick, TbMessage2Check } from "react-icons/tb";
 import Step from "@/views/Admin/opinions/cardOfUser/numberOfOrderAndSteps/Steps/Step/Step.jsx";
-import {MdOutlineStarBorder} from "react-icons/md";
-import rozetkaLogo from '../../../../../../assets/images/rozetkaLogo.png'
+import { MdOutlineStarBorder } from "react-icons/md";
+import rozetkaLogo from "../../../../../../assets/images/rozetkaLogo.png";
 
 const Steps = ({ data, ...props }) => {
   let localOpinion = undefined;
@@ -14,7 +14,7 @@ const Steps = ({ data, ...props }) => {
     stars = localOpinion.ratingScore;
   } catch (err) {}
   const opinion = data.order.items[0].opinion;
-
+  console.log(data);
   return (
     <div className={s.etapsContainer}>
       <Step
@@ -27,6 +27,7 @@ const Steps = ({ data, ...props }) => {
         }
       />
       <Step
+        disable={data.readAt == null}
         icon={
           <TbMessage2Check
             size={14}
@@ -36,6 +37,7 @@ const Steps = ({ data, ...props }) => {
         }
       />
       <Step
+        disable={data.sendAt == null}
         icon={
           <TbHandClick
             size={14}
@@ -110,13 +112,13 @@ const Steps = ({ data, ...props }) => {
         }
       />
 
-            {/*tu nie poswiecamy kolko*/}
-            {/*    4-5 - opinia nie napisana Відгук не залишено*/}
-            {/*1-3 - ( gdy opinia na feedmp nie napisana,i na rozetce tez nie) - opinia nie napisana - Відгук не залишено*/}
+      {/*tu nie poswiecamy kolko*/}
+      {/*    4-5 - opinia nie napisana Відгук не залишено*/}
+      {/*1-3 - ( gdy opinia na feedmp nie napisana,i na rozetce tez nie) - opinia nie napisana - Відгук не залишено*/}
 
-            {/*tu poswiecamy ze aktywne kolko jednak*/}
-            {/*1-3 - (gdy opinia na feedmp nie napisana,ale na rozetce ta) - opinia napisana,ale na Rozetce Відгук залишено,але на розетці */}
-        </div>
-    );
+      {/*tu poswiecamy ze aktywne kolko jednak*/}
+      {/*1-3 - (gdy opinia na feedmp nie napisana,ale na rozetce ta) - opinia napisana,ale na Rozetce Відгук залишено,але на розетці */}
+    </div>
+  );
 };
 export default Steps;
