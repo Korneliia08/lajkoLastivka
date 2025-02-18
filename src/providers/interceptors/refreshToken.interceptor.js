@@ -2,12 +2,9 @@ import axios from "axios";
 import apiWithAuth from "./auth.interceptor.js";
 
 function cleanUrl(url) {
-  const [baseUrl, params] = url.split("?");
-  if (!params) return url; // Jeśli nie ma parametrów, zwróć oryginalny URL
-
   // Zamieniamy wszystkie '?' w parametrach na '&', ale pierwsze pozostawiamy jako '?'
-  const cleanedParams = params.replace(/\?/g, "&");
-  return `${baseUrl}?${cleanedParams}`;
+  const cleanedParams = url.replaceAll(/\?/g, "&").replace("&", "?");
+  return cleanedParams;
 }
 
 // Funkcja do dodania parametru `random` do adresu URL
@@ -65,7 +62,7 @@ apiWithAuth.interceptors.response.use(
 );
 
 apiWithAuth.interceptors.request.use((config) => {
-  config.url = cleanUrl(addRandomParamToUrl(config.url));
+  config.url = cleanUrl(config.url);
   return config;
 });
 
