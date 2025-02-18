@@ -27,17 +27,21 @@ const Steps = ({ data, ...props }) => {
         }
       />
       <Step
-        disable={data.readAt == null}
-        icon={
-          <TbMessage2Check
-            size={14}
-            style={{ color: "#011c5d" }}
-            title={"Повідомлення прочитано"}
-          />
+        title={
+          data.readAt == null
+            ? "Повідомлення не прочитано"
+            : "Повідомлення прочитано"
         }
+        disable={data.readAt == null}
+        icon={<TbMessage2Check size={14} style={{ color: "#011c5d" }} />}
       />
       <Step
-        disable={data.sendAt == null}
+        disable={data.clickAt == null}
+        title={
+          data.clickAt == null
+            ? "Посилання відвідано"
+            : "Посилання не відвідано"
+        }
         icon={
           <TbHandClick
             size={14}
