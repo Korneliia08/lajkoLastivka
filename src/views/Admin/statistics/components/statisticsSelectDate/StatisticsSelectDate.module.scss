@@ -1,0 +1,13 @@
+.container{
+  display: flex;
+  gap:10px;
+  .select{
+    width: 200px;
+  }
+}
+
+.ordersTableTopPanelDatesRangeContainer{
+  &>div{
+    height: 38px;
+  }
+}

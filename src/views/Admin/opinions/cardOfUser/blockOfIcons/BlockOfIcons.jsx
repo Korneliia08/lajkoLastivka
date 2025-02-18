@@ -12,9 +12,13 @@ const BlockOfIcons = ({
 }) => {
   const opinion = data.order.items[0].opinion;
 
-  let localOpinion = data.order.items[0].localOpinion;
+  let localOpinion = undefined;
+  let stars = undefined;
+  try {
+    localOpinion = data.order.items[0].localOpinion;
+    stars = localOpinion.ratingScore;
+  } catch (err) {}
 
-  const stars = localOpinion.ratingScore;
   const isGreen =
     (localOpinion &&
       localOpinion.opinion &&
@@ -26,7 +30,7 @@ const BlockOfIcons = ({
       {/*<TbMessage2Exclamation title={"Залишено відгук на feedMP"}/> 1-3 review gdy negatywna opinia napisana*/}
       <TbMessage2Heart
         color={isGreen ? "green" : "red"}
-        title={"Залишено відгук на розетці"}
+        title={isGreen ? "Залишено відгук" : "Відгук не залишено"}
       />
       {/*1-5 reviw gdy pozytywna oponia na rozetce napisana*/}
       {/*<TbMessageCancel*/}

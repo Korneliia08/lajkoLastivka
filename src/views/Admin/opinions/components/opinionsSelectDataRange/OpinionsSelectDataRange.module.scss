@@ -6,4 +6,7 @@
   height: min-content;
   border-radius: 5px;
   width: 150px;
+  &>div{
+    height: 38px;
+  }
 }
