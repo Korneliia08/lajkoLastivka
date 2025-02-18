@@ -51,22 +51,23 @@ const Steps = ({ data, ...props }) => {
           />
         }
       />
-      {localOpinion && (
-        <Step
-          icon={
-            <MdOutlineStarBorder
-              size={14}
-              style={{
-                color:
-                  localOpinion.ratingScore <= 3
-                    ? "rgb(255, 0, 0)"
-                    : "rgb(21, 128, 77)",
-              }}
-              title={"Замовлення оцінено"}
-            />
-          }
-        />
-      )}
+
+      <Step
+        disable={!localOpinion}
+        icon={
+          <MdOutlineStarBorder
+            size={14}
+            style={{
+              color: localOpinion
+                ? localOpinion.ratingScore <= 3
+                  ? "rgb(255, 0, 0)"
+                  : "rgb(21, 128, 77)"
+                : "rgb(122,122,122)",
+            }}
+            title={"Замовлення оцінено"}
+          />
+        }
+      />
 
       {stars <= 3 && (
         <Step
