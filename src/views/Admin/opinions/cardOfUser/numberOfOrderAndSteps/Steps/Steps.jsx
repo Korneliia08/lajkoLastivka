@@ -36,9 +36,9 @@ const Steps = ({ data, ...props }) => {
         icon={<TbMessage2Check size={14} style={{ color: "#011c5d" }} />}
       />
       <Step
-        disable={data.clickAt == null}
+        disable={data.clickedAt == null}
         title={
-          data.clickAt == null
+          data.clickedAt == null
             ? "Посилання відвідано"
             : "Посилання не відвідано"
         }
