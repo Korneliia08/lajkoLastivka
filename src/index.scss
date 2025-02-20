@@ -11,8 +11,14 @@
   padding-left: 0em !important;
 }
 
-.ql-editor
+.ql-editor ,.sunEditor
 {
+  * {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word; overflow-wrap: break-word;
+  }
   height: auto !important;
   padding:0 !important;
 }

@@ -1,15 +1,14 @@
-import s from "./FilterPageSettings.module.scss";
-import PanelTitle from "@/components/layot/panelTitle/PanelTitle.jsx";
-import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScroll.jsx";
-import FilterPageSettingsSelectParketplace from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
 import { useEffect, useState } from "react";
 import useFetch from "@hooks/useFetch.js";
 import api from "@/providers/interceptors/refreshToken.interceptor.js";
-import { FaRegSave } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
+import s from "./FilterPageSettings.module.scss";
+import { FaRegSave } from "react-icons/fa";
+import PanelTitle from "@/components/layot/panelTitle/PanelTitle.jsx";
+import FilterPageSettingsSelectParketplace from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
 
 const TextAreaBlock = ({ title, description, value, setValue }) => {
   return (
@@ -47,11 +46,13 @@ const TextAreaBlock = ({ title, description, value, setValue }) => {
               "lineHeight",
             ],
           ],
-
           defaultFontSize: "14px",
           defaultFont: "Arial",
+          lang: "ua",
         }}
-        setContents={value} // Inicjalizacja zawartości edytora
+        setContents={value} // Ustawienie początkowej zawartości
+        onKeyUp={(content) => setValue(content)}
+        onChange={(content) => setValue(content)}
       />
     </div>
   );
@@ -73,7 +74,6 @@ const FilterPageSettings = () => {
 
   useEffect(() => {
     if (data?.filterPageContent) {
-      // Jeżeli dane są dostępne, ustawiamy odpowiednią zawartość
       setFirstPageContent(data.filterPageContent.welcomePage || "");
       setSuccessPageContent(data.filterPageContent.successPage || "");
       setCommentSendPageContent(
@@ -106,13 +106,13 @@ const FilterPageSettings = () => {
   }
 
   return (
-    <OutletPanelScroll>
+    <div>
       <div className={s.titleBig}>
         <PanelTitle
           inner={true}
           title={"Управління контентом:"}
           subTitle={
-            "У цій вкладці можна легко змінювати або додавати контент, який відображатиметься на сторінках, де клієнти залишають відгуки про товар."
+            "У цій вкладці можна легко змінювати або додавати контент..."
           }
           buttonText={"Зберегти"}
           onClick={sendData}
@@ -132,7 +132,7 @@ const FilterPageSettings = () => {
           />
           <TextAreaBlock
             title="Сторінка подяки та інструкції"
-            description="Ця сторінка відображається клієнтам, які оцінили замовлення на 4 або 5 зірок. Вона містить подяку за оцінку та інструкцію, як залишити детальний відгук на ROZETKA."
+            description="Ця сторінка відображається клієнтам, які оцінили замовлення на 4 або 5 зірок."
             value={successPageContent}
             setValue={setSuccessPageContent}
           />
@@ -144,19 +144,19 @@ const FilterPageSettings = () => {
           />
           <TextAreaBlock
             title="Сторінка для написання відгуку"
-            description="Будь ласка, введіть текст, який буде відображатися поруч із полем для введення відгуку."
+            description="Будь ласка, введіть текст..."
             value={commentWriteTextAreaTitlePageContent}
             setValue={setCommentWriteTextAreaTitlePageContent}
           />
           <TextAreaBlock
             title="Сторінка подяки за внутрішній відгук"
-            description="Цей контент представляє сторінку подяки користувачеві за залишений внутрішній відгук. Він підтверджує отримання оцінки та висловлює вдячність за зворотний зв’язок."
+            description="Цей контент представляє сторінку подяки..."
             value={commentSendPageContent}
             setValue={setCommentSendPageContent}
           />
         </div>
       </div>
-    </OutletPanelScroll>
+    </div>
   );
 };
 
