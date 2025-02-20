@@ -1,3 +1,16 @@
+.ql-editor .ql-align-center {
+  text-align: center;
+  min-height: 10px;
+}
+.ql-editor ol li {
+  list-style-type: initial !important;
+  padding-left: 0em !important;
+}
+.ql-editor ol li {
+  list-style-type: decimal !important;
+  padding-left: 0em !important;
+}
+
 .styleOfToggle .react-toggle-track {
   background-color: #c4c4c4;
 }

@@ -27,7 +27,7 @@ const PageFilterCongratulations = ({
   return (
     <div className={s.pageFilterCongratulationsContainer}>
       <div
-        className={s.content}
+        className={`${s.content} ql-editor`}
         dangerouslySetInnerHTML={{ __html: filterPageContent.successPage }}
       ></div>
 

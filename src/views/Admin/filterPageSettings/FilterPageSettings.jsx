@@ -1,27 +1,25 @@
 import s from "./FilterPageSettings.module.scss";
-import {useParams} from "react-router-dom";
 import PanelTitle from "@/components/layot/panelTitle/PanelTitle.jsx";
 import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScroll.jsx";
-import FilterPageSettingsSelectParketplace
-  from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
-import {useQuill} from "react-quilljs";
-import {useEffect} from "react";
+import FilterPageSettingsSelectParketplace from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
+import { useQuill } from "react-quilljs";
+import { useEffect } from "react";
 import useFetch from "@hooks/useFetch.js";
 import api from "@/providers/interceptors/refreshToken.interceptor.js";
-import {FaRegSave} from "react-icons/fa";
 import { FaRegSave } from "react-icons/fa";
 import { toast } from "react-hot-toast";
+import { useParams } from "react-router-dom";
 
-const QuillBlock = ({title, description, quillRef}) => (
-    <div className={s.block}>
-        <div className={s.titleContainer}>
-            <span className={s.title}>{title}</span>
-            <span className={s.describe}>{description}</span>
-        </div>
-        <div className={s.quillContainer} style={{width: "100%", height: 300}}>
-            <div ref={quillRef}/>
-        </div>
+const QuillBlock = ({ title, description, quillRef }) => (
+  <div className={s.block}>
+    <div className={s.titleContainer}>
+      <span className={s.title}>{title}</span>
+      <span className={s.describe}>{description}</span>
     </div>
+    <div className={s.quillContainer} style={{ width: "100%", height: 300 }}>
+      <div ref={quillRef} />
+    </div>
+  </div>
 );
 
 const FilterPageSettings = () => {
@@ -86,24 +84,26 @@ const FilterPageSettings = () => {
         },
       };
       await api.post(`/stores/filterPageConfig/${id}`, dataToSend);
-      toast.success("Dane zapisane");
+      toast.success("Дані збережені");
     } catch (err) {
-      toast.error("Błąd zapisu");
+      toast.error("Виникла помилка");
     }
   }
 
   return (
     <OutletPanelScroll>
-      <PanelTitle
-        inner={true}
-        title={"Управління контентом:"}
-        subTitle={
-          "У цій вкладці можна легко змінювати або додавати контент, який відображатиметься на сторінках, де клієнти залишають відгуки про товар."
-        }
-        buttonText={"Зберегти"}
-        onClick={sendData}
-        buttonIcon={<FaRegSave />}
-      />
+      <div className={s.titleBig}>
+        <PanelTitle
+          inner={true}
+          title={"Управління контентом:"}
+          subTitle={
+            "У цій вкладці можна легко змінювати або додавати контент, який відображатиметься на сторінках, де клієнти залишають відгуки про товар."
+          }
+          buttonText={"Зберегти"}
+          onClick={sendData}
+          buttonIcon={<FaRegSave />}
+        />
+      </div>
       <div className={s.filterPageSettingsContainer}>
         <div className={s.selectMarketPlace}>
           <FilterPageSettingsSelectParketplace />
