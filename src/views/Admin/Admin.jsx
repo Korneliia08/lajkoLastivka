@@ -2,7 +2,6 @@ import style from "./Admin.module.scss";
 import LeftNav from "../../components/layot/LeftNav/LeftNav.jsx";
 import { Outlet } from "react-router-dom";
 import PanelHeadTitle from "../../components/layot/panelHeadTitle/PanelHeadTitle.jsx";
-import "quill/dist/quill.snow.css";
 
 function Admin() {
   return (

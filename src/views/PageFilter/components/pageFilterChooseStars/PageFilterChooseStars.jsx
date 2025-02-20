@@ -11,6 +11,7 @@ import cn from "@/functions/cn.js";
 
 const PageFilterChooseStars = ({
   isLoadingStars,
+  filterPageContent,
   setStars,
   stars,
   sendStars,
@@ -18,7 +19,10 @@ const PageFilterChooseStars = ({
 }) => {
   return (
     <>
-      <p className={style.content}>Наскільки Ви задоволені покупкою?</p>
+      <p
+        className={style.content}
+        dangerouslySetInnerHTML={{ __html: filterPageContent.welcomePage }}
+      ></p>
       <div className={localS.reactionDiv}>
         {stars === 5 && (
           <Lottie

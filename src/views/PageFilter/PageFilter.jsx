@@ -29,6 +29,7 @@ function PageFilter() {
         const res = await api.get(
           "stores/simpleStoreInformation/" + secretId.split("prevTest_")[1],
         );
+        res.data.filterPageContent = JSON.parse(res.data.filterPageContent);
         setData({
           order: {
             store: res.data,
@@ -41,6 +42,9 @@ function PageFilter() {
     (async () => {
       try {
         const res = await api.get(`orders/opinionItem/${secretId}`);
+        res.data.order.store.filterPageContent = JSON.parse(
+          res.data.order.store.filterPageContent,
+        );
         setData(res.data);
       } catch (error) {
         setNotValidLink(true);
@@ -81,7 +85,7 @@ function PageFilter() {
 
   if (notValidLink)
     return (
-      <h1 className={style.noLink}>Недійсне посилання для огляду покупки</h1>
+      <h1 className={style.noLink}></h1> //Недійсне посилання для огляду покупки
     );
   if (!data) return <PageFilterLoader />;
   let content = "";
@@ -92,12 +96,19 @@ function PageFilter() {
         isLoadingStars={isLoadingStars}
         sendStars={sendStars}
         setStars={setStars}
+        filterPageContent={data.order.store.filterPageContent}
       />
     );
   } else if (stage === "comment") {
     content = <PageFilterComment isPrev={isPrev} setStage={setStage} />;
   } else if (stage === "congratulations") {
-    content = <PageFilterCongratulations isPrev={isPrev} goToLink={goToUrl} />;
+    content = (
+      <PageFilterCongratulations
+        filterPageContent={data.order.store.filterPageContent}
+        isPrev={isPrev}
+        goToLink={goToUrl}
+      />
+    );
   } else if (stage === "done") {
     content = <PageFilterDone />;
   }
