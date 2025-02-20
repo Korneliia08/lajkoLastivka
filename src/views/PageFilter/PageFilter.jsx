@@ -47,8 +47,8 @@ function PageFilter() {
         );
         setData(res.data);
       } catch (error) {
+        console.error(error);
         setNotValidLink(true);
-        return;
       }
     })();
   }, [secretId]);
