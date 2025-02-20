@@ -24,21 +24,20 @@ const FilterPageSettings = ({ ...props }) => {
 
   useEffect(() => {
     if (
+      id != undefined &&
       firstPageQuill &&
       commentWriteTextAreaTitlePageQuill &&
       successPageQuill &&
       commentSendPageQuill &&
       commentWritePageQuill &&
-      commentWriteTextAreaTitlePageQuill
+      commentWriteTextAreaTitlePageQuill &&
+      data.filterPageContent
     ) {
       firstPageQuill.clipboard.dangerouslyPasteHTML(
-        "Наскільки Ви задоволені покупкою?",
-      );
-      successPageQuill.clipboard.dangerouslyPasteHTML(
         data.filterPageContent.welcomePage,
       );
 
-      commentSendPageQuill.clipboard.dangerouslyPasteHTML(
+      successPageQuill.clipboard.dangerouslyPasteHTML(
         data.filterPageContent.successPage,
       );
 
@@ -50,7 +49,7 @@ const FilterPageSettings = ({ ...props }) => {
         data.filterPageContent.writeCommentLabelPage,
       );
       commentSendPageQuill.clipboard.dangerouslyPasteHTML(
-        data.filterPageContent.welcomePage,
+        data.filterPageContent.commentSendPageQuill,
       );
     }
   }, [
