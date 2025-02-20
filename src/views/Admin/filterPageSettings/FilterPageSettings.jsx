@@ -15,7 +15,7 @@ const QuillBlock = ({ title, description, quillRef }) => (
       <span className={s.title}>{title}</span>
       <span className={s.describe}>{description}</span>
     </div>
-    <div className={s.quillContainer} style={{ width: 500, height: 300 }}>
+    <div className={s.quillContainer} style={{ width: "100%", height: 300 }}>
       <div ref={quillRef} />
     </div>
   </div>
