@@ -45,6 +45,7 @@ function PageFilter() {
         res.data.order.store.filterPageContent = JSON.parse(
           res.data.order.store.filterPageContent,
         );
+        console.log(res.data.order.store.filterPageContent);
         setData(res.data);
       } catch (error) {
         console.error(error);
