@@ -18,6 +18,7 @@ import InformationOfMarket from "./views/Admin/informationOfMarket/InformationOf
 import IsNotLoginGuard from "@/components/guards/IsNotLoginGuard.jsx";
 import AddAndEditMarketPlace from "@/views/Admin/Marketplace/addAndEditMarketPlace/AddAndEditMarketPlace.jsx";
 import Opinions from "@/views/Admin/opinions/Opinions.jsx";
+import FilterPageSettings from "@/views/Admin/filterPageSettings/FilterPageSettings.jsx";
 
 function App() {
   useEffect(() => {
@@ -73,6 +74,10 @@ function App() {
         {
           path: "marketplaces/edit/:id",
           element: <AddAndEditMarketPlace />,
+        },
+        {
+          path: "filterPageSettings/:id?",
+          element: <FilterPageSettings />,
         },
         {
           path: "",

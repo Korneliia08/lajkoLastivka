@@ -115,7 +115,7 @@ function PageFilter() {
     <div className={style.container}>
       <div className={style.maxWidth}>
         <PageFilterBanner data={data} imagesManual={imagesManual} />
-        {stage != "congratulations" && (
+        {stage != "congratulations" && stage != "comment" && (
           <p className={style.titleOfShop}>{data.order.store.name}</p>
         )}
         {/*<p className={style.productTitle}>{data.title}</p>*/}
