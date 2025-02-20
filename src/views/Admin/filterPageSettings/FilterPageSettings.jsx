@@ -31,26 +31,27 @@ const FilterPageSettings = ({ ...props }) => {
       commentWritePageQuill &&
       commentWriteTextAreaTitlePageQuill
     ) {
-      // firstPageQuill.clipboard.dangerouslyPasteHTML(
-      //   "Наскільки Ви задоволені покупкою?",
-      // );
-      // successPageQuill.clipboard.dangerouslyPasteHTML(
-      //   data.filterPageContent.welcomePage,
-      // );
-      //
-      // commentSendPageQuill.clipboard.dangerouslyPasteHTML(
-      //   data.filterPageContent.successPage,
-      // );
-      //
-      // commentWritePageQuill.clipboard.dangerouslyPasteHTML(
-      //   data.filterPageContent.writeCommentPage,
-      // );
-      //
-      // commentWriteTextAreaTitlePageQuill.clipboard.dangerouslyPasteHTML(
-      //   data.filterPageContent.writeCommentLabelPage,
-      //
-      // commentSendPageQuill.setText(data.filterPageContent.firstPageQuill);
-      // );
+      firstPageQuill.clipboard.dangerouslyPasteHTML(
+        "Наскільки Ви задоволені покупкою?",
+      );
+      successPageQuill.clipboard.dangerouslyPasteHTML(
+        data.filterPageContent.welcomePage,
+      );
+
+      commentSendPageQuill.clipboard.dangerouslyPasteHTML(
+        data.filterPageContent.successPage,
+      );
+
+      commentWritePageQuill.clipboard.dangerouslyPasteHTML(
+        data.filterPageContent.writeCommentPage,
+      );
+
+      commentWriteTextAreaTitlePageQuill.clipboard.dangerouslyPasteHTML(
+        data.filterPageContent.writeCommentLabelPage,
+      );
+      commentSendPageQuill.clipboard.dangerouslyPasteHTML(
+        data.filterPageContent.welcomePage,
+      );
     }
   }, [
     firstPageQuill,
