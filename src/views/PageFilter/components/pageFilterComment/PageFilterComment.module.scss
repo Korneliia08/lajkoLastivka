@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
 
+  padding-top: 15px !important;
   form {
     display: flex;
     flex-direction: column;
     align-items: start;
     width: 350px;
+    padding-top: 10px;
 
     .questionContent {
       padding-top: 15px;
@@ -24,7 +26,7 @@
     .blockForTextArea {
       display: flex;
       flex-direction: column;
-
+width: 100%;
       .title {
         font-family: Montserrat, sans-serif;
         margin-bottom: 5px;
@@ -84,4 +86,7 @@
       }
     }
   }
+}
+.textAreaLabel{
+  padding-top: 15px !important;
 }

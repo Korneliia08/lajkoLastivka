@@ -100,7 +100,13 @@ function PageFilter() {
       />
     );
   } else if (stage === "comment") {
-    content = <PageFilterComment isPrev={isPrev} setStage={setStage} />;
+    content = (
+      <PageFilterComment
+        filterPageContent={data.order.store.filterPageContent}
+        isPrev={isPrev}
+        setStage={setStage}
+      />
+    );
   } else if (stage === "congratulations") {
     content = (
       <PageFilterCongratulations
@@ -110,7 +116,9 @@ function PageFilter() {
       />
     );
   } else if (stage === "done") {
-    content = <PageFilterDone />;
+    content = (
+      <PageFilterDone filterPageContent={data.order.store.filterPageContent} />
+    );
   }
 
   if (data.localOpinion != null) {
@@ -126,7 +134,7 @@ function PageFilter() {
     <div className={`${style.container} ql-editor`}>
       <div className={style.maxWidth}>
         <PageFilterBanner data={data} imagesManual={imagesManual} />
-        {stage != "congratulations" && stage != "comment" && (
+        {stage === "stars" && (
           <p className={style.titleOfShop}>{data.order.store.name}</p>
         )}
         {/*<p className={style.productTitle}>{data.title}</p>*/}

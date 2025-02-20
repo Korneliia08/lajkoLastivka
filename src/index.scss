@@ -13,7 +13,8 @@
 
 .ql-editor
 {
-  height: auto;
+  height: auto !important;
+  padding:0 !important;
 }
 .styleOfToggle .react-toggle-track {
   background-color: #c4c4c4;
