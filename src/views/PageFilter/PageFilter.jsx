@@ -123,7 +123,7 @@ function PageFilter() {
   } catch (error) {}
 
   return (
-    <div className={style.container}>
+    <div className={`${style.container} ql-editor`}>
       <div className={style.maxWidth}>
         <PageFilterBanner data={data} imagesManual={imagesManual} />
         {stage != "congratulations" && stage != "comment" && (
