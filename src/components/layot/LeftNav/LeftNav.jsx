@@ -14,11 +14,11 @@ function LeftNav() {
         {title: "Маркетплейси", link: "marketplaces", icon: <LuUsers/>},
         {title: "Статистики", link: "statistics", icon: <GrPieChart/>},
         {title: "Відгуки", link: "opinions", icon: <BiMessageSquareEdit/>},
-        {title: "Сторінки", link: "filterPageSettings", icon: <RiPagesLine/>}
+
 
         // {title: "Orders", link: "orders", icon: <FaListUl/>}
     ];
-    const settingsElObj = [{title: "Регулювання часу", link: ""}];
+    const settingsElObj = [{title: "Сторінки", link: "filterPageSettings", icon: <RiPagesLine/>}];
     return (
         <>
             <div className={style.container}>
@@ -26,7 +26,7 @@ function LeftNav() {
 
                 <div className={style.padding}>
                     <SectionOfNav title={"Головна"} elements={dashboardElObj}/>
-                    {/*<SectionOfNav title={"Налаштування"} elements={settingsElObj}/>*/}
+                    <SectionOfNav title={"Налаштування"} elements={settingsElObj}/>
                 </div>
                 <span className={style.version}>v{version}</span>
             </div>
