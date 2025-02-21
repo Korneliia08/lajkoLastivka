@@ -48,7 +48,6 @@ const TextAreaBlock = ({ title, description, value, setValue }) => {
           ],
           defaultFontSize: "14px",
           defaultFont: "Arial",
-          lang: "ua",
         }}
         setContents={value} // Ustawienie początkowej zawartości
         onKeyUp={(content) => setValue(content)}
