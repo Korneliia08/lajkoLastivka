@@ -12,6 +12,7 @@ import FilterPageSettingsSelectParketplace from "@/views/Admin/filterPageSetting
 import WebsiteCustomerPreview from "@/components/features/websiteCustomerPreview/WebsiteCustomerPreview.jsx";
 
 const TextAreaBlock = ({ title, description, value, setValue }) => {
+  value = typeof value == "string" ? value : "";
   return (
     <div className={s.block}>
       <div className={s.titleContainer}>
