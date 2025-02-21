@@ -25,7 +25,6 @@ const TextAreaBlock = ({ title, description, value, setValue }) => {
             [
               "undo",
               "redo",
-              "preview",
               "font",
               "fontSize",
               "formatBlock",
