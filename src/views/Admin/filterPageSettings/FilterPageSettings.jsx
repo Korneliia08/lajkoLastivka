@@ -2,7 +2,7 @@ import s from "./FilterPageSettings.module.scss";
 import PanelTitle from "@/components/layot/panelTitle/PanelTitle.jsx";
 import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 import FilterPageSettingsSelectParketplace
-  from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
+    from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
 import {useQuill} from "react-quilljs";
 import {useEffect} from "react";
 import useFetch from "@hooks/useFetch.js";
@@ -98,7 +98,7 @@ const FilterPageSettings = () => {
                     inner={true}
                     title={"Управління контентом:"}
                     subTitle={
-                        "У цій вкладці можна легко змінювати або додавати контент, який відображатиметься на сторінках, де клієнти залишають відгуки про товар."
+                        "У цій вкладці можна змінювати контент, який відображатиметься на сторінках, де клієнти оцінюють товар. Також, завдяки віртуальному телефону можна бачити, як змінюється контент на різних сторінках. Щоб переглянути всі сторінки, потрібно клацати мишкою по його екрані."
                     }
                     buttonText={"Зберегти"}
                     onClick={sendData}
@@ -122,17 +122,17 @@ const FilterPageSettings = () => {
                     />
                     <QuillBlock
                         title="Сторінка для написання відгуку"
-                        description="Будь ласка, введіть заголовок для цієї сторінки."
+                        description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише заголовок для цієї сторінки."
                         quillRef={commentWritePageRef}
                     />
                     <QuillBlock
                         title="Сторінка для написання відгуку"
-                        description="Будь ласка, введіть текст, який буде відображатися поруч із полем для введення відгуку."
+                        description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише контент,який має відображатися біля  текстового поля на відгук."
                         quillRef={commentWriteTextAreaTitlePageRef}
                     />
                     <QuillBlock
                         title="Сторінка подяки за внутрішній відгук"
-                        description="Цей контент представляє сторінку подяки користувачеві за залишений внутрішній відгук. Він підтверджує отримання оцінки та висловлює вдячність за зворотний зв’язок."
+                        description="Ця сторінка відображає подяку користувачеві за залишений внутрішній відгук, підтверджує отримання оцінки та висловлює вдячність за зворотний зв’язок."
                         quillRef={commentSendPageRef}
                     />
                 </div>
