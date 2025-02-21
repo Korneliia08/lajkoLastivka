@@ -7,6 +7,7 @@ const PageFilterCongratulations = ({
   filterPageContent,
   isPrev,
   goToLink,
+  setStage,
   ...props
 }) => {
   function isInWebView() {
@@ -14,6 +15,7 @@ const PageFilterCongratulations = ({
   }
   function goToRozetka() {
     if (isPrev()) {
+      setStage("stars");
       return;
     }
     window.location.href = goToLink;

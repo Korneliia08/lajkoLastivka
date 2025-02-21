@@ -11,9 +11,16 @@
   padding-left: 0em !important;
 }
 
-.ql-editor
+.ql-editor ,.sunEditor
 {
-  height: auto;
+  * {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: keep-all;
+    overflow-wrap: break-word
+  }
+  height: auto !important;
+  padding:0 !important;
 }
 .styleOfToggle .react-toggle-track {
   background-color: #c4c4c4;

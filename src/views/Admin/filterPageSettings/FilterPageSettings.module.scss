@@ -1,5 +1,16 @@
-.filterPageSettingsContainer {
-
+.bottom{
+  display: flex;
+  position: relative;
+  .containerForBlocks{
+    width: calc(100% - 300px);
+  }
+  .preview{
+     width: 280px;
+    height: 100px;
+    top:20px;
+    position: sticky;
+    padding-top: 20px;
+  }
 }
 .titleBig{
   h4{
@@ -13,14 +24,16 @@
 }
 
 .containerForBlocks {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(2, 1fr);
   gap:20px;
+  flex-wrap: wrap;
+
   .block {
     padding-bottom: 30px;
     display: flex;
     flex-direction: column;
-
+width: calc(50% - 40px);
     .titleContainer {
       padding: 10px 0;
       display: flex;

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import api from "../../../../providers/interceptors/refreshToken.interceptor.js";
 import { useRef, useState } from "react";
 
-const PageFilterComment = ({ isPrev, setStage }) => {
+const PageFilterComment = ({ filterPageContent, isPrev, setStage }) => {
   const { secretId } = useParams();
   const commentRef = useRef(null);
   const [isLoading, setLoading] = useState(false);
@@ -33,13 +33,20 @@ const PageFilterComment = ({ isPrev, setStage }) => {
   return (
     <div className={style.pageFilterCommentContainer}>
       <form onSubmit={sendComment}>
-        <h4 className={style.questionContent}>Дякуємо за чесну оцінку</h4>
-
+        <div
+          className={"ql-editor"}
+          dangerouslySetInnerHTML={{
+            __html: filterPageContent.writeCommentPage,
+          }}
+        ></div>
         <div className={style.blockForTextArea}>
           {/*<h5 className={style.title}>Що можна покращити?</h5>*/}
-          <p className={style.content}>
-            Підкажіть, будь ласка, що ми можемо покращити?
-          </p>
+          <div
+            className={`${style.textAreaLabel} ql-editor`}
+            dangerouslySetInnerHTML={{
+              __html: filterPageContent.writeCommentLabelPage,
+            }}
+          ></div>
           <textarea ref={commentRef} className={style.textArea} />
         </div>
         <div className={style.blockForBtn}>

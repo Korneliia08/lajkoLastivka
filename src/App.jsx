@@ -19,7 +19,6 @@ import IsNotLoginGuard from "@/components/guards/IsNotLoginGuard.jsx";
 import AddAndEditMarketPlace from "@/views/Admin/Marketplace/addAndEditMarketPlace/AddAndEditMarketPlace.jsx";
 import Opinions from "@/views/Admin/opinions/Opinions.jsx";
 import FilterPageSettings from "@/views/Admin/filterPageSettings/FilterPageSettings.jsx";
-import "quill/dist/quill.snow.css";
 
 function App() {
   useEffect(() => {

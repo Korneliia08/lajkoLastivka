@@ -1,13 +1,15 @@
 import style from "./PageFilterDone.module.scss";
 
-const PageFilterDone = ({ ...props }) => {
+const PageFilterDone = ({ filterPageContent, ...props }) => {
   return (
     <>
       <br />
-      <span className={style.thanksText}>
-        Приносимо вибачення за незручності, ми зробимо все можливе, щоб Ви
-        залишилися задоволеними
-      </span>
+      <div
+        className={`${style.thanksText} ql-editor`}
+        dangerouslySetInnerHTML={{
+          __html: filterPageContent.commentSendPageQuill,
+        }}
+      ></div>
     </>
   );
 };
