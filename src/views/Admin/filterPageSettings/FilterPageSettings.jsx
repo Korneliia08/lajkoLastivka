@@ -9,6 +9,7 @@ import s from "./FilterPageSettings.module.scss";
 import { FaRegSave } from "react-icons/fa";
 import PanelTitle from "@/components/layot/panelTitle/PanelTitle.jsx";
 import FilterPageSettingsSelectParketplace from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
+import WebsiteCustomerPreview from "@/components/features/websiteCustomerPreview/WebsiteCustomerPreview.jsx";
 
 const TextAreaBlock = ({ title, description, value, setValue }) => {
   return (
@@ -58,6 +59,7 @@ const TextAreaBlock = ({ title, description, value, setValue }) => {
 };
 
 const FilterPageSettings = () => {
+  const [refreshCount, setRefreshCount] = useState(0);
   const { id } = useParams();
   const { data } = useFetch(`/stores/filterPageConfig/${id}`);
 
@@ -102,6 +104,7 @@ const FilterPageSettings = () => {
     } catch (err) {
       toast.error("Виникла помилка");
     }
+    setRefreshCount(refreshCount + 1);
   }
 
   return (
@@ -122,37 +125,42 @@ const FilterPageSettings = () => {
         <div className={s.selectMarketPlace}>
           <FilterPageSettingsSelectParketplace />
         </div>
-        <div className={s.containerForBlocks}>
-          <TextAreaBlock
-            title="Сторінка фільтрації"
-            description="Ця сторінка дозволяє клієнту оцінити замовлення за п'ятизірковою системою."
-            value={firstPageContent}
-            setValue={setFirstPageContent}
-          />
-          <TextAreaBlock
-            title="Сторінка подяки та інструкції"
-            description="Ця сторінка відображається клієнтам, які оцінили замовлення на 4 або 5 зірок."
-            value={successPageContent}
-            setValue={setSuccessPageContent}
-          />
-          <TextAreaBlock
-            title="Сторінка для написання відгуку"
-            description="Будь ласка, введіть заголовок для цієї сторінки."
-            value={commentWritePageContent}
-            setValue={setCommentWritePageContent}
-          />
-          <TextAreaBlock
-            title="Сторінка для написання відгуку"
-            description="Будь ласка, введіть текст..."
-            value={commentWriteTextAreaTitlePageContent}
-            setValue={setCommentWriteTextAreaTitlePageContent}
-          />
-          <TextAreaBlock
-            title="Сторінка подяки за внутрішній відгук"
-            description="Цей контент представляє сторінку подяки..."
-            value={commentSendPageContent}
-            setValue={setCommentSendPageContent}
-          />
+        <div className={s.bottom}>
+          <div className={s.containerForBlocks}>
+            <TextAreaBlock
+              title="Сторінка фільтрації"
+              description="Ця сторінка дозволяє клієнту оцінити замовлення за п'ятизірковою системою."
+              value={firstPageContent}
+              setValue={setFirstPageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка подяки та інструкції"
+              description="Ця сторінка відображається клієнтам, які оцінили замовлення на 4 або 5 зірок."
+              value={successPageContent}
+              setValue={setSuccessPageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка для написання відгуку"
+              description="Будь ласка, введіть заголовок для цієї сторінки."
+              value={commentWritePageContent}
+              setValue={setCommentWritePageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка для написання відгуку"
+              description="Будь ласка, введіть текст..."
+              value={commentWriteTextAreaTitlePageContent}
+              setValue={setCommentWriteTextAreaTitlePageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка подяки за внутрішній відгук"
+              description="Цей контент представляє сторінку подяки..."
+              value={commentSendPageContent}
+              setValue={setCommentSendPageContent}
+            />
+          </div>
+          <div className={s.preview}>
+            <WebsiteCustomerPreview refreshCount={refreshCount} storeId={id} />
+          </div>
         </div>
       </div>
     </div>
