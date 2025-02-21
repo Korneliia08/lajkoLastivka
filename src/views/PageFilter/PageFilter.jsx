@@ -113,6 +113,7 @@ function PageFilter() {
       <PageFilterCongratulations
         filterPageContent={data.order.store.filterPageContent}
         isPrev={isPrev}
+        setStage={setStage}
         goToLink={goToUrl}
       />
     );
