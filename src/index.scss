@@ -14,10 +14,9 @@
 .ql-editor ,.sunEditor
 {
   * {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    word-break: keep-all;
-    overflow-wrap: break-word
+    white-space: normal;
+    word-wrap: break-word; /* lub overflow-wrap: break-word; */
+    word-break: normal;
   }
   height: auto !important;
   padding:0 !important;

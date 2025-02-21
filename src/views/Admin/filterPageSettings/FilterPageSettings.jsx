@@ -22,6 +22,7 @@ const TextAreaBlock = ({ title, description, value, setValue }) => {
       <SunEditor
         setOptions={{
           height: 200,
+
           buttonList: [
             [
               "undo",
