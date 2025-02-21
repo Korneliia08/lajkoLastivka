@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import PanelTitle from "@/components/layot/panelTitle/PanelTitle.jsx";
-import {useEffect} from "react";
 import useFetch from "@hooks/useFetch.js";
 import api from "@/providers/interceptors/refreshToken.interceptor.js";
 import { toast } from "react-hot-toast";
@@ -10,6 +9,7 @@ import "suneditor/dist/css/suneditor.min.css";
 import s from "./FilterPageSettings.module.scss";
 import { FaRegSave } from "react-icons/fa";
 import WebsiteCustomerPreview from "@/components/features/websiteCustomerPreview/WebsiteCustomerPreview.jsx";
+import FilterPageSettingsSelectParketplace from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
 
 const TextAreaBlock = ({ title, description, value, setValue }) => {
   value = typeof value == "string" ? value : "";
@@ -107,58 +107,63 @@ const FilterPageSettings = () => {
     setRefreshCount(refreshCount + 1);
   }
 
-    return (
-        <div>
-            <div className={s.titleBig}>
-                <PanelTitle
-                    inner={true}
-                    title={"Управління контентом:"}
-                    subTitle={
-                        "У цій вкладці можна легко змінювати або додавати контент..."
-                    }
-                    buttonText={"Зберегти"}
-                    onClick={sendData}
-                    buttonIcon={<FaRegSave />}
-                />
-            </div>
-            <div className={s.filterPageSettingsContainer}>
-                <div className={s.selectMarketPlace}>
-                    <FilterPageSettingsSelectParketplace />
-                </div>
-                <div className={s.bottom}>
-                    <div className={s.containerForBlocks}>
-                        <QuillBlock
-                            title="Сторінка фільтрації"
-                            description="Ця сторінка дозволяє клієнту оцінити замовлення за п'ятизірковою системою."
-                            quillRef={firstPageRef}
-                        />
-                        <QuillBlock
-                            title="Сторінка подяки та інструкції"
-                            description="Ця сторінка відображається клієнтам, які оцінили замовлення на 4 або 5 зірок. Вона містить подяку за оцінку та інструкцію, як залишити детальний відгук на ROZETKA."
-                            quillRef={successPageRef}
-                        />
-                        <QuillBlock
-                            title="Сторінка для написання відгуку"
-                            description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише заголовок для цієї сторінки."
-                            quillRef={commentWritePageRef}
-                        />
-                        <QuillBlock
-                            title="Сторінка для написання відгуку"
-                            description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише контент,який має відображатися біля  текстового поля на відгук."
-                            quillRef={commentWriteTextAreaTitlePageRef}
-                        />
-                        <QuillBlock
-                            title="Сторінка подяки за внутрішній відгук"
-                            description="Ця сторінка відображає подяку користувачеві за залишений внутрішній відгук, підтверджує отримання оцінки та висловлює вдячність за зворотний зв’язок."
-                            quillRef={commentSendPageRef}
-                        />
-                    </div>
-                    <div className={s.preview}>
-                        <WebsiteCustomerPreview refreshCount={refreshCount} storeId={id} />
-                    </div>
-                </div>
-            </div>
+  return (
+    <div>
+      <div className={s.titleBig}>
+        <PanelTitle
+          inner={true}
+          title={"Управління контентом:"}
+          subTitle={
+            "У цій вкладці можна легко змінювати або додавати контент..."
+          }
+          buttonText={"Зберегти"}
+          onClick={sendData}
+          buttonIcon={<FaRegSave />}
+        />
+      </div>
+      <div className={s.filterPageSettingsContainer}>
+        <div className={s.selectMarketPlace}>
+          <FilterPageSettingsSelectParketplace />
         </div>
+        <div className={s.bottom}>
+          <div className={s.containerForBlocks}>
+            <TextAreaBlock
+              title="Сторінка фільтрації"
+              description="Ця сторінка дозволяє клієнту оцінити замовлення за п'ятизірковою системою."
+              value={firstPageContent}
+              setValue={setFirstPageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка подяки та інструкції"
+              description="Ця сторінка відображається клієнтам, які оцінили замовлення на 4 або 5 зірок. Вона містить подяку за оцінку та інструкцію, як залишити детальний відгук на ROZETKA."
+              value={successPageContent}
+              setValue={setSuccessPageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка для написання відгуку"
+              description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише заголовок для цієї сторінки."
+              value={commentWritePageContent}
+              setValue={setCommentWritePageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка для написання відгуку"
+              description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише контент,який має відображатися біля  текстового поля на відгук."
+              value={commentWriteTextAreaTitlePageContent}
+              setValue={setCommentWriteTextAreaTitlePageContent}
+            />
+            <TextAreaBlock
+              title="Сторінка подяки за внутрішній відгук"
+              description="Ця сторінка відображає подяку користувачеві за залишений внутрішній відгук, підтверджує отримання оцінки та висловлює вдячність за зворотний зв’язок."
+              value={commentSendPageContent}
+              setValue={setCommentSendPageContent}
+            />
+          </div>
+          <div className={s.preview}>
+            <WebsiteCustomerPreview refreshCount={refreshCount} storeId={id} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
