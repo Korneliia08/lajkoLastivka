@@ -8,7 +8,7 @@ const DataOfUser = ({ data, ...props }) => {
   return (
     <div className={s.dataOfUserContainer}>
       <span title={user} className={s.user}>
-        {maxLenght(user, 27)}
+        {maxLenght(user, 24)}
       </span>
       <div className={s.numberOfPhone}>
         <MdOutlineLocalPhone className={s.phoneIcon} />
