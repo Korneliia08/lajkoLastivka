@@ -81,7 +81,7 @@ const StatisticsSelectDate = ({ ...props }) => {
       />
       <Select
         className={s.select}
-        defaultValue={daysOptions[1]}
+        defaultValue={daysOptions[0]}
         options={daysOptions}
         onChange={handleDaysChange}
       />
