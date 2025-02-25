@@ -18,7 +18,14 @@ const Statistics = ({ store, ...props }) => {
       {/*    title={"прибуток"}*/}
       {/*/>*/}
       <InformationBlock value={data.totalOrders} title={"усього замовлень"} />
-      <InformationBlock value={data.totalOpinions} title={"усього відгуків"} />
+      <InformationBlock
+        value={data.totalOpinions}
+        title={"усього відгуків на розетці"}
+      />
+      <InformationBlock
+        value={data.totalLocalOpinions}
+        title={"усього відгуків у feedMP"}
+      />
       <InformationBlock
         value={Math.round(data.averageRating * 100) / 100}
         title={"серед. оц. на Розетці"}
