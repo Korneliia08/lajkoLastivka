@@ -43,7 +43,7 @@ const options = [
   {
     value: "Написані відгуки на розетці", //napisane opinie na rozetce
     label: "Написані відгуки на розетці",
-    variableLabel: "average_rating",
+    variableLabel: "total_opinions",
     color: colors[6 % colors.length],
   },
 
@@ -59,12 +59,12 @@ const options = [
     variableLabel: "averageLocalRating",
     color: colors[8 % colors.length],
   },
-  {
-    value: "Середня оцінка на розетці", //suma opini na rozetka
-    label: "Середня оцінка на розетці",
-    variableLabel: "totalOpinions",
-    color: colors[9 % colors.length],
-  },
+  // {
+  //   value: "Середня оцінка на розетці", //suma opini na rozetka
+  //   label: "Середня оцінка на розетці",
+  //   variableLabel: "totalOpinions",
+  //   color: colors[9 % colors.length],
+  // },
   {
     value: "Відправлені запити", //wysłane wiadomości
     label: "Відправлені запити",
