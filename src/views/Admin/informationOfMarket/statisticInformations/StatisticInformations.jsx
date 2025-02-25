@@ -1,12 +1,12 @@
 import s from "./StatisticInformations.module.scss";
 import InfoTile from "../../../../components/ui/statisitc/infoTile/InfoTile.jsx";
-import { CgMail, CgRead } from "react-icons/cg";
-import { GiClick } from "react-icons/gi";
+import {CgMail, CgRead} from "react-icons/cg";
+import {GiClick} from "react-icons/gi";
 import useFetch from "@hooks/useFetch.js";
-import { blockStatsInitialData } from "../../dashboard/blockStatsInitialData.js";
-import { useParams } from "react-router-dom";
+import {blockStatsInitialData} from "../../dashboard/blockStatsInitialData.js";
+import {useParams} from "react-router-dom";
 import Block from "@/components/ui/block/Block.jsx";
-import { MdOutlineRateReview } from "react-icons/md";
+import {MdOutlineRateReview, MdOutlineStar} from "react-icons/md";
 
 const StatisticInformations = ({...props}) => {
     const {id} = useParams();
@@ -45,10 +45,28 @@ const StatisticInformations = ({...props}) => {
                     secondValueColor={"red"}
                 />
                 <InfoTile
-                    icon={<MdOutlineRateReview />}
+                    icon={<MdOutlineStar/>}
                     value={data.writeComment.current}
                     secondValue={data.writeComment.change}
-                    title={"Написано відгуків"}
+                    title={"Рейтинг: 1–3 "}
+                />
+                <InfoTile
+                    icon={<MdOutlineStar/>}
+                    value={data.writeComment.current}
+                    secondValue={data.writeComment.change}
+                    title={"Рейтинг: 4–5 "}
+                />
+                <InfoTile
+                    icon={<MdOutlineRateReview/>}
+                    value={data.writeComment.current}
+                    secondValue={data.writeComment.change}
+                    title={"Відгуки на розетці"}
+                />
+                <InfoTile
+                    icon={<MdOutlineRateReview/>}
+                    value={data.writeComment.current}
+                    secondValue={data.writeComment.change}
+                    title={"Відгуки у feedMP"}
                 />
             </div>
         </Block>
