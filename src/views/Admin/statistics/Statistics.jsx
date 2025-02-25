@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import StatisticRatingChar from "./components/charts/statisticRatingChar/StatisticRatingChar.jsx";
 import StatisticLineChar from "@/views/Admin/statistics/components/statisticLineChar/StatisticLineChar.jsx";
 import StatisticsSelectDate from "@/views/Admin/statistics/components/statisticsSelectDate/StatisticsSelectDate.jsx";
+import StatisticsBlocksData from "@/views/Admin/statistics/components/statisticsBlocksData/StatisticsBlocksData.jsx";
 
 const Statistics = ({ ...props }) => {
   const { id } = useParams();
@@ -39,6 +40,9 @@ const Statistics = ({ ...props }) => {
           </div>
           {id && (
             <>
+              <div className={s.blockStats}>
+                <StatisticsBlocksData storeId={storeId} />
+              </div>
               <div className={s.stats1}>
                 <StatisticLineChar />
                 {/*<SendReadCommentCharBlock/>*/}

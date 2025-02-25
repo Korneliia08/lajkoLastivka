@@ -1,0 +1,6 @@
+.statisticsBlocksDataContainer {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
