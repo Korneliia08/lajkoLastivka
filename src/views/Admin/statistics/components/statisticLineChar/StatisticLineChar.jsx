@@ -14,19 +14,19 @@ const options = [
     value: "Нові замовленні",
     label: "Нові замовленні",
     variableLabel: "total_orders",
-    color: colors[1 % colors.length],
+    color: "rgb(0 143 255)",
   },
   {
     value: "Сума оцінок (1-3 зірочок)",
     label: "Сума оцінок (1-3 зірочок)",
     variableLabel: "totalLowLocalRating",
-    color: colors[2 % colors.length],
+    color: "rgb(178, 34, 34)",
   },
   {
     value: "Сума оцінок (4-5 зірочок)",
     label: "Сума оцінок (4-5 зірочок)",
     variableLabel: "totalHighLocalRating",
-    color: colors[3 % colors.length],
+    color: "rgb(0 114 15)",
   },
   {
     value: "Прочитані повідомлення",
