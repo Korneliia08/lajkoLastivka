@@ -32,7 +32,7 @@ const TopForFilters = ({
           value={filter}
           className={s.filterSelect}
           onChange={setFilter}
-          placeholder={"фільтр"}
+          placeholder={"Оберіть"}
           options={filterOptions}
         />
         <OpinionsSelectDataRange
