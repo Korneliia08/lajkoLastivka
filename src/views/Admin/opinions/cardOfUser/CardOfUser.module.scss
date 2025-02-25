@@ -5,6 +5,7 @@
   max-width: 32%;
   width: 100%;
 
+  min-width: 300px;
   &.openBottom {
     .cardOfUserContainer {
       border-radius: 15px 15px 0 0;
@@ -12,7 +13,7 @@
   }
 
   .cardOfUserContainer {
-    max-width: 380px;
+   // max-width: 380px;
     width: 100%;
     padding: 10px 20px;
     display: flex;
