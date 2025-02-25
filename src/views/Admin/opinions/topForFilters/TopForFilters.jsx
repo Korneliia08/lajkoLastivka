@@ -15,7 +15,7 @@ const TopForFilters = ({
   const filterOptions = [
     { label: "Прочитано", value: "readed" },
     { label: "Посилань відвідано", value: "clicked" },
-    { label: "Оцінено1-3", value: "rating13" },
+    { label: "Оцінено 1-3", value: "rating13" },
     { label: "Оцінено 4-5", value: "rating45" },
     { label: "Відгуків у FeedMp", value: "opinionFeedMP" },
     { label: "Відгуків у Rozetka", value: "opinionRozetka" },
