@@ -9,17 +9,37 @@ const TopForFilters = ({
   setEndTime,
   endTime,
   startTime,
+  raw,
   setStartTime,
   ...props
 }) => {
   const filterOptions = [
-    { label: "Прочитано", value: "readed" },
-    { label: "Посилань відвідано", value: "clicked" },
-    { label: "Оцінено 1-3", value: "rating13" },
-    { label: "Оцінено 4-5", value: "rating45" },
-    { label: "Відгуків у FeedMp", value: "opinionFeedMP" },
-    { label: "Відгуків у Rozetka", value: "opinionRozetka" },
+    {
+      label: `Прочитано (${(raw && raw.statistics.readed) || 0}) `,
+      value: "readed",
+    },
+    {
+      label: `Посилань відвідано (${(raw && raw.statistics.clicked) || 0})`,
+      value: "clicked",
+    },
+    {
+      label: `Оцінено 1-3 (${(raw && raw.statistics.rating13) || 0})`,
+      value: "rating13",
+    },
+    {
+      label: `Оцінено 4-5 (${(raw && raw.statistics.rating45) || 0})`,
+      value: "rating45",
+    },
+    {
+      label: `Відгуків у FeedMp (${(raw && raw.statistics.opinionFeedMP) || 0})`,
+      value: "opinionFeedMP",
+    },
+    {
+      label: `Відгуків у Rozetka (${(raw && raw.statistics.opinionRozetka) || 0})`,
+      value: "opinionRozetka",
+    },
   ];
+  console.log(raw);
   return (
     <div className={s.topForFiltersContainer}>
       <div className={s.blockForContent}>

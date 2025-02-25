@@ -15,7 +15,6 @@ const Steps = ({ data, ...props }) => {
     stars = localOpinion.ratingScore;
   } catch (err) {}
   const opinion = data.order.items[0].opinion;
-  console.log(data);
   return (
     <div className={s.etapsContainer}>
       <Step

@@ -42,6 +42,7 @@ const Opinions = ({ ...props }) => {
         />
 
         <TopForFilters
+          raw={raw}
           setFilter={setFilter}
           startTime={startTime}
           filter={filter}
@@ -69,7 +70,8 @@ const Opinions = ({ ...props }) => {
               count={Math.ceil(raw.total / raw.take)}
               shape="rounded"
             />
-          )}
+          )}{" "}
+          <span className={s.total}>(Усього: {raw && raw.total})</span>
         </div>
       </OutletPanelScroll>
     </>

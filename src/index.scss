@@ -103,3 +103,8 @@ body {
     }
   }
 }
+.recharts-wrapper{
+  *:focus-within,*:focus{
+    outline: none;
+  }
+}
