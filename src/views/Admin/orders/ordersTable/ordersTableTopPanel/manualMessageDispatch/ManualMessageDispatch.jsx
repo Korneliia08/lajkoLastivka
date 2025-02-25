@@ -29,11 +29,12 @@ const ManualMessageDispatch = ({ storeData, controller, ...props }) => {
   }, [storeData]);
 
   function loadDefault() {
+    console.log(storeData);
     if (storeData) {
       setData({
         message: storeData.messageTemplateViber,
-        imageData: storeData.imageData,
-        imageLogoData: storeData.imageLogoData,
+        imageData: storeData.bannerImg,
+        imageLogoData: storeData.logoImg,
       });
     }
   }

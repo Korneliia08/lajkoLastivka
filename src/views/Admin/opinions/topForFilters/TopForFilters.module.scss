@@ -5,13 +5,13 @@
   justify-content: space-between;
   border-radius: 10px;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.08);
-
+position: relative;
+  z-index: 2000;
   width: 100%;
   .blockForContent {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
- width: 100%;
     .titleUsers {
 
     }
@@ -29,3 +29,7 @@
     align-content: flex-end;align-items: flex-end;
   }
 }
+.filterSelect{
+  width: 240px;
+}
+

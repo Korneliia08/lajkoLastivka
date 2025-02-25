@@ -14,36 +14,36 @@ const options = [
     value: "Нові замовленні",
     label: "Нові замовленні",
     variableLabel: "total_orders",
-    color: colors[1 % colors.length],
+    color: "rgb(0 143 255)",
   },
   {
     value: "Сума оцінок (1-3 зірочок)",
     label: "Сума оцінок (1-3 зірочок)",
     variableLabel: "totalLowLocalRating",
-    color: colors[2 % colors.length],
+    color: "rgb(178, 34, 34)",
   },
   {
     value: "Сума оцінок (4-5 зірочок)",
     label: "Сума оцінок (4-5 зірочок)",
     variableLabel: "totalHighLocalRating",
-    color: colors[3 % colors.length],
+    color: "rgb(0 114 15)",
   },
   {
-    value: "Прочитані повідомлення",
+    value: "Прочитані повідомлення", // przeczytane powiadomienia
     label: "Прочитані повідомлення",
     variableLabel: "total_read_messages",
     color: colors[4 % colors.length],
   },
   {
-    value: "Відвідані посилання",
+    value: "Відвідані посилання", //odwiedzione linki
     label: "Відвідані посилання",
-    variableLabel: "total_opinions",
+    variableLabel: "total_clicked_link",
     color: colors[5 % colors.length],
   },
   {
-    value: "Написані відгуки на розетці",
+    value: "Написані відгуки на розетці", //napisane opinie na rozetce
     label: "Написані відгуки на розетці",
-    variableLabel: "average_rating",
+    variableLabel: "total_opinions",
     color: colors[6 % colors.length],
   },
 
@@ -51,7 +51,7 @@ const options = [
     value: "Написані відгуки на FeedMP",
     label: "Написані відгуки на FeedMP",
     variableLabel: "totalLocalOpinions",
-    color: colors[7 % colors.length],
+    color: colors["rgb(255,0,222)"],
   },
   {
     value: "Середня оцінка на FeedMP",
@@ -59,14 +59,14 @@ const options = [
     variableLabel: "averageLocalRating",
     color: colors[8 % colors.length],
   },
+  // {
+  //   value: "Середня оцінка на розетці", //suma opini na rozetka
+  //   label: "Середня оцінка на розетці",
+  //   variableLabel: "totalOpinions",
+  //   color: colors[9 % colors.length],
+  // },
   {
-    value: "Середня оцінка на розетці",
-    label: "Середня оцінка на розетці",
-    variableLabel: "total_orders",
-    color: colors[9 % colors.length],
-  },
-  {
-    value: "Відправлені запити",
+    value: "Відправлені запити", //wysłane wiadomości
     label: "Відправлені запити",
     variableLabel: "total_send_messages",
     color: colors[10 % colors.length],

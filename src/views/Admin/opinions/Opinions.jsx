@@ -3,7 +3,7 @@ import s from "@/views/Admin/opinions/Opinions.module.scss";
 import OutletPanelScroll from "@/components/ui/outletPanelScroll/OutletPanelScroll.jsx";
 import CardOfUser from "@/views/Admin/opinions/cardOfUser/CardOfUser.jsx";
 import useFetch from "@hooks/useFetch.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ms from "ms";
 import { useParams } from "react-router-dom";
 import { Pagination } from "@mui/material";
@@ -11,6 +11,7 @@ import TopForFilters from "@/views/Admin/opinions/topForFilters/TopForFilters.js
 import dayjs from "dayjs";
 
 const Opinions = ({ ...props }) => {
+  const [filter, setFilter] = useState();
   const [startTime, setStartTime] = useState(
     dayjs(new Date().getTime() - ms("7d")),
   );
@@ -18,11 +19,14 @@ const Opinions = ({ ...props }) => {
   const [endTime, setEndTime] = useState(dayjs(new Date().getTime()));
   const { id } = useParams();
   const { data, pagination, raw } = useFetch(
-    `/opinions-page?startTime=${startTime.unix()}&endTime=${endTime.unix()}&storeId=${id}`,
+    `/opinions-page?startTime=${startTime.unix()}&endTime=${endTime.unix()}&storeId=${id}&filter=${filter ? filter.value : ""}`,
     {
       withPagination: true,
     },
   );
+  useEffect(() => {
+    pagination.setPage(1);
+  }, [filter]);
 
   const [isOpenBottomCard, setOpenBottomCard] = useState(-1);
 
@@ -38,7 +42,10 @@ const Opinions = ({ ...props }) => {
         />
 
         <TopForFilters
+          raw={raw}
+          setFilter={setFilter}
           startTime={startTime}
+          filter={filter}
           endTime={endTime}
           setStartTime={setStartTime}
           setEndTime={setEndTime}
@@ -63,7 +70,8 @@ const Opinions = ({ ...props }) => {
               count={Math.ceil(raw.total / raw.take)}
               shape="rounded"
             />
-          )}
+          )}{" "}
+          <span className={s.total}>(Усього: {raw && raw.total})</span>
         </div>
       </OutletPanelScroll>
     </>

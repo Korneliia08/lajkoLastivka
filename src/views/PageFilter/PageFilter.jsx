@@ -30,6 +30,11 @@ function PageFilter() {
           "stores/simpleStoreInformation/" + secretId.split("prevTest_")[1],
         );
         res.data.filterPageContent = JSON.parse(res.data.filterPageContent);
+        for (let key in res.data.filterPageContent) {
+          res.data.filterPageContent[key] = res.data.filterPageContent[
+            key
+          ].replace(/&nbsp;/g, " ");
+        }
         setData({
           order: {
             store: res.data,
@@ -46,6 +51,10 @@ function PageFilter() {
           res.data.order.store.filterPageContent,
         );
         console.log(res.data.order.store.filterPageContent);
+        for (let key in res.data.order.store.filterPageContent) {
+          res.data.order.store.filterPageContent[key] =
+            res.data.order.store.filterPageContent[key].replace(/&nbsp;/g, " ");
+        }
         setData(res.data);
       } catch (error) {
         console.error(error);
