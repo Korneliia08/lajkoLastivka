@@ -4,12 +4,15 @@ import LikeUnlikeChar from "@/components/features/statistics/likeUnlikeCharBlock
 import { FaSquare } from "react-icons/fa";
 import useFetch from "@hooks/useFetch.js";
 import s from "./StatisticRatingChar.module.scss";
+import { useSelector } from "react-redux";
 
 const StatisticRatingChar = ({ mode, storeId, ...props }) => {
+  const startTime = useSelector((state) => state.statistics.startTime);
+  const endTime = useSelector((state) => state.statistics.endTime);
   const url =
     mode === "local"
-      ? `localOpinions/ratingScoreChar/${storeId}`
-      : `opinions/ratingScoreChar/${storeId}`;
+      ? `localOpinions/ratingScoreChar/${storeId}?startTime=${startTime}&endTime=${endTime}`
+      : `opinions/ratingScoreChar/${storeId}?startTime=${startTime}&endTime=${endTime}`;
   const { data: ratingData } = useFetch(url, {
     default: [{ rating1: 0, rating2: 0, rating3: 0, rating4: 0, rating5: 0 }],
   });
