@@ -71,10 +71,11 @@ const Steps = ({ data, ...props }) => {
       {stars <= 3 && (
         <Step
           disable={
-            (!localOpinion && !localOpinion.opinion) ||
-            (localOpinion &&
-              localOpinion.opinion &&
-              localOpinion.opinion.length == 0)
+            !localOpinion?.opinion || localOpinion.opinion.length === 0
+            // (!localOpinion && !localOpinion.opinion) ||
+            // (localOpinion &&
+            //   localOpinion.opinion &&
+            //   localOpinion.opinion.length == 0)
           }
           img={true}
           icon={
