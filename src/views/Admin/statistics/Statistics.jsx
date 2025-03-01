@@ -19,7 +19,6 @@ const Statistics = ({ ...props }) => {
     }
   }, [id]);
   if (!id) {
-    console.log("1");
     navigate("/admin/statistics/0");
   }
   return (

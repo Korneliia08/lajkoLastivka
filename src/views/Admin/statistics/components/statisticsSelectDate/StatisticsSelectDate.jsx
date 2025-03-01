@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import dayjs from "dayjs";
 
-import { DateTimePicker } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
 import {
   setEndTime,
@@ -54,25 +54,25 @@ const StatisticsSelectDate = ({ ...props }) => {
 
   return (
     <div className={s.container}>
-      <DateTimePicker
+      <DatePicker
         ampm={false}
-        maxDateTime={localEndTime}
+        maxDate={localEndTime}
         label="Початок"
         value={localStartTime}
         onChange={handleStartTimeChange}
-        format="YYYY-MM-DD HH:mm"
+        format="YYYY-MM-DD"
         renderInput={(params) => (
           <TextField {...params} style={{ paddingTop: 0, paddingBottom: 0 }} />
         )}
         className={s.ordersTableTopPanelDatesRangeContainer}
       />
-      <DateTimePicker
+      <DatePicker
         ampm={false}
         label="Кінець"
-        maxDateTime={dayjs(new Date())}
-        minDateTime={localStartTime}
+        maxDate={dayjs(new Date())}
+        minDate={localStartTime}
         value={localEndTime}
-        format="YYYY-MM-DD HH:mm"
+        format="YYYY-MM-DD"
         onChange={handleEndTimeChange}
         renderInput={(params) => (
           <TextField {...params} style={{ paddingTop: 0, paddingBottom: 0 }} />
