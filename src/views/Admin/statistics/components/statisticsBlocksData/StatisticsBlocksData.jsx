@@ -91,6 +91,15 @@ const StatisticsBlocksData = ({ storeId, ...props }) => {
         )}
         title={"Відгуки на розетці"} // Opinie Rozetka
       />
+      <InfoTile
+        icon={<FaCommentDots />}
+        value={data?.costRozetka?.now || 0}
+        secondValue={calculatePercentageChange(
+          data?.costRozetka?.now || 0,
+          data?.costRozetka?.prev || 0,
+        )}
+        title={"Вартість відгуку на розетці"} // Opinie Rozetka
+      />
     </div>
   );
 };
