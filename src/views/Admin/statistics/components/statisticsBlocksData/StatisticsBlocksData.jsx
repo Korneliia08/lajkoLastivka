@@ -93,7 +93,7 @@ const StatisticsBlocksData = ({ storeId, ...props }) => {
       />
       <InfoTile
         icon={<FaCommentDots />}
-        value={data?.costRozetka?.now || 0}
+        value={Math.round(data?.costRozetka?.now) || 0}
         secondValue={calculatePercentageChange(
           data?.costRozetka?.now || 0,
           data?.costRozetka?.prev || 0,
