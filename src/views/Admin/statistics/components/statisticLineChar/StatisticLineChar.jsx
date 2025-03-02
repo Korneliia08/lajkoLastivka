@@ -23,6 +23,12 @@ const options = [
     color: colors[10 % colors.length],
   },
   {
+    value: "Середня оцінка на розетці",
+    label: "Середня оцінка на розетці",
+    variableLabel: "average_opinion_rating",
+    color: "pink",
+  },
+  {
     value: "Сума оцінок (1-3 зірочок)",
     label: "Сума оцінок (1-3 зірочок)",
     variableLabel: "totalLowLocalRating",

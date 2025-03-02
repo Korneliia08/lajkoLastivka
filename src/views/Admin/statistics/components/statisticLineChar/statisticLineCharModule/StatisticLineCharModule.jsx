@@ -38,7 +38,6 @@ const StatisticLineCharModule = ({ data, selectedOption }) => {
     setDataLocal(filteredData);
     setH(max);
   }, [data, selectedOption]);
-  console.log(selectedOption);
   const lines = [];
   if (dataLocal.length > 0) {
     Object.keys(dataLocal[0]).forEach((key, index) => {
