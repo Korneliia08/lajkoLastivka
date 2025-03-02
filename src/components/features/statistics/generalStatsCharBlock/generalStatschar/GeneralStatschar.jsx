@@ -16,9 +16,9 @@ const GeneralStatschar = ({ data }) => {
   useEffect(() => {
     let max = 2;
     data.forEach((day) => {
-      if (Number(day.total_orders) > max) {
-        max = day.total_orders;
-      }
+      // if (Number(day.total_orders) > max) {
+      //   max = day.total_orders;
+      // }
       if (Number(day.total_read_messages) > max) {
         max = day.total_read_messages;
       }
@@ -38,13 +38,13 @@ const GeneralStatschar = ({ data }) => {
     setH(+max);
   }, [data]);
   data.forEach((obj) => {
-    obj["Сума замовлень"] = obj["total_orders"];
+    // obj["Сума замовлень"] = obj["total_orders"];
     obj["Прочитані повідомлення"] = obj["total_read_messages"];
     obj["Написані відгуки"] = obj["total_opinions"];
     obj["Середня оцінка на розетці"] = obj["average_rating"];
     obj["Сума оцінок (1-3 зірочок)"] = obj["totalLowLocalRating"];
     obj["Сума оцінок (4-5 зірочок)"] = obj["totalHighLocalRating"];
-    obj["Відправлені запити"] = obj["total_send_messages"];
+    obj["Надіслані повідомлення"] = obj["total_send_messages"];
   });
   return (
     <div style={{ width: "100%", height: 250 }}>
@@ -56,13 +56,13 @@ const GeneralStatschar = ({ data }) => {
           <Tooltip />
           <Legend />
 
-          <Line
-            strokeWidth={3}
-            type="monotone"
-            dot={false}
-            dataKey="Сума замовлень"
-            stroke="#8884d8"
-          />
+          {/*<Line*/}
+          {/*  strokeWidth={3}*/}
+          {/*  type="monotone"*/}
+          {/*  dot={false}*/}
+          {/*  dataKey="Сума замовлень"*/}
+          {/*  stroke="#8884d8"*/}
+          {/*/>*/}
           <Line
             strokeWidth={3}
             type="monotone"
@@ -102,7 +102,7 @@ const GeneralStatschar = ({ data }) => {
             strokeWidth={3}
             type="monotone"
             dot={false}
-            dataKey="Відправлені запити"
+            dataKey="Надіслані повідомлення"
             stroke="#ff7777"
           />
         </LineChart>

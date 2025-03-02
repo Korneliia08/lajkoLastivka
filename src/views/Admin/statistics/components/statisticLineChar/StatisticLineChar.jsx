@@ -10,11 +10,17 @@ import { colors } from "@/data/colors.js";
 import { useSelector } from "react-redux";
 
 const options = [
+  // {
+  //   value: "Нові замовленні",
+  //   label: "Нові замовленні",
+  //   variableLabel: "total_orders",
+  //   color: "rgb(0 143 255)",
+  // },
   {
-    value: "Нові замовленні",
-    label: "Нові замовленні",
-    variableLabel: "total_orders",
-    color: "rgb(0 143 255)",
+    value: "Надіслані повідомлення", //wysłane wiadomości
+    label: "Надіслані повідомлення",
+    variableLabel: "total_send_messages",
+    color: colors[10 % colors.length],
   },
   {
     value: "Сума оцінок (1-3 зірочок)",
@@ -65,12 +71,6 @@ const options = [
   //   variableLabel: "totalOpinions",
   //   color: colors[9 % colors.length],
   // },
-  {
-    value: "Відправлені запити", //wysłane wiadomości
-    label: "Відправлені запити",
-    variableLabel: "total_send_messages",
-    color: colors[10 % colors.length],
-  },
 ];
 const StatisticLineChar = ({ ...props }) => {
   const { id } = useParams();
