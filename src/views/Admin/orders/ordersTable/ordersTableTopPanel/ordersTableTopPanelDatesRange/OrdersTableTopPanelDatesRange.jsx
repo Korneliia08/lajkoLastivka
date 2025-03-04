@@ -26,7 +26,7 @@ const OrdersTableTopPanelDatesRange = ({ ...props }) => {
 
   const handleEndTimeChange = (value) => {
     // Sprawdzamy, czy wartość jest prawidłowa przed aktualizacją stanu
-    console.log(value);
+
     if (value) {
       setLocalEndTime(value);
       dispatch(setEndTime(value)); // Aktualizacja endTime w Redux

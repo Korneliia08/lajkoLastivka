@@ -50,7 +50,7 @@ const Dashboard = (props) => {
               value={data.writeOpinions.current}
               secondValue={data.writeOpinions.change}
               icon={<MdOutlineRateReview />}
-              title={"Написані відгуки"}
+              title={"Написані відгуки на розетці"}
             />
           </div>
           <div className={s.div3}>

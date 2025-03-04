@@ -19,6 +19,9 @@ const GeneralStatschar = ({ data }) => {
       // if (Number(day.total_orders) > max) {
       //   max = day.total_orders;
       // }
+      if (Number(day.total_send_messages) > max) {
+        max = day.total_send_messages;
+      }
       if (Number(day.total_read_messages) > max) {
         max = day.total_read_messages;
       }

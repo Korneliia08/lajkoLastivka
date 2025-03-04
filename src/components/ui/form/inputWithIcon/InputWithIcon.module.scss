@@ -1,8 +1,14 @@
 .inputWithIconContainer {
   position: relative;
-  box-shadow: 0 1px 1px 1px rgba(192, 192, 192, 0.51);
+  //box-shadow: 0 1px 1px 1px rgba(192, 192, 192, 0.51);
   border-radius: 5px;
+  height: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.23);
 
+&:Hover{
+  border: 1px solid rgb(0, 0, 0);
+}
+  background: rgb(255, 255, 255);
   .input {
     border-radius: 5px;
     height: 30px;
@@ -10,8 +16,10 @@
     padding-left: 40px;
     position: relative;
     z-index: 9;
-    border: none;
-    background: rgba(255, 255, 255, 0.83);
+     border: none;
+
+    background: rgba(255, 255, 255, 0);
+
   }
 
   svg {

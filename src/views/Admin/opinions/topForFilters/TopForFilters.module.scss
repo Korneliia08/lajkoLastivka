@@ -17,12 +17,14 @@ position: relative;
     }
 
     .contentUsers {
-      width: max-content;
 
+flex-shrink: 10;
+      flex-grow: 4;
     }
   }
+  gap:20px;
   .filters{
-    width: 100%;
+
     display: flex;
     gap:10px;
     justify-content: flex-end;

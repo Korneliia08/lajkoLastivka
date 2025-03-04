@@ -38,6 +38,10 @@ const TopForFilters = ({
       label: `Відгуків у Rozetka (${(raw && raw.statistics.opinionRozetka) || 0})`,
       value: "opinionRozetka",
     },
+    // {
+    //   label: `Відгуків у Rozetka (${(raw && raw.statistics.opinionWithoutLocalRating) || 0}) !!!`,
+    //   value: "opinionWithoutLocalRating",
+    // },
   ];
   console.log(raw);
   return (

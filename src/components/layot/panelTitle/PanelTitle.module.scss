@@ -14,16 +14,19 @@
   .blockForTitle {
     display: flex;
     flex-direction: column;
-
+padding-right: 10px;
+    flex-shrink: 100;
     .title {
       font-size: 20px;
       margin-bottom: 5px;
+      flex-shrink: 100;
       text-align: left;
     }
 
     .subTitle {
       font-size: 15px;
       color: #606060;
+      flex-shrink: 100;
       margin: 0;
       font-weight: normal;
     }
