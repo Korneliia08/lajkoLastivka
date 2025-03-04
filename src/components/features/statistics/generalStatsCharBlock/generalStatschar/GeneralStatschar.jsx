@@ -38,7 +38,7 @@ const GeneralStatschar = ({ data }) => {
         max = day.totalLowLocalRating;
       }
     });
-    setH(+max);
+    setH(Math.ceil(max * 1.1));
   }, [data]);
   data.forEach((obj) => {
     // obj["Сума замовлень"] = obj["total_orders"];
