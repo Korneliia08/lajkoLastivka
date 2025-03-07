@@ -15,9 +15,12 @@ import { useSelector } from "react-redux";
 const StatisticsBlocksData = ({ storeId, ...props }) => {
   const startTime = useSelector((state) => state.statistics.startTime);
   const endTime = useSelector((state) => state.statistics.endTime);
-
+  const startTime12 = new Date(startTime);
+  startTime12.setHours(12);
+  const endTime12 = new Date(endTime);
+  endTime12.setHours(12);
   const { data } = useFetch(
-    `statisticPage/blocks/${storeId}?startTime=${startTime}&endTime=${endTime}`,
+    `statisticPage/blocks/${storeId}?startTime=${startTime12}&endTime=${endTime12}`,
   );
   console.log(data);
 
