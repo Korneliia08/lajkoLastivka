@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const JENKINS_USER = "mateusz";
 const JENKINS_TOKEN = "HasloAdmina";
-const JENKINS_URL = `http://${JENKINS_USER}:${JENKINS_TOKEN}@localhost:8088/job/FeedMP/job/FeedMP%20website/build?token=feedMpWebsite`;
+const JENKINS_URL = `http://${JENKINS_USER}:${JENKINS_TOKEN}@195.136.14.31:9000/job/FeedMP/job/FeedMP%20website/build?token=feedMpWebsite`;
 
 try {
   // Wykonanie operacji git w try-catch, aby obsłużyć błędy
