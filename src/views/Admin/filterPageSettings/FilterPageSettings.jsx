@@ -11,7 +11,7 @@ import { FaRegSave } from "react-icons/fa";
 import WebsiteCustomerPreview from "@/components/features/websiteCustomerPreview/WebsiteCustomerPreview.jsx";
 import FilterPageSettingsSelectParketplace from "@/views/Admin/filterPageSettings/filterPageSettingsSelectParketplace/FilterPageSettingsSelectParketplace.jsx";
 
-const TextAreaBlock = ({ title, description, value, setValue }) => {
+const TextAreaBlock = ({ title, description, value, setValue, loading }) => {
   value = typeof value == "string" ? value : "";
   return (
     <div className={s.block}>
@@ -19,42 +19,80 @@ const TextAreaBlock = ({ title, description, value, setValue }) => {
         <span className={s.title}>{title}</span>
         <span className={s.describe}>{description}</span>
       </div>
-      <SunEditor
-        setOptions={{
-          height: 200,
+      {!loading ? (
+        <SunEditor
+          disable={loading}
+          setOptions={{
+            height: 200,
 
-          buttonList: [
-            [
-              "undo",
-              "redo",
-              "font",
-              "fontSize",
-              "formatBlock",
-              "bold",
-              "underline",
-              "italic",
-              "strike",
-              "subscript",
-              "superscript",
-              "fontColor",
-              "hiliteColor",
-              "textStyle",
-              "removeFormat",
-              "outdent",
-              "indent",
-              "align",
-              "horizontalRule",
-              "list",
-              "lineHeight",
+            buttonList: [
+              [
+                "undo",
+                "redo",
+                "font",
+                "fontSize",
+                "formatBlock",
+                "bold",
+                "underline",
+                "italic",
+                "strike",
+                "subscript",
+                "superscript",
+                "fontColor",
+                "hiliteColor",
+                "textStyle",
+                "removeFormat",
+                "outdent",
+                "indent",
+                "align",
+                "horizontalRule",
+                "list",
+                "lineHeight",
+              ],
             ],
-          ],
-          defaultFontSize: "14px",
-          defaultFont: "Arial",
-        }}
-        setContents={value} // Ustawienie początkowej zawartości
-        onKeyUp={(content) => setValue(content)}
-        onChange={(content) => setValue(content)}
-      />
+            defaultFontSize: "14px",
+            defaultFont: "Arial",
+          }}
+          setContents={value} // Ustawienie początkowej zawartości
+          onKeyUp={(content) => setValue(content)}
+          onChange={(content) => setValue(content)}
+        />
+      ) : (
+        <SunEditor
+          disable={loading}
+          setOptions={{
+            height: 200,
+
+            buttonList: [
+              [
+                "undo",
+                "redo",
+                "font",
+                "fontSize",
+                "formatBlock",
+                "bold",
+                "underline",
+                "italic",
+                "strike",
+                "subscript",
+                "superscript",
+                "fontColor",
+                "hiliteColor",
+                "textStyle",
+                "removeFormat",
+                "outdent",
+                "indent",
+                "align",
+                "horizontalRule",
+                "list",
+                "lineHeight",
+              ],
+            ],
+            defaultFontSize: "14px",
+            defaultFont: "Arial",
+          }}
+        />
+      )}
     </div>
   );
 };
@@ -62,7 +100,9 @@ const TextAreaBlock = ({ title, description, value, setValue }) => {
 const FilterPageSettings = () => {
   const [refreshCount, setRefreshCount] = useState(0);
   const { id } = useParams();
-  const { data } = useFetch(`/stores/filterPageConfig/${id}`);
+  const { data, loading } = useFetch(
+    `/stores/filterPageConfig/${id}&ref=${refreshCount}`,
+  );
 
   // Inicjalizacja stanu dla zawartości stron
   const [firstPageContent, setFirstPageContent] = useState("");
@@ -120,6 +160,7 @@ const FilterPageSettings = () => {
           buttonText={"Зберегти"}
           onClick={sendData}
           buttonIcon={<FaRegSave />}
+          disabled={loading}
         />
       </div>
       <div className={s.filterPageSettingsContainer}>
@@ -133,30 +174,35 @@ const FilterPageSettings = () => {
               description="Ця сторінка дозволяє клієнту оцінити замовлення за п'ятизірковою системою."
               value={firstPageContent}
               setValue={setFirstPageContent}
+              loading={loading}
             />
             <TextAreaBlock
               title="Сторінка подяки та інструкції"
               description="Ця сторінка відображається клієнтам, які оцінили замовлення на 4 або 5 зірок. Вона містить подяку за оцінку та інструкцію, як залишити детальний відгук на ROZETKA."
               value={successPageContent}
               setValue={setSuccessPageContent}
+              loading={loading}
             />
             <TextAreaBlock
               title="Сторінка для написання відгуку"
               description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише заголовок для цієї сторінки."
               value={commentWritePageContent}
               setValue={setCommentWritePageContent}
+              loading={loading}
             />
             <TextAreaBlock
               title="Сторінка для написання відгуку"
               description="Ця сторінка містить текстове поле для написання внутрішнього відгуку. Будь ласка, введіть нижче лише контент,який має відображатися біля  текстового поля на відгук."
               value={commentWriteTextAreaTitlePageContent}
               setValue={setCommentWriteTextAreaTitlePageContent}
+              loading={loading}
             />
             <TextAreaBlock
               title="Сторінка подяки за внутрішній відгук"
               description="Ця сторінка відображає подяку користувачеві за залишений внутрішній відгук, підтверджує отримання оцінки та висловлює вдячність за зворотний зв’язок."
               value={commentSendPageContent}
               setValue={setCommentSendPageContent}
+              loading={loading}
             />
           </div>
           <div className={s.preview}>

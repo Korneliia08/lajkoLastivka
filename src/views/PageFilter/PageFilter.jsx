@@ -31,9 +31,13 @@ function PageFilter() {
         );
         res.data.filterPageContent = JSON.parse(res.data.filterPageContent);
         for (let key in res.data.filterPageContent) {
-          res.data.filterPageContent[key] = res.data.filterPageContent[
-            key
-          ].replace(/&nbsp;/g, " ");
+          try {
+            res.data.filterPageContent[key] = res.data.filterPageContent[
+              key
+            ].replace(/&nbsp;/g, " ");
+          } catch (err) {
+            res.data.filterPageContent[key] = res.data.filterPageContent[key];
+          }
         }
         setData({
           order: {
@@ -52,8 +56,17 @@ function PageFilter() {
         );
         console.log(res.data.order.store.filterPageContent);
         for (let key in res.data.order.store.filterPageContent) {
-          res.data.order.store.filterPageContent[key] =
-            res.data.order.store.filterPageContent[key].replace(/&nbsp;/g, " ");
+          try {
+            res.data.order.store.filterPageContent[key] =
+              res.data.order.store.filterPageContent[key].replace(
+                /&nbsp;/g,
+                " ",
+              );
+          } catch (err) {
+            console.log(err);
+            res.data.order.store.filterPageContent[key] =
+              res.data.order.store.filterPageContent[key];
+          }
         }
         setData(res.data);
       } catch (error) {

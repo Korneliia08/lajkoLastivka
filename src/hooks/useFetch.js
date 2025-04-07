@@ -59,6 +59,7 @@ const useFetch = (url, options = {}) => {
   const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(options.page);
   const [autoRefresh, setAutoRefresh] = useState(0);
+
   useEffect(() => {
     if (options.autoRefresh > 80) {
       const intervalId = setInterval(() => {

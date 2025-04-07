@@ -8,6 +8,7 @@ const PanelTitle = ({
   buttonText,
   buttonIcon,
   onClick,
+  disabled,
   inner = false,
   ...props
 }) => {
@@ -19,6 +20,7 @@ const PanelTitle = ({
       </div>
       {buttonText && (
         <MainBtn
+          disabled={disabled}
           buttonText={buttonText}
           buttonIcon={buttonIcon}
           onClick={onClick}
