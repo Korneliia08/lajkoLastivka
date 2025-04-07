@@ -131,6 +131,7 @@ const FilterPageSettings = () => {
   // Funkcja do wysyłania danych
   async function sendData() {
     try {
+      console.log(successPageContent);
       const dataToSend = {
         filterPageContent: {
           welcomePage: firstPageContent,
