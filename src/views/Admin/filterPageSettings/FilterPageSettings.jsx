@@ -19,80 +19,42 @@ const TextAreaBlock = ({ title, description, value, setValue, loading }) => {
         <span className={s.title}>{title}</span>
         <span className={s.describe}>{description}</span>
       </div>
-      {!loading ? (
-        <SunEditor
-          disable={loading}
-          setOptions={{
-            height: 200,
 
-            buttonList: [
-              [
-                "undo",
-                "redo",
-                "font",
-                "fontSize",
-                "formatBlock",
-                "bold",
-                "underline",
-                "italic",
-                "strike",
-                "subscript",
-                "superscript",
-                "fontColor",
-                "hiliteColor",
-                "textStyle",
-                "removeFormat",
-                "outdent",
-                "indent",
-                "align",
-                "horizontalRule",
-                "list",
-                "lineHeight",
-              ],
+      <SunEditor
+        disable={loading}
+        setOptions={{
+          height: 200,
+          buttonList: [
+            [
+              "undo",
+              "redo",
+              "font",
+              "fontSize",
+              "formatBlock",
+              "bold",
+              "underline",
+              "italic",
+              "strike",
+              "subscript",
+              "superscript",
+              "fontColor",
+              "hiliteColor",
+              "textStyle",
+              "removeFormat",
+              "outdent",
+              "indent",
+              "align",
+              "horizontalRule",
+              "list",
+              "lineHeight",
             ],
-            defaultFontSize: "14px",
-            defaultFont: "Arial",
-          }}
-          setContents={value} // Ustawienie początkowej zawartości
-          onKeyUp={(content) => setValue(content)}
-          onChange={(content) => setValue(content)}
-        />
-      ) : (
-        <SunEditor
-          disable={loading}
-          setOptions={{
-            height: 200,
-
-            buttonList: [
-              [
-                "undo",
-                "redo",
-                "font",
-                "fontSize",
-                "formatBlock",
-                "bold",
-                "underline",
-                "italic",
-                "strike",
-                "subscript",
-                "superscript",
-                "fontColor",
-                "hiliteColor",
-                "textStyle",
-                "removeFormat",
-                "outdent",
-                "indent",
-                "align",
-                "horizontalRule",
-                "list",
-                "lineHeight",
-              ],
-            ],
-            defaultFontSize: "14px",
-            defaultFont: "Arial",
-          }}
-        />
-      )}
+          ],
+          defaultFontSize: "14px",
+          defaultFont: "Arial",
+        }}
+        setContents={loading ? "" : value}
+        onChange={setValue}
+      />
     </div>
   );
 };
